@@ -85,12 +85,10 @@
 			this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
 			this.btnCompile = new System.Windows.Forms.Button();
 			this.btnCompileGraph = new System.Windows.Forms.Button();
-			this.tabControl2 = new System.Windows.Forms.TabControl();
+			this.tabCompileControl = new System.Windows.Forms.TabControl();
 			this.tabPage16 = new System.Windows.Forms.TabPage();
 			this.memoCompileInput = new System.Windows.Forms.TextBox();
 			this.tabPage14 = new System.Windows.Forms.TabPage();
-			this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
-			this.graphUserControl1 = new BefunGen.GraphUserControl();
 			this.tabPage13 = new System.Windows.Forms.TabPage();
 			this.memoCompileOut = new System.Windows.Forms.TextBox();
 			this.tabPage15 = new System.Windows.Forms.TabPage();
@@ -99,6 +97,8 @@
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.btnLoadSYN = new System.Windows.Forms.Button();
 			this.txtSynFile = new System.Windows.Forms.TextBox();
+			this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+			this.graphUserControl1 = new BefunGen.GraphUserControl();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -133,7 +133,7 @@
 			this.tabPage12.SuspendLayout();
 			this.tableLayoutPanel10.SuspendLayout();
 			this.tableLayoutPanel11.SuspendLayout();
-			this.tabControl2.SuspendLayout();
+			this.tabCompileControl.SuspendLayout();
 			this.tabPage16.SuspendLayout();
 			this.tabPage14.SuspendLayout();
 			this.tabPage13.SuspendLayout();
@@ -817,7 +817,7 @@
 			this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
 			this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel10.Controls.Add(this.tableLayoutPanel11, 0, 0);
-			this.tableLayoutPanel10.Controls.Add(this.tabControl2, 1, 0);
+			this.tableLayoutPanel10.Controls.Add(this.tabCompileControl, 1, 0);
 			this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel10.Name = "tableLayoutPanel10";
@@ -867,18 +867,18 @@
 			this.btnCompileGraph.UseVisualStyleBackColor = true;
 			this.btnCompileGraph.Click += new System.EventHandler(this.btnCompileGraph_Click);
 			// 
-			// tabControl2
+			// tabCompileControl
 			// 
-			this.tabControl2.Controls.Add(this.tabPage16);
-			this.tabControl2.Controls.Add(this.tabPage14);
-			this.tabControl2.Controls.Add(this.tabPage13);
-			this.tabControl2.Controls.Add(this.tabPage15);
-			this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabControl2.Location = new System.Drawing.Point(153, 3);
-			this.tabControl2.Name = "tabControl2";
-			this.tabControl2.SelectedIndex = 0;
-			this.tabControl2.Size = new System.Drawing.Size(516, 213);
-			this.tabControl2.TabIndex = 1;
+			this.tabCompileControl.Controls.Add(this.tabPage16);
+			this.tabCompileControl.Controls.Add(this.tabPage14);
+			this.tabCompileControl.Controls.Add(this.tabPage13);
+			this.tabCompileControl.Controls.Add(this.tabPage15);
+			this.tabCompileControl.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabCompileControl.Location = new System.Drawing.Point(153, 3);
+			this.tabCompileControl.Name = "tabCompileControl";
+			this.tabCompileControl.SelectedIndex = 0;
+			this.tabCompileControl.Size = new System.Drawing.Size(516, 213);
+			this.tabCompileControl.TabIndex = 1;
 			// 
 			// tabPage16
 			// 
@@ -912,16 +912,6 @@
 			this.tabPage14.TabIndex = 1;
 			this.tabPage14.Text = "Graph";
 			this.tabPage14.UseVisualStyleBackColor = true;
-			// 
-			// elementHost1
-			// 
-			this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.elementHost1.Location = new System.Drawing.Point(3, 3);
-			this.elementHost1.Name = "elementHost1";
-			this.elementHost1.Size = new System.Drawing.Size(502, 181);
-			this.elementHost1.TabIndex = 0;
-			this.elementHost1.Text = "elementHost1";
-			this.elementHost1.Child = this.graphUserControl1;
 			// 
 			// tabPage13
 			// 
@@ -1018,6 +1008,16 @@
 			this.txtSynFile.Size = new System.Drawing.Size(580, 20);
 			this.txtSynFile.TabIndex = 11;
 			// 
+			// elementHost1
+			// 
+			this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.elementHost1.Location = new System.Drawing.Point(3, 3);
+			this.elementHost1.Name = "elementHost1";
+			this.elementHost1.Size = new System.Drawing.Size(502, 181);
+			this.elementHost1.TabIndex = 0;
+			this.elementHost1.Text = "elementHost1";
+			this.elementHost1.Child = this.graphUserControl1;
+			// 
 			// frmMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1073,7 +1073,7 @@
 			this.tabPage12.ResumeLayout(false);
 			this.tableLayoutPanel10.ResumeLayout(false);
 			this.tableLayoutPanel11.ResumeLayout(false);
-			this.tabControl2.ResumeLayout(false);
+			this.tabCompileControl.ResumeLayout(false);
 			this.tabPage16.ResumeLayout(false);
 			this.tabPage16.PerformLayout();
 			this.tabPage14.ResumeLayout(false);
@@ -1149,7 +1149,7 @@
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
 		private System.Windows.Forms.Button btnCompile;
 		private System.Windows.Forms.Button btnCompileGraph;
-		private System.Windows.Forms.TabControl tabControl2;
+		private System.Windows.Forms.TabControl tabCompileControl;
 		private System.Windows.Forms.TabPage tabPage13;
 		private System.Windows.Forms.TextBox memoCompileOut;
 		private System.Windows.Forms.TabPage tabPage14;

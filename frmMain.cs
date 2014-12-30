@@ -1,4 +1,5 @@
 ﻿using BefunCompile;
+using BefunCompile.Graph;
 using BefunGen.AST;
 using BefunGen.AST.CodeGen;
 using BefunGen.AST.CodeGen.NumberCode;
@@ -496,7 +497,13 @@ end
 		{
 			var comp = new BefunCompiler(memoCompileInput.Text);
 
-			comp.generateGraph();
+			BCGraph g = comp.generateGraph();
+
+			var ctrl = (elementHost1.Child as GraphUserControl);
+			var model = ctrl.graphLayout.DataContext as MainGraphViewModel;
+
+			model.loadGraph(g);
+			tabCompileControl.SelectedIndex = 1;
 		}
 	}
 } //Form
