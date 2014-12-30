@@ -124,4 +124,7 @@
   <data name="TextFunge" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TextFunge.syn;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="example_compile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\example_compile.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
 </root>

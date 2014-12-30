@@ -1,4 +1,4 @@
-﻿using System.Text;
+﻿using BefunCompile;
 using BefunGen.AST;
 using BefunGen.AST.CodeGen;
 using BefunGen.AST.CodeGen.NumberCode;
@@ -91,6 +91,7 @@ namespace BefunGen
 				txtLog.AppendText(string.Format("Syntaxfile not found: {0} \r\n", txtSynFile.Text));
 
 			txtSource.Document.Text = Properties.Resources.example;
+			memoCompileInput.Text = Properties.Resources.example_compile;
 			currentSC = txtSource.Document.Text;
 
 			//##########
@@ -484,6 +485,18 @@ end
 
 			edSquashInput.Text = sh.ToString();
 
+		}
+
+		private void btnCompile_Click(object sender, EventArgs e)
+		{
+			//TODO do
+		}
+
+		private void btnCompileGraph_Click(object sender, EventArgs e)
+		{
+			var comp = new BefunCompiler(memoCompileInput.Text);
+
+			comp.generateGraph();
 		}
 	}
 } //Form

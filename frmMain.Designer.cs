@@ -74,16 +74,31 @@
 			this.edHighlightCode = new System.Windows.Forms.TextBox();
 			this.tabPage10 = new System.Windows.Forms.TabPage();
 			this.edHighlighted = new System.Windows.Forms.TextBox();
-			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-			this.btnLoadSYN = new System.Windows.Forms.Button();
-			this.txtSynFile = new System.Windows.Forms.TextBox();
 			this.tabPage11 = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
 			this.edReverse = new System.Windows.Forms.TextBox();
 			this.btnReverse = new System.Windows.Forms.Button();
 			this.edSquashInput = new System.Windows.Forms.TextBox();
 			this.btnSquash = new System.Windows.Forms.Button();
+			this.tabPage12 = new System.Windows.Forms.TabPage();
+			this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+			this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+			this.btnCompile = new System.Windows.Forms.Button();
+			this.btnCompileGraph = new System.Windows.Forms.Button();
+			this.tabControl2 = new System.Windows.Forms.TabControl();
+			this.tabPage16 = new System.Windows.Forms.TabPage();
+			this.memoCompileInput = new System.Windows.Forms.TextBox();
+			this.tabPage14 = new System.Windows.Forms.TabPage();
+			this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+			this.graphUserControl1 = new BefunGen.GraphUserControl();
+			this.tabPage13 = new System.Windows.Forms.TabPage();
+			this.memoCompileOut = new System.Windows.Forms.TextBox();
+			this.tabPage15 = new System.Windows.Forms.TabPage();
+			this.memoCompileLog = new System.Windows.Forms.TextBox();
+			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+			this.btnLoadSYN = new System.Windows.Forms.Button();
+			this.txtSynFile = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -113,10 +128,18 @@
 			this.tcHighlight.SuspendLayout();
 			this.tabPage9.SuspendLayout();
 			this.tabPage10.SuspendLayout();
-			this.tableLayoutPanel2.SuspendLayout();
-			this.tableLayoutPanel3.SuspendLayout();
 			this.tabPage11.SuspendLayout();
 			this.tableLayoutPanel9.SuspendLayout();
+			this.tabPage12.SuspendLayout();
+			this.tableLayoutPanel10.SuspendLayout();
+			this.tableLayoutPanel11.SuspendLayout();
+			this.tabControl2.SuspendLayout();
+			this.tabPage16.SuspendLayout();
+			this.tabPage14.SuspendLayout();
+			this.tabPage13.SuspendLayout();
+			this.tabPage15.SuspendLayout();
+			this.tableLayoutPanel2.SuspendLayout();
+			this.tableLayoutPanel3.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// btnLoad
@@ -206,12 +229,13 @@
 			this.tabControl1.Controls.Add(this.tabPage7);
 			this.tabControl1.Controls.Add(this.tabPage8);
 			this.tabControl1.Controls.Add(this.tabPage11);
+			this.tabControl1.Controls.Add(this.tabPage12);
 			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabControl1.Location = new System.Drawing.Point(0, 0);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
 			this.tabControl1.Size = new System.Drawing.Size(686, 251);
-			this.tabControl1.TabIndex = 7;
+			this.tabControl1.TabIndex = 10;
 			// 
 			// tabPage1
 			// 
@@ -701,59 +725,6 @@
 			this.edHighlighted.Size = new System.Drawing.Size(572, 181);
 			this.edHighlighted.TabIndex = 2;
 			// 
-			// tableLayoutPanel2
-			// 
-			this.tableLayoutPanel2.ColumnCount = 1;
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
-			this.tableLayoutPanel2.Controls.Add(this.splitContainer1, 0, 1);
-			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-			this.tableLayoutPanel2.RowCount = 2;
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(692, 542);
-			this.tableLayoutPanel2.TabIndex = 10;
-			// 
-			// tableLayoutPanel3
-			// 
-			this.tableLayoutPanel3.ColumnCount = 2;
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-			this.tableLayoutPanel3.Controls.Add(this.btnLoad, 1, 0);
-			this.tableLayoutPanel3.Controls.Add(this.txtTableFile, 0, 0);
-			this.tableLayoutPanel3.Controls.Add(this.btnLoadSYN, 1, 1);
-			this.tableLayoutPanel3.Controls.Add(this.txtSynFile, 0, 1);
-			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
-			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-			this.tableLayoutPanel3.RowCount = 2;
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-			this.tableLayoutPanel3.Size = new System.Drawing.Size(686, 64);
-			this.tableLayoutPanel3.TabIndex = 12;
-			// 
-			// btnLoadSYN
-			// 
-			this.btnLoadSYN.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnLoadSYN.Enabled = false;
-			this.btnLoadSYN.Location = new System.Drawing.Point(589, 35);
-			this.btnLoadSYN.Name = "btnLoadSYN";
-			this.btnLoadSYN.Size = new System.Drawing.Size(94, 26);
-			this.btnLoadSYN.TabIndex = 10;
-			this.btnLoadSYN.Text = "Load SYN";
-			this.btnLoadSYN.UseVisualStyleBackColor = true;
-			this.btnLoadSYN.Click += new System.EventHandler(this.btnLoadSYN_Click);
-			// 
-			// txtSynFile
-			// 
-			this.txtSynFile.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.txtSynFile.Location = new System.Drawing.Point(3, 35);
-			this.txtSynFile.Name = "txtSynFile";
-			this.txtSynFile.Size = new System.Drawing.Size(580, 20);
-			this.txtSynFile.TabIndex = 11;
-			// 
 			// tabPage11
 			// 
 			this.tabPage11.Controls.Add(this.tableLayoutPanel9);
@@ -829,6 +800,224 @@
 			this.btnSquash.UseVisualStyleBackColor = true;
 			this.btnSquash.Click += new System.EventHandler(this.btnSquash_Click);
 			// 
+			// tabPage12
+			// 
+			this.tabPage12.Controls.Add(this.tableLayoutPanel10);
+			this.tabPage12.Location = new System.Drawing.Point(4, 4);
+			this.tabPage12.Name = "tabPage12";
+			this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage12.Size = new System.Drawing.Size(678, 225);
+			this.tabPage12.TabIndex = 9;
+			this.tabPage12.Text = "Compile";
+			this.tabPage12.UseVisualStyleBackColor = true;
+			// 
+			// tableLayoutPanel10
+			// 
+			this.tableLayoutPanel10.ColumnCount = 2;
+			this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+			this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel10.Controls.Add(this.tableLayoutPanel11, 0, 0);
+			this.tableLayoutPanel10.Controls.Add(this.tabControl2, 1, 0);
+			this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 3);
+			this.tableLayoutPanel10.Name = "tableLayoutPanel10";
+			this.tableLayoutPanel10.RowCount = 1;
+			this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel10.Size = new System.Drawing.Size(672, 219);
+			this.tableLayoutPanel10.TabIndex = 0;
+			// 
+			// tableLayoutPanel11
+			// 
+			this.tableLayoutPanel11.ColumnCount = 1;
+			this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel11.Controls.Add(this.btnCompile, 0, 0);
+			this.tableLayoutPanel11.Controls.Add(this.btnCompileGraph, 0, 1);
+			this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 3);
+			this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+			this.tableLayoutPanel11.RowCount = 6;
+			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+			this.tableLayoutPanel11.Size = new System.Drawing.Size(144, 213);
+			this.tableLayoutPanel11.TabIndex = 0;
+			// 
+			// btnCompile
+			// 
+			this.btnCompile.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnCompile.Location = new System.Drawing.Point(3, 3);
+			this.btnCompile.Name = "btnCompile";
+			this.btnCompile.Size = new System.Drawing.Size(138, 29);
+			this.btnCompile.TabIndex = 0;
+			this.btnCompile.Text = "Compile";
+			this.btnCompile.UseVisualStyleBackColor = true;
+			this.btnCompile.Click += new System.EventHandler(this.btnCompile_Click);
+			// 
+			// btnCompileGraph
+			// 
+			this.btnCompileGraph.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnCompileGraph.Location = new System.Drawing.Point(3, 38);
+			this.btnCompileGraph.Name = "btnCompileGraph";
+			this.btnCompileGraph.Size = new System.Drawing.Size(138, 29);
+			this.btnCompileGraph.TabIndex = 1;
+			this.btnCompileGraph.Text = "Graph";
+			this.btnCompileGraph.UseVisualStyleBackColor = true;
+			this.btnCompileGraph.Click += new System.EventHandler(this.btnCompileGraph_Click);
+			// 
+			// tabControl2
+			// 
+			this.tabControl2.Controls.Add(this.tabPage16);
+			this.tabControl2.Controls.Add(this.tabPage14);
+			this.tabControl2.Controls.Add(this.tabPage13);
+			this.tabControl2.Controls.Add(this.tabPage15);
+			this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabControl2.Location = new System.Drawing.Point(153, 3);
+			this.tabControl2.Name = "tabControl2";
+			this.tabControl2.SelectedIndex = 0;
+			this.tabControl2.Size = new System.Drawing.Size(516, 213);
+			this.tabControl2.TabIndex = 1;
+			// 
+			// tabPage16
+			// 
+			this.tabPage16.Controls.Add(this.memoCompileInput);
+			this.tabPage16.Location = new System.Drawing.Point(4, 22);
+			this.tabPage16.Name = "tabPage16";
+			this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage16.Size = new System.Drawing.Size(508, 187);
+			this.tabPage16.TabIndex = 3;
+			this.tabPage16.Text = "Input";
+			this.tabPage16.UseVisualStyleBackColor = true;
+			// 
+			// memoCompileInput
+			// 
+			this.memoCompileInput.AcceptsReturn = true;
+			this.memoCompileInput.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.memoCompileInput.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.memoCompileInput.Location = new System.Drawing.Point(3, 3);
+			this.memoCompileInput.Multiline = true;
+			this.memoCompileInput.Name = "memoCompileInput";
+			this.memoCompileInput.Size = new System.Drawing.Size(502, 181);
+			this.memoCompileInput.TabIndex = 1;
+			// 
+			// tabPage14
+			// 
+			this.tabPage14.Controls.Add(this.elementHost1);
+			this.tabPage14.Location = new System.Drawing.Point(4, 22);
+			this.tabPage14.Name = "tabPage14";
+			this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage14.Size = new System.Drawing.Size(508, 187);
+			this.tabPage14.TabIndex = 1;
+			this.tabPage14.Text = "Graph";
+			this.tabPage14.UseVisualStyleBackColor = true;
+			// 
+			// elementHost1
+			// 
+			this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.elementHost1.Location = new System.Drawing.Point(3, 3);
+			this.elementHost1.Name = "elementHost1";
+			this.elementHost1.Size = new System.Drawing.Size(502, 181);
+			this.elementHost1.TabIndex = 0;
+			this.elementHost1.Text = "elementHost1";
+			this.elementHost1.Child = this.graphUserControl1;
+			// 
+			// tabPage13
+			// 
+			this.tabPage13.Controls.Add(this.memoCompileOut);
+			this.tabPage13.Location = new System.Drawing.Point(4, 22);
+			this.tabPage13.Name = "tabPage13";
+			this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage13.Size = new System.Drawing.Size(508, 187);
+			this.tabPage13.TabIndex = 0;
+			this.tabPage13.Text = "Output";
+			this.tabPage13.UseVisualStyleBackColor = true;
+			// 
+			// memoCompileOut
+			// 
+			this.memoCompileOut.AcceptsReturn = true;
+			this.memoCompileOut.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.memoCompileOut.Location = new System.Drawing.Point(3, 3);
+			this.memoCompileOut.Multiline = true;
+			this.memoCompileOut.Name = "memoCompileOut";
+			this.memoCompileOut.Size = new System.Drawing.Size(502, 181);
+			this.memoCompileOut.TabIndex = 0;
+			// 
+			// tabPage15
+			// 
+			this.tabPage15.Controls.Add(this.memoCompileLog);
+			this.tabPage15.Location = new System.Drawing.Point(4, 22);
+			this.tabPage15.Name = "tabPage15";
+			this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage15.Size = new System.Drawing.Size(508, 187);
+			this.tabPage15.TabIndex = 2;
+			this.tabPage15.Text = "Log";
+			this.tabPage15.UseVisualStyleBackColor = true;
+			// 
+			// memoCompileLog
+			// 
+			this.memoCompileLog.AcceptsReturn = true;
+			this.memoCompileLog.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.memoCompileLog.Location = new System.Drawing.Point(3, 3);
+			this.memoCompileLog.Multiline = true;
+			this.memoCompileLog.Name = "memoCompileLog";
+			this.memoCompileLog.Size = new System.Drawing.Size(502, 181);
+			this.memoCompileLog.TabIndex = 1;
+			// 
+			// tableLayoutPanel2
+			// 
+			this.tableLayoutPanel2.ColumnCount = 1;
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
+			this.tableLayoutPanel2.Controls.Add(this.splitContainer1, 0, 1);
+			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+			this.tableLayoutPanel2.RowCount = 2;
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(692, 542);
+			this.tableLayoutPanel2.TabIndex = 10;
+			// 
+			// tableLayoutPanel3
+			// 
+			this.tableLayoutPanel3.ColumnCount = 2;
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+			this.tableLayoutPanel3.Controls.Add(this.btnLoad, 1, 0);
+			this.tableLayoutPanel3.Controls.Add(this.txtTableFile, 0, 0);
+			this.tableLayoutPanel3.Controls.Add(this.btnLoadSYN, 1, 1);
+			this.tableLayoutPanel3.Controls.Add(this.txtSynFile, 0, 1);
+			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+			this.tableLayoutPanel3.RowCount = 2;
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+			this.tableLayoutPanel3.Size = new System.Drawing.Size(686, 64);
+			this.tableLayoutPanel3.TabIndex = 12;
+			// 
+			// btnLoadSYN
+			// 
+			this.btnLoadSYN.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnLoadSYN.Enabled = false;
+			this.btnLoadSYN.Location = new System.Drawing.Point(589, 35);
+			this.btnLoadSYN.Name = "btnLoadSYN";
+			this.btnLoadSYN.Size = new System.Drawing.Size(94, 26);
+			this.btnLoadSYN.TabIndex = 10;
+			this.btnLoadSYN.Text = "Load SYN";
+			this.btnLoadSYN.UseVisualStyleBackColor = true;
+			this.btnLoadSYN.Click += new System.EventHandler(this.btnLoadSYN_Click);
+			// 
+			// txtSynFile
+			// 
+			this.txtSynFile.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.txtSynFile.Location = new System.Drawing.Point(3, 35);
+			this.txtSynFile.Name = "txtSynFile";
+			this.txtSynFile.Size = new System.Drawing.Size(580, 20);
+			this.txtSynFile.TabIndex = 11;
+			// 
 			// frmMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -878,12 +1067,23 @@
 			this.tabPage9.PerformLayout();
 			this.tabPage10.ResumeLayout(false);
 			this.tabPage10.PerformLayout();
-			this.tableLayoutPanel2.ResumeLayout(false);
-			this.tableLayoutPanel3.ResumeLayout(false);
-			this.tableLayoutPanel3.PerformLayout();
 			this.tabPage11.ResumeLayout(false);
 			this.tableLayoutPanel9.ResumeLayout(false);
 			this.tableLayoutPanel9.PerformLayout();
+			this.tabPage12.ResumeLayout(false);
+			this.tableLayoutPanel10.ResumeLayout(false);
+			this.tableLayoutPanel11.ResumeLayout(false);
+			this.tabControl2.ResumeLayout(false);
+			this.tabPage16.ResumeLayout(false);
+			this.tabPage16.PerformLayout();
+			this.tabPage14.ResumeLayout(false);
+			this.tabPage13.ResumeLayout(false);
+			this.tabPage13.PerformLayout();
+			this.tabPage15.ResumeLayout(false);
+			this.tabPage15.PerformLayout();
+			this.tableLayoutPanel2.ResumeLayout(false);
+			this.tableLayoutPanel3.ResumeLayout(false);
+			this.tableLayoutPanel3.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -944,6 +1144,21 @@
 		private System.Windows.Forms.Button btnReverse;
 		private System.Windows.Forms.TextBox edSquashInput;
 		private System.Windows.Forms.Button btnSquash;
+		private System.Windows.Forms.TabPage tabPage12;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
+		private System.Windows.Forms.Button btnCompile;
+		private System.Windows.Forms.Button btnCompileGraph;
+		private System.Windows.Forms.TabControl tabControl2;
+		private System.Windows.Forms.TabPage tabPage13;
+		private System.Windows.Forms.TextBox memoCompileOut;
+		private System.Windows.Forms.TabPage tabPage14;
+		private System.Windows.Forms.TabPage tabPage15;
+		private System.Windows.Forms.TextBox memoCompileLog;
+		private System.Windows.Forms.Integration.ElementHost elementHost1;
+		private GraphUserControl graphUserControl1;
+		private System.Windows.Forms.TabPage tabPage16;
+		private System.Windows.Forms.TextBox memoCompileInput;
 	}
 }
 
