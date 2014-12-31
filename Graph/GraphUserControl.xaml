@@ -62,8 +62,9 @@
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0">
 				<Label VerticalAlignment="Center"  FontWeight="Bold" Content="Pick Layout Type"/>
 				<ComboBox ItemsSource="{Binding LayoutAlgorithmTypes}" SelectedItem="{Binding Path=LayoutAlgorithmType, Mode=TwoWay}" Width="150" Height="25" Margin="5" />
-				<Button Content="Relayout" Margin="5" Click="Button_Click"/>
-			</StackPanel>
+                <Button Content="Relayout" Margin="5" Click="Button_Click"/>
+                <Label VerticalAlignment="Center" Content="{Binding GInfo}"/>
+            </StackPanel>
 		</StackPanel>
 		
 		<zoom:ZoomControl  Grid.Row="1"  Zoom="0.2" ZoomBoxOpacity="0.5" Background="#ff656565">

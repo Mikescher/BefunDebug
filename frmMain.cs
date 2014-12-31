@@ -512,9 +512,31 @@ end
 		{
 			var comp = new BefunCompiler(memoCompileInput.Text);
 
-			BCGraph g = comp.generateMinimizedGraph(Decimal.ToInt32(nudCompileLevel.Value));
+			BCGraph g = comp.generateMinimizedGraph(-1);
 
-			Console.Out.WriteLine("Vertices: " + g.vertices.Count);
+			memoCompileLog.Text += Environment.NewLine;
+			memoCompileLog.Text += "Generate Graph O:1" + Environment.NewLine;
+			memoCompileLog.Text += "Vertices" + g.vertices.Count + Environment.NewLine;
+			memoCompileLog.Text += "Minimize Cycles" + comp.log_Cycles_Minimize + Environment.NewLine;
+
+			var ctrl = (elementHost1.Child as GraphUserControl);
+			var model = ctrl.graphLayout.DataContext as MainGraphViewModel;
+
+			model.loadGraph(g);
+			tabCompileControl.SelectedIndex = 1;
+		}
+
+		private void btnGraph_O2_Click(object sender, EventArgs e)
+		{
+			var comp = new BefunCompiler(memoCompileInput.Text);
+
+			BCGraph g = comp.generateSubstitutedGraph(-1);
+
+			memoCompileLog.Text += Environment.NewLine;
+			memoCompileLog.Text += "Generate Graph O:1" + Environment.NewLine;
+			memoCompileLog.Text += "Vertices" + g.vertices.Count + Environment.NewLine;
+			memoCompileLog.Text += "Minimize Cycles" + comp.log_Cycles_Minimize + Environment.NewLine;
+			memoCompileLog.Text += "Substitute Cycles" + comp.log_Cycles_Substitute + Environment.NewLine;
 
 			var ctrl = (elementHost1.Child as GraphUserControl);
 			var model = ctrl.graphLayout.DataContext as MainGraphViewModel;

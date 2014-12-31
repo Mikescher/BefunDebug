@@ -1,14 +1,19 @@
 ﻿using BefunCompile.Graph;
+using BefunCompile.Graph.Vertex;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace BefunGen
 {
 	public class MainGraphViewModel : INotifyPropertyChanged
 	{
+		private BCGraph bcGraph;
+
 		#region Data
 		private string layoutAlgorithmType;
+		private string graphInfo;
 		private PocGraph graph;
 		private List<String> layoutAlgorithmTypes = new List<string>();
 		#endregion
@@ -16,6 +21,7 @@ namespace BefunGen
 		#region Ctor
 		public MainGraphViewModel()
 		{
+			bcGraph = new BCGraph();
 			Graph = new PocGraph(true);
 
 			//Add Layout Algorithm Types
@@ -51,6 +57,16 @@ namespace BefunGen
 			}
 		}
 
+		public string GInfo
+		{
+			get { return graphInfo; }
+			set
+			{
+				graphInfo = value;
+				NotifyPropertyChanged("GInfo");
+			}
+		}
+
 		public PocGraph Graph
 		{
 			get { return graph; }
@@ -58,6 +74,7 @@ namespace BefunGen
 			{
 				graph = value;
 				NotifyPropertyChanged("Graph");
+				updateInfo();
 			}
 		}
 		#endregion
@@ -98,7 +115,20 @@ namespace BefunGen
 				}
 			}
 
+			bcGraph = g;
 			Graph = ng;
+		}
+
+		private void updateInfo()
+		{
+			var vertices = bcGraph.vertices.Count;
+			var nops = bcGraph.vertices.Count(p => p is BCVertexNOP);
+			var leafs = bcGraph.vertices.Count(p => p.children.Count == 0);
+
+			GInfo = string.Format("{0} {1}.  {2} {3}.  {4} {5}",
+				vertices, (vertices == 1) ? "Vertex" : "Vertices",
+				nops, (nops == 1) ? "NOP" : "NOPs",
+				leafs, (leafs == 1) ? "Leaf" : "Leafs");
 		}
 	}
 }

@@ -86,7 +86,6 @@
 			this.btnCompile = new System.Windows.Forms.Button();
 			this.btnCompileGraph = new System.Windows.Forms.Button();
 			this.btnGraph_O1 = new System.Windows.Forms.Button();
-			this.nudCompileLevel = new System.Windows.Forms.NumericUpDown();
 			this.tabCompileControl = new System.Windows.Forms.TabControl();
 			this.tabPage16 = new System.Windows.Forms.TabPage();
 			this.memoCompileInput = new System.Windows.Forms.TextBox();
@@ -101,6 +100,7 @@
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.btnLoadSYN = new System.Windows.Forms.Button();
 			this.txtSynFile = new System.Windows.Forms.TextBox();
+			this.btnGraph_O2 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -135,7 +135,6 @@
 			this.tabPage12.SuspendLayout();
 			this.tableLayoutPanel10.SuspendLayout();
 			this.tableLayoutPanel11.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.nudCompileLevel)).BeginInit();
 			this.tabCompileControl.SuspendLayout();
 			this.tabPage16.SuspendLayout();
 			this.tabPage14.SuspendLayout();
@@ -835,8 +834,8 @@
 			this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel11.Controls.Add(this.btnCompile, 0, 0);
 			this.tableLayoutPanel11.Controls.Add(this.btnCompileGraph, 0, 1);
-			this.tableLayoutPanel11.Controls.Add(this.btnGraph_O1, 0, 3);
-			this.tableLayoutPanel11.Controls.Add(this.nudCompileLevel, 0, 2);
+			this.tableLayoutPanel11.Controls.Add(this.btnGraph_O1, 0, 2);
+			this.tableLayoutPanel11.Controls.Add(this.btnGraph_O2, 0, 3);
 			this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel11.Name = "tableLayoutPanel11";
@@ -877,36 +876,13 @@
 			// btnGraph_O1
 			// 
 			this.btnGraph_O1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnGraph_O1.Location = new System.Drawing.Point(3, 93);
+			this.btnGraph_O1.Location = new System.Drawing.Point(3, 63);
 			this.btnGraph_O1.Name = "btnGraph_O1";
 			this.btnGraph_O1.Size = new System.Drawing.Size(138, 24);
 			this.btnGraph_O1.TabIndex = 2;
 			this.btnGraph_O1.Text = "Graph [ O1 ]";
 			this.btnGraph_O1.UseVisualStyleBackColor = true;
 			this.btnGraph_O1.Click += new System.EventHandler(this.btnGraph_O1_Click);
-			// 
-			// nudCompileLevel
-			// 
-			this.nudCompileLevel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.nudCompileLevel.Location = new System.Drawing.Point(3, 63);
-			this.nudCompileLevel.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-			this.nudCompileLevel.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            -2147483648});
-			this.nudCompileLevel.Name = "nudCompileLevel";
-			this.nudCompileLevel.Size = new System.Drawing.Size(138, 20);
-			this.nudCompileLevel.TabIndex = 3;
-			this.nudCompileLevel.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            -2147483648});
 			// 
 			// tabCompileControl
 			// 
@@ -1060,6 +1036,17 @@
 			this.txtSynFile.Size = new System.Drawing.Size(580, 20);
 			this.txtSynFile.TabIndex = 11;
 			// 
+			// btnGraph_O2
+			// 
+			this.btnGraph_O2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnGraph_O2.Location = new System.Drawing.Point(3, 93);
+			this.btnGraph_O2.Name = "btnGraph_O2";
+			this.btnGraph_O2.Size = new System.Drawing.Size(138, 24);
+			this.btnGraph_O2.TabIndex = 4;
+			this.btnGraph_O2.Text = "Graph [ O 2 ]";
+			this.btnGraph_O2.UseVisualStyleBackColor = true;
+			this.btnGraph_O2.Click += new System.EventHandler(this.btnGraph_O2_Click);
+			// 
 			// frmMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1115,7 +1102,6 @@
 			this.tabPage12.ResumeLayout(false);
 			this.tableLayoutPanel10.ResumeLayout(false);
 			this.tableLayoutPanel11.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.nudCompileLevel)).EndInit();
 			this.tabCompileControl.ResumeLayout(false);
 			this.tabPage16.ResumeLayout(false);
 			this.tabPage16.PerformLayout();
@@ -1203,7 +1189,7 @@
 		private System.Windows.Forms.TabPage tabPage16;
 		private System.Windows.Forms.TextBox memoCompileInput;
 		private System.Windows.Forms.Button btnGraph_O1;
-		private System.Windows.Forms.NumericUpDown nudCompileLevel;
+		private System.Windows.Forms.Button btnGraph_O2;
 	}
 }
 
