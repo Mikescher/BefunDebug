@@ -11,18 +11,29 @@
 
 	<UserControl.Resources>
 		<DataTemplate x:Key="demoTemplate" DataType="{x:Type local:PocVertex}">
-			<StackPanel Orientation="Horizontal" Margin="5">
-				<TextBlock Text="{Binding Path=ID, Mode=OneWay}" Foreground="White" />
-			</StackPanel>
+			<Border x:Name="brdr" BorderBrush="White" Background="Black" BorderThickness="2" CornerRadius="10,10,10,10">
+				<StackPanel Orientation="Horizontal" Margin="5">
+					<TextBlock Text="{Binding Path=ID, Mode=OneWay}" Foreground="White" />
+				</StackPanel>
+			</Border>
+
+			<DataTemplate.Triggers>
+				<DataTrigger Binding="{Binding isLeaf}" Value="true">
+                    <Setter TargetName="brdr" Property="Background" Value="DarkRed" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding isRoot}" Value="true">
+                    <Setter TargetName="brdr" Property="Background" Value="DarkGreen" />
+                    <Setter TargetName="brdr" Property="BorderThickness" Value="3" />
+                    <Setter TargetName="brdr" Property="CornerRadius" Value="0" />
+                </DataTrigger>
+            </DataTemplate.Triggers>
 		</DataTemplate>
 
 		<Style TargetType="{x:Type graphsharp:VertexControl}">
 			<Setter Property="Template">
 				<Setter.Value>
 					<ControlTemplate TargetType="{x:Type graphsharp:VertexControl}">
-						<Border BorderBrush="White" Background="Black" BorderThickness="2" CornerRadius="10,10,10,10" Padding="{TemplateBinding Padding}">
 							<ContentPresenter Content="{TemplateBinding Vertex}" ContentTemplate="{StaticResource demoTemplate}"/>
-						</Border>
 					</ControlTemplate>
 				</Setter.Value>
 			</Setter>

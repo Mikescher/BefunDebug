@@ -499,6 +499,23 @@ end
 
 			BCGraph g = comp.generateGraph();
 
+			Console.Out.WriteLine("Vertices: " + g.vertices.Count);
+
+			var ctrl = (elementHost1.Child as GraphUserControl);
+			var model = ctrl.graphLayout.DataContext as MainGraphViewModel;
+
+			model.loadGraph(g);
+			tabCompileControl.SelectedIndex = 1;
+		}
+
+		private void btnGraph_O1_Click(object sender, EventArgs e)
+		{
+			var comp = new BefunCompiler(memoCompileInput.Text);
+
+			BCGraph g = comp.generateMinimizedGraph(Decimal.ToInt32(nudCompileLevel.Value));
+
+			Console.Out.WriteLine("Vertices: " + g.vertices.Count);
+
 			var ctrl = (elementHost1.Child as GraphUserControl);
 			var model = ctrl.graphLayout.DataContext as MainGraphViewModel;
 

@@ -84,7 +84,8 @@ namespace BefunGen
 
 			foreach (var vertex in g.vertices)
 			{
-				var vx = new PocVertex(vertex.ToString());
+				var vx = new PocVertex(vertex.ToString(), vertex.children.Count == 0, vertex == g.root);
+
 				ng.AddVertex(vx);
 				dic.Add(vertex, vx);
 			}
