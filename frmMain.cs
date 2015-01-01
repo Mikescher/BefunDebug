@@ -493,18 +493,20 @@ end
 			//TODO do
 		}
 
+		private BCGraph cbcGraph;
+
 		private void btnCompileGraph_Click(object sender, EventArgs e)
 		{
 			var comp = new BefunCompiler(memoCompileInput.Text);
 
-			BCGraph g = comp.generateGraph();
+			cbcGraph = comp.generateGraph();
 
-			Console.Out.WriteLine("Vertices: " + g.vertices.Count);
+			Console.Out.WriteLine("Vertices: " + cbcGraph.vertices.Count);
 
 			var ctrl = (elementHost1.Child as GraphUserControl);
 			var model = ctrl.graphLayout.DataContext as MainGraphViewModel;
 
-			model.loadGraph(g);
+			model.loadGraph(cbcGraph);
 			tabCompileControl.SelectedIndex = 1;
 		}
 
@@ -512,17 +514,17 @@ end
 		{
 			var comp = new BefunCompiler(memoCompileInput.Text);
 
-			BCGraph g = comp.generateMinimizedGraph(-1);
+			cbcGraph = comp.generateMinimizedGraph(-1);
 
 			memoCompileLog.Text += Environment.NewLine;
 			memoCompileLog.Text += "Generate Graph O:1" + Environment.NewLine;
-			memoCompileLog.Text += "Vertices" + g.vertices.Count + Environment.NewLine;
+			memoCompileLog.Text += "Vertices" + cbcGraph.vertices.Count + Environment.NewLine;
 			memoCompileLog.Text += "Minimize Cycles" + comp.log_Cycles_Minimize + Environment.NewLine;
 
 			var ctrl = (elementHost1.Child as GraphUserControl);
 			var model = ctrl.graphLayout.DataContext as MainGraphViewModel;
 
-			model.loadGraph(g);
+			model.loadGraph(cbcGraph);
 			tabCompileControl.SelectedIndex = 1;
 		}
 
@@ -530,19 +532,37 @@ end
 		{
 			var comp = new BefunCompiler(memoCompileInput.Text);
 
-			BCGraph g = comp.generateSubstitutedGraph(-1);
+			cbcGraph = comp.generateSubstitutedGraph(-1);
 
 			memoCompileLog.Text += Environment.NewLine;
 			memoCompileLog.Text += "Generate Graph O:1" + Environment.NewLine;
-			memoCompileLog.Text += "Vertices" + g.vertices.Count + Environment.NewLine;
+			memoCompileLog.Text += "Vertices" + cbcGraph.vertices.Count + Environment.NewLine;
 			memoCompileLog.Text += "Minimize Cycles" + comp.log_Cycles_Minimize + Environment.NewLine;
 			memoCompileLog.Text += "Substitute Cycles" + comp.log_Cycles_Substitute + Environment.NewLine;
 
 			var ctrl = (elementHost1.Child as GraphUserControl);
 			var model = ctrl.graphLayout.DataContext as MainGraphViewModel;
 
-			model.loadGraph(g);
+			model.loadGraph(cbcGraph);
 			tabCompileControl.SelectedIndex = 1;
+		}
+
+		private void btnRunCurrGraph_Click(object sender, EventArgs e)
+		{
+			if (cbcGraph != null)
+			{
+				var runner = new GraphRunner(cbcGraph);
+
+				runner.run();
+
+				memoCompileLog.Text += Environment.NewLine;
+				memoCompileLog.Text += "Run Graph via GraphRunner" + Environment.NewLine;
+				memoCompileLog.Text += "Steps:" + runner.Steps + Environment.NewLine;
+				memoCompileLog.Text += "Stack: [" + string.Join(", ", runner.Stack.Select(p => p.ToString())) + "]" + Environment.NewLine;
+				memoCompileLog.Text += "Output:" + Environment.NewLine + runner.Output + Environment.NewLine;
+
+				tabCompileControl.SelectedIndex = 3;
+			}
 		}
 	}
 } //Form
