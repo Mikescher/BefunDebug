@@ -124,11 +124,17 @@ namespace BefunGen
 			var vertices = bcGraph.vertices.Count;
 			var nops = bcGraph.vertices.Count(p => p is BCVertexNOP);
 			var leafs = bcGraph.vertices.Count(p => p.children.Count == 0);
+			var constIO = bcGraph.listConstantVariableAccess().Count();
+			var dynIO = bcGraph.listDynamicVariableAccess().Count();
+			var vars = bcGraph.variables.Count;
 
-			GInfo = string.Format("{0} {1}.  {2} {3}.  {4} {5}",
+			GInfo = string.Format("{0} {1}.  {2} {3}.  {4} {5}. {6} const IO Access. {7} dynamic IO Access. {8} {9}",
 				vertices, (vertices == 1) ? "Vertex" : "Vertices",
 				nops, (nops == 1) ? "NOP" : "NOPs",
-				leafs, (leafs == 1) ? "Leaf" : "Leafs");
+				leafs, (leafs == 1) ? "Leaf" : "Leafs",
+				constIO,
+				dynIO,
+				vars, (vars == 1) ? "Variable" : "Variables");
 		}
 	}
 }

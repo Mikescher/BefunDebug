@@ -87,6 +87,8 @@
 			this.btnCompileGraph = new System.Windows.Forms.Button();
 			this.btnGraph_O1 = new System.Windows.Forms.Button();
 			this.btnGraph_O2 = new System.Windows.Forms.Button();
+			this.btnRunCurrGraph = new System.Windows.Forms.Button();
+			this.btnGraph_O3 = new System.Windows.Forms.Button();
 			this.tabCompileControl = new System.Windows.Forms.TabControl();
 			this.tabPage16 = new System.Windows.Forms.TabPage();
 			this.memoCompileInput = new System.Windows.Forms.TextBox();
@@ -101,7 +103,7 @@
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.btnLoadSYN = new System.Windows.Forms.Button();
 			this.txtSynFile = new System.Windows.Forms.TextBox();
-			this.btnRunCurrGraph = new System.Windows.Forms.Button();
+			this.btnGraph_O4 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -833,11 +835,13 @@
 			// 
 			this.tableLayoutPanel11.ColumnCount = 1;
 			this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel11.Controls.Add(this.btnGraph_O4, 0, 5);
 			this.tableLayoutPanel11.Controls.Add(this.btnCompile, 0, 0);
 			this.tableLayoutPanel11.Controls.Add(this.btnCompileGraph, 0, 1);
 			this.tableLayoutPanel11.Controls.Add(this.btnGraph_O1, 0, 2);
 			this.tableLayoutPanel11.Controls.Add(this.btnGraph_O2, 0, 3);
 			this.tableLayoutPanel11.Controls.Add(this.btnRunCurrGraph, 0, 6);
+			this.tableLayoutPanel11.Controls.Add(this.btnGraph_O3, 0, 4);
 			this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel11.Name = "tableLayoutPanel11";
@@ -850,12 +854,14 @@
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel11.Size = new System.Drawing.Size(144, 213);
 			this.tableLayoutPanel11.TabIndex = 0;
 			// 
 			// btnCompile
 			// 
 			this.btnCompile.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnCompile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnCompile.Location = new System.Drawing.Point(3, 3);
 			this.btnCompile.Name = "btnCompile";
 			this.btnCompile.Size = new System.Drawing.Size(138, 24);
@@ -867,28 +873,31 @@
 			// btnCompileGraph
 			// 
 			this.btnCompileGraph.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnCompileGraph.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnCompileGraph.Location = new System.Drawing.Point(3, 33);
 			this.btnCompileGraph.Name = "btnCompileGraph";
 			this.btnCompileGraph.Size = new System.Drawing.Size(138, 24);
 			this.btnCompileGraph.TabIndex = 1;
-			this.btnCompileGraph.Text = "Graph";
+			this.btnCompileGraph.Text = "Graph [     ]";
 			this.btnCompileGraph.UseVisualStyleBackColor = true;
 			this.btnCompileGraph.Click += new System.EventHandler(this.btnCompileGraph_Click);
 			// 
 			// btnGraph_O1
 			// 
 			this.btnGraph_O1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnGraph_O1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnGraph_O1.Location = new System.Drawing.Point(3, 63);
 			this.btnGraph_O1.Name = "btnGraph_O1";
 			this.btnGraph_O1.Size = new System.Drawing.Size(138, 24);
 			this.btnGraph_O1.TabIndex = 2;
-			this.btnGraph_O1.Text = "Graph [ O1 ]";
+			this.btnGraph_O1.Text = "Graph [ O 1 ]";
 			this.btnGraph_O1.UseVisualStyleBackColor = true;
 			this.btnGraph_O1.Click += new System.EventHandler(this.btnGraph_O1_Click);
 			// 
 			// btnGraph_O2
 			// 
 			this.btnGraph_O2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnGraph_O2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnGraph_O2.Location = new System.Drawing.Point(3, 93);
 			this.btnGraph_O2.Name = "btnGraph_O2";
 			this.btnGraph_O2.Size = new System.Drawing.Size(138, 24);
@@ -896,6 +905,29 @@
 			this.btnGraph_O2.Text = "Graph [ O 2 ]";
 			this.btnGraph_O2.UseVisualStyleBackColor = true;
 			this.btnGraph_O2.Click += new System.EventHandler(this.btnGraph_O2_Click);
+			// 
+			// btnRunCurrGraph
+			// 
+			this.btnRunCurrGraph.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnRunCurrGraph.Location = new System.Drawing.Point(3, 183);
+			this.btnRunCurrGraph.Name = "btnRunCurrGraph";
+			this.btnRunCurrGraph.Size = new System.Drawing.Size(138, 24);
+			this.btnRunCurrGraph.TabIndex = 5;
+			this.btnRunCurrGraph.Text = "Run current Graph";
+			this.btnRunCurrGraph.UseVisualStyleBackColor = true;
+			this.btnRunCurrGraph.Click += new System.EventHandler(this.btnRunCurrGraph_Click);
+			// 
+			// btnGraph_O3
+			// 
+			this.btnGraph_O3.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnGraph_O3.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnGraph_O3.Location = new System.Drawing.Point(3, 123);
+			this.btnGraph_O3.Name = "btnGraph_O3";
+			this.btnGraph_O3.Size = new System.Drawing.Size(138, 24);
+			this.btnGraph_O3.TabIndex = 6;
+			this.btnGraph_O3.Text = "Graph [ O 3 ]";
+			this.btnGraph_O3.UseVisualStyleBackColor = true;
+			this.btnGraph_O3.Click += new System.EventHandler(this.btnGraph_O3_Click);
 			// 
 			// tabCompileControl
 			// 
@@ -1049,16 +1081,17 @@
 			this.txtSynFile.Size = new System.Drawing.Size(580, 20);
 			this.txtSynFile.TabIndex = 11;
 			// 
-			// btnRunCurrGraph
+			// btnGraph_O4
 			// 
-			this.btnRunCurrGraph.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnRunCurrGraph.Location = new System.Drawing.Point(3, 183);
-			this.btnRunCurrGraph.Name = "btnRunCurrGraph";
-			this.btnRunCurrGraph.Size = new System.Drawing.Size(138, 24);
-			this.btnRunCurrGraph.TabIndex = 5;
-			this.btnRunCurrGraph.Text = "Run current Graph";
-			this.btnRunCurrGraph.UseVisualStyleBackColor = true;
-			this.btnRunCurrGraph.Click += new System.EventHandler(this.btnRunCurrGraph_Click);
+			this.btnGraph_O4.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnGraph_O4.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnGraph_O4.Location = new System.Drawing.Point(3, 153);
+			this.btnGraph_O4.Name = "btnGraph_O4";
+			this.btnGraph_O4.Size = new System.Drawing.Size(138, 24);
+			this.btnGraph_O4.TabIndex = 7;
+			this.btnGraph_O4.Text = "Graph [ O 4 ]";
+			this.btnGraph_O4.UseVisualStyleBackColor = true;
+			this.btnGraph_O4.Click += new System.EventHandler(this.btnGraph_O4_Click);
 			// 
 			// frmMain
 			// 
@@ -1204,6 +1237,8 @@
 		private System.Windows.Forms.Button btnGraph_O1;
 		private System.Windows.Forms.Button btnGraph_O2;
 		private System.Windows.Forms.Button btnRunCurrGraph;
+		private System.Windows.Forms.Button btnGraph_O3;
+		private System.Windows.Forms.Button btnGraph_O4;
 	}
 }
 
