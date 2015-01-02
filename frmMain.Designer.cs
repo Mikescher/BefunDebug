@@ -83,6 +83,8 @@
 			this.tabPage12 = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+			this.btnGraph_O5 = new System.Windows.Forms.Button();
+			this.btnGraph_O4 = new System.Windows.Forms.Button();
 			this.btnCompile = new System.Windows.Forms.Button();
 			this.btnCompileGraph = new System.Windows.Forms.Button();
 			this.btnGraph_O1 = new System.Windows.Forms.Button();
@@ -92,6 +94,11 @@
 			this.tabCompileControl = new System.Windows.Forms.TabControl();
 			this.tabPage16 = new System.Windows.Forms.TabPage();
 			this.memoCompileInput = new System.Windows.Forms.TextBox();
+			this.tabPage17 = new System.Windows.Forms.TabPage();
+			this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+			this.cbSafeGridAccess = new System.Windows.Forms.CheckBox();
+			this.cbSafeStackAccess = new System.Windows.Forms.CheckBox();
+			this.cbIgnoreSelfModification = new System.Windows.Forms.CheckBox();
 			this.tabPage14 = new System.Windows.Forms.TabPage();
 			this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
 			this.graphUserControl1 = new BefunGen.GraphUserControl();
@@ -103,7 +110,7 @@
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.btnLoadSYN = new System.Windows.Forms.Button();
 			this.txtSynFile = new System.Windows.Forms.TextBox();
-			this.btnGraph_O4 = new System.Windows.Forms.Button();
+			this.cbOuFormat = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -140,6 +147,8 @@
 			this.tableLayoutPanel11.SuspendLayout();
 			this.tabCompileControl.SuspendLayout();
 			this.tabPage16.SuspendLayout();
+			this.tabPage17.SuspendLayout();
+			this.tableLayoutPanel12.SuspendLayout();
 			this.tabPage14.SuspendLayout();
 			this.tabPage13.SuspendLayout();
 			this.tabPage15.SuspendLayout();
@@ -151,7 +160,7 @@
 			// 
 			this.btnLoad.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnLoad.Enabled = false;
-			this.btnLoad.Location = new System.Drawing.Point(589, 3);
+			this.btnLoad.Location = new System.Drawing.Point(591, 3);
 			this.btnLoad.Name = "btnLoad";
 			this.btnLoad.Size = new System.Drawing.Size(94, 26);
 			this.btnLoad.TabIndex = 9;
@@ -164,7 +173,7 @@
 			this.txtTableFile.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.txtTableFile.Location = new System.Drawing.Point(3, 3);
 			this.txtTableFile.Name = "txtTableFile";
-			this.txtTableFile.Size = new System.Drawing.Size(580, 20);
+			this.txtTableFile.Size = new System.Drawing.Size(582, 20);
 			this.txtTableFile.TabIndex = 8;
 			// 
 			// splitContainer1
@@ -181,8 +190,8 @@
 			// splitContainer1.Panel2
 			// 
 			this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
-			this.splitContainer1.Size = new System.Drawing.Size(686, 466);
-			this.splitContainer1.SplitterDistance = 211;
+			this.splitContainer1.Size = new System.Drawing.Size(688, 521);
+			this.splitContainer1.SplitterDistance = 234;
 			this.splitContainer1.TabIndex = 11;
 			// 
 			// txtSource
@@ -210,7 +219,7 @@
 			this.txtSource.ShowGutterMargin = false;
 			this.txtSource.ShowScopeIndicator = false;
 			this.txtSource.ShowTabGuides = true;
-			this.txtSource.Size = new System.Drawing.Size(686, 211);
+			this.txtSource.Size = new System.Drawing.Size(688, 234);
 			this.txtSource.SmoothScroll = true;
 			this.txtSource.SplitView = false;
 			this.txtSource.SplitviewH = -4;
@@ -239,7 +248,7 @@
 			this.tabControl1.Location = new System.Drawing.Point(0, 0);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(686, 251);
+			this.tabControl1.Size = new System.Drawing.Size(688, 283);
 			this.tabControl1.TabIndex = 10;
 			// 
 			// tabPage1
@@ -248,7 +257,7 @@
 			this.tabPage1.Location = new System.Drawing.Point(4, 4);
 			this.tabPage1.Name = "tabPage1";
 			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(678, 225);
+			this.tabPage1.Size = new System.Drawing.Size(680, 257);
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "Reduction Tree";
 			this.tabPage1.UseVisualStyleBackColor = true;
@@ -263,7 +272,7 @@
 			this.txtParseTree.Name = "txtParseTree";
 			this.txtParseTree.ReadOnly = true;
 			this.txtParseTree.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.txtParseTree.Size = new System.Drawing.Size(672, 219);
+			this.txtParseTree.Size = new System.Drawing.Size(674, 251);
 			this.txtParseTree.TabIndex = 6;
 			this.txtParseTree.WordWrap = false;
 			// 
@@ -273,7 +282,7 @@
 			this.tabPage3.Location = new System.Drawing.Point(4, 4);
 			this.tabPage3.Name = "tabPage3";
 			this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage3.Size = new System.Drawing.Size(678, 225);
+			this.tabPage3.Size = new System.Drawing.Size(680, 257);
 			this.tabPage3.TabIndex = 2;
 			this.tabPage3.Text = "Trimmed Tree";
 			this.tabPage3.UseVisualStyleBackColor = true;
@@ -288,7 +297,7 @@
 			this.txtParseTrimTree.Name = "txtParseTrimTree";
 			this.txtParseTrimTree.ReadOnly = true;
 			this.txtParseTrimTree.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.txtParseTrimTree.Size = new System.Drawing.Size(672, 219);
+			this.txtParseTrimTree.Size = new System.Drawing.Size(674, 251);
 			this.txtParseTrimTree.TabIndex = 7;
 			this.txtParseTrimTree.WordWrap = false;
 			// 
@@ -298,7 +307,7 @@
 			this.tabPage2.Location = new System.Drawing.Point(4, 4);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(678, 225);
+			this.tabPage2.Size = new System.Drawing.Size(680, 257);
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "AST";
 			this.tabPage2.UseVisualStyleBackColor = true;
@@ -311,7 +320,7 @@
 			this.txtAST.Multiline = true;
 			this.txtAST.Name = "txtAST";
 			this.txtAST.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.txtAST.Size = new System.Drawing.Size(672, 219);
+			this.txtAST.Size = new System.Drawing.Size(674, 251);
 			this.txtAST.TabIndex = 0;
 			this.txtAST.WordWrap = false;
 			// 
@@ -321,7 +330,7 @@
 			this.tabPage4.Location = new System.Drawing.Point(4, 4);
 			this.tabPage4.Name = "tabPage4";
 			this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage4.Size = new System.Drawing.Size(678, 225);
+			this.tabPage4.Size = new System.Drawing.Size(680, 257);
 			this.tabPage4.TabIndex = 3;
 			this.tabPage4.Text = "Log";
 			this.tabPage4.UseVisualStyleBackColor = true;
@@ -333,7 +342,7 @@
 			this.txtLog.Multiline = true;
 			this.txtLog.Name = "txtLog";
 			this.txtLog.ReadOnly = true;
-			this.txtLog.Size = new System.Drawing.Size(672, 219);
+			this.txtLog.Size = new System.Drawing.Size(674, 251);
 			this.txtLog.TabIndex = 0;
 			// 
 			// tabPage5
@@ -342,7 +351,7 @@
 			this.tabPage5.Location = new System.Drawing.Point(4, 4);
 			this.tabPage5.Name = "tabPage5";
 			this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage5.Size = new System.Drawing.Size(678, 225);
+			this.tabPage5.Size = new System.Drawing.Size(680, 257);
 			this.tabPage5.TabIndex = 4;
 			this.tabPage5.Text = "Grammar";
 			this.tabPage5.UseVisualStyleBackColor = true;
@@ -356,7 +365,7 @@
 			this.txtGrammar.Name = "txtGrammar";
 			this.txtGrammar.ReadOnly = true;
 			this.txtGrammar.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.txtGrammar.Size = new System.Drawing.Size(672, 219);
+			this.txtGrammar.Size = new System.Drawing.Size(674, 251);
 			this.txtGrammar.TabIndex = 0;
 			// 
 			// tabPage6
@@ -365,7 +374,7 @@
 			this.tabPage6.Location = new System.Drawing.Point(4, 4);
 			this.tabPage6.Name = "tabPage6";
 			this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage6.Size = new System.Drawing.Size(678, 225);
+			this.tabPage6.Size = new System.Drawing.Size(680, 257);
 			this.tabPage6.TabIndex = 5;
 			this.tabPage6.Text = "Code";
 			this.tabPage6.UseVisualStyleBackColor = true;
@@ -383,8 +392,8 @@
 			// splitContainer2.Panel2
 			// 
 			this.splitContainer2.Panel2.Controls.Add(this.tableLayoutPanel4);
-			this.splitContainer2.Size = new System.Drawing.Size(672, 219);
-			this.splitContainer2.SplitterDistance = 488;
+			this.splitContainer2.Size = new System.Drawing.Size(674, 251);
+			this.splitContainer2.SplitterDistance = 489;
 			this.splitContainer2.TabIndex = 1;
 			// 
 			// txtCode
@@ -396,7 +405,7 @@
 			this.txtCode.Multiline = true;
 			this.txtCode.Name = "txtCode";
 			this.txtCode.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.txtCode.Size = new System.Drawing.Size(488, 219);
+			this.txtCode.Size = new System.Drawing.Size(489, 251);
 			this.txtCode.TabIndex = 0;
 			this.txtCode.WordWrap = false;
 			// 
@@ -413,7 +422,7 @@
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel4.Size = new System.Drawing.Size(180, 219);
+			this.tableLayoutPanel4.Size = new System.Drawing.Size(181, 251);
 			this.tableLayoutPanel4.TabIndex = 0;
 			// 
 			// btnGen
@@ -421,7 +430,7 @@
 			this.btnGen.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnGen.Location = new System.Drawing.Point(3, 3);
 			this.btnGen.Name = "btnGen";
-			this.btnGen.Size = new System.Drawing.Size(174, 26);
+			this.btnGen.Size = new System.Drawing.Size(175, 26);
 			this.btnGen.TabIndex = 0;
 			this.btnGen.Text = "Generate";
 			this.btnGen.UseVisualStyleBackColor = true;
@@ -432,7 +441,7 @@
 			this.btnRun.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnRun.Location = new System.Drawing.Point(3, 35);
 			this.btnRun.Name = "btnRun";
-			this.btnRun.Size = new System.Drawing.Size(174, 26);
+			this.btnRun.Size = new System.Drawing.Size(175, 26);
 			this.btnRun.TabIndex = 1;
 			this.btnRun.Text = "Run";
 			this.btnRun.UseVisualStyleBackColor = true;
@@ -444,7 +453,7 @@
 			this.tabPage7.Location = new System.Drawing.Point(4, 4);
 			this.tabPage7.Name = "tabPage7";
 			this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage7.Size = new System.Drawing.Size(678, 225);
+			this.tabPage7.Size = new System.Drawing.Size(680, 257);
 			this.tabPage7.TabIndex = 6;
 			this.tabPage7.Text = "Debug";
 			this.tabPage7.UseVisualStyleBackColor = true;
@@ -461,7 +470,7 @@
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(672, 219);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(674, 251);
 			this.tableLayoutPanel1.TabIndex = 1;
 			// 
 			// txtDebug
@@ -474,7 +483,7 @@
 			this.txtDebug.Name = "txtDebug";
 			this.txtDebug.ReadOnly = true;
 			this.txtDebug.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.txtDebug.Size = new System.Drawing.Size(517, 213);
+			this.txtDebug.Size = new System.Drawing.Size(519, 245);
 			this.txtDebug.TabIndex = 0;
 			this.txtDebug.WordWrap = false;
 			// 
@@ -489,7 +498,7 @@
 			this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel6, 0, 2);
 			this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel8, 0, 1);
 			this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel5.Location = new System.Drawing.Point(526, 3);
+			this.tableLayoutPanel5.Location = new System.Drawing.Point(528, 3);
 			this.tableLayoutPanel5.Name = "tableLayoutPanel5";
 			this.tableLayoutPanel5.RowCount = 7;
 			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
@@ -499,7 +508,7 @@
 			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
 			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
 			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-			this.tableLayoutPanel5.Size = new System.Drawing.Size(143, 213);
+			this.tableLayoutPanel5.Size = new System.Drawing.Size(143, 245);
 			this.tableLayoutPanel5.TabIndex = 1;
 			// 
 			// btnExecuteDebug
@@ -636,7 +645,7 @@
 			this.tabPage8.Location = new System.Drawing.Point(4, 4);
 			this.tabPage8.Name = "tabPage8";
 			this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage8.Size = new System.Drawing.Size(678, 225);
+			this.tabPage8.Size = new System.Drawing.Size(680, 257);
 			this.tabPage8.TabIndex = 7;
 			this.tabPage8.Text = "Highlight";
 			this.tabPage8.UseVisualStyleBackColor = true;
@@ -653,16 +662,16 @@
 			this.tableLayoutPanel7.Name = "tableLayoutPanel7";
 			this.tableLayoutPanel7.RowCount = 1;
 			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel7.Size = new System.Drawing.Size(672, 219);
+			this.tableLayoutPanel7.Size = new System.Drawing.Size(674, 251);
 			this.tableLayoutPanel7.TabIndex = 0;
 			// 
 			// flowLayoutPanel1
 			// 
 			this.flowLayoutPanel1.Controls.Add(this.btnHighlight);
 			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.flowLayoutPanel1.Location = new System.Drawing.Point(595, 3);
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(597, 3);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(74, 213);
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(74, 245);
 			this.flowLayoutPanel1.TabIndex = 0;
 			// 
 			// btnHighlight
@@ -683,7 +692,7 @@
 			this.tcHighlight.Location = new System.Drawing.Point(3, 3);
 			this.tcHighlight.Name = "tcHighlight";
 			this.tcHighlight.SelectedIndex = 0;
-			this.tcHighlight.Size = new System.Drawing.Size(586, 213);
+			this.tcHighlight.Size = new System.Drawing.Size(588, 245);
 			this.tcHighlight.TabIndex = 1;
 			// 
 			// tabPage9
@@ -692,7 +701,7 @@
 			this.tabPage9.Location = new System.Drawing.Point(4, 22);
 			this.tabPage9.Name = "tabPage9";
 			this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage9.Size = new System.Drawing.Size(578, 187);
+			this.tabPage9.Size = new System.Drawing.Size(580, 219);
 			this.tabPage9.TabIndex = 0;
 			this.tabPage9.Text = "Code";
 			this.tabPage9.UseVisualStyleBackColor = true;
@@ -705,7 +714,7 @@
 			this.edHighlightCode.Multiline = true;
 			this.edHighlightCode.Name = "edHighlightCode";
 			this.edHighlightCode.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.edHighlightCode.Size = new System.Drawing.Size(572, 181);
+			this.edHighlightCode.Size = new System.Drawing.Size(574, 213);
 			this.edHighlightCode.TabIndex = 1;
 			// 
 			// tabPage10
@@ -714,7 +723,7 @@
 			this.tabPage10.Location = new System.Drawing.Point(4, 22);
 			this.tabPage10.Name = "tabPage10";
 			this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage10.Size = new System.Drawing.Size(578, 187);
+			this.tabPage10.Size = new System.Drawing.Size(580, 219);
 			this.tabPage10.TabIndex = 1;
 			this.tabPage10.Text = "Highlight";
 			this.tabPage10.UseVisualStyleBackColor = true;
@@ -727,7 +736,7 @@
 			this.edHighlighted.Multiline = true;
 			this.edHighlighted.Name = "edHighlighted";
 			this.edHighlighted.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.edHighlighted.Size = new System.Drawing.Size(572, 181);
+			this.edHighlighted.Size = new System.Drawing.Size(574, 213);
 			this.edHighlighted.TabIndex = 2;
 			// 
 			// tabPage11
@@ -736,7 +745,7 @@
 			this.tabPage11.Location = new System.Drawing.Point(4, 4);
 			this.tabPage11.Name = "tabPage11";
 			this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage11.Size = new System.Drawing.Size(678, 225);
+			this.tabPage11.Size = new System.Drawing.Size(680, 257);
 			this.tabPage11.TabIndex = 8;
 			this.tabPage11.Text = "Tools";
 			this.tabPage11.UseVisualStyleBackColor = true;
@@ -760,7 +769,7 @@
 			this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
 			this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
 			this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel9.Size = new System.Drawing.Size(672, 219);
+			this.tableLayoutPanel9.Size = new System.Drawing.Size(674, 251);
 			this.tableLayoutPanel9.TabIndex = 0;
 			// 
 			// edReverse
@@ -768,13 +777,13 @@
 			this.edReverse.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.edReverse.Location = new System.Drawing.Point(3, 3);
 			this.edReverse.Name = "edReverse";
-			this.edReverse.Size = new System.Drawing.Size(516, 20);
+			this.edReverse.Size = new System.Drawing.Size(518, 20);
 			this.edReverse.TabIndex = 0;
 			// 
 			// btnReverse
 			// 
 			this.btnReverse.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnReverse.Location = new System.Drawing.Point(525, 3);
+			this.btnReverse.Location = new System.Drawing.Point(527, 3);
 			this.btnReverse.Name = "btnReverse";
 			this.btnReverse.Size = new System.Drawing.Size(144, 22);
 			this.btnReverse.TabIndex = 1;
@@ -791,13 +800,13 @@
 			this.edSquashInput.Name = "edSquashInput";
 			this.tableLayoutPanel9.SetRowSpan(this.edSquashInput, 5);
 			this.edSquashInput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.edSquashInput.Size = new System.Drawing.Size(516, 185);
+			this.edSquashInput.Size = new System.Drawing.Size(518, 217);
 			this.edSquashInput.TabIndex = 2;
 			this.edSquashInput.WordWrap = false;
 			// 
 			// btnSquash
 			// 
-			this.btnSquash.Location = new System.Drawing.Point(525, 31);
+			this.btnSquash.Location = new System.Drawing.Point(527, 31);
 			this.btnSquash.Name = "btnSquash";
 			this.btnSquash.Size = new System.Drawing.Size(144, 22);
 			this.btnSquash.TabIndex = 3;
@@ -811,7 +820,7 @@
 			this.tabPage12.Location = new System.Drawing.Point(4, 4);
 			this.tabPage12.Name = "tabPage12";
 			this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage12.Size = new System.Drawing.Size(678, 225);
+			this.tabPage12.Size = new System.Drawing.Size(680, 257);
 			this.tabPage12.TabIndex = 9;
 			this.tabPage12.Text = "Compile";
 			this.tabPage12.UseVisualStyleBackColor = true;
@@ -828,35 +837,60 @@
 			this.tableLayoutPanel10.Name = "tableLayoutPanel10";
 			this.tableLayoutPanel10.RowCount = 1;
 			this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel10.Size = new System.Drawing.Size(672, 219);
+			this.tableLayoutPanel10.Size = new System.Drawing.Size(674, 251);
 			this.tableLayoutPanel10.TabIndex = 0;
 			// 
 			// tableLayoutPanel11
 			// 
 			this.tableLayoutPanel11.ColumnCount = 1;
 			this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel11.Controls.Add(this.btnGraph_O4, 0, 5);
+			this.tableLayoutPanel11.Controls.Add(this.btnGraph_O5, 0, 7);
+			this.tableLayoutPanel11.Controls.Add(this.btnGraph_O4, 0, 6);
 			this.tableLayoutPanel11.Controls.Add(this.btnCompile, 0, 0);
-			this.tableLayoutPanel11.Controls.Add(this.btnCompileGraph, 0, 1);
-			this.tableLayoutPanel11.Controls.Add(this.btnGraph_O1, 0, 2);
-			this.tableLayoutPanel11.Controls.Add(this.btnGraph_O2, 0, 3);
-			this.tableLayoutPanel11.Controls.Add(this.btnRunCurrGraph, 0, 6);
-			this.tableLayoutPanel11.Controls.Add(this.btnGraph_O3, 0, 4);
+			this.tableLayoutPanel11.Controls.Add(this.btnCompileGraph, 0, 2);
+			this.tableLayoutPanel11.Controls.Add(this.btnGraph_O1, 0, 3);
+			this.tableLayoutPanel11.Controls.Add(this.btnGraph_O2, 0, 4);
+			this.tableLayoutPanel11.Controls.Add(this.btnRunCurrGraph, 0, 8);
+			this.tableLayoutPanel11.Controls.Add(this.btnGraph_O3, 0, 5);
 			this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-			this.tableLayoutPanel11.RowCount = 8;
-			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel11.RowCount = 9;
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel11.Size = new System.Drawing.Size(144, 213);
+			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel11.Size = new System.Drawing.Size(144, 245);
 			this.tableLayoutPanel11.TabIndex = 0;
+			// 
+			// btnGraph_O5
+			// 
+			this.btnGraph_O5.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnGraph_O5.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnGraph_O5.Location = new System.Drawing.Point(3, 188);
+			this.btnGraph_O5.Name = "btnGraph_O5";
+			this.btnGraph_O5.Size = new System.Drawing.Size(138, 24);
+			this.btnGraph_O5.TabIndex = 8;
+			this.btnGraph_O5.Text = "Graph [ O 5 ]";
+			this.btnGraph_O5.UseVisualStyleBackColor = true;
+			this.btnGraph_O5.Click += new System.EventHandler(this.btnGraph_O5_Click);
+			// 
+			// btnGraph_O4
+			// 
+			this.btnGraph_O4.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnGraph_O4.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnGraph_O4.Location = new System.Drawing.Point(3, 158);
+			this.btnGraph_O4.Name = "btnGraph_O4";
+			this.btnGraph_O4.Size = new System.Drawing.Size(138, 24);
+			this.btnGraph_O4.TabIndex = 7;
+			this.btnGraph_O4.Text = "Graph [ O 4 ]";
+			this.btnGraph_O4.UseVisualStyleBackColor = true;
+			this.btnGraph_O4.Click += new System.EventHandler(this.btnGraph_O4_Click);
 			// 
 			// btnCompile
 			// 
@@ -874,7 +908,7 @@
 			// 
 			this.btnCompileGraph.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnCompileGraph.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnCompileGraph.Location = new System.Drawing.Point(3, 33);
+			this.btnCompileGraph.Location = new System.Drawing.Point(3, 38);
 			this.btnCompileGraph.Name = "btnCompileGraph";
 			this.btnCompileGraph.Size = new System.Drawing.Size(138, 24);
 			this.btnCompileGraph.TabIndex = 1;
@@ -886,7 +920,7 @@
 			// 
 			this.btnGraph_O1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnGraph_O1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnGraph_O1.Location = new System.Drawing.Point(3, 63);
+			this.btnGraph_O1.Location = new System.Drawing.Point(3, 68);
 			this.btnGraph_O1.Name = "btnGraph_O1";
 			this.btnGraph_O1.Size = new System.Drawing.Size(138, 24);
 			this.btnGraph_O1.TabIndex = 2;
@@ -898,7 +932,7 @@
 			// 
 			this.btnGraph_O2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnGraph_O2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnGraph_O2.Location = new System.Drawing.Point(3, 93);
+			this.btnGraph_O2.Location = new System.Drawing.Point(3, 98);
 			this.btnGraph_O2.Name = "btnGraph_O2";
 			this.btnGraph_O2.Size = new System.Drawing.Size(138, 24);
 			this.btnGraph_O2.TabIndex = 4;
@@ -909,7 +943,7 @@
 			// btnRunCurrGraph
 			// 
 			this.btnRunCurrGraph.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnRunCurrGraph.Location = new System.Drawing.Point(3, 183);
+			this.btnRunCurrGraph.Location = new System.Drawing.Point(3, 218);
 			this.btnRunCurrGraph.Name = "btnRunCurrGraph";
 			this.btnRunCurrGraph.Size = new System.Drawing.Size(138, 24);
 			this.btnRunCurrGraph.TabIndex = 5;
@@ -921,7 +955,7 @@
 			// 
 			this.btnGraph_O3.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnGraph_O3.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnGraph_O3.Location = new System.Drawing.Point(3, 123);
+			this.btnGraph_O3.Location = new System.Drawing.Point(3, 128);
 			this.btnGraph_O3.Name = "btnGraph_O3";
 			this.btnGraph_O3.Size = new System.Drawing.Size(138, 24);
 			this.btnGraph_O3.TabIndex = 6;
@@ -932,6 +966,7 @@
 			// tabCompileControl
 			// 
 			this.tabCompileControl.Controls.Add(this.tabPage16);
+			this.tabCompileControl.Controls.Add(this.tabPage17);
 			this.tabCompileControl.Controls.Add(this.tabPage14);
 			this.tabCompileControl.Controls.Add(this.tabPage13);
 			this.tabCompileControl.Controls.Add(this.tabPage15);
@@ -939,7 +974,7 @@
 			this.tabCompileControl.Location = new System.Drawing.Point(153, 3);
 			this.tabCompileControl.Name = "tabCompileControl";
 			this.tabCompileControl.SelectedIndex = 0;
-			this.tabCompileControl.Size = new System.Drawing.Size(516, 213);
+			this.tabCompileControl.Size = new System.Drawing.Size(518, 245);
 			this.tabCompileControl.TabIndex = 1;
 			// 
 			// tabPage16
@@ -948,7 +983,7 @@
 			this.tabPage16.Location = new System.Drawing.Point(4, 22);
 			this.tabPage16.Name = "tabPage16";
 			this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage16.Size = new System.Drawing.Size(508, 187);
+			this.tabPage16.Size = new System.Drawing.Size(510, 219);
 			this.tabPage16.TabIndex = 3;
 			this.tabPage16.Text = "Input";
 			this.tabPage16.UseVisualStyleBackColor = true;
@@ -962,8 +997,77 @@
 			this.memoCompileInput.Multiline = true;
 			this.memoCompileInput.Name = "memoCompileInput";
 			this.memoCompileInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.memoCompileInput.Size = new System.Drawing.Size(502, 181);
+			this.memoCompileInput.Size = new System.Drawing.Size(504, 213);
 			this.memoCompileInput.TabIndex = 1;
+			this.memoCompileInput.WordWrap = false;
+			// 
+			// tabPage17
+			// 
+			this.tabPage17.Controls.Add(this.tableLayoutPanel12);
+			this.tabPage17.Location = new System.Drawing.Point(4, 22);
+			this.tabPage17.Name = "tabPage17";
+			this.tabPage17.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage17.Size = new System.Drawing.Size(510, 219);
+			this.tabPage17.TabIndex = 4;
+			this.tabPage17.Text = "Options";
+			this.tabPage17.UseVisualStyleBackColor = true;
+			// 
+			// tableLayoutPanel12
+			// 
+			this.tableLayoutPanel12.ColumnCount = 1;
+			this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel12.Controls.Add(this.cbSafeGridAccess, 0, 2);
+			this.tableLayoutPanel12.Controls.Add(this.cbSafeStackAccess, 0, 1);
+			this.tableLayoutPanel12.Controls.Add(this.cbIgnoreSelfModification, 0, 0);
+			this.tableLayoutPanel12.Controls.Add(this.cbOuFormat, 0, 3);
+			this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 3);
+			this.tableLayoutPanel12.Name = "tableLayoutPanel12";
+			this.tableLayoutPanel12.RowCount = 7;
+			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel12.Size = new System.Drawing.Size(504, 213);
+			this.tableLayoutPanel12.TabIndex = 0;
+			// 
+			// cbSafeGridAccess
+			// 
+			this.cbSafeGridAccess.AutoSize = true;
+			this.cbSafeGridAccess.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.cbSafeGridAccess.Location = new System.Drawing.Point(3, 63);
+			this.cbSafeGridAccess.Name = "cbSafeGridAccess";
+			this.cbSafeGridAccess.Size = new System.Drawing.Size(498, 24);
+			this.cbSafeGridAccess.TabIndex = 2;
+			this.cbSafeGridAccess.Text = "Implement Safe Grid Access";
+			this.cbSafeGridAccess.UseVisualStyleBackColor = true;
+			// 
+			// cbSafeStackAccess
+			// 
+			this.cbSafeStackAccess.AutoSize = true;
+			this.cbSafeStackAccess.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.cbSafeStackAccess.Location = new System.Drawing.Point(3, 33);
+			this.cbSafeStackAccess.Name = "cbSafeStackAccess";
+			this.cbSafeStackAccess.Size = new System.Drawing.Size(498, 24);
+			this.cbSafeStackAccess.TabIndex = 1;
+			this.cbSafeStackAccess.Text = "Implement Safe Stack Access";
+			this.cbSafeStackAccess.UseVisualStyleBackColor = true;
+			// 
+			// cbIgnoreSelfModification
+			// 
+			this.cbIgnoreSelfModification.AutoSize = true;
+			this.cbIgnoreSelfModification.Checked = true;
+			this.cbIgnoreSelfModification.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.cbIgnoreSelfModification.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.cbIgnoreSelfModification.Location = new System.Drawing.Point(3, 3);
+			this.cbIgnoreSelfModification.Name = "cbIgnoreSelfModification";
+			this.cbIgnoreSelfModification.Size = new System.Drawing.Size(498, 24);
+			this.cbIgnoreSelfModification.TabIndex = 0;
+			this.cbIgnoreSelfModification.Text = "Ignore Self Modifications";
+			this.cbIgnoreSelfModification.UseVisualStyleBackColor = true;
 			// 
 			// tabPage14
 			// 
@@ -971,7 +1075,7 @@
 			this.tabPage14.Location = new System.Drawing.Point(4, 22);
 			this.tabPage14.Name = "tabPage14";
 			this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage14.Size = new System.Drawing.Size(508, 187);
+			this.tabPage14.Size = new System.Drawing.Size(510, 219);
 			this.tabPage14.TabIndex = 1;
 			this.tabPage14.Text = "Graph";
 			this.tabPage14.UseVisualStyleBackColor = true;
@@ -981,7 +1085,7 @@
 			this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.elementHost1.Location = new System.Drawing.Point(3, 3);
 			this.elementHost1.Name = "elementHost1";
-			this.elementHost1.Size = new System.Drawing.Size(502, 181);
+			this.elementHost1.Size = new System.Drawing.Size(504, 213);
 			this.elementHost1.TabIndex = 0;
 			this.elementHost1.Text = "elementHost1";
 			this.elementHost1.Child = this.graphUserControl1;
@@ -992,7 +1096,7 @@
 			this.tabPage13.Location = new System.Drawing.Point(4, 22);
 			this.tabPage13.Name = "tabPage13";
 			this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage13.Size = new System.Drawing.Size(508, 187);
+			this.tabPage13.Size = new System.Drawing.Size(510, 219);
 			this.tabPage13.TabIndex = 0;
 			this.tabPage13.Text = "Output";
 			this.tabPage13.UseVisualStyleBackColor = true;
@@ -1004,8 +1108,10 @@
 			this.memoCompileOut.Location = new System.Drawing.Point(3, 3);
 			this.memoCompileOut.Multiline = true;
 			this.memoCompileOut.Name = "memoCompileOut";
-			this.memoCompileOut.Size = new System.Drawing.Size(502, 181);
+			this.memoCompileOut.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.memoCompileOut.Size = new System.Drawing.Size(504, 213);
 			this.memoCompileOut.TabIndex = 0;
+			this.memoCompileOut.WordWrap = false;
 			// 
 			// tabPage15
 			// 
@@ -1013,7 +1119,7 @@
 			this.tabPage15.Location = new System.Drawing.Point(4, 22);
 			this.tabPage15.Name = "tabPage15";
 			this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage15.Size = new System.Drawing.Size(508, 187);
+			this.tabPage15.Size = new System.Drawing.Size(510, 219);
 			this.tabPage15.TabIndex = 2;
 			this.tabPage15.Text = "Log";
 			this.tabPage15.UseVisualStyleBackColor = true;
@@ -1025,7 +1131,8 @@
 			this.memoCompileLog.Location = new System.Drawing.Point(3, 3);
 			this.memoCompileLog.Multiline = true;
 			this.memoCompileLog.Name = "memoCompileLog";
-			this.memoCompileLog.Size = new System.Drawing.Size(502, 181);
+			this.memoCompileLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.memoCompileLog.Size = new System.Drawing.Size(504, 213);
 			this.memoCompileLog.TabIndex = 1;
 			// 
 			// tableLayoutPanel2
@@ -1040,7 +1147,7 @@
 			this.tableLayoutPanel2.RowCount = 2;
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(692, 542);
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(694, 597);
 			this.tableLayoutPanel2.TabIndex = 10;
 			// 
 			// tableLayoutPanel3
@@ -1058,14 +1165,14 @@
 			this.tableLayoutPanel3.RowCount = 2;
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-			this.tableLayoutPanel3.Size = new System.Drawing.Size(686, 64);
+			this.tableLayoutPanel3.Size = new System.Drawing.Size(688, 64);
 			this.tableLayoutPanel3.TabIndex = 12;
 			// 
 			// btnLoadSYN
 			// 
 			this.btnLoadSYN.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnLoadSYN.Enabled = false;
-			this.btnLoadSYN.Location = new System.Drawing.Point(589, 35);
+			this.btnLoadSYN.Location = new System.Drawing.Point(591, 35);
 			this.btnLoadSYN.Name = "btnLoadSYN";
 			this.btnLoadSYN.Size = new System.Drawing.Size(94, 26);
 			this.btnLoadSYN.TabIndex = 10;
@@ -1078,26 +1185,25 @@
 			this.txtSynFile.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.txtSynFile.Location = new System.Drawing.Point(3, 35);
 			this.txtSynFile.Name = "txtSynFile";
-			this.txtSynFile.Size = new System.Drawing.Size(580, 20);
+			this.txtSynFile.Size = new System.Drawing.Size(582, 20);
 			this.txtSynFile.TabIndex = 11;
 			// 
-			// btnGraph_O4
+			// cbOuFormat
 			// 
-			this.btnGraph_O4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnGraph_O4.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnGraph_O4.Location = new System.Drawing.Point(3, 153);
-			this.btnGraph_O4.Name = "btnGraph_O4";
-			this.btnGraph_O4.Size = new System.Drawing.Size(138, 24);
-			this.btnGraph_O4.TabIndex = 7;
-			this.btnGraph_O4.Text = "Graph [ O 4 ]";
-			this.btnGraph_O4.UseVisualStyleBackColor = true;
-			this.btnGraph_O4.Click += new System.EventHandler(this.btnGraph_O4_Click);
+			this.cbOuFormat.AutoSize = true;
+			this.cbOuFormat.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.cbOuFormat.Location = new System.Drawing.Point(3, 93);
+			this.cbOuFormat.Name = "cbOuFormat";
+			this.cbOuFormat.Size = new System.Drawing.Size(498, 24);
+			this.cbOuFormat.TabIndex = 3;
+			this.cbOuFormat.Text = "Format Compile Output";
+			this.cbOuFormat.UseVisualStyleBackColor = true;
 			// 
 			// frmMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(692, 542);
+			this.ClientSize = new System.Drawing.Size(694, 597);
 			this.Controls.Add(this.tableLayoutPanel2);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "frmMain";
@@ -1151,6 +1257,9 @@
 			this.tabCompileControl.ResumeLayout(false);
 			this.tabPage16.ResumeLayout(false);
 			this.tabPage16.PerformLayout();
+			this.tabPage17.ResumeLayout(false);
+			this.tableLayoutPanel12.ResumeLayout(false);
+			this.tableLayoutPanel12.PerformLayout();
 			this.tabPage14.ResumeLayout(false);
 			this.tabPage13.ResumeLayout(false);
 			this.tabPage13.PerformLayout();
@@ -1239,6 +1348,13 @@
 		private System.Windows.Forms.Button btnRunCurrGraph;
 		private System.Windows.Forms.Button btnGraph_O3;
 		private System.Windows.Forms.Button btnGraph_O4;
+		private System.Windows.Forms.TabPage tabPage17;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
+		private System.Windows.Forms.CheckBox cbIgnoreSelfModification;
+		private System.Windows.Forms.CheckBox cbSafeGridAccess;
+		private System.Windows.Forms.CheckBox cbSafeStackAccess;
+		private System.Windows.Forms.Button btnGraph_O5;
+		private System.Windows.Forms.CheckBox cbOuFormat;
 	}
 }
 

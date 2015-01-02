@@ -21,7 +21,7 @@ namespace BefunGen
 		#region Ctor
 		public MainGraphViewModel()
 		{
-			bcGraph = new BCGraph();
+			bcGraph = new BCGraph(new long[,] { { } }, 0, 0);
 			Graph = new PocGraph(true);
 
 			//Add Layout Algorithm Types
@@ -101,7 +101,7 @@ namespace BefunGen
 
 			foreach (var vertex in g.vertices)
 			{
-				var vx = new PocVertex(vertex.ToString(), vertex.children.Count == 0, vertex == g.root);
+				var vx = new PocVertex(vertex.ToString(), vertex.children.Count == 0, vertex == g.root, vertex is BCVertexBlock);
 
 				ng.AddVertex(vx);
 				dic.Add(vertex, vx);
@@ -127,14 +127,16 @@ namespace BefunGen
 			var constIO = bcGraph.listConstantVariableAccess().Count();
 			var dynIO = bcGraph.listDynamicVariableAccess().Count();
 			var vars = bcGraph.variables.Count;
+			var positions = bcGraph.getAllCodePositions();
 
-			GInfo = string.Format("{0} {1}.  {2} {3}.  {4} {5}. {6} const IO Access. {7} dynamic IO Access. {8} {9}",
+			GInfo = string.Format("{0} {1}.  {2} {3}.  {4} {5}. {6} const IO Access. {7} dynamic IO Access. {8} {9}. {10} program size.",
 				vertices, (vertices == 1) ? "Vertex" : "Vertices",
 				nops, (nops == 1) ? "NOP" : "NOPs",
 				leafs, (leafs == 1) ? "Leaf" : "Leafs",
 				constIO,
 				dynIO,
-				vars, (vars == 1) ? "Variable" : "Variables");
+				vars, (vars == 1) ? "Variable" : "Variables",
+				positions.Count);
 		}
 	}
 }

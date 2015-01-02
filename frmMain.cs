@@ -490,107 +490,231 @@ end
 
 		private void btnCompile_Click(object sender, EventArgs e)
 		{
-			//TODO do
+			try
+			{
+				var comp = new BefunCompiler(memoCompileInput.Text,
+					cbOuFormat.Checked,
+					cbIgnoreSelfModification.Checked,
+					cbSafeStackAccess.Checked,
+					cbSafeGridAccess.Checked);
+
+				memoCompileOut.Text = comp.GenerateCode();
+				tabCompileControl.SelectedIndex = 3;
+			}
+			catch (Exception exc)
+			{
+
+				memoCompileLog.Text += Environment.NewLine;
+				memoCompileLog.Text += "ERROR: " + exc.ToString() + Environment.NewLine;
+				tabCompileControl.SelectedIndex = 4;
+			}
 		}
 
 		private BCGraph cbcGraph;
 
 		private void btnCompileGraph_Click(object sender, EventArgs e)
 		{
-			var comp = new BefunCompiler(memoCompileInput.Text);
+			try
+			{
+				var comp = new BefunCompiler(memoCompileInput.Text,
+					cbOuFormat.Checked,
+					cbIgnoreSelfModification.Checked,
+					cbSafeStackAccess.Checked,
+					cbSafeGridAccess.Checked);
 
-			cbcGraph = comp.generateUntouchedGraph();
+				cbcGraph = comp.generateUntouchedGraph();
 
-			Console.Out.WriteLine("Vertices: " + cbcGraph.vertices.Count);
+				memoCompileLog.Text += Environment.NewLine;
+				memoCompileLog.Text += "Vertices: " + cbcGraph.vertices.Count + Environment.NewLine;
 
-			var ctrl = (elementHost1.Child as GraphUserControl);
-			var model = ctrl.graphLayout.DataContext as MainGraphViewModel;
+				var ctrl = (elementHost1.Child as GraphUserControl);
+				var model = ctrl.graphLayout.DataContext as MainGraphViewModel;
 
-			model.loadGraph(cbcGraph);
-			tabCompileControl.SelectedIndex = 1;
+				model.loadGraph(cbcGraph);
+				tabCompileControl.SelectedIndex = 2;
+			}
+			catch (Exception exc)
+			{
+
+				memoCompileLog.Text += Environment.NewLine;
+				memoCompileLog.Text += "ERROR: " + exc.ToString() + Environment.NewLine;
+				tabCompileControl.SelectedIndex = 4;
+			}
 		}
 
 		private void btnGraph_O1_Click(object sender, EventArgs e)
 		{
-			var comp = new BefunCompiler(memoCompileInput.Text);
+			try
+			{
+				var comp = new BefunCompiler(memoCompileInput.Text,
+					cbOuFormat.Checked,
+					cbIgnoreSelfModification.Checked,
+					cbSafeStackAccess.Checked,
+					cbSafeGridAccess.Checked);
 
-			cbcGraph = comp.generateMinimizedGraph(-1);
+				cbcGraph = comp.generateMinimizedGraph(-1);
 
-			memoCompileLog.Text += Environment.NewLine;
-			memoCompileLog.Text += "Generate Graph O:1" + Environment.NewLine;
-			memoCompileLog.Text += "Vertices: " + cbcGraph.vertices.Count + Environment.NewLine;
-			memoCompileLog.Text += "Minimize Cycles: " + comp.log_Cycles_Minimize + Environment.NewLine;
+				memoCompileLog.Text += Environment.NewLine;
+				memoCompileLog.Text += "Generate Graph O:1" + Environment.NewLine;
+				memoCompileLog.Text += "Vertices: " + cbcGraph.vertices.Count + Environment.NewLine;
+				memoCompileLog.Text += "Minimize Cycles: " + comp.log_Cycles_Minimize + Environment.NewLine;
 
-			var ctrl = (elementHost1.Child as GraphUserControl);
-			var model = ctrl.graphLayout.DataContext as MainGraphViewModel;
+				var ctrl = (elementHost1.Child as GraphUserControl);
+				var model = ctrl.graphLayout.DataContext as MainGraphViewModel;
 
-			model.loadGraph(cbcGraph);
-			tabCompileControl.SelectedIndex = 1;
+				model.loadGraph(cbcGraph);
+				tabCompileControl.SelectedIndex = 2;
+			}
+			catch (Exception exc)
+			{
+
+				memoCompileLog.Text += Environment.NewLine;
+				memoCompileLog.Text += "ERROR: " + exc.ToString() + Environment.NewLine;
+				tabCompileControl.SelectedIndex = 4;
+			}
 		}
 
 		private void btnGraph_O2_Click(object sender, EventArgs e)
 		{
-			var comp = new BefunCompiler(memoCompileInput.Text);
+			try
+			{
+				var comp = new BefunCompiler(memoCompileInput.Text,
+					cbOuFormat.Checked,
+					cbIgnoreSelfModification.Checked,
+					cbSafeStackAccess.Checked,
+					cbSafeGridAccess.Checked);
 
-			cbcGraph = comp.generateSubstitutedGraph(-1);
+				cbcGraph = comp.generateSubstitutedGraph(-1);
 
-			memoCompileLog.Text += Environment.NewLine;
-			memoCompileLog.Text += "Generate Graph O:2" + Environment.NewLine;
-			memoCompileLog.Text += "Vertices: " + cbcGraph.vertices.Count + Environment.NewLine;
-			memoCompileLog.Text += "Minimize Cycles: " + comp.log_Cycles_Minimize + Environment.NewLine;
-			memoCompileLog.Text += "Substitute Cycles: " + comp.log_Cycles_Substitute + Environment.NewLine;
+				memoCompileLog.Text += Environment.NewLine;
+				memoCompileLog.Text += "Generate Graph O:2" + Environment.NewLine;
+				memoCompileLog.Text += "Vertices: " + cbcGraph.vertices.Count + Environment.NewLine;
+				memoCompileLog.Text += "Minimize Cycles: " + comp.log_Cycles_Minimize + Environment.NewLine;
+				memoCompileLog.Text += "Substitute Cycles: " + comp.log_Cycles_Substitute + Environment.NewLine;
 
-			var ctrl = (elementHost1.Child as GraphUserControl);
-			var model = ctrl.graphLayout.DataContext as MainGraphViewModel;
+				var ctrl = (elementHost1.Child as GraphUserControl);
+				var model = ctrl.graphLayout.DataContext as MainGraphViewModel;
 
-			model.loadGraph(cbcGraph);
-			tabCompileControl.SelectedIndex = 1;
+				model.loadGraph(cbcGraph);
+				tabCompileControl.SelectedIndex = 2;
+			}
+			catch (Exception exc)
+			{
+
+				memoCompileLog.Text += Environment.NewLine;
+				memoCompileLog.Text += "ERROR: " + exc.ToString() + Environment.NewLine;
+				tabCompileControl.SelectedIndex = 4;
+			}
 		}
 
 		private void btnGraph_O3_Click(object sender, EventArgs e)
 		{
-			var comp = new BefunCompiler(memoCompileInput.Text);
+			try
+			{
+				var comp = new BefunCompiler(memoCompileInput.Text,
+					cbOuFormat.Checked,
+					cbIgnoreSelfModification.Checked,
+					cbSafeStackAccess.Checked,
+					cbSafeGridAccess.Checked);
 
-			cbcGraph = comp.generateFlattenedGraph(-1);
+				cbcGraph = comp.generateFlattenedGraph(-1);
 
-			memoCompileLog.Text += Environment.NewLine;
-			memoCompileLog.Text += "Generate Graph O:3" + Environment.NewLine;
-			memoCompileLog.Text += "Vertices: " + cbcGraph.vertices.Count + Environment.NewLine;
-			memoCompileLog.Text += "Minimize Cycles: " + comp.log_Cycles_Minimize + Environment.NewLine;
-			memoCompileLog.Text += "Substitute Cycles: " + comp.log_Cycles_Substitute + Environment.NewLine;
-			memoCompileLog.Text += "Flatten Cycles: " + comp.log_Cycles_Flatten + Environment.NewLine;
+				memoCompileLog.Text += Environment.NewLine;
+				memoCompileLog.Text += "Generate Graph O:3" + Environment.NewLine;
+				memoCompileLog.Text += "Vertices: " + cbcGraph.vertices.Count + Environment.NewLine;
+				memoCompileLog.Text += "Minimize Cycles: " + comp.log_Cycles_Minimize + Environment.NewLine;
+				memoCompileLog.Text += "Substitute Cycles: " + comp.log_Cycles_Substitute + Environment.NewLine;
+				memoCompileLog.Text += "Flatten Cycles: " + comp.log_Cycles_Flatten + Environment.NewLine;
 
-			var ctrl = (elementHost1.Child as GraphUserControl);
-			var model = ctrl.graphLayout.DataContext as MainGraphViewModel;
+				var ctrl = (elementHost1.Child as GraphUserControl);
+				var model = ctrl.graphLayout.DataContext as MainGraphViewModel;
 
-			model.loadGraph(cbcGraph);
-			tabCompileControl.SelectedIndex = 1;
+				model.loadGraph(cbcGraph);
+				tabCompileControl.SelectedIndex = 2;
+			}
+			catch (Exception exc)
+			{
+
+				memoCompileLog.Text += Environment.NewLine;
+				memoCompileLog.Text += "ERROR: " + exc.ToString() + Environment.NewLine;
+				tabCompileControl.SelectedIndex = 4;
+			}
 		}
 
 		private void btnGraph_O4_Click(object sender, EventArgs e)
 		{
-			var comp = new BefunCompiler(memoCompileInput.Text);
+			try
+			{
+				var comp = new BefunCompiler(memoCompileInput.Text,
+					cbOuFormat.Checked,
+					cbIgnoreSelfModification.Checked,
+					cbSafeStackAccess.Checked,
+					cbSafeGridAccess.Checked);
 
-			cbcGraph = comp.generateVariablizedGraph(-1);
+				cbcGraph = comp.generateVariablizedGraph(-1);
 
-			memoCompileLog.Text += Environment.NewLine;
-			memoCompileLog.Text += "Generate Graph O:3" + Environment.NewLine;
-			memoCompileLog.Text += "Vertices: " + cbcGraph.vertices.Count + Environment.NewLine;
-			memoCompileLog.Text += "Minimize Cycles: " + comp.log_Cycles_Minimize + Environment.NewLine;
-			memoCompileLog.Text += "Substitute Cycles: " + comp.log_Cycles_Substitute + Environment.NewLine;
-			memoCompileLog.Text += "Flatten Cycles: " + comp.log_Cycles_Flatten + Environment.NewLine;
-			memoCompileLog.Text += "Variablize Cycles: " + comp.log_Cycles_Variablize + Environment.NewLine;
+				memoCompileLog.Text += Environment.NewLine;
+				memoCompileLog.Text += "Generate Graph O:4" + Environment.NewLine;
+				memoCompileLog.Text += "Vertices: " + cbcGraph.vertices.Count + Environment.NewLine;
+				memoCompileLog.Text += "Minimize Cycles: " + comp.log_Cycles_Minimize + Environment.NewLine;
+				memoCompileLog.Text += "Substitute Cycles: " + comp.log_Cycles_Substitute + Environment.NewLine;
+				memoCompileLog.Text += "Flatten Cycles: " + comp.log_Cycles_Flatten + Environment.NewLine;
+				memoCompileLog.Text += "Variablize Cycles: " + comp.log_Cycles_Variablize + Environment.NewLine;
 
-			var ctrl = (elementHost1.Child as GraphUserControl);
-			var model = ctrl.graphLayout.DataContext as MainGraphViewModel;
+				var ctrl = (elementHost1.Child as GraphUserControl);
+				var model = ctrl.graphLayout.DataContext as MainGraphViewModel;
 
-			model.loadGraph(cbcGraph);
-			tabCompileControl.SelectedIndex = 1;
+				model.loadGraph(cbcGraph);
+				tabCompileControl.SelectedIndex = 2;
+			}
+			catch (Exception exc)
+			{
+
+				memoCompileLog.Text += Environment.NewLine;
+				memoCompileLog.Text += "ERROR: " + exc.ToString() + Environment.NewLine;
+				tabCompileControl.SelectedIndex = 4;
+			}
+		}
+
+		private void btnGraph_O5_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				var comp = new BefunCompiler(memoCompileInput.Text,
+					cbOuFormat.Checked,
+					cbIgnoreSelfModification.Checked,
+					cbSafeStackAccess.Checked,
+					cbSafeGridAccess.Checked);
+
+				cbcGraph = comp.generateBlockCombinedGraph(-1);
+
+				memoCompileLog.Text += Environment.NewLine;
+				memoCompileLog.Text += "Generate Graph O:3" + Environment.NewLine;
+				memoCompileLog.Text += "Vertices: " + cbcGraph.vertices.Count + Environment.NewLine;
+				memoCompileLog.Text += "Minimize Cycles: " + comp.log_Cycles_Minimize + Environment.NewLine;
+				memoCompileLog.Text += "Substitute Cycles: " + comp.log_Cycles_Substitute + Environment.NewLine;
+				memoCompileLog.Text += "Flatten Cycles: " + comp.log_Cycles_Flatten + Environment.NewLine;
+				memoCompileLog.Text += "Variablize Cycles: " + comp.log_Cycles_Variablize + Environment.NewLine;
+				memoCompileLog.Text += "CombineBlocks Cycles: " + comp.log_Cycles_CombineBlocks + Environment.NewLine;
+
+				var ctrl = (elementHost1.Child as GraphUserControl);
+				var model = ctrl.graphLayout.DataContext as MainGraphViewModel;
+
+				model.loadGraph(cbcGraph);
+				tabCompileControl.SelectedIndex = 2;
+			}
+			catch (Exception exc)
+			{
+
+				memoCompileLog.Text += Environment.NewLine;
+				memoCompileLog.Text += "ERROR: " + exc.ToString() + Environment.NewLine;
+				tabCompileControl.SelectedIndex = 4;
+			}
 		}
 
 		private void btnRunCurrGraph_Click(object sender, EventArgs e)
 		{
-			if (cbcGraph != null)
+			try
 			{
 				var runner = new GraphRunner(cbcGraph);
 
@@ -602,7 +726,14 @@ end
 				memoCompileLog.Text += "Stack: [" + string.Join(", ", runner.Stack.Select(p => p.ToString())) + "]" + Environment.NewLine;
 				memoCompileLog.Text += "Output:" + Environment.NewLine + runner.Output + Environment.NewLine;
 
-				tabCompileControl.SelectedIndex = 3;
+				tabCompileControl.SelectedIndex = 4;
+			}
+			catch (Exception exc)
+			{
+
+				memoCompileLog.Text += Environment.NewLine;
+				memoCompileLog.Text += "ERROR: " + exc.ToString() + Environment.NewLine;
+				tabCompileControl.SelectedIndex = 4;
 			}
 		}
 	}

@@ -11,15 +11,18 @@
 
 	<UserControl.Resources>
 		<DataTemplate x:Key="demoTemplate" DataType="{x:Type local:PocVertex}">
-			<Border x:Name="brdr" BorderBrush="White" Background="Black" BorderThickness="2" CornerRadius="10,10,10,10">
+			<Border x:Name="brdr" BorderBrush="White" Background="Black" BorderThickness="2" CornerRadius="10">
 				<StackPanel Orientation="Horizontal" Margin="5">
 					<TextBlock Text="{Binding Path=ID, Mode=OneWay}" Foreground="White" />
 				</StackPanel>
 			</Border>
 
-			<DataTemplate.Triggers>
-				<DataTrigger Binding="{Binding isLeaf}" Value="true">
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding isLeaf}" Value="true">
                     <Setter TargetName="brdr" Property="Background" Value="DarkRed" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding isBlock}" Value="true">
+                    <Setter TargetName="brdr" Property="CornerRadius" Value="1" />
                 </DataTrigger>
                 <DataTrigger Binding="{Binding isRoot}" Value="true">
                     <Setter TargetName="brdr" Property="Background" Value="DarkGreen" />
