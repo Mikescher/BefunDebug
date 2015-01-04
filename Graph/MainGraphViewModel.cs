@@ -125,7 +125,7 @@ namespace BefunGen
 			var nops = bcGraph.vertices.Count(p => p is BCVertexNOP);
 			var leafs = bcGraph.vertices.Count(p => p.children.Count == 0);
 			var constIO = bcGraph.listConstantVariableAccess().Count();
-			var dynIO = bcGraph.listDynamicVariableAccess().Count();
+			var dynIO = bcGraph.listDynamicVariableAccessCSharp().Count();
 			var vars = bcGraph.variables.Count;
 			var positions = bcGraph.getAllCodePositions();
 

@@ -99,6 +99,8 @@
 			this.cbSafeGridAccess = new System.Windows.Forms.CheckBox();
 			this.cbSafeStackAccess = new System.Windows.Forms.CheckBox();
 			this.cbIgnoreSelfModification = new System.Windows.Forms.CheckBox();
+			this.cbOuFormat = new System.Windows.Forms.CheckBox();
+			this.cbxCompileLanguage = new System.Windows.Forms.ComboBox();
 			this.tabPage14 = new System.Windows.Forms.TabPage();
 			this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
 			this.graphUserControl1 = new BefunGen.GraphUserControl();
@@ -110,7 +112,6 @@
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.btnLoadSYN = new System.Windows.Forms.Button();
 			this.txtSynFile = new System.Windows.Forms.TextBox();
-			this.cbOuFormat = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -1020,6 +1021,7 @@
 			this.tableLayoutPanel12.Controls.Add(this.cbSafeStackAccess, 0, 1);
 			this.tableLayoutPanel12.Controls.Add(this.cbIgnoreSelfModification, 0, 0);
 			this.tableLayoutPanel12.Controls.Add(this.cbOuFormat, 0, 3);
+			this.tableLayoutPanel12.Controls.Add(this.cbxCompileLanguage, 0, 4);
 			this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel12.Name = "tableLayoutPanel12";
@@ -1068,6 +1070,27 @@
 			this.cbIgnoreSelfModification.TabIndex = 0;
 			this.cbIgnoreSelfModification.Text = "Ignore Self Modifications";
 			this.cbIgnoreSelfModification.UseVisualStyleBackColor = true;
+			// 
+			// cbOuFormat
+			// 
+			this.cbOuFormat.AutoSize = true;
+			this.cbOuFormat.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.cbOuFormat.Location = new System.Drawing.Point(3, 93);
+			this.cbOuFormat.Name = "cbOuFormat";
+			this.cbOuFormat.Size = new System.Drawing.Size(498, 24);
+			this.cbOuFormat.TabIndex = 3;
+			this.cbOuFormat.Text = "Format Compile Output";
+			this.cbOuFormat.UseVisualStyleBackColor = true;
+			// 
+			// cbxCompileLanguage
+			// 
+			this.cbxCompileLanguage.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.cbxCompileLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbxCompileLanguage.FormattingEnabled = true;
+			this.cbxCompileLanguage.Location = new System.Drawing.Point(3, 123);
+			this.cbxCompileLanguage.Name = "cbxCompileLanguage";
+			this.cbxCompileLanguage.Size = new System.Drawing.Size(498, 21);
+			this.cbxCompileLanguage.TabIndex = 4;
 			// 
 			// tabPage14
 			// 
@@ -1187,17 +1210,6 @@
 			this.txtSynFile.Name = "txtSynFile";
 			this.txtSynFile.Size = new System.Drawing.Size(582, 20);
 			this.txtSynFile.TabIndex = 11;
-			// 
-			// cbOuFormat
-			// 
-			this.cbOuFormat.AutoSize = true;
-			this.cbOuFormat.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.cbOuFormat.Location = new System.Drawing.Point(3, 93);
-			this.cbOuFormat.Name = "cbOuFormat";
-			this.cbOuFormat.Size = new System.Drawing.Size(498, 24);
-			this.cbOuFormat.TabIndex = 3;
-			this.cbOuFormat.Text = "Format Compile Output";
-			this.cbOuFormat.UseVisualStyleBackColor = true;
 			// 
 			// frmMain
 			// 
@@ -1355,6 +1367,7 @@
 		private System.Windows.Forms.CheckBox cbSafeStackAccess;
 		private System.Windows.Forms.Button btnGraph_O5;
 		private System.Windows.Forms.CheckBox cbOuFormat;
+		private System.Windows.Forms.ComboBox cbxCompileLanguage;
 	}
 }
 

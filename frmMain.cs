@@ -29,6 +29,12 @@ namespace BefunGen
 		{
 			InitializeComponent();
 			tabControl1.SelectedIndex = 6;
+
+			foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
+			{
+				cbxCompileLanguage.Items.Add(lang);
+			}
+			cbxCompileLanguage.SelectedIndex = 0;
 		}
 
 		private void btnLoad_Click(object sender, EventArgs e)
@@ -498,7 +504,7 @@ end
 					cbSafeStackAccess.Checked,
 					cbSafeGridAccess.Checked);
 
-				memoCompileOut.Text = comp.GenerateCode();
+				memoCompileOut.Text = comp.GenerateCode((OutputLanguage)cbxCompileLanguage.SelectedItem);
 				tabCompileControl.SelectedIndex = 3;
 			}
 			catch (Exception exc)
