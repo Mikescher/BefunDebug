@@ -99,7 +99,7 @@
 			this.cbSafeGridAccess = new System.Windows.Forms.CheckBox();
 			this.cbSafeStackAccess = new System.Windows.Forms.CheckBox();
 			this.cbIgnoreSelfModification = new System.Windows.Forms.CheckBox();
-			this.cbOuFormat = new System.Windows.Forms.CheckBox();
+			this.cbOutFormat = new System.Windows.Forms.CheckBox();
 			this.cbxCompileLanguage = new System.Windows.Forms.ComboBox();
 			this.tabPage14 = new System.Windows.Forms.TabPage();
 			this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
@@ -112,6 +112,7 @@
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.btnLoadSYN = new System.Windows.Forms.Button();
 			this.txtSynFile = new System.Windows.Forms.TextBox();
+			this.btnCompileGraphCompile = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -191,8 +192,8 @@
 			// splitContainer1.Panel2
 			// 
 			this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
-			this.splitContainer1.Size = new System.Drawing.Size(688, 521);
-			this.splitContainer1.SplitterDistance = 234;
+			this.splitContainer1.Size = new System.Drawing.Size(688, 577);
+			this.splitContainer1.SplitterDistance = 259;
 			this.splitContainer1.TabIndex = 11;
 			// 
 			// txtSource
@@ -220,7 +221,7 @@
 			this.txtSource.ShowGutterMargin = false;
 			this.txtSource.ShowScopeIndicator = false;
 			this.txtSource.ShowTabGuides = true;
-			this.txtSource.Size = new System.Drawing.Size(688, 234);
+			this.txtSource.Size = new System.Drawing.Size(688, 259);
 			this.txtSource.SmoothScroll = true;
 			this.txtSource.SplitView = false;
 			this.txtSource.SplitviewH = -4;
@@ -249,7 +250,7 @@
 			this.tabControl1.Location = new System.Drawing.Point(0, 0);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(688, 283);
+			this.tabControl1.Size = new System.Drawing.Size(688, 314);
 			this.tabControl1.TabIndex = 10;
 			// 
 			// tabPage1
@@ -821,7 +822,7 @@
 			this.tabPage12.Location = new System.Drawing.Point(4, 4);
 			this.tabPage12.Name = "tabPage12";
 			this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage12.Size = new System.Drawing.Size(680, 257);
+			this.tabPage12.Size = new System.Drawing.Size(680, 288);
 			this.tabPage12.TabIndex = 9;
 			this.tabPage12.Text = "Compile";
 			this.tabPage12.UseVisualStyleBackColor = true;
@@ -838,13 +839,14 @@
 			this.tableLayoutPanel10.Name = "tableLayoutPanel10";
 			this.tableLayoutPanel10.RowCount = 1;
 			this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel10.Size = new System.Drawing.Size(674, 251);
+			this.tableLayoutPanel10.Size = new System.Drawing.Size(674, 282);
 			this.tableLayoutPanel10.TabIndex = 0;
 			// 
 			// tableLayoutPanel11
 			// 
 			this.tableLayoutPanel11.ColumnCount = 1;
 			this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel11.Controls.Add(this.btnCompileGraphCompile, 0, 9);
 			this.tableLayoutPanel11.Controls.Add(this.btnGraph_O5, 0, 7);
 			this.tableLayoutPanel11.Controls.Add(this.btnGraph_O4, 0, 6);
 			this.tableLayoutPanel11.Controls.Add(this.btnCompile, 0, 0);
@@ -856,7 +858,7 @@
 			this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-			this.tableLayoutPanel11.RowCount = 9;
+			this.tableLayoutPanel11.RowCount = 10;
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
@@ -866,14 +868,15 @@
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-			this.tableLayoutPanel11.Size = new System.Drawing.Size(144, 245);
+			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel11.Size = new System.Drawing.Size(144, 276);
 			this.tableLayoutPanel11.TabIndex = 0;
 			// 
 			// btnGraph_O5
 			// 
 			this.btnGraph_O5.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnGraph_O5.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnGraph_O5.Location = new System.Drawing.Point(3, 188);
+			this.btnGraph_O5.Location = new System.Drawing.Point(3, 189);
 			this.btnGraph_O5.Name = "btnGraph_O5";
 			this.btnGraph_O5.Size = new System.Drawing.Size(138, 24);
 			this.btnGraph_O5.TabIndex = 8;
@@ -885,7 +888,7 @@
 			// 
 			this.btnGraph_O4.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnGraph_O4.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnGraph_O4.Location = new System.Drawing.Point(3, 158);
+			this.btnGraph_O4.Location = new System.Drawing.Point(3, 159);
 			this.btnGraph_O4.Name = "btnGraph_O4";
 			this.btnGraph_O4.Size = new System.Drawing.Size(138, 24);
 			this.btnGraph_O4.TabIndex = 7;
@@ -909,19 +912,19 @@
 			// 
 			this.btnCompileGraph.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnCompileGraph.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnCompileGraph.Location = new System.Drawing.Point(3, 38);
+			this.btnCompileGraph.Location = new System.Drawing.Point(3, 39);
 			this.btnCompileGraph.Name = "btnCompileGraph";
 			this.btnCompileGraph.Size = new System.Drawing.Size(138, 24);
 			this.btnCompileGraph.TabIndex = 1;
 			this.btnCompileGraph.Text = "Graph [     ]";
 			this.btnCompileGraph.UseVisualStyleBackColor = true;
-			this.btnCompileGraph.Click += new System.EventHandler(this.btnCompileGraph_Click);
+			this.btnCompileGraph.Click += new System.EventHandler(this.btnGraph_O0_Click);
 			// 
 			// btnGraph_O1
 			// 
 			this.btnGraph_O1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnGraph_O1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnGraph_O1.Location = new System.Drawing.Point(3, 68);
+			this.btnGraph_O1.Location = new System.Drawing.Point(3, 69);
 			this.btnGraph_O1.Name = "btnGraph_O1";
 			this.btnGraph_O1.Size = new System.Drawing.Size(138, 24);
 			this.btnGraph_O1.TabIndex = 2;
@@ -933,7 +936,7 @@
 			// 
 			this.btnGraph_O2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnGraph_O2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnGraph_O2.Location = new System.Drawing.Point(3, 98);
+			this.btnGraph_O2.Location = new System.Drawing.Point(3, 99);
 			this.btnGraph_O2.Name = "btnGraph_O2";
 			this.btnGraph_O2.Size = new System.Drawing.Size(138, 24);
 			this.btnGraph_O2.TabIndex = 4;
@@ -944,7 +947,7 @@
 			// btnRunCurrGraph
 			// 
 			this.btnRunCurrGraph.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnRunCurrGraph.Location = new System.Drawing.Point(3, 218);
+			this.btnRunCurrGraph.Location = new System.Drawing.Point(3, 219);
 			this.btnRunCurrGraph.Name = "btnRunCurrGraph";
 			this.btnRunCurrGraph.Size = new System.Drawing.Size(138, 24);
 			this.btnRunCurrGraph.TabIndex = 5;
@@ -956,7 +959,7 @@
 			// 
 			this.btnGraph_O3.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnGraph_O3.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnGraph_O3.Location = new System.Drawing.Point(3, 128);
+			this.btnGraph_O3.Location = new System.Drawing.Point(3, 129);
 			this.btnGraph_O3.Name = "btnGraph_O3";
 			this.btnGraph_O3.Size = new System.Drawing.Size(138, 24);
 			this.btnGraph_O3.TabIndex = 6;
@@ -975,7 +978,7 @@
 			this.tabCompileControl.Location = new System.Drawing.Point(153, 3);
 			this.tabCompileControl.Name = "tabCompileControl";
 			this.tabCompileControl.SelectedIndex = 0;
-			this.tabCompileControl.Size = new System.Drawing.Size(518, 245);
+			this.tabCompileControl.Size = new System.Drawing.Size(518, 276);
 			this.tabCompileControl.TabIndex = 1;
 			// 
 			// tabPage16
@@ -984,7 +987,7 @@
 			this.tabPage16.Location = new System.Drawing.Point(4, 22);
 			this.tabPage16.Name = "tabPage16";
 			this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage16.Size = new System.Drawing.Size(510, 219);
+			this.tabPage16.Size = new System.Drawing.Size(510, 250);
 			this.tabPage16.TabIndex = 3;
 			this.tabPage16.Text = "Input";
 			this.tabPage16.UseVisualStyleBackColor = true;
@@ -998,7 +1001,7 @@
 			this.memoCompileInput.Multiline = true;
 			this.memoCompileInput.Name = "memoCompileInput";
 			this.memoCompileInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.memoCompileInput.Size = new System.Drawing.Size(504, 213);
+			this.memoCompileInput.Size = new System.Drawing.Size(504, 244);
 			this.memoCompileInput.TabIndex = 1;
 			this.memoCompileInput.WordWrap = false;
 			// 
@@ -1020,7 +1023,7 @@
 			this.tableLayoutPanel12.Controls.Add(this.cbSafeGridAccess, 0, 2);
 			this.tableLayoutPanel12.Controls.Add(this.cbSafeStackAccess, 0, 1);
 			this.tableLayoutPanel12.Controls.Add(this.cbIgnoreSelfModification, 0, 0);
-			this.tableLayoutPanel12.Controls.Add(this.cbOuFormat, 0, 3);
+			this.tableLayoutPanel12.Controls.Add(this.cbOutFormat, 0, 3);
 			this.tableLayoutPanel12.Controls.Add(this.cbxCompileLanguage, 0, 4);
 			this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 3);
@@ -1073,14 +1076,14 @@
 			// 
 			// cbOuFormat
 			// 
-			this.cbOuFormat.AutoSize = true;
-			this.cbOuFormat.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.cbOuFormat.Location = new System.Drawing.Point(3, 93);
-			this.cbOuFormat.Name = "cbOuFormat";
-			this.cbOuFormat.Size = new System.Drawing.Size(498, 24);
-			this.cbOuFormat.TabIndex = 3;
-			this.cbOuFormat.Text = "Format Compile Output";
-			this.cbOuFormat.UseVisualStyleBackColor = true;
+			this.cbOutFormat.AutoSize = true;
+			this.cbOutFormat.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.cbOutFormat.Location = new System.Drawing.Point(3, 93);
+			this.cbOutFormat.Name = "cbOuFormat";
+			this.cbOutFormat.Size = new System.Drawing.Size(498, 24);
+			this.cbOutFormat.TabIndex = 3;
+			this.cbOutFormat.Text = "Format Compile Output";
+			this.cbOutFormat.UseVisualStyleBackColor = true;
 			// 
 			// cbxCompileLanguage
 			// 
@@ -1170,7 +1173,7 @@
 			this.tableLayoutPanel2.RowCount = 2;
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(694, 597);
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(694, 653);
 			this.tableLayoutPanel2.TabIndex = 10;
 			// 
 			// tableLayoutPanel3
@@ -1211,11 +1214,22 @@
 			this.txtSynFile.Size = new System.Drawing.Size(582, 20);
 			this.txtSynFile.TabIndex = 11;
 			// 
+			// btnCompileGraphCompile
+			// 
+			this.btnCompileGraphCompile.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnCompileGraphCompile.Location = new System.Drawing.Point(3, 249);
+			this.btnCompileGraphCompile.Name = "btnCompileGraphCompile";
+			this.btnCompileGraphCompile.Size = new System.Drawing.Size(138, 24);
+			this.btnCompileGraphCompile.TabIndex = 9;
+			this.btnCompileGraphCompile.Text = "Compile current Graph";
+			this.btnCompileGraphCompile.UseVisualStyleBackColor = true;
+			this.btnCompileGraphCompile.Click += new System.EventHandler(this.btnCompileGraphCompile_Click);
+			// 
 			// frmMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(694, 597);
+			this.ClientSize = new System.Drawing.Size(694, 653);
 			this.Controls.Add(this.tableLayoutPanel2);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "frmMain";
@@ -1366,8 +1380,9 @@
 		private System.Windows.Forms.CheckBox cbSafeGridAccess;
 		private System.Windows.Forms.CheckBox cbSafeStackAccess;
 		private System.Windows.Forms.Button btnGraph_O5;
-		private System.Windows.Forms.CheckBox cbOuFormat;
+		private System.Windows.Forms.CheckBox cbOutFormat;
 		private System.Windows.Forms.ComboBox cbxCompileLanguage;
+		private System.Windows.Forms.Button btnCompileGraphCompile;
 	}
 }
 

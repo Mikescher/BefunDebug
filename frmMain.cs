@@ -499,7 +499,7 @@ end
 			try
 			{
 				var comp = new BefunCompiler(memoCompileInput.Text,
-					cbOuFormat.Checked,
+					cbOutFormat.Checked,
 					cbIgnoreSelfModification.Checked,
 					cbSafeStackAccess.Checked,
 					cbSafeGridAccess.Checked);
@@ -518,12 +518,12 @@ end
 
 		private BCGraph cbcGraph;
 
-		private void btnCompileGraph_Click(object sender, EventArgs e)
+		private void btnGraph_O0_Click(object sender, EventArgs e)
 		{
 			try
 			{
 				var comp = new BefunCompiler(memoCompileInput.Text,
-					cbOuFormat.Checked,
+					cbOutFormat.Checked,
 					cbIgnoreSelfModification.Checked,
 					cbSafeStackAccess.Checked,
 					cbSafeGridAccess.Checked);
@@ -553,7 +553,7 @@ end
 			try
 			{
 				var comp = new BefunCompiler(memoCompileInput.Text,
-					cbOuFormat.Checked,
+					cbOutFormat.Checked,
 					cbIgnoreSelfModification.Checked,
 					cbSafeStackAccess.Checked,
 					cbSafeGridAccess.Checked);
@@ -585,7 +585,7 @@ end
 			try
 			{
 				var comp = new BefunCompiler(memoCompileInput.Text,
-					cbOuFormat.Checked,
+					cbOutFormat.Checked,
 					cbIgnoreSelfModification.Checked,
 					cbSafeStackAccess.Checked,
 					cbSafeGridAccess.Checked);
@@ -618,7 +618,7 @@ end
 			try
 			{
 				var comp = new BefunCompiler(memoCompileInput.Text,
-					cbOuFormat.Checked,
+					cbOutFormat.Checked,
 					cbIgnoreSelfModification.Checked,
 					cbSafeStackAccess.Checked,
 					cbSafeGridAccess.Checked);
@@ -652,7 +652,7 @@ end
 			try
 			{
 				var comp = new BefunCompiler(memoCompileInput.Text,
-					cbOuFormat.Checked,
+					cbOutFormat.Checked,
 					cbIgnoreSelfModification.Checked,
 					cbSafeStackAccess.Checked,
 					cbSafeGridAccess.Checked);
@@ -687,7 +687,7 @@ end
 			try
 			{
 				var comp = new BefunCompiler(memoCompileInput.Text,
-					cbOuFormat.Checked,
+					cbOutFormat.Checked,
 					cbIgnoreSelfModification.Checked,
 					cbSafeStackAccess.Checked,
 					cbSafeGridAccess.Checked);
@@ -733,6 +733,58 @@ end
 				memoCompileLog.Text += "Output:" + Environment.NewLine + runner.Output + Environment.NewLine;
 
 				tabCompileControl.SelectedIndex = 4;
+			}
+			catch (Exception exc)
+			{
+
+				memoCompileLog.Text += Environment.NewLine;
+				memoCompileLog.Text += "ERROR: " + exc.ToString() + Environment.NewLine;
+				tabCompileControl.SelectedIndex = 4;
+			}
+		}
+
+		private void btnCompileGraphCompile_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				var comp = new BefunCompiler(memoCompileInput.Text,
+					cbOutFormat.Checked,
+					cbIgnoreSelfModification.Checked,
+					cbSafeStackAccess.Checked,
+					cbSafeGridAccess.Checked);
+
+				switch ((OutputLanguage)cbxCompileLanguage.SelectedItem)
+				{
+					case OutputLanguage.CSharp:
+						memoCompileOut.Text = cbcGraph.GenerateCodeCSharp(
+							cbOutFormat.Checked,
+						cbSafeStackAccess.Checked,
+						cbSafeGridAccess.Checked);
+						break;
+					case OutputLanguage.C:
+						memoCompileOut.Text = cbcGraph.GenerateCodeC(
+							cbOutFormat.Checked,
+							cbSafeStackAccess.Checked,
+							cbSafeGridAccess.Checked);
+						break;
+					case OutputLanguage.Python:
+						memoCompileOut.Text = cbcGraph.GenerateCodePython(
+							cbOutFormat.Checked,
+							cbSafeStackAccess.Checked,
+							cbSafeGridAccess.Checked);
+						break;
+					default:
+						break;
+				}
+
+				memoCompileLog.Text += Environment.NewLine;
+				memoCompileLog.Text += "Vertices: " + cbcGraph.vertices.Count + Environment.NewLine;
+
+				var ctrl = (elementHost1.Child as GraphUserControl);
+				var model = ctrl.graphLayout.DataContext as MainGraphViewModel;
+
+				model.loadGraph(cbcGraph);
+				tabCompileControl.SelectedIndex = 3;
 			}
 			catch (Exception exc)
 			{
