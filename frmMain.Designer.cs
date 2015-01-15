@@ -97,6 +97,7 @@
 			this.memoCompileInput = new System.Windows.Forms.TextBox();
 			this.tabPage17 = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+			this.cbUseGZip = new System.Windows.Forms.CheckBox();
 			this.cbSafeGridAccess = new System.Windows.Forms.CheckBox();
 			this.cbSafeStackAccess = new System.Windows.Forms.CheckBox();
 			this.cbIgnoreSelfModification = new System.Windows.Forms.CheckBox();
@@ -1031,11 +1032,12 @@
 			// 
 			this.tableLayoutPanel12.ColumnCount = 1;
 			this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel12.Controls.Add(this.cbUseGZip, 0, 4);
 			this.tableLayoutPanel12.Controls.Add(this.cbSafeGridAccess, 0, 2);
 			this.tableLayoutPanel12.Controls.Add(this.cbSafeStackAccess, 0, 1);
 			this.tableLayoutPanel12.Controls.Add(this.cbIgnoreSelfModification, 0, 0);
 			this.tableLayoutPanel12.Controls.Add(this.cbOutFormat, 0, 3);
-			this.tableLayoutPanel12.Controls.Add(this.cbxCompileLanguage, 0, 4);
+			this.tableLayoutPanel12.Controls.Add(this.cbxCompileLanguage, 0, 5);
 			this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel12.Name = "tableLayoutPanel12";
@@ -1049,6 +1051,19 @@
 			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel12.Size = new System.Drawing.Size(504, 244);
 			this.tableLayoutPanel12.TabIndex = 0;
+			// 
+			// cbUseGZip
+			// 
+			this.cbUseGZip.AutoSize = true;
+			this.cbUseGZip.Checked = true;
+			this.cbUseGZip.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.cbUseGZip.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.cbUseGZip.Location = new System.Drawing.Point(3, 123);
+			this.cbUseGZip.Name = "cbUseGZip";
+			this.cbUseGZip.Size = new System.Drawing.Size(498, 24);
+			this.cbUseGZip.TabIndex = 5;
+			this.cbUseGZip.Text = "Use GZip compression";
+			this.cbUseGZip.UseVisualStyleBackColor = true;
 			// 
 			// cbSafeGridAccess
 			// 
@@ -1101,7 +1116,7 @@
 			this.cbxCompileLanguage.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.cbxCompileLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbxCompileLanguage.FormattingEnabled = true;
-			this.cbxCompileLanguage.Location = new System.Drawing.Point(3, 123);
+			this.cbxCompileLanguage.Location = new System.Drawing.Point(3, 153);
 			this.cbxCompileLanguage.Name = "cbxCompileLanguage";
 			this.cbxCompileLanguage.Size = new System.Drawing.Size(498, 21);
 			this.cbxCompileLanguage.TabIndex = 4;
@@ -1141,6 +1156,7 @@
 			// memoCompileOut
 			// 
 			this.memoCompileOut.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.memoCompileOut.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.memoCompileOut.Location = new System.Drawing.Point(3, 3);
 			this.memoCompileOut.MaxLength = 2147483647;
 			this.memoCompileOut.Multiline = true;
@@ -1383,6 +1399,7 @@
 		private System.Windows.Forms.CheckBox cbOutFormat;
 		private System.Windows.Forms.ComboBox cbxCompileLanguage;
 		private System.Windows.Forms.Button btnCompileGraphCompile;
+		private System.Windows.Forms.CheckBox cbUseGZip;
 	}
 }
 

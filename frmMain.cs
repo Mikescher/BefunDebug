@@ -502,7 +502,8 @@ end
 					cbOutFormat.Checked,
 					cbIgnoreSelfModification.Checked,
 					cbSafeStackAccess.Checked,
-					cbSafeGridAccess.Checked);
+					cbSafeGridAccess.Checked,
+					cbUseGZip.Checked);
 
 				memoCompileOut.Text = comp.GenerateCode((OutputLanguage)cbxCompileLanguage.SelectedItem);
 				tabCompileControl.SelectedIndex = 3;
@@ -526,7 +527,8 @@ end
 					cbOutFormat.Checked,
 					cbIgnoreSelfModification.Checked,
 					cbSafeStackAccess.Checked,
-					cbSafeGridAccess.Checked);
+					cbSafeGridAccess.Checked,
+					cbUseGZip.Checked);
 
 				cbcGraph = comp.generateUntouchedGraph();
 
@@ -556,7 +558,8 @@ end
 					cbOutFormat.Checked,
 					cbIgnoreSelfModification.Checked,
 					cbSafeStackAccess.Checked,
-					cbSafeGridAccess.Checked);
+					cbSafeGridAccess.Checked,
+					cbUseGZip.Checked);
 
 				cbcGraph = comp.generateMinimizedGraph(-1);
 
@@ -588,7 +591,8 @@ end
 					cbOutFormat.Checked,
 					cbIgnoreSelfModification.Checked,
 					cbSafeStackAccess.Checked,
-					cbSafeGridAccess.Checked);
+					cbSafeGridAccess.Checked,
+					cbUseGZip.Checked);
 
 				cbcGraph = comp.generateSubstitutedGraph(-1);
 
@@ -621,7 +625,8 @@ end
 					cbOutFormat.Checked,
 					cbIgnoreSelfModification.Checked,
 					cbSafeStackAccess.Checked,
-					cbSafeGridAccess.Checked);
+					cbSafeGridAccess.Checked,
+					cbUseGZip.Checked);
 
 				cbcGraph = comp.generateFlattenedGraph(-1);
 
@@ -655,7 +660,8 @@ end
 					cbOutFormat.Checked,
 					cbIgnoreSelfModification.Checked,
 					cbSafeStackAccess.Checked,
-					cbSafeGridAccess.Checked);
+					cbSafeGridAccess.Checked,
+					cbUseGZip.Checked);
 
 				cbcGraph = comp.generateVariablizedGraph(-1);
 
@@ -690,7 +696,8 @@ end
 					cbOutFormat.Checked,
 					cbIgnoreSelfModification.Checked,
 					cbSafeStackAccess.Checked,
-					cbSafeGridAccess.Checked);
+					cbSafeGridAccess.Checked,
+					cbUseGZip.Checked);
 
 				cbcGraph = comp.generateBlockCombinedGraph(-1);
 
@@ -751,7 +758,8 @@ end
 					cbOutFormat.Checked,
 					cbIgnoreSelfModification.Checked,
 					cbSafeStackAccess.Checked,
-					cbSafeGridAccess.Checked);
+					cbSafeGridAccess.Checked,
+					cbUseGZip.Checked);
 
 				switch ((OutputLanguage)cbxCompileLanguage.SelectedItem)
 				{
@@ -759,19 +767,21 @@ end
 						memoCompileOut.Text = cbcGraph.GenerateCodeCSharp(
 							cbOutFormat.Checked,
 						cbSafeStackAccess.Checked,
-						cbSafeGridAccess.Checked);
+						cbSafeGridAccess.Checked,
+					cbUseGZip.Checked);
 						break;
 					case OutputLanguage.C:
 						memoCompileOut.Text = cbcGraph.GenerateCodeC(
 							cbOutFormat.Checked,
 							cbSafeStackAccess.Checked,
-							cbSafeGridAccess.Checked);
+					cbUseGZip.Checked);
 						break;
 					case OutputLanguage.Python:
 						memoCompileOut.Text = cbcGraph.GenerateCodePython(
 							cbOutFormat.Checked,
 							cbSafeStackAccess.Checked,
-							cbSafeGridAccess.Checked);
+							cbSafeGridAccess.Checked,
+					cbUseGZip.Checked);
 						break;
 					default:
 						break;
