@@ -774,7 +774,8 @@ end
 						memoCompileOut.Text = cbcGraph.GenerateCodeC(
 							cbOutFormat.Checked,
 							cbSafeStackAccess.Checked,
-					cbUseGZip.Checked);
+							cbSafeGridAccess.Checked,
+							cbUseGZip.Checked);
 						break;
 					case OutputLanguage.Python:
 						memoCompileOut.Text = cbcGraph.GenerateCodePython(
