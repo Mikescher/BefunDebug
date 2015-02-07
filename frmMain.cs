@@ -6,6 +6,7 @@ using BefunGen.AST.CodeGen.NumberCode;
 using BefunHighlight;
 using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -481,7 +482,33 @@ end
 
 		private void btnReverse_Click(object sender, EventArgs e)
 		{
-			edReverse.Text = string.Join("", edReverse.Text.ToCharArray().Reverse());
+			if (chkbxReverseAutoDirection.Checked)
+				edReverse.Text = edReverse.Text
+					.Replace("<", "##REPL_LEFT_##")
+					.Replace(">", "<")
+					.Replace("##REPL_LEFT_##", ">")
+					.Split(new[] { Environment.NewLine }, StringSplitOptions.None)
+					.Select(p => string.Join("", p.ToCharArray().Reverse()))
+					.Aggregate((a, b) => a + Environment.NewLine + b);
+			else
+				edReverse.Text = edReverse.Text
+					.Split(new[] { Environment.NewLine }, StringSplitOptions.None)
+					.Select(p => string.Join("", p.ToCharArray().Reverse()))
+					.Aggregate((a, b) => a + Environment.NewLine + b);
+		}
+
+		private void edReverse_TextChanged(object sender, EventArgs e)
+		{
+			if (edReverse.Text.Contains('_'))
+			{
+				lblReverseValidity.ForeColor = Color.Red;
+				lblReverseValidity.Text = "UNKNOWN";
+			}
+			else
+			{
+				lblReverseValidity.ForeColor = Color.DarkGreen;
+				lblReverseValidity.Text = "OK";
+			}
 		}
 
 		private void btnSquash_Click(object sender, EventArgs e)
@@ -533,7 +560,7 @@ end
 				cbcGraph = comp.generateUntouchedGraph();
 
 				memoCompileLog.Text += Environment.NewLine;
-				memoCompileLog.Text += "Vertices: " + cbcGraph.vertices.Count + Environment.NewLine;
+				memoCompileLog.Text += "Vertices: " + cbcGraph.Vertices.Count + Environment.NewLine;
 
 				var ctrl = (elementHost1.Child as GraphUserControl);
 				var model = ctrl.graphLayout.DataContext as MainGraphViewModel;
@@ -565,7 +592,7 @@ end
 
 				memoCompileLog.Text += Environment.NewLine;
 				memoCompileLog.Text += "Generate Graph O:1" + Environment.NewLine;
-				memoCompileLog.Text += "Vertices: " + cbcGraph.vertices.Count + Environment.NewLine;
+				memoCompileLog.Text += "Vertices: " + cbcGraph.Vertices.Count + Environment.NewLine;
 				memoCompileLog.Text += "Minimize Cycles: " + comp.log_Cycles_Minimize + Environment.NewLine;
 
 				var ctrl = (elementHost1.Child as GraphUserControl);
@@ -598,7 +625,7 @@ end
 
 				memoCompileLog.Text += Environment.NewLine;
 				memoCompileLog.Text += "Generate Graph O:2" + Environment.NewLine;
-				memoCompileLog.Text += "Vertices: " + cbcGraph.vertices.Count + Environment.NewLine;
+				memoCompileLog.Text += "Vertices: " + cbcGraph.Vertices.Count + Environment.NewLine;
 				memoCompileLog.Text += "Minimize Cycles: " + comp.log_Cycles_Minimize + Environment.NewLine;
 				memoCompileLog.Text += "Substitute Cycles: " + comp.log_Cycles_Substitute + Environment.NewLine;
 
@@ -632,7 +659,7 @@ end
 
 				memoCompileLog.Text += Environment.NewLine;
 				memoCompileLog.Text += "Generate Graph O:3" + Environment.NewLine;
-				memoCompileLog.Text += "Vertices: " + cbcGraph.vertices.Count + Environment.NewLine;
+				memoCompileLog.Text += "Vertices: " + cbcGraph.Vertices.Count + Environment.NewLine;
 				memoCompileLog.Text += "Minimize Cycles: " + comp.log_Cycles_Minimize + Environment.NewLine;
 				memoCompileLog.Text += "Substitute Cycles: " + comp.log_Cycles_Substitute + Environment.NewLine;
 				memoCompileLog.Text += "Flatten Cycles: " + comp.log_Cycles_Flatten + Environment.NewLine;
@@ -667,7 +694,7 @@ end
 
 				memoCompileLog.Text += Environment.NewLine;
 				memoCompileLog.Text += "Generate Graph O:4" + Environment.NewLine;
-				memoCompileLog.Text += "Vertices: " + cbcGraph.vertices.Count + Environment.NewLine;
+				memoCompileLog.Text += "Vertices: " + cbcGraph.Vertices.Count + Environment.NewLine;
 				memoCompileLog.Text += "Minimize Cycles: " + comp.log_Cycles_Minimize + Environment.NewLine;
 				memoCompileLog.Text += "Substitute Cycles: " + comp.log_Cycles_Substitute + Environment.NewLine;
 				memoCompileLog.Text += "Flatten Cycles: " + comp.log_Cycles_Flatten + Environment.NewLine;
@@ -703,7 +730,7 @@ end
 
 				memoCompileLog.Text += Environment.NewLine;
 				memoCompileLog.Text += "Generate Graph O:3" + Environment.NewLine;
-				memoCompileLog.Text += "Vertices: " + cbcGraph.vertices.Count + Environment.NewLine;
+				memoCompileLog.Text += "Vertices: " + cbcGraph.Vertices.Count + Environment.NewLine;
 				memoCompileLog.Text += "Minimize Cycles: " + comp.log_Cycles_Minimize + Environment.NewLine;
 				memoCompileLog.Text += "Substitute Cycles: " + comp.log_Cycles_Substitute + Environment.NewLine;
 				memoCompileLog.Text += "Flatten Cycles: " + comp.log_Cycles_Flatten + Environment.NewLine;
@@ -789,7 +816,7 @@ end
 				}
 
 				memoCompileLog.Text += Environment.NewLine;
-				memoCompileLog.Text += "Vertices: " + cbcGraph.vertices.Count + Environment.NewLine;
+				memoCompileLog.Text += "Vertices: " + cbcGraph.Vertices.Count + Environment.NewLine;
 
 				var ctrl = (elementHost1.Child as GraphUserControl);
 				var model = ctrl.graphLayout.DataContext as MainGraphViewModel;
@@ -805,5 +832,6 @@ end
 				tabCompileControl.SelectedIndex = 4;
 			}
 		}
+
 	}
 } //Form

@@ -99,15 +99,15 @@ namespace BefunGen
 
 			Dictionary<BCVertex, PocVertex> dic = new Dictionary<BCVertex, PocVertex>();
 
-			foreach (var vertex in g.vertices)
+			foreach (var vertex in g.Vertices)
 			{
-				var vx = new PocVertex(vertex.ToString(), vertex.children.Count == 0, vertex == g.root, vertex is BCVertexBlock);
+				var vx = new PocVertex(vertex.ToString(), vertex.children.Count == 0, vertex == g.Root, vertex is BCVertexBlock);
 
 				ng.AddVertex(vx);
 				dic.Add(vertex, vx);
 			}
 
-			foreach (var vertex in g.vertices)
+			foreach (var vertex in g.Vertices)
 			{
 				foreach (var child in vertex.children)
 				{
@@ -121,13 +121,13 @@ namespace BefunGen
 
 		private void updateInfo()
 		{
-			var vertices = bcGraph.vertices.Count;
-			var nops = bcGraph.vertices.Count(p => p is BCVertexNOP);
-			var leafs = bcGraph.vertices.Count(p => p.children.Count == 0);
-			var constIO = bcGraph.listConstantVariableAccess().Count();
-			var dynIO = bcGraph.listDynamicVariableAccess().Count();
-			var vars = bcGraph.variables.Count;
-			var positions = bcGraph.getAllCodePositions();
+			var vertices = bcGraph.Vertices.Count;
+			var nops = bcGraph.Vertices.Count(p => p is BCVertexNOP);
+			var leafs = bcGraph.Vertices.Count(p => p.children.Count == 0);
+			var constIO = bcGraph.ListConstantVariableAccess().Count();
+			var dynIO = bcGraph.ListDynamicVariableAccess().Count();
+			var vars = bcGraph.Variables.Count;
+			var positions = bcGraph.GetAllCodePositions();
 
 			GInfo = string.Format("{0} {1}.  {2} {3}.  {4} {5}. {6} const IO Access. {7} dynamic IO Access. {8} {9}. {10} program size.",
 				vertices, (vertices == 1) ? "Vertex" : "Vertices",
