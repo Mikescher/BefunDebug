@@ -101,7 +101,7 @@ namespace BefunGen
 
 			foreach (var vertex in g.Vertices)
 			{
-				var vx = new PocVertex(vertex.ToString(), vertex.children.Count == 0, vertex == g.Root, vertex is BCVertexBlock);
+				var vx = new PocVertex(vertex.ToString(), vertex.Children.Count == 0, vertex == g.Root, vertex.IsBlock());
 
 				ng.AddVertex(vx);
 				dic.Add(vertex, vx);
@@ -109,7 +109,7 @@ namespace BefunGen
 
 			foreach (var vertex in g.Vertices)
 			{
-				foreach (var child in vertex.children)
+				foreach (var child in vertex.Children)
 				{
 					ng.AddEdge(new PocEdge("", dic[vertex], dic[child]));
 				}
@@ -123,7 +123,7 @@ namespace BefunGen
 		{
 			var vertices = bcGraph.Vertices.Count;
 			var nops = bcGraph.Vertices.Count(p => p is BCVertexNOP);
-			var leafs = bcGraph.Vertices.Count(p => p.children.Count == 0);
+			var leafs = bcGraph.Vertices.Count(p => p.Children.Count == 0);
 			var constIO = bcGraph.ListConstantVariableAccess().Count();
 			var dynIO = bcGraph.ListDynamicVariableAccess().Count();
 			var vars = bcGraph.Variables.Count;

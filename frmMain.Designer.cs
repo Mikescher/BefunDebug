@@ -86,14 +86,10 @@
 			this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
 			this.btnCompileGraphCompile = new System.Windows.Forms.Button();
-			this.btnGraph_O5 = new System.Windows.Forms.Button();
-			this.btnGraph_O4 = new System.Windows.Forms.Button();
 			this.btnCompile = new System.Windows.Forms.Button();
 			this.btnCompileGraph = new System.Windows.Forms.Button();
-			this.btnGraph_O1 = new System.Windows.Forms.Button();
-			this.btnGraph_O2 = new System.Windows.Forms.Button();
 			this.btnRunCurrGraph = new System.Windows.Forms.Button();
-			this.btnGraph_O3 = new System.Windows.Forms.Button();
+			this.cbxCompileLevel = new System.Windows.Forms.ComboBox();
 			this.tabCompileControl = new System.Windows.Forms.TabControl();
 			this.tabPage16 = new System.Windows.Forms.TabPage();
 			this.memoCompileInput = new System.Windows.Forms.TextBox();
@@ -881,27 +877,19 @@
 			// 
 			this.tableLayoutPanel11.ColumnCount = 1;
 			this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel11.Controls.Add(this.btnCompileGraphCompile, 0, 9);
-			this.tableLayoutPanel11.Controls.Add(this.btnGraph_O5, 0, 7);
-			this.tableLayoutPanel11.Controls.Add(this.btnGraph_O4, 0, 6);
+			this.tableLayoutPanel11.Controls.Add(this.btnCompileGraphCompile, 0, 5);
 			this.tableLayoutPanel11.Controls.Add(this.btnCompile, 0, 0);
 			this.tableLayoutPanel11.Controls.Add(this.btnCompileGraph, 0, 2);
-			this.tableLayoutPanel11.Controls.Add(this.btnGraph_O1, 0, 3);
-			this.tableLayoutPanel11.Controls.Add(this.btnGraph_O2, 0, 4);
-			this.tableLayoutPanel11.Controls.Add(this.btnRunCurrGraph, 0, 8);
-			this.tableLayoutPanel11.Controls.Add(this.btnGraph_O3, 0, 5);
+			this.tableLayoutPanel11.Controls.Add(this.btnRunCurrGraph, 0, 4);
+			this.tableLayoutPanel11.Controls.Add(this.cbxCompileLevel, 0, 1);
 			this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-			this.tableLayoutPanel11.RowCount = 10;
+			this.tableLayoutPanel11.RowCount = 6;
+			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.Size = new System.Drawing.Size(144, 276);
@@ -917,30 +905,6 @@
 			this.btnCompileGraphCompile.Text = "Compile current Graph";
 			this.btnCompileGraphCompile.UseVisualStyleBackColor = true;
 			this.btnCompileGraphCompile.Click += new System.EventHandler(this.btnCompileGraphCompile_Click);
-			// 
-			// btnGraph_O5
-			// 
-			this.btnGraph_O5.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnGraph_O5.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnGraph_O5.Location = new System.Drawing.Point(3, 189);
-			this.btnGraph_O5.Name = "btnGraph_O5";
-			this.btnGraph_O5.Size = new System.Drawing.Size(138, 24);
-			this.btnGraph_O5.TabIndex = 8;
-			this.btnGraph_O5.Text = "Graph [ O 5 ]";
-			this.btnGraph_O5.UseVisualStyleBackColor = true;
-			this.btnGraph_O5.Click += new System.EventHandler(this.btnGraph_O5_Click);
-			// 
-			// btnGraph_O4
-			// 
-			this.btnGraph_O4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnGraph_O4.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnGraph_O4.Location = new System.Drawing.Point(3, 159);
-			this.btnGraph_O4.Name = "btnGraph_O4";
-			this.btnGraph_O4.Size = new System.Drawing.Size(138, 24);
-			this.btnGraph_O4.TabIndex = 7;
-			this.btnGraph_O4.Text = "Graph [ O 4 ]";
-			this.btnGraph_O4.UseVisualStyleBackColor = true;
-			this.btnGraph_O4.Click += new System.EventHandler(this.btnGraph_O4_Click);
 			// 
 			// btnCompile
 			// 
@@ -958,37 +922,13 @@
 			// 
 			this.btnCompileGraph.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnCompileGraph.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnCompileGraph.Location = new System.Drawing.Point(3, 39);
+			this.btnCompileGraph.Location = new System.Drawing.Point(3, 63);
 			this.btnCompileGraph.Name = "btnCompileGraph";
 			this.btnCompileGraph.Size = new System.Drawing.Size(138, 24);
-			this.btnCompileGraph.TabIndex = 1;
+			this.btnCompileGraph.TabIndex = 2;
 			this.btnCompileGraph.Text = "Graph [     ]";
 			this.btnCompileGraph.UseVisualStyleBackColor = true;
-			this.btnCompileGraph.Click += new System.EventHandler(this.btnGraph_O0_Click);
-			// 
-			// btnGraph_O1
-			// 
-			this.btnGraph_O1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnGraph_O1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnGraph_O1.Location = new System.Drawing.Point(3, 69);
-			this.btnGraph_O1.Name = "btnGraph_O1";
-			this.btnGraph_O1.Size = new System.Drawing.Size(138, 24);
-			this.btnGraph_O1.TabIndex = 2;
-			this.btnGraph_O1.Text = "Graph [ O 1 ]";
-			this.btnGraph_O1.UseVisualStyleBackColor = true;
-			this.btnGraph_O1.Click += new System.EventHandler(this.btnGraph_O1_Click);
-			// 
-			// btnGraph_O2
-			// 
-			this.btnGraph_O2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnGraph_O2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnGraph_O2.Location = new System.Drawing.Point(3, 99);
-			this.btnGraph_O2.Name = "btnGraph_O2";
-			this.btnGraph_O2.Size = new System.Drawing.Size(138, 24);
-			this.btnGraph_O2.TabIndex = 4;
-			this.btnGraph_O2.Text = "Graph [ O 2 ]";
-			this.btnGraph_O2.UseVisualStyleBackColor = true;
-			this.btnGraph_O2.Click += new System.EventHandler(this.btnGraph_O2_Click);
+			this.btnCompileGraph.Click += new System.EventHandler(this.btnGraph_Compile_Click);
 			// 
 			// btnRunCurrGraph
 			// 
@@ -1001,17 +941,24 @@
 			this.btnRunCurrGraph.UseVisualStyleBackColor = true;
 			this.btnRunCurrGraph.Click += new System.EventHandler(this.btnRunCurrGraph_Click);
 			// 
-			// btnGraph_O3
+			// cbxCompileLevel
 			// 
-			this.btnGraph_O3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnGraph_O3.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnGraph_O3.Location = new System.Drawing.Point(3, 129);
-			this.btnGraph_O3.Name = "btnGraph_O3";
-			this.btnGraph_O3.Size = new System.Drawing.Size(138, 24);
-			this.btnGraph_O3.TabIndex = 6;
-			this.btnGraph_O3.Text = "Graph [ O 3 ]";
-			this.btnGraph_O3.UseVisualStyleBackColor = true;
-			this.btnGraph_O3.Click += new System.EventHandler(this.btnGraph_O3_Click);
+			this.cbxCompileLevel.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.cbxCompileLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbxCompileLevel.FormattingEnabled = true;
+			this.cbxCompileLevel.Items.AddRange(new object[] {
+            "O:0 Raw",
+            "O:1 Minimize",
+            "O:2 Substitute",
+            "O:3 Flatten",
+            "O:4 Variablize",
+            "O:5 Combine",
+            "O:6 Reduce"});
+			this.cbxCompileLevel.Location = new System.Drawing.Point(3, 33);
+			this.cbxCompileLevel.Name = "cbxCompileLevel";
+			this.cbxCompileLevel.Size = new System.Drawing.Size(138, 21);
+			this.cbxCompileLevel.TabIndex = 10;
+			this.cbxCompileLevel.SelectedIndexChanged += new System.EventHandler(this.cbxCompileLevel_SelectedIndexChanged);
 			// 
 			// tabCompileControl
 			// 
@@ -1419,23 +1366,19 @@
 		private GraphUserControl graphUserControl1;
 		private System.Windows.Forms.TabPage tabPage16;
 		private System.Windows.Forms.TextBox memoCompileInput;
-		private System.Windows.Forms.Button btnGraph_O1;
-		private System.Windows.Forms.Button btnGraph_O2;
 		private System.Windows.Forms.Button btnRunCurrGraph;
-		private System.Windows.Forms.Button btnGraph_O3;
-		private System.Windows.Forms.Button btnGraph_O4;
 		private System.Windows.Forms.TabPage tabPage17;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
 		private System.Windows.Forms.CheckBox cbIgnoreSelfModification;
 		private System.Windows.Forms.CheckBox cbSafeGridAccess;
 		private System.Windows.Forms.CheckBox cbSafeStackAccess;
-		private System.Windows.Forms.Button btnGraph_O5;
 		private System.Windows.Forms.CheckBox cbOutFormat;
 		private System.Windows.Forms.ComboBox cbxCompileLanguage;
 		private System.Windows.Forms.Button btnCompileGraphCompile;
 		private System.Windows.Forms.CheckBox cbUseGZip;
 		private System.Windows.Forms.CheckBox chkbxReverseAutoDirection;
 		private System.Windows.Forms.Label lblReverseValidity;
+		private System.Windows.Forms.ComboBox cbxCompileLevel;
 	}
 }
 
