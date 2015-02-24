@@ -702,5 +702,14 @@ end
 			}
 		}
 
+		private void btnCompileTest_Click(object sender, EventArgs e)
+		{
+			BefunCompileTester bct = new BefunCompileTester();
+
+			tabCompileControl.SelectedIndex = 4;
+
+			bct.Test(ref memoCompileLog);
+		}
+
 	}
 } //Form

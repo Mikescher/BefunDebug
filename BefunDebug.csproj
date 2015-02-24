@@ -112,6 +112,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BefunCompileTester.cs" />
     <Compile Include="DemoParser.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -160,6 +161,48 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\testdata_001.b93" />
+    <None Include="Resources\testdata_002.b93" />
+    <None Include="Resources\testdata_003.b93" />
+    <None Include="Resources\testdata_005.b93" />
+    <None Include="Resources\testdata_006.b93" />
+    <None Include="Resources\testdata_007.b93" />
+    <None Include="Resources\testdata_008.b93" />
+    <None Include="Resources\testdata_010.b93" />
+    <None Include="Resources\testdata_011.b93" />
+    <None Include="Resources\testdata_012.b93" />
+    <None Include="Resources\testdata_013.b93" />
+    <None Include="Resources\testdata_015.b93" />
+    <None Include="Resources\testdata_016.b93" />
+    <None Include="Resources\testdata_017.b93" />
+    <None Include="Resources\testdata_018.b93" />
+    <None Include="Resources\testdata_019.b93" />
+    <None Include="Resources\testdata_020.b93" />
+    <None Include="Resources\testdata_024.b93" />
+    <None Include="Resources\testdata_026.b93" />
+    <None Include="Resources\testdata_027.b93" />
+    <None Include="Resources\testdata_028.b93" />
+    <None Include="Resources\testdata_030.b93" />
+    <None Include="Resources\testdata_031.b93" />
+    <None Include="Resources\testdata_032.b93" />
+    <None Include="Resources\testdata_033.b93" />
+    <None Include="Resources\testdata_035.b93" />
+    <None Include="Resources\testdata_036.b93" />
+    <None Include="Resources\testdata_037.b93" />
+    <None Include="Resources\testdata_038.b93" />
+    <None Include="Resources\testdata_039.b93" />
+    <None Include="Resources\testdata_040.b93" />
+    <None Include="Resources\testdata_041.b93" />
+    <None Include="Resources\testdata_042.b93" />
+    <None Include="Resources\testdata_043.b93" />
+    <None Include="Resources\testdata_045.b93" />
+    <None Include="Resources\testdata_046.b93" />
+    <None Include="Resources\testdata_048.b93" />
+    <None Include="Resources\testdata_049.b93" />
+    <None Include="Resources\testdata_050.b93" />
+    <None Include="Resources\testdata_052.b93" />
+    <None Include="Resources\testdata_053.b93" />
+    <None Include="Resources\testdata_054.b93" />
     <None Include="Resources\TextFunge.syn" />
     <None Include="TextFunge.syn">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

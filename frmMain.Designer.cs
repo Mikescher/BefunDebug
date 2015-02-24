@@ -112,6 +112,7 @@
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.btnLoadSYN = new System.Windows.Forms.Button();
 			this.txtSynFile = new System.Windows.Forms.TextBox();
+			this.btnCompileTest = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -882,14 +883,16 @@
 			this.tableLayoutPanel11.Controls.Add(this.btnCompileGraph, 0, 2);
 			this.tableLayoutPanel11.Controls.Add(this.btnRunCurrGraph, 0, 4);
 			this.tableLayoutPanel11.Controls.Add(this.cbxCompileLevel, 0, 1);
+			this.tableLayoutPanel11.Controls.Add(this.btnCompileTest, 0, 6);
 			this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-			this.tableLayoutPanel11.RowCount = 6;
+			this.tableLayoutPanel11.RowCount = 7;
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.Size = new System.Drawing.Size(144, 276);
@@ -898,7 +901,7 @@
 			// btnCompileGraphCompile
 			// 
 			this.btnCompileGraphCompile.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnCompileGraphCompile.Location = new System.Drawing.Point(3, 249);
+			this.btnCompileGraphCompile.Location = new System.Drawing.Point(3, 219);
 			this.btnCompileGraphCompile.Name = "btnCompileGraphCompile";
 			this.btnCompileGraphCompile.Size = new System.Drawing.Size(138, 24);
 			this.btnCompileGraphCompile.TabIndex = 9;
@@ -933,7 +936,7 @@
 			// btnRunCurrGraph
 			// 
 			this.btnRunCurrGraph.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnRunCurrGraph.Location = new System.Drawing.Point(3, 219);
+			this.btnRunCurrGraph.Location = new System.Drawing.Point(3, 189);
 			this.btnRunCurrGraph.Name = "btnRunCurrGraph";
 			this.btnRunCurrGraph.Size = new System.Drawing.Size(138, 24);
 			this.btnRunCurrGraph.TabIndex = 5;
@@ -1222,6 +1225,17 @@
 			this.txtSynFile.Size = new System.Drawing.Size(582, 20);
 			this.txtSynFile.TabIndex = 11;
 			// 
+			// btnCompileTest
+			// 
+			this.btnCompileTest.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnCompileTest.Location = new System.Drawing.Point(3, 249);
+			this.btnCompileTest.Name = "btnCompileTest";
+			this.btnCompileTest.Size = new System.Drawing.Size(138, 24);
+			this.btnCompileTest.TabIndex = 11;
+			this.btnCompileTest.Text = "Run Tests";
+			this.btnCompileTest.UseVisualStyleBackColor = true;
+			this.btnCompileTest.Click += new System.EventHandler(this.btnCompileTest_Click);
+			// 
 			// frmMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1379,6 +1393,7 @@
 		private System.Windows.Forms.CheckBox chkbxReverseAutoDirection;
 		private System.Windows.Forms.Label lblReverseValidity;
 		private System.Windows.Forms.ComboBox cbxCompileLevel;
+		private System.Windows.Forms.Button btnCompileTest;
 	}
 }
 
