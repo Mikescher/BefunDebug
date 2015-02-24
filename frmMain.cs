@@ -35,6 +35,12 @@ namespace BefunGen
 			{
 				cbxCompileLanguage.Items.Add(lang);
 			}
+
+			for (int i = 0; i < BefunCompileTester.TestData.GetLength(0); i++)
+			{
+				cbxCompileData.Items.Add(BefunCompileTester.TestData[i, 0]);
+			}
+
 			cbxCompileLanguage.SelectedIndex = 0;
 			cbxCompileLevel.SelectedIndex = 0;
 		}
@@ -709,6 +715,12 @@ end
 			tabCompileControl.SelectedIndex = 4;
 
 			bct.Test(ref memoCompileLog);
+		}
+
+		private void cbxCompileData_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			memoCompileInput.Text = BefunCompileTester.TestData[cbxCompileData.SelectedIndex, 1];
+			tabCompileControl.SelectedIndex = 0;
 		}
 
 	}

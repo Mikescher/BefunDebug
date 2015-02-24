@@ -90,6 +90,7 @@
 			this.btnCompileGraph = new System.Windows.Forms.Button();
 			this.btnRunCurrGraph = new System.Windows.Forms.Button();
 			this.cbxCompileLevel = new System.Windows.Forms.ComboBox();
+			this.btnCompileTest = new System.Windows.Forms.Button();
 			this.tabCompileControl = new System.Windows.Forms.TabControl();
 			this.tabPage16 = new System.Windows.Forms.TabPage();
 			this.memoCompileInput = new System.Windows.Forms.TextBox();
@@ -112,7 +113,7 @@
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.btnLoadSYN = new System.Windows.Forms.Button();
 			this.txtSynFile = new System.Windows.Forms.TextBox();
-			this.btnCompileTest = new System.Windows.Forms.Button();
+			this.cbxCompileData = new System.Windows.Forms.ComboBox();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -878,20 +879,22 @@
 			// 
 			this.tableLayoutPanel11.ColumnCount = 1;
 			this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel11.Controls.Add(this.btnCompileGraphCompile, 0, 5);
+			this.tableLayoutPanel11.Controls.Add(this.btnCompileGraphCompile, 0, 6);
 			this.tableLayoutPanel11.Controls.Add(this.btnCompile, 0, 0);
 			this.tableLayoutPanel11.Controls.Add(this.btnCompileGraph, 0, 2);
-			this.tableLayoutPanel11.Controls.Add(this.btnRunCurrGraph, 0, 4);
+			this.tableLayoutPanel11.Controls.Add(this.btnRunCurrGraph, 0, 5);
 			this.tableLayoutPanel11.Controls.Add(this.cbxCompileLevel, 0, 1);
-			this.tableLayoutPanel11.Controls.Add(this.btnCompileTest, 0, 6);
+			this.tableLayoutPanel11.Controls.Add(this.btnCompileTest, 0, 7);
+			this.tableLayoutPanel11.Controls.Add(this.cbxCompileData, 0, 4);
 			this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-			this.tableLayoutPanel11.RowCount = 7;
+			this.tableLayoutPanel11.RowCount = 8;
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
@@ -962,6 +965,17 @@
 			this.cbxCompileLevel.Size = new System.Drawing.Size(138, 21);
 			this.cbxCompileLevel.TabIndex = 10;
 			this.cbxCompileLevel.SelectedIndexChanged += new System.EventHandler(this.cbxCompileLevel_SelectedIndexChanged);
+			// 
+			// btnCompileTest
+			// 
+			this.btnCompileTest.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnCompileTest.Location = new System.Drawing.Point(3, 249);
+			this.btnCompileTest.Name = "btnCompileTest";
+			this.btnCompileTest.Size = new System.Drawing.Size(138, 24);
+			this.btnCompileTest.TabIndex = 11;
+			this.btnCompileTest.Text = "Run Tests";
+			this.btnCompileTest.UseVisualStyleBackColor = true;
+			this.btnCompileTest.Click += new System.EventHandler(this.btnCompileTest_Click);
 			// 
 			// tabCompileControl
 			// 
@@ -1225,16 +1239,16 @@
 			this.txtSynFile.Size = new System.Drawing.Size(582, 20);
 			this.txtSynFile.TabIndex = 11;
 			// 
-			// btnCompileTest
+			// cbxCompileData
 			// 
-			this.btnCompileTest.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnCompileTest.Location = new System.Drawing.Point(3, 249);
-			this.btnCompileTest.Name = "btnCompileTest";
-			this.btnCompileTest.Size = new System.Drawing.Size(138, 24);
-			this.btnCompileTest.TabIndex = 11;
-			this.btnCompileTest.Text = "Run Tests";
-			this.btnCompileTest.UseVisualStyleBackColor = true;
-			this.btnCompileTest.Click += new System.EventHandler(this.btnCompileTest_Click);
+			this.cbxCompileData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.cbxCompileData.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbxCompileData.FormattingEnabled = true;
+			this.cbxCompileData.Location = new System.Drawing.Point(3, 159);
+			this.cbxCompileData.Name = "cbxCompileData";
+			this.cbxCompileData.Size = new System.Drawing.Size(138, 21);
+			this.cbxCompileData.TabIndex = 12;
+			this.cbxCompileData.SelectedIndexChanged += new System.EventHandler(this.cbxCompileData_SelectedIndexChanged);
 			// 
 			// frmMain
 			// 
@@ -1394,6 +1408,7 @@
 		private System.Windows.Forms.Label lblReverseValidity;
 		private System.Windows.Forms.ComboBox cbxCompileLevel;
 		private System.Windows.Forms.Button btnCompileTest;
+		private System.Windows.Forms.ComboBox cbxCompileData;
 	}
 }
 
