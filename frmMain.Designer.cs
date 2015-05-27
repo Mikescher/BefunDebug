@@ -91,6 +91,7 @@
 			this.btnRunCurrGraph = new System.Windows.Forms.Button();
 			this.cbxCompileLevel = new System.Windows.Forms.ComboBox();
 			this.btnCompileTest = new System.Windows.Forms.Button();
+			this.cbxCompileData = new System.Windows.Forms.ComboBox();
 			this.tabCompileControl = new System.Windows.Forms.TabControl();
 			this.tabPage16 = new System.Windows.Forms.TabPage();
 			this.memoCompileInput = new System.Windows.Forms.TextBox();
@@ -113,7 +114,6 @@
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.btnLoadSYN = new System.Windows.Forms.Button();
 			this.txtSynFile = new System.Windows.Forms.TextBox();
-			this.cbxCompileData = new System.Windows.Forms.ComboBox();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -952,14 +952,6 @@
 			this.cbxCompileLevel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.cbxCompileLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbxCompileLevel.FormattingEnabled = true;
-			this.cbxCompileLevel.Items.AddRange(new object[] {
-            "O:0 Raw",
-            "O:1 Minimize",
-            "O:2 Substitute",
-            "O:3 Flatten",
-            "O:4 Variablize",
-            "O:5 Combine",
-            "O:6 Reduce"});
 			this.cbxCompileLevel.Location = new System.Drawing.Point(3, 33);
 			this.cbxCompileLevel.Name = "cbxCompileLevel";
 			this.cbxCompileLevel.Size = new System.Drawing.Size(138, 21);
@@ -976,6 +968,17 @@
 			this.btnCompileTest.Text = "Run Tests";
 			this.btnCompileTest.UseVisualStyleBackColor = true;
 			this.btnCompileTest.Click += new System.EventHandler(this.btnCompileTest_Click);
+			// 
+			// cbxCompileData
+			// 
+			this.cbxCompileData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.cbxCompileData.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbxCompileData.FormattingEnabled = true;
+			this.cbxCompileData.Location = new System.Drawing.Point(3, 159);
+			this.cbxCompileData.Name = "cbxCompileData";
+			this.cbxCompileData.Size = new System.Drawing.Size(138, 21);
+			this.cbxCompileData.TabIndex = 12;
+			this.cbxCompileData.SelectedIndexChanged += new System.EventHandler(this.cbxCompileData_SelectedIndexChanged);
 			// 
 			// tabCompileControl
 			// 
@@ -1238,17 +1241,6 @@
 			this.txtSynFile.Name = "txtSynFile";
 			this.txtSynFile.Size = new System.Drawing.Size(582, 20);
 			this.txtSynFile.TabIndex = 11;
-			// 
-			// cbxCompileData
-			// 
-			this.cbxCompileData.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.cbxCompileData.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbxCompileData.FormattingEnabled = true;
-			this.cbxCompileData.Location = new System.Drawing.Point(3, 159);
-			this.cbxCompileData.Name = "cbxCompileData";
-			this.cbxCompileData.Size = new System.Drawing.Size(138, 21);
-			this.cbxCompileData.TabIndex = 12;
-			this.cbxCompileData.SelectedIndexChanged += new System.EventHandler(this.cbxCompileData_SelectedIndexChanged);
 			// 
 			// frmMain
 			// 

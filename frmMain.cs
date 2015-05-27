@@ -41,6 +41,11 @@ namespace BefunGen
 				cbxCompileData.Items.Add(BefunCompileTester.TestData[i, 0]);
 			}
 
+			foreach (var item in (new BefunCompiler("", false, false, false, false, false)).GENERATION_LEVELS)
+			{
+				cbxCompileLevel.Items.Add(item.ToString());
+			}
+
 			cbxCompileLanguage.SelectedIndex = 0;
 			cbxCompileLevel.SelectedIndex = 0;
 		}
@@ -555,7 +560,11 @@ end
 
 		private void cbxCompileLevel_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			if (cbxCompileLevel.SelectedIndex == 0)
+			if (cbxCompileLevel.SelectedIndex < 0)
+			{
+				btnCompileGraph.Text = "Graph [ --- ]";
+			}
+			else if (cbxCompileLevel.SelectedIndex == 0)
 			{
 				btnCompileGraph.Text = "Graph [     ]";
 			}
@@ -576,41 +585,17 @@ end
 					cbSafeGridAccess.Checked,
 					cbUseGZip.Checked);
 
-				switch (cbxCompileLevel.SelectedIndex)
-				{
-					case 0:
-						cbcGraph = comp.GenerateUntouchedGraph();
-						break;
-					case 1:
-						cbcGraph = comp.GenerateMinimizedGraph();
-						break;
-					case 2:
-						cbcGraph = comp.GenerateSubstitutedGraph();
-						break;
-					case 3:
-						cbcGraph = comp.GenerateFlattenedGraph();
-						break;
-					case 4:
-						cbcGraph = comp.GenerateVariablizedGraph();
-						break;
-					case 5:
-						cbcGraph = comp.GenerateBlockCombinedGraph();
-						break;
-					case 6:
-						cbcGraph = comp.GenerateBlockReducedGraph();
-						break;
-				}
+				cbcGraph = comp.GENERATION_LEVELS[cbxCompileLevel.SelectedIndex].Run();
 
 				memoCompileLog.Text += Environment.NewLine;
 				memoCompileLog.Text += "Generate Graph O:" + cbxCompileLevel.SelectedIndex + Environment.NewLine;
 				memoCompileLog.Text += "Vertices: " + cbcGraph.Vertices.Count + Environment.NewLine;
 
-				memoCompileLog.Text += "[1] Minimize Cycles: " + comp.log_Cycles_Minimize + Environment.NewLine;
-				memoCompileLog.Text += "[2] Substitute Cycles: " + comp.log_Cycles_Substitute + Environment.NewLine;
-				memoCompileLog.Text += "[3] Flatten Cycles: " + comp.log_Cycles_Flatten + Environment.NewLine;
-				memoCompileLog.Text += "[4] Variablize Cycles: " + comp.log_Cycles_Variablize + Environment.NewLine;
-				memoCompileLog.Text += "[5] CombineBlocks Cycles: " + comp.log_Cycles_CombineBlocks + Environment.NewLine;
-				memoCompileLog.Text += "[6] ReduceBlocks Cycles: " + comp.log_Cycles_ReduceBlocks + Environment.NewLine;
+				foreach (var item in comp.GENERATION_LEVELS)
+				{
+					int cycles = comp.log_Cycles[item.Level];
+					memoCompileLog.Text += "[" + item.Level + "] " + item.Name + " Cycles: " + cycles + Environment.NewLine;
+				}
 
 				var ctrl = (elementHost1.Child as GraphUserControl);
 				var model = ctrl.graphLayout.DataContext as MainGraphViewModel;
