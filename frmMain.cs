@@ -29,7 +29,10 @@ namespace BefunGen
 		public frmMain()
 		{
 			InitializeComponent();
-			tabControl1.SelectedIndex = 6;
+
+			tabBefunGenControl.SelectedIndex = 0;
+			tabCompileControl.SelectedIndex = 0;
+			tabMainControl.SelectedIndex = 0;
 
 			foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
 			{
@@ -46,8 +49,14 @@ namespace BefunGen
 				cbxCompileLevel.Items.Add(item.ToString());
 			}
 
+			foreach (var piece in CodePieceStore.CODEPIECES)
+			{
+				cbxCodePieceStore.Items.Add(piece.Name);
+			}
+
+			cbxCodePieceStore.SelectedIndex = 0;
 			cbxCompileLanguage.SelectedIndex = 0;
-			cbxCompileLevel.SelectedIndex = 0;
+			cbxCompileLevel.SelectedIndex = cbxCompileLevel.Items.Count - 1;
 		}
 
 		private void btnLoad_Click(object sender, EventArgs e)
@@ -437,7 +446,7 @@ end
 				txtCode.Text = txtDebug.Text;
 				txtCode.Select(0, 0);
 
-				tabControl1.SelectedIndex = 5;
+				tabBefunGenControl.SelectedIndex = 5;
 			}
 		}
 
@@ -495,7 +504,7 @@ end
 		private void btnReverse_Click(object sender, EventArgs e)
 		{
 			if (chkbxReverseAutoDirection.Checked)
-				edReverse.Text = edReverse.Text
+				edReverseOut.Text = edReverseIn.Text
 					.Replace("<", "##REPL_LEFT_##")
 					.Replace(">", "<")
 					.Replace("##REPL_LEFT_##", ">")
@@ -503,7 +512,7 @@ end
 					.Select(p => string.Join("", p.ToCharArray().Reverse()))
 					.Aggregate((a, b) => a + Environment.NewLine + b);
 			else
-				edReverse.Text = edReverse.Text
+				edReverseOut.Text = edReverseIn.Text
 					.Split(new[] { Environment.NewLine }, StringSplitOptions.None)
 					.Select(p => string.Join("", p.ToCharArray().Reverse()))
 					.Aggregate((a, b) => a + Environment.NewLine + b);
@@ -511,25 +520,29 @@ end
 
 		private void edReverse_TextChanged(object sender, EventArgs e)
 		{
-			if (edReverse.Text.Contains('_'))
+			if (edReverseIn.Text.Contains('_'))
 			{
 				lblReverseValidity.ForeColor = Color.Red;
 				lblReverseValidity.Text = "UNKNOWN";
+
+				edReverseOut.Text = string.Empty;
 			}
 			else
 			{
 				lblReverseValidity.ForeColor = Color.DarkGreen;
 				lblReverseValidity.Text = "OK";
+
+				btnReverse_Click(null, null);
 			}
 		}
 
 		private void btnSquash_Click(object sender, EventArgs e)
 		{
-			SquashHelper sh = new SquashHelper(edSquashInput.Text);
+			SquashHelper sh = new SquashHelper(edSquashInputIn.Text);
 
 			sh.Squash();
 
-			edSquashInput.Text = sh.ToString();
+			edSquashInputOut.Text = sh.ToString();
 
 		}
 
@@ -556,21 +569,57 @@ end
 			}
 		}
 
+
+		private void btnCompileExecute_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				var comp = new BefunCompiler(memoCompileInput.Text,
+					cbOutFormat.Checked,
+					cbIgnoreSelfModification.Checked,
+					cbSafeStackAccess.Checked,
+					cbSafeGridAccess.Checked,
+					cbUseGZip.Checked);
+
+				var cbcGraph = comp.GENERATION_LEVELS[cbxCompileLevel.SelectedIndex].Run();
+				var cbcCodeGCC = cbcGraph.GenerateCodeC(cbOutFormat.Checked, cbSafeStackAccess.Checked, cbSafeGridAccess.Checked, cbUseGZip.Checked);
+				var cbcCodeCSC = cbcGraph.GenerateCodeCSharp(cbOutFormat.Checked, cbSafeStackAccess.Checked, cbSafeGridAccess.Checked, cbUseGZip.Checked);
+
+				var tester = new BefunCompileTester();
+
+				var output_GCC = tester.ExecuteGCC(cbcCodeGCC);
+				var output_CSC = tester.ExecuteCSC(cbcCodeCSC);
+
+				memoCompileLog.Text += Environment.NewLine + "[Execute GCC]" + output_GCC + Environment.NewLine + "[Execute CSC]" + output_CSC;
+				tabCompileControl.SelectedIndex = 4;
+			}
+			catch (Exception exc)
+			{
+
+				memoCompileLog.Text += Environment.NewLine;
+				memoCompileLog.Text += "ERROR: " + exc.ToString() + Environment.NewLine;
+				tabCompileControl.SelectedIndex = 4;
+			}
+		}
+
 		private BCGraph cbcGraph;
 
 		private void cbxCompileLevel_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (cbxCompileLevel.SelectedIndex < 0)
 			{
-				btnCompileGraph.Text = "Graph [ --- ]";
+				btnCompileGraph.Text = "Graph     [ --- ]";
+				btnCompileExecute.Text = "Execute   [ --- ]";
 			}
 			else if (cbxCompileLevel.SelectedIndex == 0)
 			{
-				btnCompileGraph.Text = "Graph [     ]";
+				btnCompileGraph.Text = "Graph     [     ]";
+				btnCompileExecute.Text = "Execute   [     ]";
 			}
 			else
 			{
-				btnCompileGraph.Text = "Graph [ O:" + cbxCompileLevel.SelectedIndex.ToString("X") + " ]";
+				btnCompileGraph.Text = "Graph     [ O:" + cbxCompileLevel.SelectedIndex.ToString("X") + " ]";
+				btnCompileExecute.Text = "Execute   [ O:" + cbxCompileLevel.SelectedIndex.ToString("X") + " ]";
 			}
 		}
 
@@ -708,5 +757,12 @@ end
 			tabCompileControl.SelectedIndex = 0;
 		}
 
+		private void btnCodePieceStorePreview_Click(object sender, EventArgs e)
+		{
+			var code = CodePieceStore.CODEPIECES[cbxCodePieceStore.SelectedIndex].Function();
+
+			txtCode.Text = code.ToSimpleString();
+		}
+
 	}
-} //Form
+}

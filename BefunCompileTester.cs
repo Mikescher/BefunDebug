@@ -74,7 +74,7 @@ namespace BefunGen
 			logbox.Refresh();
 		}
 
-		private string TestAll(string name, string code, string result)
+		public string TestAll(string name, string code, string result)
 		{
 			var resultlog = string.Empty;
 			var tmstart = DateTime.Now;
@@ -233,6 +233,124 @@ namespace BefunGen
 			File.Delete(fn2);
 
 			return string.Empty;
+		}
+
+		public string ExecuteGCC(string code)
+		{
+			var fn1 = Path.GetTempPath() + Guid.NewGuid() + ".b93.c";
+			var fn2 = Path.GetTempPath() + Guid.NewGuid() + ".exe";
+			File.WriteAllText(fn1, code);
+
+			Process p_gcc = new Process
+			{
+				StartInfo =
+				{
+					FileName = "gcc.exe",
+					Arguments = string.Format(" -x c \"{0}\" -o \"{1}\"", fn1, fn2),
+					UseShellExecute = false,
+					RedirectStandardError = true,
+					CreateNoWindow = true,
+					ErrorDialog = false
+				}
+			};
+
+			p_gcc.Start();
+			string gccerror = p_gcc.StandardError.ReadToEnd();
+			p_gcc.WaitForExit();
+
+			if (p_gcc.ExitCode != 0)
+			{
+				File.Delete(fn1);
+				File.Delete(fn2);
+
+				return string.Format("FAILURE (GCC ExitCode  = {0}): {1}\r\n", p_gcc.ExitCode, gccerror);
+			}
+
+			Process p_prog = new Process
+			{
+				StartInfo =
+				{
+					FileName = fn2,
+					Arguments = string.Empty,
+					UseShellExecute = false,
+					RedirectStandardOutput = true,
+					CreateNoWindow = true,
+					ErrorDialog = false
+				}
+			};
+
+			p_prog.Start();
+			string output = p_prog.StandardOutput.ReadToEnd();
+			p_prog.WaitForExit();
+
+			File.Delete(fn1);
+			File.Delete(fn2);
+
+			if (p_prog.ExitCode != 0)
+			{
+				return string.Format("FAILURE (PROG ExitCode  = {0}): {1}\r\n", p_prog.ExitCode, output);
+			}
+
+			return output;
+		}
+
+		public string ExecuteCSC(string code)
+		{
+			var fn1 = Path.GetTempPath() + Guid.NewGuid() + ".b93.cs";
+			var fn2 = Path.GetTempPath() + Guid.NewGuid() + ".exe";
+			File.WriteAllText(fn1, code);
+
+			Process p_csc = new Process
+			{
+				StartInfo =
+				{
+					FileName = "csc.exe",
+					Arguments = string.Format("/out:\"{1}\" /optimize /nologo \"{0}\"", fn1, fn2),
+					UseShellExecute = false,
+					RedirectStandardOutput = true,
+					CreateNoWindow = true,
+					ErrorDialog = false
+				}
+			};
+
+			p_csc.Start();
+			string cscerror = p_csc.StandardOutput.ReadToEnd();
+			p_csc.WaitForExit();
+
+			if (p_csc.ExitCode != 0)
+			{
+				File.Delete(fn1);
+				File.Delete(fn2);
+
+				return string.Format("FAILURE (CSC ExitCode  = {0}): {1}\r\n", p_csc.ExitCode, cscerror);
+			}
+
+			Process p_prog = new Process
+			{
+				StartInfo =
+				{
+					FileName = fn2,
+					Arguments = string.Empty,
+					UseShellExecute = false,
+					RedirectStandardOutput = true,
+					CreateNoWindow = true,
+					ErrorDialog = false
+				}
+			};
+
+			p_prog.Start();
+			string output = p_prog.StandardOutput.ReadToEnd();
+			p_prog.WaitForExit();
+
+			File.Delete(fn1);
+			File.Delete(fn2);
+
+			if (p_prog.ExitCode != 0)
+			{
+				return string.Format("FAILURE (PROG ExitCode  = {0}): {1}\r\n", p_prog.ExitCode, output);
+			}
+
+			return output;
 		}
 	}
 }
