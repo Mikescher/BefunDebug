@@ -203,6 +203,11 @@
     <None Include="Resources\testdata_052.b93" />
     <None Include="Resources\testdata_053.b93" />
     <None Include="Resources\testdata_054.b93" />
+    <None Include="Resources\testdata_055.b93" />
+    <None Include="Resources\testdata_056.b93" />
+    <None Include="Resources\testdata_057.b93" />
+    <None Include="Resources\testdata_058.b93" />
+    <None Include="Resources\testdata_059.b93" />
     <None Include="Resources\TextFunge.syn" />
     <None Include="TextFunge.syn">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

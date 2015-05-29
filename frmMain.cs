@@ -610,16 +610,19 @@ end
 			{
 				btnCompileGraph.Text = "Graph     [ --- ]";
 				btnCompileExecute.Text = "Execute   [ --- ]";
+				btnCompileCompile.Text = "Compile   [ --- ]";
 			}
 			else if (cbxCompileLevel.SelectedIndex == 0)
 			{
 				btnCompileGraph.Text = "Graph     [     ]";
 				btnCompileExecute.Text = "Execute   [     ]";
+				btnCompileCompile.Text = "Compile   [     ]";
 			}
 			else
 			{
 				btnCompileGraph.Text = "Graph     [ O:" + cbxCompileLevel.SelectedIndex.ToString("X") + " ]";
 				btnCompileExecute.Text = "Execute   [ O:" + cbxCompileLevel.SelectedIndex.ToString("X") + " ]";
+				btnCompileCompile.Text = "Compile   [ O:" + cbxCompileLevel.SelectedIndex.ToString("X") + " ]";
 			}
 		}
 
@@ -762,6 +765,45 @@ end
 			var code = CodePieceStore.CODEPIECES[cbxCodePieceStore.SelectedIndex].Function();
 
 			txtCode.Text = code.ToSimpleString();
+		}
+
+		private void btnCompileCompile_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				var comp = new BefunCompiler(memoCompileInput.Text,
+					cbOutFormat.Checked,
+					cbIgnoreSelfModification.Checked,
+					cbSafeStackAccess.Checked,
+					cbSafeGridAccess.Checked,
+					cbUseGZip.Checked);
+
+				var craph = comp.GENERATION_LEVELS[cbxCompileLevel.SelectedIndex].Run();
+				string code = string.Empty;
+
+				switch ((OutputLanguage)cbxCompileLanguage.SelectedItem)
+				{
+					case OutputLanguage.CSharp:
+						code = craph.GenerateCodeCSharp(cbOutFormat.Checked, cbSafeStackAccess.Checked, cbSafeGridAccess.Checked, cbUseGZip.Checked);
+						break;
+					case OutputLanguage.C:
+						code = craph.GenerateCodeC(cbOutFormat.Checked, cbSafeStackAccess.Checked, cbSafeGridAccess.Checked, cbUseGZip.Checked);
+						break;
+					case OutputLanguage.Python:
+						code = craph.GenerateCodePython(cbOutFormat.Checked, cbSafeStackAccess.Checked, cbSafeGridAccess.Checked, cbUseGZip.Checked);
+						break;
+				}
+
+				memoCompileOut.Text = code;
+				tabCompileControl.SelectedIndex = 3;
+			}
+			catch (Exception exc)
+			{
+
+				memoCompileLog.Text += Environment.NewLine;
+				memoCompileLog.Text += "ERROR: " + exc.ToString() + Environment.NewLine;
+				tabCompileControl.SelectedIndex = 4;
+			}
 		}
 
 	}

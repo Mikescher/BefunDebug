@@ -54,6 +54,11 @@ namespace BefunGen
 			{ "data_052", Resources.testdata_052, "142857" },
 			{ "data_053", Resources.testdata_053, "4075" },
 			{ "data_054", Resources.testdata_054, "376" },
+			{ "data_055", Resources.testdata_055, "249" },
+			{ "data_056", Resources.testdata_056, "972" },
+			{ "data_057", Resources.testdata_057, "153" },
+			{ "data_058", Resources.testdata_058, "26241" },
+			{ "data_059", Resources.testdata_059, "107359" },
 		};
 
 		public void Test(ref TextBox logbox)

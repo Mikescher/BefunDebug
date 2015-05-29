@@ -51,6 +51,8 @@
 			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
 			this.btnGen = new System.Windows.Forms.Button();
 			this.btnRun = new System.Windows.Forms.Button();
+			this.cbxCodePieceStore = new System.Windows.Forms.ComboBox();
+			this.btnCodePieceStorePreview = new System.Windows.Forms.Button();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.txtDebug = new System.Windows.Forms.TextBox();
 			this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -70,6 +72,8 @@
 			this.tabPage10 = new System.Windows.Forms.TabPage();
 			this.edHighlighted = new System.Windows.Forms.TextBox();
 			this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+			this.edSquashInputIn = new System.Windows.Forms.TextBox();
+			this.edReverseIn = new System.Windows.Forms.TextBox();
 			this.edReverseOut = new System.Windows.Forms.TextBox();
 			this.btnReverse = new System.Windows.Forms.Button();
 			this.edSquashInputOut = new System.Windows.Forms.TextBox();
@@ -86,6 +90,7 @@
 			this.btnCompileTest = new System.Windows.Forms.Button();
 			this.cbxCompileData = new System.Windows.Forms.ComboBox();
 			this.btnCompileExecute = new System.Windows.Forms.Button();
+			this.btnCompileCompile = new System.Windows.Forms.Button();
 			this.tabCompileControl = new System.Windows.Forms.TabControl();
 			this.tabPage16 = new System.Windows.Forms.TabPage();
 			this.memoCompileInput = new System.Windows.Forms.TextBox();
@@ -98,6 +103,8 @@
 			this.cbOutFormat = new System.Windows.Forms.CheckBox();
 			this.cbxCompileLanguage = new System.Windows.Forms.ComboBox();
 			this.tabPage14 = new System.Windows.Forms.TabPage();
+			this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+			this.graphUserControl1 = new BefunGen.GraphUserControl();
 			this.tabPage13 = new System.Windows.Forms.TabPage();
 			this.memoCompileOut = new System.Windows.Forms.TextBox();
 			this.tabPage15 = new System.Windows.Forms.TabPage();
@@ -112,12 +119,6 @@
 			this.tabPageBefunHighlight = new System.Windows.Forms.TabPage();
 			this.tabPageBefunCompile = new System.Windows.Forms.TabPage();
 			this.tabPageTools = new System.Windows.Forms.TabPage();
-			this.cbxCodePieceStore = new System.Windows.Forms.ComboBox();
-			this.btnCodePieceStorePreview = new System.Windows.Forms.Button();
-			this.edReverseIn = new System.Windows.Forms.TextBox();
-			this.edSquashInputIn = new System.Windows.Forms.TextBox();
-			this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
-			this.graphUserControl1 = new BefunGen.GraphUserControl();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -457,6 +458,27 @@
 			this.btnRun.UseVisualStyleBackColor = true;
 			this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
 			// 
+			// cbxCodePieceStore
+			// 
+			this.cbxCodePieceStore.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.cbxCodePieceStore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbxCodePieceStore.FormattingEnabled = true;
+			this.cbxCodePieceStore.Location = new System.Drawing.Point(3, 87);
+			this.cbxCodePieceStore.Name = "cbxCodePieceStore";
+			this.cbxCodePieceStore.Size = new System.Drawing.Size(224, 21);
+			this.cbxCodePieceStore.TabIndex = 2;
+			// 
+			// btnCodePieceStorePreview
+			// 
+			this.btnCodePieceStorePreview.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnCodePieceStorePreview.Location = new System.Drawing.Point(3, 119);
+			this.btnCodePieceStorePreview.Name = "btnCodePieceStorePreview";
+			this.btnCodePieceStorePreview.Size = new System.Drawing.Size(224, 26);
+			this.btnCodePieceStorePreview.TabIndex = 3;
+			this.btnCodePieceStorePreview.Text = "Preview";
+			this.btnCodePieceStorePreview.UseVisualStyleBackColor = true;
+			this.btnCodePieceStorePreview.Click += new System.EventHandler(this.btnCodePieceStorePreview_Click);
+			// 
 			// tableLayoutPanel1
 			// 
 			this.tableLayoutPanel1.ColumnCount = 2;
@@ -723,6 +745,30 @@
 			this.tableLayoutPanel9.Size = new System.Drawing.Size(870, 662);
 			this.tableLayoutPanel9.TabIndex = 0;
 			// 
+			// edSquashInputIn
+			// 
+			this.edSquashInputIn.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.edSquashInputIn.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.edSquashInputIn.Location = new System.Drawing.Point(3, 115);
+			this.edSquashInputIn.Multiline = true;
+			this.edSquashInputIn.Name = "edSquashInputIn";
+			this.tableLayoutPanel9.SetRowSpan(this.edSquashInputIn, 5);
+			this.edSquashInputIn.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+			this.edSquashInputIn.Size = new System.Drawing.Size(354, 544);
+			this.edSquashInputIn.TabIndex = 7;
+			this.edSquashInputIn.WordWrap = false;
+			// 
+			// edReverseIn
+			// 
+			this.edReverseIn.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.edReverseIn.Location = new System.Drawing.Point(3, 3);
+			this.edReverseIn.Multiline = true;
+			this.edReverseIn.Name = "edReverseIn";
+			this.tableLayoutPanel9.SetRowSpan(this.edReverseIn, 4);
+			this.edReverseIn.Size = new System.Drawing.Size(354, 106);
+			this.edReverseIn.TabIndex = 6;
+			this.edReverseIn.TextChanged += new System.EventHandler(this.edReverse_TextChanged);
+			// 
 			// edReverseOut
 			// 
 			this.edReverseOut.BackColor = System.Drawing.SystemColors.Window;
@@ -814,18 +860,20 @@
 			// 
 			this.tableLayoutPanel11.ColumnCount = 1;
 			this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel11.Controls.Add(this.btnCompileGraphCompile, 0, 7);
+			this.tableLayoutPanel11.Controls.Add(this.btnCompileGraphCompile, 0, 8);
 			this.tableLayoutPanel11.Controls.Add(this.btnCompile, 0, 0);
 			this.tableLayoutPanel11.Controls.Add(this.btnCompileGraph, 0, 2);
-			this.tableLayoutPanel11.Controls.Add(this.btnRunCurrGraph, 0, 6);
+			this.tableLayoutPanel11.Controls.Add(this.btnRunCurrGraph, 0, 7);
 			this.tableLayoutPanel11.Controls.Add(this.cbxCompileLevel, 0, 1);
-			this.tableLayoutPanel11.Controls.Add(this.btnCompileTest, 0, 8);
-			this.tableLayoutPanel11.Controls.Add(this.cbxCompileData, 0, 5);
-			this.tableLayoutPanel11.Controls.Add(this.btnCompileExecute, 0, 3);
+			this.tableLayoutPanel11.Controls.Add(this.btnCompileTest, 0, 9);
+			this.tableLayoutPanel11.Controls.Add(this.cbxCompileData, 0, 6);
+			this.tableLayoutPanel11.Controls.Add(this.btnCompileExecute, 0, 4);
+			this.tableLayoutPanel11.Controls.Add(this.btnCompileCompile, 0, 3);
 			this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-			this.tableLayoutPanel11.RowCount = 9;
+			this.tableLayoutPanel11.RowCount = 10;
+			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
@@ -921,13 +969,25 @@
 			// 
 			this.btnCompileExecute.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnCompileExecute.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold);
-			this.btnCompileExecute.Location = new System.Drawing.Point(3, 93);
+			this.btnCompileExecute.Location = new System.Drawing.Point(3, 123);
 			this.btnCompileExecute.Name = "btnCompileExecute";
 			this.btnCompileExecute.Size = new System.Drawing.Size(138, 24);
 			this.btnCompileExecute.TabIndex = 13;
 			this.btnCompileExecute.Text = "Execute [     ]";
 			this.btnCompileExecute.UseVisualStyleBackColor = true;
 			this.btnCompileExecute.Click += new System.EventHandler(this.btnCompileExecute_Click);
+			// 
+			// btnCompileCompile
+			// 
+			this.btnCompileCompile.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnCompileCompile.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold);
+			this.btnCompileCompile.Location = new System.Drawing.Point(3, 93);
+			this.btnCompileCompile.Name = "btnCompileCompile";
+			this.btnCompileCompile.Size = new System.Drawing.Size(138, 24);
+			this.btnCompileCompile.TabIndex = 14;
+			this.btnCompileCompile.Text = "Compile [     ]";
+			this.btnCompileCompile.UseVisualStyleBackColor = true;
+			this.btnCompileCompile.Click += new System.EventHandler(this.btnCompileCompile_Click);
 			// 
 			// tabCompileControl
 			// 
@@ -1087,6 +1147,16 @@
 			this.tabPage14.TabIndex = 1;
 			this.tabPage14.Text = "Graph";
 			this.tabPage14.UseVisualStyleBackColor = true;
+			// 
+			// elementHost1
+			// 
+			this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.elementHost1.Location = new System.Drawing.Point(3, 3);
+			this.elementHost1.Name = "elementHost1";
+			this.elementHost1.Size = new System.Drawing.Size(700, 624);
+			this.elementHost1.TabIndex = 0;
+			this.elementHost1.Text = "elementHost1";
+			this.elementHost1.Child = this.graphUserControl1;
 			// 
 			// tabPage13
 			// 
@@ -1258,61 +1328,6 @@
 			this.tabPageTools.Text = "Befunge Tools";
 			this.tabPageTools.UseVisualStyleBackColor = true;
 			// 
-			// cbxCodePieceStore
-			// 
-			this.cbxCodePieceStore.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.cbxCodePieceStore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbxCodePieceStore.FormattingEnabled = true;
-			this.cbxCodePieceStore.Location = new System.Drawing.Point(3, 87);
-			this.cbxCodePieceStore.Name = "cbxCodePieceStore";
-			this.cbxCodePieceStore.Size = new System.Drawing.Size(224, 21);
-			this.cbxCodePieceStore.TabIndex = 2;
-			// 
-			// btnCodePieceStorePreview
-			// 
-			this.btnCodePieceStorePreview.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnCodePieceStorePreview.Location = new System.Drawing.Point(3, 119);
-			this.btnCodePieceStorePreview.Name = "btnCodePieceStorePreview";
-			this.btnCodePieceStorePreview.Size = new System.Drawing.Size(224, 26);
-			this.btnCodePieceStorePreview.TabIndex = 3;
-			this.btnCodePieceStorePreview.Text = "Preview";
-			this.btnCodePieceStorePreview.UseVisualStyleBackColor = true;
-			this.btnCodePieceStorePreview.Click += new System.EventHandler(this.btnCodePieceStorePreview_Click);
-			// 
-			// edReverseIn
-			// 
-			this.edReverseIn.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.edReverseIn.Location = new System.Drawing.Point(3, 3);
-			this.edReverseIn.Multiline = true;
-			this.edReverseIn.Name = "edReverseIn";
-			this.tableLayoutPanel9.SetRowSpan(this.edReverseIn, 4);
-			this.edReverseIn.Size = new System.Drawing.Size(354, 106);
-			this.edReverseIn.TabIndex = 6;
-			this.edReverseIn.TextChanged += new System.EventHandler(this.edReverse_TextChanged);
-			// 
-			// edSquashInputIn
-			// 
-			this.edSquashInputIn.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.edSquashInputIn.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.edSquashInputIn.Location = new System.Drawing.Point(3, 115);
-			this.edSquashInputIn.Multiline = true;
-			this.edSquashInputIn.Name = "edSquashInputIn";
-			this.tableLayoutPanel9.SetRowSpan(this.edSquashInputIn, 5);
-			this.edSquashInputIn.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.edSquashInputIn.Size = new System.Drawing.Size(354, 544);
-			this.edSquashInputIn.TabIndex = 7;
-			this.edSquashInputIn.WordWrap = false;
-			// 
-			// elementHost1
-			// 
-			this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.elementHost1.Location = new System.Drawing.Point(3, 3);
-			this.elementHost1.Name = "elementHost1";
-			this.elementHost1.Size = new System.Drawing.Size(700, 624);
-			this.elementHost1.TabIndex = 0;
-			this.elementHost1.Text = "elementHost1";
-			this.elementHost1.Child = this.graphUserControl1;
-			// 
 			// frmMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1478,6 +1493,7 @@
 		private System.Windows.Forms.Button btnCodePieceStorePreview;
 		private System.Windows.Forms.TextBox edSquashInputIn;
 		private System.Windows.Forms.TextBox edReverseIn;
+		private System.Windows.Forms.Button btnCompileCompile;
 	}
 }
 

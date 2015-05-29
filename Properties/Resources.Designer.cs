@@ -739,6 +739,117 @@ namespace BefunGen.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to v                           v-1\+g02&lt;
+        ///0          v/+55\+g01\p01%+&lt;        $  v/+55\+g01\p01%+&lt;
+        ///&gt;&quot;}P&quot;*&gt;::0\&gt;:!#v_\55+*\:55 ^&gt;:!#v_\::0\&gt;:!#v_\55+*\:55 ^
+        ///    &gt;$ .@      &gt;$+38*   #v  ^#   &lt;  |-p02:$&lt;            
+        ///    ^_^#!:-1             &lt;\+1\$$&lt;^$$&lt;                   
+        ///        
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///[10] GetReversed() - temp
+        ///[20] IsLychrel     - reversed number
+        ///
+        ///
+        ///
+        ///47*7*      =&gt;    196
+        ///&quot;2&quot;        =&gt;     50
+        ///&quot;}P&quot;*      =&gt; 10 000
+        ///
+        ///
+        ///
+        ///// GetNumberReversed()  stack-&gt;stack
+        ///
+        ///  v/+55\+g01\p01%+&lt;        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string testdata_055 {
+            get {
+                return ResourceManager.GetString("testdata_055", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to vXXX ######################################################################
+        /// XXX ######################################################################
+        ///     ######################################################################
+        ///
+        ///&gt;        &quot;c&quot;v  _v#   `*95:&lt;
+        ///v+&quot;I~&quot;&lt;\&quot;c&quot;:&lt;       &gt;:55+%|
+        ///&gt;1-:0\:&quot;F&quot;%v    &gt;1-:|:-1  &lt;
+        ///|:p/&quot;F&quot;\+5 &lt;@.g1$#2$&lt;
+        ///&gt;$188*2p020p10p&gt;030p&quot;~J&quot;+&gt;1-:::&quot;F&quot;%5+\&quot;F&quot;/g10g*20g+:55+/v
+        ///     &gt;21p &gt; 1-:|^$&lt;      |:p/&quot;F&quot;\+5%&quot;F&quot;:\p03+g03:%+55p02&lt;
+        ///     ^g03_^#`g1&gt;# ^#2g03$&lt;
+        ///                        [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string testdata_056 {
+            get {
+                return ResourceManager.GetString("testdata_056", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v
+        ///
+        /// ###############################################################################     // Numerator [1]
+        /// ###############################################################################
+        /// ###############################################################################
+        /// ###############################################################################
+        /// ###############################################################################
+        ///
+        /// ######################################################################### [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string testdata_057 {
+            get {
+                return ResourceManager.GetString("testdata_057", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v####
+        ///v##
+        ///v#
+        ///v###     &gt;             &gt;             &gt;      &gt;$0v  
+        ///                &gt;             &gt;              $1v  
+        ///  &gt;::2\`#^_:2-!#^_:2%!#^_:9\`#^_:3%!#^_:5%!#^_1 :v
+        ///2&gt;^&lt;v\                      p21:+1g21:_v#-3 &lt;p2 1&lt;
+        ///1  p&gt;:11p1-0\&gt;:2% !#v_v    v ++!!+1-g&lt; #    ^ &lt; &gt;v
+        ///3  3         ^\+1\/2&lt; \    &gt;3-#v_$$  1&gt;12g\  !|&gt;|
+        ///p 31 vp01p03p04 g11p12&lt;        &gt;:*11v1 &gt;$1   #$^
+        ///1 p+ &gt;120pv        v%g04*&lt;v-1\    %g&lt;^ \!!-1:&lt;$0
+        ///2 32 vg030&lt;  v-1\  &lt; &gt;10g^   &gt;\:::*11  g%1-!\^&gt;^
+        ///3 3g     &gt;$1\&gt; :#v_ $ 21g &gt;:#^_$1-! [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string testdata_058 {
+            get {
+                return ResourceManager.GetString("testdata_058", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v###    0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 ################################################################################################################################
+        /// ### ## 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 ################################################################################################################################
+        /// ###    00000000000000000000000000 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string testdata_059 {
+            get {
+                return ResourceManager.GetString("testdata_059", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] TextFunge {
