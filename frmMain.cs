@@ -1,5 +1,6 @@
 ﻿using BefunCompile;
 using BefunCompile.Graph;
+using BefunCompile.Math;
 using BefunGen.AST;
 using BefunGen.AST.CodeGen;
 using BefunGen.AST.CodeGen.NumberCode;
@@ -9,6 +10,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
@@ -33,6 +35,7 @@ namespace BefunGen
 			tabBefunGenControl.SelectedIndex = 0;
 			tabCompileControl.SelectedIndex = 0;
 			tabMainControl.SelectedIndex = 0;
+			tabCompileOuterControl.SelectedIndex = 0;
 
 			foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
 			{
@@ -803,6 +806,124 @@ end
 				memoCompileLog.Text += Environment.NewLine;
 				memoCompileLog.Text += "ERROR: " + exc.ToString() + Environment.NewLine;
 				tabCompileControl.SelectedIndex = 4;
+			}
+		}
+
+		private void btnMSZipCompressSingle_Click(object sender, EventArgs e)
+		{
+			var zip = new MSZipImplementation();
+
+			var input = Encoding.ASCII.GetBytes(memoCodeCompressionInput.Text).ToList();
+			var it = 0;
+
+			var output = zip.Compress(input, ref it);
+
+			memoCodeCompressionLog.Text += Environment.NewLine;
+
+			memoCodeCompressionLog.Text += String.Format("Compressed from {0} to {1} ({2:0.#}%)", input.Count(), output.Count(), (output.Count() * 100.0) / input.Count()) + Environment.NewLine;
+			memoCodeCompressionLog.Text += "in " + it + " Recursions" + Environment.NewLine;
+
+			memoCodeCompressionOutput.Text = string.Join("", output.Select(p => (char)p));
+		}
+
+		private void btnMSZipDecompressSingle_Click(object sender, EventArgs e)
+		{
+			var zip = new MSZipImplementation();
+
+			var input = Encoding.ASCII.GetBytes(memoCodeCompressionOutput.Text).ToList();
+			var output = zip.Decompress(input, 50000);
+
+			memoCodeCompressionLog.Text += Environment.NewLine;
+
+			memoCodeCompressionLog.Text += String.Format("Decompressed from {0} to {1} ({2:0.#}%)", input.Count(), output.Count(), (input.Count() * 100.0) / output.Count()) + Environment.NewLine;
+
+			memoCodeCompressionInput.Text = string.Join("", output.Select(p => (char)p));
+		}
+
+		private void btnMSZipCompressMulti_Click(object sender, EventArgs e)
+		{
+			//TODO
+		}
+
+		private void btnMSZipDecompressMulti_Click(object sender, EventArgs e)
+		{
+			//TODO
+		}
+
+		private void btnGZipCompress_Click(object sender, EventArgs e)
+		{
+			var zip = new GZipImplementation();
+
+			var input = Encoding.ASCII.GetBytes(memoCodeCompressionInput.Text).ToList();
+			var it = 0;
+
+			var output = Convert.ToBase64String(zip.Compress(input, ref it).ToArray());
+
+			memoCodeCompressionLog.Text += Environment.NewLine;
+
+			memoCodeCompressionLog.Text += String.Format("Compressed from {0} to {1} ({2:0.#}%)", input.Count(), output.Length, (output.Length * 100.0) / input.Count()) + Environment.NewLine;
+			memoCodeCompressionLog.Text += "in " + it + " Recursions" + Environment.NewLine;
+
+			memoCodeCompressionOutput.Text = output;
+		}
+
+		private void btnGZipDecompress_Click(object sender, EventArgs e)
+		{
+			var zip = new GZipImplementation();
+
+			var input = Convert.FromBase64String(memoCodeCompressionOutput.Text).ToList();
+			var output = zip.Decompress(input, 50000);
+
+			memoCodeCompressionLog.Text += Environment.NewLine;
+
+			memoCodeCompressionLog.Text += String.Format("Decompressed from {0} to {1} ({2:0.#}%)", memoCodeCompressionOutput.Text.Length, output.Count(), (memoCodeCompressionOutput.Text.Length * 100.0) / output.Count()) + Environment.NewLine;
+
+			memoCodeCompressionInput.Text = string.Join("", output.Select(p => (char)p));
+		}
+
+		private void btnGZipCompressToList_Click(object sender, EventArgs e)
+		{
+			var zip = new GZipImplementation();
+
+			memoCodeCompressionOutput.Text = zip.GenerateBase64StringList(memoCodeCompressionInput.Text).Aggregate((a, b) => a + Environment.NewLine + Environment.NewLine + b);
+		}
+
+		private void btnGZipCompressToHex_Click(object sender, EventArgs e)
+		{
+			var zip = new GZipImplementation();
+
+			memoCodeCompressionOutput.Text = zip.CompressToHex(memoCodeCompressionInput.Text);
+		}
+
+		private void btnCompressBenchmark_Click(object sender, EventArgs e)
+		{
+			memoCodeCompressionInput.Text = "Data       | Compression | Initial     | Final" + Environment.NewLine;
+			memoCodeCompressionOutput.Text = "Data       | Compression | Initial     | Final" + Environment.NewLine;
+
+			var mszip = new MSZipImplementation();
+			for (int i = 0; i < BefunCompileTester.TestData.GetLength(0); i++)
+			{
+				var name = BefunCompileTester.TestData[i, 0];
+				var data = BefunCompileTester.TestData[i, 1];
+
+				var comp = mszip.CompressToString(data);
+
+				var str = string.Format("{0,-10} | {1,-11} | {2,-11} | {3,-5}", name, (int)(data.Length * 100.0 / comp.Length), data.Length, comp.Length);
+
+				memoCodeCompressionInput.Text += str + Environment.NewLine;
+			}
+
+			var gzip = new GZipImplementation();
+			for (int i = 0; i < BefunCompileTester.TestData.GetLength(0); i++)
+			{
+				var name = BefunCompileTester.TestData[i, 0];
+				var data = BefunCompileTester.TestData[i, 1];
+
+				var comp = gzip.CompressToString(data);
+
+				var str = string.Format("{0,-10} | {1,-11} | {2,-11} | {3,-5}", name, (int)(data.Length * 100.0 / comp.Length), data.Length, comp.Length);
+
+				memoCodeCompressionOutput.Text += str + Environment.NewLine;
 			}
 		}
 

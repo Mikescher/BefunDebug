@@ -103,8 +103,6 @@
 			this.cbOutFormat = new System.Windows.Forms.CheckBox();
 			this.cbxCompileLanguage = new System.Windows.Forms.ComboBox();
 			this.tabPage14 = new System.Windows.Forms.TabPage();
-			this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
-			this.graphUserControl1 = new BefunGen.GraphUserControl();
 			this.tabPage13 = new System.Windows.Forms.TabPage();
 			this.memoCompileOut = new System.Windows.Forms.TextBox();
 			this.tabPage15 = new System.Windows.Forms.TabPage();
@@ -118,7 +116,29 @@
 			this.tabPageBefunRep = new System.Windows.Forms.TabPage();
 			this.tabPageBefunHighlight = new System.Windows.Forms.TabPage();
 			this.tabPageBefunCompile = new System.Windows.Forms.TabPage();
+			this.tabCompileOuterControl = new System.Windows.Forms.TabControl();
+			this.tabPage7 = new System.Windows.Forms.TabPage();
+			this.tabPage8 = new System.Windows.Forms.TabPage();
+			this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
+			this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
+			this.btnGZipCompress = new System.Windows.Forms.Button();
+			this.btnMSZipCompressSingle = new System.Windows.Forms.Button();
+			this.label1 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.btnMSZipDecompressSingle = new System.Windows.Forms.Button();
+			this.btnMSZipCompressMulti = new System.Windows.Forms.Button();
+			this.btnMSZipDecompressMulti = new System.Windows.Forms.Button();
+			this.btnGZipDecompress = new System.Windows.Forms.Button();
+			this.btnGZipCompressToList = new System.Windows.Forms.Button();
+			this.btnGZipCompressToHex = new System.Windows.Forms.Button();
+			this.btnCompressBenchmark = new System.Windows.Forms.Button();
+			this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
+			this.memoCodeCompressionInput = new System.Windows.Forms.TextBox();
+			this.memoCodeCompressionOutput = new System.Windows.Forms.TextBox();
+			this.memoCodeCompressionLog = new System.Windows.Forms.TextBox();
 			this.tabPageTools = new System.Windows.Forms.TabPage();
+			this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+			this.graphUserControl1 = new BefunGen.GraphUserControl();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -163,6 +183,12 @@
 			this.tabPageBefunRep.SuspendLayout();
 			this.tabPageBefunHighlight.SuspendLayout();
 			this.tabPageBefunCompile.SuspendLayout();
+			this.tabCompileOuterControl.SuspendLayout();
+			this.tabPage7.SuspendLayout();
+			this.tabPage8.SuspendLayout();
+			this.tableLayoutPanel13.SuspendLayout();
+			this.tableLayoutPanel14.SuspendLayout();
+			this.tableLayoutPanel15.SuspendLayout();
 			this.tabPageTools.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -853,7 +879,7 @@
 			this.tableLayoutPanel10.Name = "tableLayoutPanel10";
 			this.tableLayoutPanel10.RowCount = 1;
 			this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel10.Size = new System.Drawing.Size(870, 662);
+			this.tableLayoutPanel10.Size = new System.Drawing.Size(856, 630);
 			this.tableLayoutPanel10.TabIndex = 0;
 			// 
 			// tableLayoutPanel11
@@ -883,13 +909,13 @@
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-			this.tableLayoutPanel11.Size = new System.Drawing.Size(144, 656);
+			this.tableLayoutPanel11.Size = new System.Drawing.Size(144, 624);
 			this.tableLayoutPanel11.TabIndex = 0;
 			// 
 			// btnCompileGraphCompile
 			// 
 			this.btnCompileGraphCompile.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnCompileGraphCompile.Location = new System.Drawing.Point(3, 599);
+			this.btnCompileGraphCompile.Location = new System.Drawing.Point(3, 567);
 			this.btnCompileGraphCompile.Name = "btnCompileGraphCompile";
 			this.btnCompileGraphCompile.Size = new System.Drawing.Size(138, 24);
 			this.btnCompileGraphCompile.TabIndex = 9;
@@ -924,7 +950,7 @@
 			// btnRunCurrGraph
 			// 
 			this.btnRunCurrGraph.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnRunCurrGraph.Location = new System.Drawing.Point(3, 569);
+			this.btnRunCurrGraph.Location = new System.Drawing.Point(3, 537);
 			this.btnRunCurrGraph.Name = "btnRunCurrGraph";
 			this.btnRunCurrGraph.Size = new System.Drawing.Size(138, 24);
 			this.btnRunCurrGraph.TabIndex = 5;
@@ -946,7 +972,7 @@
 			// btnCompileTest
 			// 
 			this.btnCompileTest.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnCompileTest.Location = new System.Drawing.Point(3, 629);
+			this.btnCompileTest.Location = new System.Drawing.Point(3, 597);
 			this.btnCompileTest.Name = "btnCompileTest";
 			this.btnCompileTest.Size = new System.Drawing.Size(138, 24);
 			this.btnCompileTest.TabIndex = 11;
@@ -959,7 +985,7 @@
 			this.cbxCompileData.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.cbxCompileData.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbxCompileData.FormattingEnabled = true;
-			this.cbxCompileData.Location = new System.Drawing.Point(3, 539);
+			this.cbxCompileData.Location = new System.Drawing.Point(3, 507);
 			this.cbxCompileData.Name = "cbxCompileData";
 			this.cbxCompileData.Size = new System.Drawing.Size(138, 21);
 			this.cbxCompileData.TabIndex = 12;
@@ -1000,7 +1026,7 @@
 			this.tabCompileControl.Location = new System.Drawing.Point(153, 3);
 			this.tabCompileControl.Name = "tabCompileControl";
 			this.tabCompileControl.SelectedIndex = 0;
-			this.tabCompileControl.Size = new System.Drawing.Size(714, 656);
+			this.tabCompileControl.Size = new System.Drawing.Size(700, 624);
 			this.tabCompileControl.TabIndex = 1;
 			// 
 			// tabPage16
@@ -1009,7 +1035,7 @@
 			this.tabPage16.Location = new System.Drawing.Point(4, 22);
 			this.tabPage16.Name = "tabPage16";
 			this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage16.Size = new System.Drawing.Size(706, 630);
+			this.tabPage16.Size = new System.Drawing.Size(692, 598);
 			this.tabPage16.TabIndex = 3;
 			this.tabPage16.Text = "Input";
 			this.tabPage16.UseVisualStyleBackColor = true;
@@ -1023,7 +1049,7 @@
 			this.memoCompileInput.Multiline = true;
 			this.memoCompileInput.Name = "memoCompileInput";
 			this.memoCompileInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.memoCompileInput.Size = new System.Drawing.Size(700, 624);
+			this.memoCompileInput.Size = new System.Drawing.Size(686, 592);
 			this.memoCompileInput.TabIndex = 1;
 			this.memoCompileInput.WordWrap = false;
 			// 
@@ -1033,7 +1059,7 @@
 			this.tabPage17.Location = new System.Drawing.Point(4, 22);
 			this.tabPage17.Name = "tabPage17";
 			this.tabPage17.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage17.Size = new System.Drawing.Size(706, 630);
+			this.tabPage17.Size = new System.Drawing.Size(692, 598);
 			this.tabPage17.TabIndex = 4;
 			this.tabPage17.Text = "Options";
 			this.tabPage17.UseVisualStyleBackColor = true;
@@ -1059,7 +1085,7 @@
 			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel12.Size = new System.Drawing.Size(700, 624);
+			this.tableLayoutPanel12.Size = new System.Drawing.Size(686, 592);
 			this.tableLayoutPanel12.TabIndex = 0;
 			// 
 			// cbUseGZip
@@ -1070,7 +1096,7 @@
 			this.cbUseGZip.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.cbUseGZip.Location = new System.Drawing.Point(3, 123);
 			this.cbUseGZip.Name = "cbUseGZip";
-			this.cbUseGZip.Size = new System.Drawing.Size(694, 24);
+			this.cbUseGZip.Size = new System.Drawing.Size(680, 24);
 			this.cbUseGZip.TabIndex = 5;
 			this.cbUseGZip.Text = "Use GZip compression";
 			this.cbUseGZip.UseVisualStyleBackColor = true;
@@ -1083,7 +1109,7 @@
 			this.cbSafeGridAccess.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.cbSafeGridAccess.Location = new System.Drawing.Point(3, 63);
 			this.cbSafeGridAccess.Name = "cbSafeGridAccess";
-			this.cbSafeGridAccess.Size = new System.Drawing.Size(694, 24);
+			this.cbSafeGridAccess.Size = new System.Drawing.Size(680, 24);
 			this.cbSafeGridAccess.TabIndex = 2;
 			this.cbSafeGridAccess.Text = "Implement Safe Grid Access";
 			this.cbSafeGridAccess.UseVisualStyleBackColor = true;
@@ -1096,7 +1122,7 @@
 			this.cbSafeStackAccess.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.cbSafeStackAccess.Location = new System.Drawing.Point(3, 33);
 			this.cbSafeStackAccess.Name = "cbSafeStackAccess";
-			this.cbSafeStackAccess.Size = new System.Drawing.Size(694, 24);
+			this.cbSafeStackAccess.Size = new System.Drawing.Size(680, 24);
 			this.cbSafeStackAccess.TabIndex = 1;
 			this.cbSafeStackAccess.Text = "Implement Safe Stack Access";
 			this.cbSafeStackAccess.UseVisualStyleBackColor = true;
@@ -1109,7 +1135,7 @@
 			this.cbIgnoreSelfModification.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.cbIgnoreSelfModification.Location = new System.Drawing.Point(3, 3);
 			this.cbIgnoreSelfModification.Name = "cbIgnoreSelfModification";
-			this.cbIgnoreSelfModification.Size = new System.Drawing.Size(694, 24);
+			this.cbIgnoreSelfModification.Size = new System.Drawing.Size(680, 24);
 			this.cbIgnoreSelfModification.TabIndex = 0;
 			this.cbIgnoreSelfModification.Text = "Ignore Self Modifications";
 			this.cbIgnoreSelfModification.UseVisualStyleBackColor = true;
@@ -1122,7 +1148,7 @@
 			this.cbOutFormat.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.cbOutFormat.Location = new System.Drawing.Point(3, 93);
 			this.cbOutFormat.Name = "cbOutFormat";
-			this.cbOutFormat.Size = new System.Drawing.Size(694, 24);
+			this.cbOutFormat.Size = new System.Drawing.Size(680, 24);
 			this.cbOutFormat.TabIndex = 3;
 			this.cbOutFormat.Text = "Format Compile Output";
 			this.cbOutFormat.UseVisualStyleBackColor = true;
@@ -1134,7 +1160,7 @@
 			this.cbxCompileLanguage.FormattingEnabled = true;
 			this.cbxCompileLanguage.Location = new System.Drawing.Point(3, 153);
 			this.cbxCompileLanguage.Name = "cbxCompileLanguage";
-			this.cbxCompileLanguage.Size = new System.Drawing.Size(694, 21);
+			this.cbxCompileLanguage.Size = new System.Drawing.Size(680, 21);
 			this.cbxCompileLanguage.TabIndex = 4;
 			// 
 			// tabPage14
@@ -1143,20 +1169,10 @@
 			this.tabPage14.Location = new System.Drawing.Point(4, 22);
 			this.tabPage14.Name = "tabPage14";
 			this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage14.Size = new System.Drawing.Size(706, 630);
+			this.tabPage14.Size = new System.Drawing.Size(692, 598);
 			this.tabPage14.TabIndex = 1;
 			this.tabPage14.Text = "Graph";
 			this.tabPage14.UseVisualStyleBackColor = true;
-			// 
-			// elementHost1
-			// 
-			this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.elementHost1.Location = new System.Drawing.Point(3, 3);
-			this.elementHost1.Name = "elementHost1";
-			this.elementHost1.Size = new System.Drawing.Size(700, 624);
-			this.elementHost1.TabIndex = 0;
-			this.elementHost1.Text = "elementHost1";
-			this.elementHost1.Child = this.graphUserControl1;
 			// 
 			// tabPage13
 			// 
@@ -1164,7 +1180,7 @@
 			this.tabPage13.Location = new System.Drawing.Point(4, 22);
 			this.tabPage13.Name = "tabPage13";
 			this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage13.Size = new System.Drawing.Size(706, 630);
+			this.tabPage13.Size = new System.Drawing.Size(692, 598);
 			this.tabPage13.TabIndex = 0;
 			this.tabPage13.Text = "Output";
 			this.tabPage13.UseVisualStyleBackColor = true;
@@ -1178,7 +1194,7 @@
 			this.memoCompileOut.Multiline = true;
 			this.memoCompileOut.Name = "memoCompileOut";
 			this.memoCompileOut.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.memoCompileOut.Size = new System.Drawing.Size(700, 624);
+			this.memoCompileOut.Size = new System.Drawing.Size(686, 592);
 			this.memoCompileOut.TabIndex = 0;
 			this.memoCompileOut.WordWrap = false;
 			// 
@@ -1188,7 +1204,7 @@
 			this.tabPage15.Location = new System.Drawing.Point(4, 22);
 			this.tabPage15.Name = "tabPage15";
 			this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage15.Size = new System.Drawing.Size(706, 630);
+			this.tabPage15.Size = new System.Drawing.Size(692, 598);
 			this.tabPage15.TabIndex = 2;
 			this.tabPage15.Text = "Log";
 			this.tabPage15.UseVisualStyleBackColor = true;
@@ -1201,7 +1217,7 @@
 			this.memoCompileLog.Multiline = true;
 			this.memoCompileLog.Name = "memoCompileLog";
 			this.memoCompileLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.memoCompileLog.Size = new System.Drawing.Size(700, 624);
+			this.memoCompileLog.Size = new System.Drawing.Size(686, 592);
 			this.memoCompileLog.TabIndex = 1;
 			// 
 			// tableLayoutPanel2
@@ -1308,7 +1324,7 @@
 			// 
 			// tabPageBefunCompile
 			// 
-			this.tabPageBefunCompile.Controls.Add(this.tableLayoutPanel10);
+			this.tabPageBefunCompile.Controls.Add(this.tabCompileOuterControl);
 			this.tabPageBefunCompile.Location = new System.Drawing.Point(4, 25);
 			this.tabPageBefunCompile.Name = "tabPageBefunCompile";
 			this.tabPageBefunCompile.Padding = new System.Windows.Forms.Padding(3);
@@ -1316,6 +1332,266 @@
 			this.tabPageBefunCompile.TabIndex = 4;
 			this.tabPageBefunCompile.Text = "BefunCompile";
 			this.tabPageBefunCompile.UseVisualStyleBackColor = true;
+			// 
+			// tabCompileOuterControl
+			// 
+			this.tabCompileOuterControl.Alignment = System.Windows.Forms.TabAlignment.Bottom;
+			this.tabCompileOuterControl.Controls.Add(this.tabPage7);
+			this.tabCompileOuterControl.Controls.Add(this.tabPage8);
+			this.tabCompileOuterControl.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabCompileOuterControl.Location = new System.Drawing.Point(3, 3);
+			this.tabCompileOuterControl.Multiline = true;
+			this.tabCompileOuterControl.Name = "tabCompileOuterControl";
+			this.tabCompileOuterControl.SelectedIndex = 0;
+			this.tabCompileOuterControl.Size = new System.Drawing.Size(870, 662);
+			this.tabCompileOuterControl.TabIndex = 2;
+			// 
+			// tabPage7
+			// 
+			this.tabPage7.Controls.Add(this.tableLayoutPanel10);
+			this.tabPage7.Location = new System.Drawing.Point(4, 4);
+			this.tabPage7.Name = "tabPage7";
+			this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage7.Size = new System.Drawing.Size(862, 636);
+			this.tabPage7.TabIndex = 0;
+			this.tabPage7.Text = "Code Generation";
+			this.tabPage7.UseVisualStyleBackColor = true;
+			// 
+			// tabPage8
+			// 
+			this.tabPage8.Controls.Add(this.tableLayoutPanel13);
+			this.tabPage8.Location = new System.Drawing.Point(4, 4);
+			this.tabPage8.Name = "tabPage8";
+			this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage8.Size = new System.Drawing.Size(862, 636);
+			this.tabPage8.TabIndex = 1;
+			this.tabPage8.Text = "Code Compression";
+			this.tabPage8.UseVisualStyleBackColor = true;
+			// 
+			// tableLayoutPanel13
+			// 
+			this.tableLayoutPanel13.ColumnCount = 2;
+			this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+			this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel13.Controls.Add(this.tableLayoutPanel14, 0, 0);
+			this.tableLayoutPanel13.Controls.Add(this.tableLayoutPanel15, 1, 0);
+			this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 3);
+			this.tableLayoutPanel13.Name = "tableLayoutPanel13";
+			this.tableLayoutPanel13.RowCount = 1;
+			this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel13.Size = new System.Drawing.Size(856, 630);
+			this.tableLayoutPanel13.TabIndex = 0;
+			// 
+			// tableLayoutPanel14
+			// 
+			this.tableLayoutPanel14.ColumnCount = 1;
+			this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel14.Controls.Add(this.btnGZipCompress, 0, 6);
+			this.tableLayoutPanel14.Controls.Add(this.btnMSZipCompressSingle, 0, 1);
+			this.tableLayoutPanel14.Controls.Add(this.label1, 0, 0);
+			this.tableLayoutPanel14.Controls.Add(this.label2, 0, 5);
+			this.tableLayoutPanel14.Controls.Add(this.btnMSZipDecompressSingle, 0, 2);
+			this.tableLayoutPanel14.Controls.Add(this.btnMSZipCompressMulti, 0, 3);
+			this.tableLayoutPanel14.Controls.Add(this.btnMSZipDecompressMulti, 0, 4);
+			this.tableLayoutPanel14.Controls.Add(this.btnGZipDecompress, 0, 7);
+			this.tableLayoutPanel14.Controls.Add(this.btnGZipCompressToList, 0, 8);
+			this.tableLayoutPanel14.Controls.Add(this.btnGZipCompressToHex, 0, 9);
+			this.tableLayoutPanel14.Controls.Add(this.btnCompressBenchmark, 0, 12);
+			this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel14.Location = new System.Drawing.Point(3, 3);
+			this.tableLayoutPanel14.Name = "tableLayoutPanel14";
+			this.tableLayoutPanel14.RowCount = 13;
+			this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel14.Size = new System.Drawing.Size(144, 624);
+			this.tableLayoutPanel14.TabIndex = 0;
+			// 
+			// btnGZipCompress
+			// 
+			this.btnGZipCompress.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnGZipCompress.Location = new System.Drawing.Point(3, 183);
+			this.btnGZipCompress.Name = "btnGZipCompress";
+			this.btnGZipCompress.Size = new System.Drawing.Size(138, 24);
+			this.btnGZipCompress.TabIndex = 10;
+			this.btnGZipCompress.Text = "Compress";
+			this.btnGZipCompress.UseVisualStyleBackColor = true;
+			this.btnGZipCompress.Click += new System.EventHandler(this.btnGZipCompress_Click);
+			// 
+			// btnMSZipCompressSingle
+			// 
+			this.btnMSZipCompressSingle.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnMSZipCompressSingle.Location = new System.Drawing.Point(3, 33);
+			this.btnMSZipCompressSingle.Name = "btnMSZipCompressSingle";
+			this.btnMSZipCompressSingle.Size = new System.Drawing.Size(138, 24);
+			this.btnMSZipCompressSingle.TabIndex = 9;
+			this.btnMSZipCompressSingle.Text = "Compress Single";
+			this.btnMSZipCompressSingle.UseVisualStyleBackColor = true;
+			this.btnMSZipCompressSingle.Click += new System.EventHandler(this.btnMSZipCompressSingle_Click);
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Location = new System.Drawing.Point(3, 0);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(138, 30);
+			this.label1.TabIndex = 0;
+			this.label1.Text = "[MSZip]";
+			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.Location = new System.Drawing.Point(3, 150);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(138, 30);
+			this.label2.TabIndex = 1;
+			this.label2.Text = "[GZip]";
+			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// btnMSZipDecompressSingle
+			// 
+			this.btnMSZipDecompressSingle.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnMSZipDecompressSingle.Location = new System.Drawing.Point(3, 63);
+			this.btnMSZipDecompressSingle.Name = "btnMSZipDecompressSingle";
+			this.btnMSZipDecompressSingle.Size = new System.Drawing.Size(138, 24);
+			this.btnMSZipDecompressSingle.TabIndex = 2;
+			this.btnMSZipDecompressSingle.Text = "Decompress Single";
+			this.btnMSZipDecompressSingle.UseVisualStyleBackColor = true;
+			this.btnMSZipDecompressSingle.Click += new System.EventHandler(this.btnMSZipDecompressSingle_Click);
+			// 
+			// btnMSZipCompressMulti
+			// 
+			this.btnMSZipCompressMulti.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnMSZipCompressMulti.Location = new System.Drawing.Point(3, 93);
+			this.btnMSZipCompressMulti.Name = "btnMSZipCompressMulti";
+			this.btnMSZipCompressMulti.Size = new System.Drawing.Size(138, 24);
+			this.btnMSZipCompressMulti.TabIndex = 3;
+			this.btnMSZipCompressMulti.Text = "Compress";
+			this.btnMSZipCompressMulti.UseVisualStyleBackColor = true;
+			this.btnMSZipCompressMulti.Click += new System.EventHandler(this.btnMSZipCompressMulti_Click);
+			// 
+			// btnMSZipDecompressMulti
+			// 
+			this.btnMSZipDecompressMulti.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnMSZipDecompressMulti.Location = new System.Drawing.Point(3, 123);
+			this.btnMSZipDecompressMulti.Name = "btnMSZipDecompressMulti";
+			this.btnMSZipDecompressMulti.Size = new System.Drawing.Size(138, 24);
+			this.btnMSZipDecompressMulti.TabIndex = 4;
+			this.btnMSZipDecompressMulti.Text = "Decompress";
+			this.btnMSZipDecompressMulti.UseVisualStyleBackColor = true;
+			this.btnMSZipDecompressMulti.Click += new System.EventHandler(this.btnMSZipDecompressMulti_Click);
+			// 
+			// btnGZipDecompress
+			// 
+			this.btnGZipDecompress.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnGZipDecompress.Location = new System.Drawing.Point(3, 213);
+			this.btnGZipDecompress.Name = "btnGZipDecompress";
+			this.btnGZipDecompress.Size = new System.Drawing.Size(138, 24);
+			this.btnGZipDecompress.TabIndex = 5;
+			this.btnGZipDecompress.Text = "Decompress";
+			this.btnGZipDecompress.UseVisualStyleBackColor = true;
+			this.btnGZipDecompress.Click += new System.EventHandler(this.btnGZipDecompress_Click);
+			// 
+			// btnGZipCompressToList
+			// 
+			this.btnGZipCompressToList.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnGZipCompressToList.Location = new System.Drawing.Point(3, 243);
+			this.btnGZipCompressToList.Name = "btnGZipCompressToList";
+			this.btnGZipCompressToList.Size = new System.Drawing.Size(138, 24);
+			this.btnGZipCompressToList.TabIndex = 6;
+			this.btnGZipCompressToList.Text = "Compress To List";
+			this.btnGZipCompressToList.UseVisualStyleBackColor = true;
+			this.btnGZipCompressToList.Click += new System.EventHandler(this.btnGZipCompressToList_Click);
+			// 
+			// btnGZipCompressToHex
+			// 
+			this.btnGZipCompressToHex.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnGZipCompressToHex.Location = new System.Drawing.Point(3, 273);
+			this.btnGZipCompressToHex.Name = "btnGZipCompressToHex";
+			this.btnGZipCompressToHex.Size = new System.Drawing.Size(138, 24);
+			this.btnGZipCompressToHex.TabIndex = 7;
+			this.btnGZipCompressToHex.Text = "Compress To Hex";
+			this.btnGZipCompressToHex.UseVisualStyleBackColor = true;
+			this.btnGZipCompressToHex.Click += new System.EventHandler(this.btnGZipCompressToHex_Click);
+			// 
+			// btnCompressBenchmark
+			// 
+			this.btnCompressBenchmark.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnCompressBenchmark.Location = new System.Drawing.Point(3, 597);
+			this.btnCompressBenchmark.Name = "btnCompressBenchmark";
+			this.btnCompressBenchmark.Size = new System.Drawing.Size(138, 24);
+			this.btnCompressBenchmark.TabIndex = 8;
+			this.btnCompressBenchmark.Text = "Benchmark";
+			this.btnCompressBenchmark.UseVisualStyleBackColor = true;
+			this.btnCompressBenchmark.Click += new System.EventHandler(this.btnCompressBenchmark_Click);
+			// 
+			// tableLayoutPanel15
+			// 
+			this.tableLayoutPanel15.ColumnCount = 2;
+			this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel15.Controls.Add(this.memoCodeCompressionInput, 0, 0);
+			this.tableLayoutPanel15.Controls.Add(this.memoCodeCompressionOutput, 1, 0);
+			this.tableLayoutPanel15.Controls.Add(this.memoCodeCompressionLog, 0, 1);
+			this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel15.Location = new System.Drawing.Point(153, 3);
+			this.tableLayoutPanel15.Name = "tableLayoutPanel15";
+			this.tableLayoutPanel15.RowCount = 2;
+			this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+			this.tableLayoutPanel15.Size = new System.Drawing.Size(700, 624);
+			this.tableLayoutPanel15.TabIndex = 1;
+			// 
+			// memoCodeCompressionInput
+			// 
+			this.memoCodeCompressionInput.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.memoCodeCompressionInput.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.memoCodeCompressionInput.Location = new System.Drawing.Point(3, 3);
+			this.memoCodeCompressionInput.Multiline = true;
+			this.memoCodeCompressionInput.Name = "memoCodeCompressionInput";
+			this.memoCodeCompressionInput.Size = new System.Drawing.Size(344, 468);
+			this.memoCodeCompressionInput.TabIndex = 0;
+			this.memoCodeCompressionInput.WordWrap = false;
+			// 
+			// memoCodeCompressionOutput
+			// 
+			this.memoCodeCompressionOutput.BackColor = System.Drawing.SystemColors.Window;
+			this.memoCodeCompressionOutput.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.memoCodeCompressionOutput.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.memoCodeCompressionOutput.Location = new System.Drawing.Point(353, 3);
+			this.memoCodeCompressionOutput.Multiline = true;
+			this.memoCodeCompressionOutput.Name = "memoCodeCompressionOutput";
+			this.memoCodeCompressionOutput.Size = new System.Drawing.Size(344, 468);
+			this.memoCodeCompressionOutput.TabIndex = 1;
+			this.memoCodeCompressionOutput.WordWrap = false;
+			// 
+			// memoCodeCompressionLog
+			// 
+			this.tableLayoutPanel15.SetColumnSpan(this.memoCodeCompressionLog, 2);
+			this.memoCodeCompressionLog.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.memoCodeCompressionLog.Location = new System.Drawing.Point(3, 477);
+			this.memoCodeCompressionLog.Multiline = true;
+			this.memoCodeCompressionLog.Name = "memoCodeCompressionLog";
+			this.memoCodeCompressionLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.memoCodeCompressionLog.Size = new System.Drawing.Size(694, 144);
+			this.memoCodeCompressionLog.TabIndex = 2;
+			this.memoCodeCompressionLog.WordWrap = false;
 			// 
 			// tabPageTools
 			// 
@@ -1327,6 +1603,16 @@
 			this.tabPageTools.TabIndex = 5;
 			this.tabPageTools.Text = "Befunge Tools";
 			this.tabPageTools.UseVisualStyleBackColor = true;
+			// 
+			// elementHost1
+			// 
+			this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.elementHost1.Location = new System.Drawing.Point(3, 3);
+			this.elementHost1.Name = "elementHost1";
+			this.elementHost1.Size = new System.Drawing.Size(686, 592);
+			this.elementHost1.TabIndex = 0;
+			this.elementHost1.Text = "elementHost1";
+			this.elementHost1.Child = this.graphUserControl1;
 			// 
 			// frmMain
 			// 
@@ -1398,6 +1684,14 @@
 			this.tabPageBefunRep.ResumeLayout(false);
 			this.tabPageBefunHighlight.ResumeLayout(false);
 			this.tabPageBefunCompile.ResumeLayout(false);
+			this.tabCompileOuterControl.ResumeLayout(false);
+			this.tabPage7.ResumeLayout(false);
+			this.tabPage8.ResumeLayout(false);
+			this.tableLayoutPanel13.ResumeLayout(false);
+			this.tableLayoutPanel14.ResumeLayout(false);
+			this.tableLayoutPanel14.PerformLayout();
+			this.tableLayoutPanel15.ResumeLayout(false);
+			this.tableLayoutPanel15.PerformLayout();
 			this.tabPageTools.ResumeLayout(false);
 			this.ResumeLayout(false);
 
@@ -1494,6 +1788,26 @@
 		private System.Windows.Forms.TextBox edSquashInputIn;
 		private System.Windows.Forms.TextBox edReverseIn;
 		private System.Windows.Forms.Button btnCompileCompile;
+		private System.Windows.Forms.TabControl tabCompileOuterControl;
+		private System.Windows.Forms.TabPage tabPage7;
+		private System.Windows.Forms.TabPage tabPage8;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
+		private System.Windows.Forms.Button btnGZipCompress;
+		private System.Windows.Forms.Button btnMSZipCompressSingle;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Button btnMSZipDecompressSingle;
+		private System.Windows.Forms.Button btnMSZipCompressMulti;
+		private System.Windows.Forms.Button btnMSZipDecompressMulti;
+		private System.Windows.Forms.Button btnGZipDecompress;
+		private System.Windows.Forms.Button btnGZipCompressToList;
+		private System.Windows.Forms.Button btnGZipCompressToHex;
+		private System.Windows.Forms.Button btnCompressBenchmark;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
+		private System.Windows.Forms.TextBox memoCodeCompressionInput;
+		private System.Windows.Forms.TextBox memoCodeCompressionOutput;
+		private System.Windows.Forms.TextBox memoCodeCompressionLog;
 	}
 }
 
