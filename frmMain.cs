@@ -5,6 +5,9 @@ using BefunGen.AST;
 using BefunGen.AST.CodeGen;
 using BefunGen.AST.CodeGen.NumberCode;
 using BefunHighlight;
+using BefunRep;
+using BefunRep.FileHandling;
+using BefunRep.OutputHandling;
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -499,7 +502,12 @@ end
 
 		private void btnSingleRep_Click(object sender, EventArgs e)
 		{
-			string bench = String.Join(Environment.NewLine, NumberCodeHelper.generateAllCode(Convert.ToInt64(edSingleRep.Value), true).Select(p => p.Item1 + ":  " + p.Item2.ToSimpleString()).ToList());
+			string bench = String.Join(
+				Environment.NewLine,
+				NumberCodeHelper
+					.generateAllCode(Convert.ToInt64(edSingleRep.Value), true)
+					.Select(p => p.Item1 + ":  " + p.Item2.ToSimpleString())
+					.ToList());
 
 			txtDebug.Text = bench;
 		}
@@ -925,6 +933,69 @@ end
 
 				memoCodeCompressionOutput.Text += str + Environment.NewLine;
 			}
+		}
+
+		private void btnSingleBefunRepRep_Click(object sender, EventArgs e)
+		{
+			long number = Convert.ToInt64(edSingleBefunRepRep.Value);
+
+			RepresentationSafe safe = new MemorySafe();
+
+			RepCalculator c1 = new RepCalculator(0, 4069, false, safe, true);
+			c1.calculate();
+			
+			RepCalculator c2 = new RepCalculator(number-64, number+64, false, safe, true);
+			c2.calculate();
+
+			string result = safe.get(number);
+
+			if (result == null)
+				txtDebug.Text = "ERROR";
+			else
+			{
+				var algorithm = RepCalculator.algorithmNames[safe.getAlgorithm(number).Value];
+
+				txtDebug.Text = algorithm + "         " + result;
+			}
+		}
+
+		private void btnBenchBefunRepCSV_Click(object sender, EventArgs e)
+		{
+			long number = Convert.ToInt64(edBenchBefunRep.Value);
+
+			RepresentationSafe safe = new MemorySafe();
+			OutputFormatter fmt = new CSVOutputFormatter();
+
+			RepCalculator c1 = new RepCalculator(0, number, false, safe, true);
+			c1.calculate();
+
+			txtDebug.Text = fmt.Convert(safe, 0, number);
+		}
+
+		private void btnBenchBefunRepXML_Click(object sender, EventArgs e)
+		{
+			long number = Convert.ToInt64(edBenchBefunRep.Value);
+
+			RepresentationSafe safe = new MemorySafe();
+			OutputFormatter fmt = new XMLOutputFormatter();
+
+			RepCalculator c1 = new RepCalculator(0, number, false, safe, true);
+			c1.calculate();
+
+			txtDebug.Text = fmt.Convert(safe, 0, number);
+		}
+
+		private void btnBenchBefunRepJSON_Click(object sender, EventArgs e)
+		{
+			long number = Convert.ToInt64(edBenchBefunRep.Value);
+
+			RepresentationSafe safe = new MemorySafe();
+			OutputFormatter fmt = new JSONOutputFormatter();
+
+			RepCalculator c1 = new RepCalculator(0, number, false, safe, true);
+			c1.calculate();
+
+			txtDebug.Text = fmt.Convert(safe, 0, number);
 		}
 
 	}
