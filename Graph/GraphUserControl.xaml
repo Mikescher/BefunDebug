@@ -58,15 +58,15 @@
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto"/>
-			<RowDefinition Height="*"/>
-		</Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
 		<StackPanel Orientation="Vertical" Grid.Row="0" >
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0">
 				<Label VerticalAlignment="Center"  FontWeight="Bold" Content="Pick Layout Type"/>
 				<ComboBox ItemsSource="{Binding LayoutAlgorithmTypes}" SelectedItem="{Binding Path=LayoutAlgorithmType, Mode=TwoWay}" Width="150" Height="25" Margin="5" />
                 <Button Content="Relayout" Margin="5" Click="Button_Click"/>
-                <Label VerticalAlignment="Center" Content="{Binding GInfo}"/>
             </StackPanel>
 		</StackPanel>
 		
@@ -76,6 +76,7 @@
 				LayoutAlgorithmType="{Binding Path=LayoutAlgorithmType, Mode=OneWay}"
 				OverlapRemovalAlgorithmType="FSA"
 				HighlightAlgorithmType="Simple" />
-		</zoom:ZoomControl>
-	</Grid>
+        </zoom:ZoomControl>
+        <TextBlock Grid.Row="2" VerticalAlignment="Center" Text="{Binding GInfo}" TextWrapping="Wrap" Padding="4"/>
+    </Grid>
 </UserControl>

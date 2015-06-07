@@ -56,6 +56,10 @@
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.txtDebug = new System.Windows.Forms.TextBox();
 			this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+			this.btnBenchBefunRepJSON = new System.Windows.Forms.Button();
+			this.btnBenchBefunRepXML = new System.Windows.Forms.Button();
+			this.btnBenchBefunRepCSV = new System.Windows.Forms.Button();
+			this.edBenchBefunRep = new System.Windows.Forms.NumericUpDown();
 			this.btnSingleBefunRepRep = new System.Windows.Forms.Button();
 			this.edSingleBefunRepRep = new System.Windows.Forms.NumericUpDown();
 			this.btnDebugNumberRep = new System.Windows.Forms.Button();
@@ -63,6 +67,8 @@
 			this.btnQCircle = new System.Windows.Forms.Button();
 			this.edSingleRep = new System.Windows.Forms.NumericUpDown();
 			this.edNumberRep = new System.Windows.Forms.NumericUpDown();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
 			this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
 			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.btnHighlight = new System.Windows.Forms.Button();
@@ -103,10 +109,14 @@
 			this.cbOutFormat = new System.Windows.Forms.CheckBox();
 			this.cbxCompileLanguage = new System.Windows.Forms.ComboBox();
 			this.tabPage14 = new System.Windows.Forms.TabPage();
+			this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+			this.graphUserControl1 = new BefunGen.GraphUserControl();
 			this.tabPage13 = new System.Windows.Forms.TabPage();
 			this.memoCompileOut = new System.Windows.Forms.TextBox();
 			this.tabPage15 = new System.Windows.Forms.TabPage();
 			this.memoCompileLog = new System.Windows.Forms.TextBox();
+			this.tabPage11 = new System.Windows.Forms.TabPage();
+			this.edBefunCompileConsole = new System.Windows.Forms.TextBox();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.btnLoadSYN = new System.Windows.Forms.Button();
@@ -132,19 +142,12 @@
 			this.btnGZipCompressToList = new System.Windows.Forms.Button();
 			this.btnGZipCompressToHex = new System.Windows.Forms.Button();
 			this.btnCompressBenchmark = new System.Windows.Forms.Button();
+			this.btnRunCodeCompressionTests = new System.Windows.Forms.Button();
 			this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
 			this.memoCodeCompressionInput = new System.Windows.Forms.TextBox();
 			this.memoCodeCompressionOutput = new System.Windows.Forms.TextBox();
 			this.memoCodeCompressionLog = new System.Windows.Forms.TextBox();
 			this.tabPageTools = new System.Windows.Forms.TabPage();
-			this.edBenchBefunRep = new System.Windows.Forms.NumericUpDown();
-			this.btnBenchBefunRepCSV = new System.Windows.Forms.Button();
-			this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
-			this.graphUserControl1 = new BefunGen.GraphUserControl();
-			this.btnBenchBefunRepXML = new System.Windows.Forms.Button();
-			this.btnBenchBefunRepJSON = new System.Windows.Forms.Button();
-			this.label3 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -163,6 +166,7 @@
 			this.tableLayoutPanel4.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel5.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.edBenchBefunRep)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.edSingleBefunRepRep)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.edSingleRep)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.edNumberRep)).BeginInit();
@@ -181,6 +185,7 @@
 			this.tabPage14.SuspendLayout();
 			this.tabPage13.SuspendLayout();
 			this.tabPage15.SuspendLayout();
+			this.tabPage11.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
 			this.tabMainControl.SuspendLayout();
@@ -195,7 +200,6 @@
 			this.tableLayoutPanel14.SuspendLayout();
 			this.tableLayoutPanel15.SuspendLayout();
 			this.tabPageTools.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.edBenchBefunRep)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// btnLoad
@@ -532,6 +536,7 @@
 			this.txtDebug.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.txtDebug.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtDebug.Location = new System.Drawing.Point(3, 3);
+			this.txtDebug.MaxLength = 2147483647;
 			this.txtDebug.Multiline = true;
 			this.txtDebug.Name = "txtDebug";
 			this.txtDebug.ReadOnly = true;
@@ -574,6 +579,60 @@
 			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel5.Size = new System.Drawing.Size(274, 656);
 			this.tableLayoutPanel5.TabIndex = 1;
+			// 
+			// btnBenchBefunRepJSON
+			// 
+			this.btnBenchBefunRepJSON.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnBenchBefunRepJSON.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnBenchBefunRepJSON.Location = new System.Drawing.Point(112, 133);
+			this.btnBenchBefunRepJSON.Name = "btnBenchBefunRepJSON";
+			this.btnBenchBefunRepJSON.Size = new System.Drawing.Size(159, 24);
+			this.btnBenchBefunRepJSON.TabIndex = 3;
+			this.btnBenchBefunRepJSON.Text = "[JSON] Calculate";
+			this.btnBenchBefunRepJSON.UseVisualStyleBackColor = true;
+			this.btnBenchBefunRepJSON.Click += new System.EventHandler(this.btnBenchBefunRepJSON_Click);
+			// 
+			// btnBenchBefunRepXML
+			// 
+			this.btnBenchBefunRepXML.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnBenchBefunRepXML.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnBenchBefunRepXML.Location = new System.Drawing.Point(112, 103);
+			this.btnBenchBefunRepXML.Name = "btnBenchBefunRepXML";
+			this.btnBenchBefunRepXML.Size = new System.Drawing.Size(159, 24);
+			this.btnBenchBefunRepXML.TabIndex = 9;
+			this.btnBenchBefunRepXML.Text = "[XML] Calculate";
+			this.btnBenchBefunRepXML.UseVisualStyleBackColor = true;
+			this.btnBenchBefunRepXML.Click += new System.EventHandler(this.btnBenchBefunRepXML_Click);
+			// 
+			// btnBenchBefunRepCSV
+			// 
+			this.btnBenchBefunRepCSV.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnBenchBefunRepCSV.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnBenchBefunRepCSV.Location = new System.Drawing.Point(112, 73);
+			this.btnBenchBefunRepCSV.Name = "btnBenchBefunRepCSV";
+			this.btnBenchBefunRepCSV.Size = new System.Drawing.Size(159, 24);
+			this.btnBenchBefunRepCSV.TabIndex = 8;
+			this.btnBenchBefunRepCSV.Text = "[CSV] Calculate";
+			this.btnBenchBefunRepCSV.UseVisualStyleBackColor = true;
+			this.btnBenchBefunRepCSV.Click += new System.EventHandler(this.btnBenchBefunRepCSV_Click);
+			// 
+			// edBenchBefunRep
+			// 
+			this.edBenchBefunRep.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.edBenchBefunRep.Location = new System.Drawing.Point(3, 73);
+			this.edBenchBefunRep.Maximum = new decimal(new int[] {
+            -1,
+            0,
+            0,
+            0});
+			this.edBenchBefunRep.Name = "edBenchBefunRep";
+			this.edBenchBefunRep.Size = new System.Drawing.Size(103, 20);
+			this.edBenchBefunRep.TabIndex = 7;
+			this.edBenchBefunRep.Value = new decimal(new int[] {
+            16384,
+            0,
+            0,
+            0});
 			// 
 			// btnSingleBefunRepRep
 			// 
@@ -674,6 +733,32 @@
             0,
             0});
 			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.tableLayoutPanel5.SetColumnSpan(this.label3, 2);
+			this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label3.Location = new System.Drawing.Point(3, 0);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(268, 40);
+			this.label3.TabIndex = 10;
+			this.label3.Text = "-- BefunRep --";
+			this.label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.tableLayoutPanel5.SetColumnSpan(this.label4, 2);
+			this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.Location = new System.Drawing.Point(3, 160);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(268, 40);
+			this.label4.TabIndex = 11;
+			this.label4.Text = "-- BefunGen --";
+			this.label4.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+			// 
 			// tableLayoutPanel7
 			// 
 			this.tableLayoutPanel7.ColumnCount = 2;
@@ -735,6 +820,7 @@
 			this.edHighlightCode.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.edHighlightCode.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.edHighlightCode.Location = new System.Drawing.Point(3, 3);
+			this.edHighlightCode.MaxLength = 2147483647;
 			this.edHighlightCode.Multiline = true;
 			this.edHighlightCode.Name = "edHighlightCode";
 			this.edHighlightCode.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -757,6 +843,7 @@
 			this.edHighlighted.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.edHighlighted.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.edHighlighted.Location = new System.Drawing.Point(3, 3);
+			this.edHighlighted.MaxLength = 2147483647;
 			this.edHighlighted.Multiline = true;
 			this.edHighlighted.Name = "edHighlighted";
 			this.edHighlighted.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -802,6 +889,7 @@
 			this.edSquashInputIn.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.edSquashInputIn.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.edSquashInputIn.Location = new System.Drawing.Point(3, 115);
+			this.edSquashInputIn.MaxLength = 2147483647;
 			this.edSquashInputIn.Multiline = true;
 			this.edSquashInputIn.Name = "edSquashInputIn";
 			this.tableLayoutPanel9.SetRowSpan(this.edSquashInputIn, 5);
@@ -850,6 +938,7 @@
 			this.edSquashInputOut.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.edSquashInputOut.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.edSquashInputOut.Location = new System.Drawing.Point(363, 115);
+			this.edSquashInputOut.MaxLength = 2147483647;
 			this.edSquashInputOut.Multiline = true;
 			this.edSquashInputOut.Name = "edSquashInputOut";
 			this.edSquashInputOut.ReadOnly = true;
@@ -1048,6 +1137,7 @@
 			this.tabCompileControl.Controls.Add(this.tabPage14);
 			this.tabCompileControl.Controls.Add(this.tabPage13);
 			this.tabCompileControl.Controls.Add(this.tabPage15);
+			this.tabCompileControl.Controls.Add(this.tabPage11);
 			this.tabCompileControl.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabCompileControl.Location = new System.Drawing.Point(153, 3);
 			this.tabCompileControl.Name = "tabCompileControl";
@@ -1200,6 +1290,16 @@
 			this.tabPage14.Text = "Graph";
 			this.tabPage14.UseVisualStyleBackColor = true;
 			// 
+			// elementHost1
+			// 
+			this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.elementHost1.Location = new System.Drawing.Point(3, 3);
+			this.elementHost1.Name = "elementHost1";
+			this.elementHost1.Size = new System.Drawing.Size(686, 592);
+			this.elementHost1.TabIndex = 0;
+			this.elementHost1.Text = "elementHost1";
+			this.elementHost1.Child = this.graphUserControl1;
+			// 
 			// tabPage13
 			// 
 			this.tabPage13.Controls.Add(this.memoCompileOut);
@@ -1240,11 +1340,36 @@
 			this.memoCompileLog.AcceptsReturn = true;
 			this.memoCompileLog.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.memoCompileLog.Location = new System.Drawing.Point(3, 3);
+			this.memoCompileLog.MaxLength = 2147483647;
 			this.memoCompileLog.Multiline = true;
 			this.memoCompileLog.Name = "memoCompileLog";
 			this.memoCompileLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.memoCompileLog.Size = new System.Drawing.Size(686, 592);
 			this.memoCompileLog.TabIndex = 1;
+			// 
+			// tabPage11
+			// 
+			this.tabPage11.Controls.Add(this.edBefunCompileConsole);
+			this.tabPage11.Location = new System.Drawing.Point(4, 22);
+			this.tabPage11.Name = "tabPage11";
+			this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage11.Size = new System.Drawing.Size(692, 598);
+			this.tabPage11.TabIndex = 5;
+			this.tabPage11.Text = "Console";
+			this.tabPage11.UseVisualStyleBackColor = true;
+			// 
+			// edBefunCompileConsole
+			// 
+			this.edBefunCompileConsole.BackColor = System.Drawing.SystemColors.Window;
+			this.edBefunCompileConsole.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.edBefunCompileConsole.Location = new System.Drawing.Point(3, 3);
+			this.edBefunCompileConsole.MaxLength = 2147483647;
+			this.edBefunCompileConsole.Multiline = true;
+			this.edBefunCompileConsole.Name = "edBefunCompileConsole";
+			this.edBefunCompileConsole.ReadOnly = true;
+			this.edBefunCompileConsole.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.edBefunCompileConsole.Size = new System.Drawing.Size(686, 592);
+			this.edBefunCompileConsole.TabIndex = 0;
 			// 
 			// tableLayoutPanel2
 			// 
@@ -1423,7 +1548,8 @@
 			this.tableLayoutPanel14.Controls.Add(this.btnGZipDecompress, 0, 7);
 			this.tableLayoutPanel14.Controls.Add(this.btnGZipCompressToList, 0, 8);
 			this.tableLayoutPanel14.Controls.Add(this.btnGZipCompressToHex, 0, 9);
-			this.tableLayoutPanel14.Controls.Add(this.btnCompressBenchmark, 0, 12);
+			this.tableLayoutPanel14.Controls.Add(this.btnCompressBenchmark, 0, 11);
+			this.tableLayoutPanel14.Controls.Add(this.btnRunCodeCompressionTests, 0, 12);
 			this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel14.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel14.Name = "tableLayoutPanel14";
@@ -1441,6 +1567,7 @@
 			this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel14.Size = new System.Drawing.Size(144, 624);
 			this.tableLayoutPanel14.TabIndex = 0;
 			// 
@@ -1559,13 +1686,24 @@
 			// btnCompressBenchmark
 			// 
 			this.btnCompressBenchmark.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnCompressBenchmark.Location = new System.Drawing.Point(3, 597);
+			this.btnCompressBenchmark.Location = new System.Drawing.Point(3, 567);
 			this.btnCompressBenchmark.Name = "btnCompressBenchmark";
 			this.btnCompressBenchmark.Size = new System.Drawing.Size(138, 24);
 			this.btnCompressBenchmark.TabIndex = 8;
 			this.btnCompressBenchmark.Text = "Benchmark";
 			this.btnCompressBenchmark.UseVisualStyleBackColor = true;
 			this.btnCompressBenchmark.Click += new System.EventHandler(this.btnCompressBenchmark_Click);
+			// 
+			// btnRunCodeCompressionTests
+			// 
+			this.btnRunCodeCompressionTests.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnRunCodeCompressionTests.Location = new System.Drawing.Point(3, 597);
+			this.btnRunCodeCompressionTests.Name = "btnRunCodeCompressionTests";
+			this.btnRunCodeCompressionTests.Size = new System.Drawing.Size(138, 24);
+			this.btnRunCodeCompressionTests.TabIndex = 11;
+			this.btnRunCodeCompressionTests.Text = "Run Tests";
+			this.btnRunCodeCompressionTests.UseVisualStyleBackColor = true;
+			this.btnRunCodeCompressionTests.Click += new System.EventHandler(this.btnRunCodeCompressionTests_Click);
 			// 
 			// tableLayoutPanel15
 			// 
@@ -1589,8 +1727,10 @@
 			this.memoCodeCompressionInput.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.memoCodeCompressionInput.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.memoCodeCompressionInput.Location = new System.Drawing.Point(3, 3);
+			this.memoCodeCompressionInput.MaxLength = 2147483647;
 			this.memoCodeCompressionInput.Multiline = true;
 			this.memoCodeCompressionInput.Name = "memoCodeCompressionInput";
+			this.memoCodeCompressionInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.memoCodeCompressionInput.Size = new System.Drawing.Size(344, 468);
 			this.memoCodeCompressionInput.TabIndex = 0;
 			this.memoCodeCompressionInput.WordWrap = false;
@@ -1601,8 +1741,10 @@
 			this.memoCodeCompressionOutput.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.memoCodeCompressionOutput.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.memoCodeCompressionOutput.Location = new System.Drawing.Point(353, 3);
+			this.memoCodeCompressionOutput.MaxLength = 2147483647;
 			this.memoCodeCompressionOutput.Multiline = true;
 			this.memoCodeCompressionOutput.Name = "memoCodeCompressionOutput";
+			this.memoCodeCompressionOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.memoCodeCompressionOutput.Size = new System.Drawing.Size(344, 468);
 			this.memoCodeCompressionOutput.TabIndex = 1;
 			this.memoCodeCompressionOutput.WordWrap = false;
@@ -1629,96 +1771,6 @@
 			this.tabPageTools.TabIndex = 5;
 			this.tabPageTools.Text = "Befunge Tools";
 			this.tabPageTools.UseVisualStyleBackColor = true;
-			// 
-			// edBenchBefunRep
-			// 
-			this.edBenchBefunRep.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.edBenchBefunRep.Location = new System.Drawing.Point(3, 73);
-			this.edBenchBefunRep.Maximum = new decimal(new int[] {
-            -1,
-            0,
-            0,
-            0});
-			this.edBenchBefunRep.Name = "edBenchBefunRep";
-			this.edBenchBefunRep.Size = new System.Drawing.Size(103, 20);
-			this.edBenchBefunRep.TabIndex = 7;
-			this.edBenchBefunRep.Value = new decimal(new int[] {
-            16384,
-            0,
-            0,
-            0});
-			// 
-			// btnBenchBefunRepCSV
-			// 
-			this.btnBenchBefunRepCSV.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnBenchBefunRepCSV.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnBenchBefunRepCSV.Location = new System.Drawing.Point(112, 73);
-			this.btnBenchBefunRepCSV.Name = "btnBenchBefunRepCSV";
-			this.btnBenchBefunRepCSV.Size = new System.Drawing.Size(159, 24);
-			this.btnBenchBefunRepCSV.TabIndex = 8;
-			this.btnBenchBefunRepCSV.Text = "[CSV] Calculate";
-			this.btnBenchBefunRepCSV.UseVisualStyleBackColor = true;
-			this.btnBenchBefunRepCSV.Click += new System.EventHandler(this.btnBenchBefunRepCSV_Click);
-			// 
-			// elementHost1
-			// 
-			this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.elementHost1.Location = new System.Drawing.Point(3, 3);
-			this.elementHost1.Name = "elementHost1";
-			this.elementHost1.Size = new System.Drawing.Size(686, 592);
-			this.elementHost1.TabIndex = 0;
-			this.elementHost1.Text = "elementHost1";
-			this.elementHost1.Child = this.graphUserControl1;
-			// 
-			// btnBenchBefunRepXML
-			// 
-			this.btnBenchBefunRepXML.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnBenchBefunRepXML.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnBenchBefunRepXML.Location = new System.Drawing.Point(112, 103);
-			this.btnBenchBefunRepXML.Name = "btnBenchBefunRepXML";
-			this.btnBenchBefunRepXML.Size = new System.Drawing.Size(159, 24);
-			this.btnBenchBefunRepXML.TabIndex = 9;
-			this.btnBenchBefunRepXML.Text = "[XML] Calculate";
-			this.btnBenchBefunRepXML.UseVisualStyleBackColor = true;
-			this.btnBenchBefunRepXML.Click += new System.EventHandler(this.btnBenchBefunRepXML_Click);
-			// 
-			// btnBenchBefunRepJSON
-			// 
-			this.btnBenchBefunRepJSON.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnBenchBefunRepJSON.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnBenchBefunRepJSON.Location = new System.Drawing.Point(112, 133);
-			this.btnBenchBefunRepJSON.Name = "btnBenchBefunRepJSON";
-			this.btnBenchBefunRepJSON.Size = new System.Drawing.Size(159, 24);
-			this.btnBenchBefunRepJSON.TabIndex = 3;
-			this.btnBenchBefunRepJSON.Text = "[JSON] Calculate";
-			this.btnBenchBefunRepJSON.UseVisualStyleBackColor = true;
-			this.btnBenchBefunRepJSON.Click += new System.EventHandler(this.btnBenchBefunRepJSON_Click);
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.tableLayoutPanel5.SetColumnSpan(this.label3, 2);
-			this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(3, 0);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(268, 40);
-			this.label3.TabIndex = 10;
-			this.label3.Text = "-- BefunRep --";
-			this.label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.tableLayoutPanel5.SetColumnSpan(this.label4, 2);
-			this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(3, 160);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(268, 40);
-			this.label4.TabIndex = 11;
-			this.label4.Text = "-- BefunGen --";
-			this.label4.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
 			// 
 			// frmMain
 			// 
@@ -1757,6 +1809,7 @@
 			this.tableLayoutPanel1.PerformLayout();
 			this.tableLayoutPanel5.ResumeLayout(false);
 			this.tableLayoutPanel5.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.edBenchBefunRep)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.edSingleBefunRepRep)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.edSingleRep)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.edNumberRep)).EndInit();
@@ -1782,6 +1835,8 @@
 			this.tabPage13.PerformLayout();
 			this.tabPage15.ResumeLayout(false);
 			this.tabPage15.PerformLayout();
+			this.tabPage11.ResumeLayout(false);
+			this.tabPage11.PerformLayout();
 			this.tableLayoutPanel2.ResumeLayout(false);
 			this.tableLayoutPanel3.ResumeLayout(false);
 			this.tableLayoutPanel3.PerformLayout();
@@ -1799,7 +1854,6 @@
 			this.tableLayoutPanel15.ResumeLayout(false);
 			this.tableLayoutPanel15.PerformLayout();
 			this.tabPageTools.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.edBenchBefunRep)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -1921,6 +1975,9 @@
 		private System.Windows.Forms.Button btnBenchBefunRepXML;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.TabPage tabPage11;
+		private System.Windows.Forms.TextBox edBefunCompileConsole;
+		private System.Windows.Forms.Button btnRunCodeCompressionTests;
 	}
 }
 

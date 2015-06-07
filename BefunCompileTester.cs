@@ -4,6 +4,7 @@ using BefunGen.Properties;
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Text;
 using System.Windows.Forms;
 
 namespace BefunGen
@@ -61,11 +62,14 @@ namespace BefunGen
 			{ "data_059", Resources.testdata_059, "107359" },
 		};
 
+		public StringBuilder Output;
+
 		public void Test(ref TextBox logbox)
 		{
 			logbox.Text += Environment.NewLine;
 			logbox.Text += "Running Tests" + Environment.NewLine;
 
+			Output = new StringBuilder();
 			for (int i = 0; i < TestData.GetLength(0); i++)
 			{
 				logbox.Text += TestAll(TestData[i, 0], TestData[i, 1], TestData[i, 2]);
@@ -115,14 +119,23 @@ namespace BefunGen
 					FileName = "gcc.exe",
 					Arguments = string.Format(" -x c \"{0}\" -o \"{1}\"", fn1, fn2),
 					UseShellExecute = false,
+					RedirectStandardOutput = true,
 					RedirectStandardError = true,
 					CreateNoWindow = true,
 					ErrorDialog = false
 				}
 			};
 			p_gcc.Start();
+			Output.AppendLine();
+			Output.AppendLine("> " + p_gcc.StartInfo.FileName + " " + p_gcc.StartInfo.Arguments);
+
 			string gccerror = p_gcc.StandardError.ReadToEnd();
+			string gccoutput = p_gcc.StandardOutput.ReadToEnd();
+
 			p_gcc.WaitForExit();
+			Output.AppendLine(gccerror);
+			Output.AppendLine(gccoutput);
+
 
 			if (p_gcc.ExitCode != 0)
 			{
@@ -186,20 +199,28 @@ namespace BefunGen
 					Arguments = string.Format("/out:\"{1}\" /optimize /nologo \"{0}\"", fn1, fn2),
 					UseShellExecute = false,
 					RedirectStandardOutput = true,
+					RedirectStandardError = true,
 					CreateNoWindow = true,
 					ErrorDialog = false
 				}
 			};
 			p_csc.Start();
-			string cscerror = p_csc.StandardOutput.ReadToEnd();
+			Output.AppendLine();
+			Output.AppendLine("> " + p_csc.StartInfo.FileName + " " + p_csc.StartInfo.Arguments);
+
+			string cscoutput = p_csc.StandardOutput.ReadToEnd();
+			string cscerror = p_csc.StandardError.ReadToEnd();
 			p_csc.WaitForExit();
+			Output.AppendLine(cscerror);
+			Output.AppendLine(cscoutput);
+
 
 			if (p_csc.ExitCode != 0)
 			{
 				File.Delete(fn1);
 				File.Delete(fn2);
 
-				return string.Format("[{0}] FAILURE (CSC ExitCode  = {1}): {2}\r\n", name, p_csc.ExitCode, cscerror);
+				return string.Format("[{0}] FAILURE (CSC ExitCode  = {1}): {2}\r\n", name, p_csc.ExitCode, cscoutput); // csc writes errors to stdout
 			}
 
 			Process p_prog = new Process

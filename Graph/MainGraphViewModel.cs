@@ -127,15 +127,31 @@ namespace BefunGen
 			var constIO = bcGraph.ListConstantVariableAccess().Count();
 			var dynIO = bcGraph.ListDynamicVariableAccess().Count();
 			var vars = bcGraph.Variables.Count;
+			var vars_user = bcGraph.Variables.Count(p => p.isUserDefinied);
+			var vars_system = bcGraph.Variables.Count(p => !p.isUserDefinied);
+			var stackacc = bcGraph.Vertices.Count(p => !p.IsNotStackAccess());
+			var varacc = bcGraph.Vertices.Count(p => !p.IsNotVariableAccess());
 			var positions = bcGraph.GetAllCodePositions();
 
-			GInfo = string.Format("{0} {1}.  {2} {3}.  {4} {5}. {6} const IO Access. {7} dynamic IO Access. {8} {9}. {10} program size.",
-				vertices, (vertices == 1) ? "Vertex" : "Vertices",
-				nops, (nops == 1) ? "NOP" : "NOPs",
-				leafs, (leafs == 1) ? "Leaf" : "Leafs",
+			GInfo = string.Format("{0} {1}.  {2} {3}.  {4} {5}." + "\r\n"
+								+ "{6} const IO Access. {7} dynamic IO Access." + "\r\n"
+								+ "{8} {9} ({10} user + {11} system)." + "\r\n"
+								+ "{12} stack access. {13} variable access." + "\r\n"
+								+ "{14} program size.",
+				vertices,
+				(vertices == 1) ? "Vertex" : "Vertices",
+				nops,
+				(nops == 1) ? "NOP" : "NOPs",
+				leafs,
+				(leafs == 1) ? "Leaf" : "Leafs",
 				constIO,
 				dynIO,
-				vars, (vars == 1) ? "Variable" : "Variables",
+				vars,
+				(vars == 1) ? "Variable" : "Variables",
+				vars_user,
+				vars_system,
+				stackacc,
+				varacc,
 				positions.Count);
 		}
 	}
