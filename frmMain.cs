@@ -1080,17 +1080,21 @@ end
 
 		private void btnGenOverview_Click(object sender, EventArgs e)
 		{
+			tabCompileControl.SelectedIndex = 3;
+
 			StringBuilder sb = new StringBuilder();
 
-			string row = "{0,-10} | {1,-10} | {2,-10} | {3,-10} | {4,-15} | {5,-15} | {6,-10} | {7,-10} | {8,-10} | {9,-10} | {10,-10} | {11,-25}";
+			string row = "{0,-10} | {1,-10} | {2,-10} | {3,-10} | {4,-15} | {5,-15} | {6,-10} | {7,-10} | {8,-10} | {9,-10} | {10,-10} | {11,-35} | {12,-10}";
 
-			string header = string.Format(row, "Name", "Vertices", "NOPs", "Leafs", "const IO Acc", "dyn. IO Acc", "userVar", "systemVar", "Stack Acc", "Var Acc", "Size", "Cycles");
+			string header = string.Format(row, "Name", "Vertices", "NOPs", "Leafs", "const IO Acc", "dyn. IO Acc", "userVar", "systemVar", "Stack Acc", "Var Acc", "Size", "Cycles", "Time (ms)");
 
 			sb.AppendLine(header);
 			sb.AppendLine(new String('-', header.Length));
 
 			for (int i = 0; i < BefunCompileTester.TestData.GetLength(0); i++)
 			{
+				long sw_time = Environment.TickCount;
+
 				var compiler = new BefunCompiler(BefunCompileTester.TestData[i, 1],
 					cbOutFormat.Checked,
 					cbIgnoreSelfModification.Checked,
@@ -1098,6 +1102,8 @@ end
 					cbSafeGridAccess.Checked,
 					cbUseGZip.Checked);
 				var graph = compiler.GenerateGraph();
+
+				sw_time = Environment.TickCount - sw_time;
 
 				var cell_Name = BefunCompileTester.TestData[i, 0];
 				var cell_Vertices = graph.Vertices.Count;
@@ -1107,18 +1113,21 @@ end
 				var cell_dIOAcc = graph.ListDynamicVariableAccess().Count();
 				var cell_uservar = graph.Variables.Count(p => p.isUserDefinied);
 				var cell_sysvar = graph.Variables.Count(p => !p.isUserDefinied);
-				var cell_stackAcc = graph.Vertices.Count(p => !p.IsNotStackAccess());
+				var cell_sysscopes = graph.Variables.Where(p => !p.isUserDefinied).Sum(p => p.Scope.Count);
+				var cell_systotal = string.Format("{0,-3} ({1})", cell_sysvar, cell_sysscopes);
+                var cell_stackAcc = graph.Vertices.Count(p => !p.IsNotStackAccess());
 				var cell_varAcc = graph.Vertices.Count(p => !p.IsNotVariableAccess());
 				var cell_size = graph.GetAllCodePositions().Count;
-				var cell_cycles = string.Join("-", compiler.log_Cycles.Select(p => string.Format("{0:00}", p)));
+				var cell_cycles = string.Join(" ", compiler.log_Cycles.Select(p => string.Format("{0,3}", p)));
+				var cell_time = sw_time.ToString();
 
 				sb.AppendLine(string.Format(row, 
 					cell_Name, cell_Vertices, cell_Nops, cell_Leafs, cell_cIOAcc, cell_dIOAcc, 
-					cell_uservar, cell_sysvar, cell_stackAcc, cell_varAcc, cell_size, cell_cycles));
-			}
+					cell_uservar, cell_systotal, cell_stackAcc, cell_varAcc, cell_size, cell_cycles, cell_time));
 
-			memoCompileOut.Text = sb.ToString();
-			tabCompileControl.SelectedIndex = 3;
+				memoCompileOut.Text = sb.ToString();
+				memoCompileOut.Refresh();
+            }
 
 		}
 

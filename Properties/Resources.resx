@@ -268,4 +268,25 @@
   <data name="testdata_059" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\testdata_059.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="testdata_061" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\testdata_061.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="testdata_063" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\testdata_063.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="testdata_064" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\testdata_064.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="testdata_065" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\testdata_065.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="testdata_067" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\testdata_067.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="testdata_068" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\testdata_068.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="testdata_069" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\testdata_069.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
 </root>
