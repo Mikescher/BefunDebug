@@ -18,6 +18,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
+using BefunCompile.Graph.Vertex;
 
 namespace BefunGen
 {
@@ -1063,7 +1064,6 @@ end
 			memoCodeCompressionInput.Text += Environment.NewLine;
 			memoCodeCompressionInput.Text += string.Join(Environment.NewLine, result_mszip.Where(p => !p.Success).Select(p => p.Name + " (" + p.Data.Length + " vs " + p.Decompressed.Length + ")"));
 
-
 			var gzip = new MSZipImplementation();
 			var result_gzip = Enumerable.Range(0, BefunCompileTester.TestData.GetLength(0))
 				.Select(p => new { Name = BefunCompileTester.TestData[p, 0], Data = BefunCompileTester.TestData[p, 1], Compressed = gzip.CompressToString(BefunCompileTester.TestData[p, 1]) })
@@ -1076,7 +1076,49 @@ end
 			memoCodeCompressionOutput.Text += "Sucessrate:" + result_gzip.Count(p => p.Success) + "/" + result_gzip.Count();
 			memoCodeCompressionOutput.Text += Environment.NewLine;
 			memoCodeCompressionOutput.Text += string.Join(Environment.NewLine, result_gzip.Where(p => !p.Success).Select(p => p.Name + " (" + p.Data.Length + " vs " + p.Decompressed.Length + ")"));
+		}
 
+		private void btnGenOverview_Click(object sender, EventArgs e)
+		{
+			StringBuilder sb = new StringBuilder();
+
+			string row = "{0,-10} | {1,-10} | {2,-10} | {3,-10} | {4,-15} | {5,-15} | {6,-10} | {7,-10} | {8,-10} | {9,-10} | {10,-10} | {11,-25}";
+
+			string header = string.Format(row, "Name", "Vertices", "NOPs", "Leafs", "const IO Acc", "dyn. IO Acc", "userVar", "systemVar", "Stack Acc", "Var Acc", "Size", "Cycles");
+
+			sb.AppendLine(header);
+			sb.AppendLine(new String('-', header.Length));
+
+			for (int i = 0; i < BefunCompileTester.TestData.GetLength(0); i++)
+			{
+				var compiler = new BefunCompiler(BefunCompileTester.TestData[i, 1],
+					cbOutFormat.Checked,
+					cbIgnoreSelfModification.Checked,
+					cbSafeStackAccess.Checked,
+					cbSafeGridAccess.Checked,
+					cbUseGZip.Checked);
+				var graph = compiler.GenerateGraph();
+
+				var cell_Name = BefunCompileTester.TestData[i, 0];
+				var cell_Vertices = graph.Vertices.Count;
+				var cell_Nops = graph.Vertices.Count(p => p is BCVertexNOP);
+				var cell_Leafs = graph.Vertices.Count(p => p.Children.Count == 0);
+				var cell_cIOAcc = graph.ListConstantVariableAccess().Count();
+				var cell_dIOAcc = graph.ListDynamicVariableAccess().Count();
+				var cell_uservar = graph.Variables.Count(p => p.isUserDefinied);
+				var cell_sysvar = graph.Variables.Count(p => !p.isUserDefinied);
+				var cell_stackAcc = graph.Vertices.Count(p => !p.IsNotStackAccess());
+				var cell_varAcc = graph.Vertices.Count(p => !p.IsNotVariableAccess());
+				var cell_size = graph.GetAllCodePositions().Count;
+				var cell_cycles = string.Join("-", compiler.log_Cycles.Select(p => string.Format("{0:00}", p)));
+
+				sb.AppendLine(string.Format(row, 
+					cell_Name, cell_Vertices, cell_Nops, cell_Leafs, cell_cIOAcc, cell_dIOAcc, 
+					cell_uservar, cell_sysvar, cell_stackAcc, cell_varAcc, cell_size, cell_cycles));
+			}
+
+			memoCompileOut.Text = sb.ToString();
+			tabCompileControl.SelectedIndex = 3;
 
 		}
 

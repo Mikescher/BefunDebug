@@ -97,6 +97,7 @@
 			this.cbxCompileData = new System.Windows.Forms.ComboBox();
 			this.btnCompileExecute = new System.Windows.Forms.Button();
 			this.btnCompileCompile = new System.Windows.Forms.Button();
+			this.btnGenOverview = new System.Windows.Forms.Button();
 			this.tabCompileControl = new System.Windows.Forms.TabControl();
 			this.tabPage16 = new System.Windows.Forms.TabPage();
 			this.memoCompileInput = new System.Windows.Forms.TextBox();
@@ -1008,14 +1009,15 @@
 			this.tableLayoutPanel11.Controls.Add(this.btnCompileGraph, 0, 2);
 			this.tableLayoutPanel11.Controls.Add(this.btnRunCurrGraph, 0, 7);
 			this.tableLayoutPanel11.Controls.Add(this.cbxCompileLevel, 0, 1);
-			this.tableLayoutPanel11.Controls.Add(this.btnCompileTest, 0, 9);
+			this.tableLayoutPanel11.Controls.Add(this.btnCompileTest, 0, 11);
 			this.tableLayoutPanel11.Controls.Add(this.cbxCompileData, 0, 6);
 			this.tableLayoutPanel11.Controls.Add(this.btnCompileExecute, 0, 4);
 			this.tableLayoutPanel11.Controls.Add(this.btnCompileCompile, 0, 3);
+			this.tableLayoutPanel11.Controls.Add(this.btnGenOverview, 0, 10);
 			this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-			this.tableLayoutPanel11.RowCount = 10;
+			this.tableLayoutPanel11.RowCount = 12;
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
@@ -1025,6 +1027,8 @@
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.Size = new System.Drawing.Size(144, 624);
 			this.tableLayoutPanel11.TabIndex = 0;
@@ -1032,7 +1036,7 @@
 			// btnCompileGraphCompile
 			// 
 			this.btnCompileGraphCompile.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnCompileGraphCompile.Location = new System.Drawing.Point(3, 567);
+			this.btnCompileGraphCompile.Location = new System.Drawing.Point(3, 527);
 			this.btnCompileGraphCompile.Name = "btnCompileGraphCompile";
 			this.btnCompileGraphCompile.Size = new System.Drawing.Size(138, 24);
 			this.btnCompileGraphCompile.TabIndex = 9;
@@ -1067,7 +1071,7 @@
 			// btnRunCurrGraph
 			// 
 			this.btnRunCurrGraph.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnRunCurrGraph.Location = new System.Drawing.Point(3, 537);
+			this.btnRunCurrGraph.Location = new System.Drawing.Point(3, 497);
 			this.btnRunCurrGraph.Name = "btnRunCurrGraph";
 			this.btnRunCurrGraph.Size = new System.Drawing.Size(138, 24);
 			this.btnRunCurrGraph.TabIndex = 5;
@@ -1102,7 +1106,7 @@
 			this.cbxCompileData.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.cbxCompileData.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbxCompileData.FormattingEnabled = true;
-			this.cbxCompileData.Location = new System.Drawing.Point(3, 507);
+			this.cbxCompileData.Location = new System.Drawing.Point(3, 467);
 			this.cbxCompileData.Name = "cbxCompileData";
 			this.cbxCompileData.Size = new System.Drawing.Size(138, 21);
 			this.cbxCompileData.TabIndex = 12;
@@ -1131,6 +1135,17 @@
 			this.btnCompileCompile.Text = "Compile [     ]";
 			this.btnCompileCompile.UseVisualStyleBackColor = true;
 			this.btnCompileCompile.Click += new System.EventHandler(this.btnCompileCompile_Click);
+			// 
+			// btnGenOverview
+			// 
+			this.btnGenOverview.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnGenOverview.Location = new System.Drawing.Point(3, 567);
+			this.btnGenOverview.Name = "btnGenOverview";
+			this.btnGenOverview.Size = new System.Drawing.Size(138, 24);
+			this.btnGenOverview.TabIndex = 15;
+			this.btnGenOverview.Text = "Generate Overview";
+			this.btnGenOverview.UseVisualStyleBackColor = true;
+			this.btnGenOverview.Click += new System.EventHandler(this.btnGenOverview_Click);
 			// 
 			// tabCompileControl
 			// 
@@ -1980,6 +1995,7 @@
 		private System.Windows.Forms.TabPage tabPage11;
 		private System.Windows.Forms.TextBox edBefunCompileConsole;
 		private System.Windows.Forms.Button btnRunCodeCompressionTests;
+		private System.Windows.Forms.Button btnGenOverview;
 	}
 }
 
