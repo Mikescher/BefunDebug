@@ -60,6 +60,13 @@ namespace BefunGen
 			{ "data_057", Resources.testdata_057, "153" },
 			{ "data_058", Resources.testdata_058, "26241" },
 			{ "data_059", Resources.testdata_059, "107359" },
+			{ "data_061", Resources.testdata_061, @"1281\n8128\n2882\n8256\n5625\n2512\n  = 28684" },
+			{ "data_063", Resources.testdata_063, "49" },
+			{ "data_064", Resources.testdata_064, "1322" },
+			{ "data_065", Resources.testdata_065, "272" },
+			{ "data_067", Resources.testdata_067, "7273" },
+			{ "data_068", Resources.testdata_068, "6531031914842725" },
+			{ "data_069", Resources.testdata_069, "510510" },
 		};
 
 		public StringBuilder Output;
