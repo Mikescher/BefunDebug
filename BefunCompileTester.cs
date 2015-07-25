@@ -95,29 +95,51 @@ namespace BefunGen
 			var resultlog = string.Empty;
 			var tmstart = DateTime.Now;
 
+			int tm_gen;
+			int tm_compile;
+			int tm_run;
+
 			try
 			{
-				resultlog += TestGCC(name, code, result, true);
-				resultlog += TestCSC(name, code, result, true);
+				var singleresultlog = TestGCC(name, code, result, true, out tm_gen, out tm_compile, out tm_run);
+
+				if (singleresultlog == string.Empty)
+					resultlog += string.Format("[{0,000}-GCC] Tests successful ({1,-5} ms) :: Generate= {2,-10} Compile= {3,-10} Run= {4,-10}\r\n", name, (int)(DateTime.Now - tmstart).TotalMilliseconds, tm_gen, tm_compile, tm_run);
 			}
 			catch (Exception e)
 			{
-				return string.Format("[{0}] Exception thrown: {1}: {2}\r\n", name, e.GetType().Name, e.Message);
+				return string.Format("[{0,000}-GCC] Exception thrown: {1}: {2}\r\n", name, e.GetType().Name, e.Message);
 			}
 
-			if (resultlog == string.Empty)
-				return string.Format("[{0}] Tests successful ({1} ms)\r\n", name, (DateTime.Now - tmstart).TotalMilliseconds);
+			try
+			{
+				var singleresultlog = TestCSC(name, code, result, true, out tm_gen, out tm_compile, out tm_run);
+
+				if (singleresultlog == string.Empty)
+					resultlog += string.Format("[{0,000}-CSC] Tests successful ({1,-5} ms) :: Generate= {2,-10} Compile= {3,-10} Run= {4,-10}\r\n", name, (int)(DateTime.Now - tmstart).TotalMilliseconds, tm_gen, tm_compile, tm_run);
+			}
+			catch (Exception e)
+			{
+				return string.Format("[{0,000}-CSC] Exception thrown: {1}: {2}\r\n", name, e.GetType().Name, e.Message);
+			}
 
 			return resultlog;
 		}
 
-		private string TestGCC(string name, string code, string result, bool safeAcc)
+		private string TestGCC(string name, string code, string result, bool safeAcc, out int tm_gen, out int tm_compile, out int tm_run)
 		{
+			tm_gen = Environment.TickCount;
+			
 			var bc = new BefunCompiler(code, true, true, safeAcc, safeAcc, true);
 			var gencode = bc.GenerateCode(OutputLanguage.C);
+
+			tm_gen = Environment.TickCount - tm_gen;
+
 			var fn1 = Path.GetTempFileName();
 			var fn2 = Path.GetTempPath() + Guid.NewGuid() + ".exe";
 			File.WriteAllText(fn1, gencode);
+
+			tm_compile = Environment.TickCount;
 
 			Process p_gcc = new Process
 			{
@@ -143,13 +165,16 @@ namespace BefunGen
 			Output.AppendLine(gccerror);
 			Output.AppendLine(gccoutput);
 
+			tm_compile = Environment.TickCount - tm_compile;
 
 			if (p_gcc.ExitCode != 0)
 			{
 				File.Delete(fn1);
 				File.Delete(fn2);
 
-				return string.Format("[{0}] FAILURE (GCC ExitCode  = {1}): {2}\r\n", name, p_gcc.ExitCode, gccerror);
+				tm_run = 0;
+
+				return string.Format("[{0,000}] FAILURE (GCC ExitCode  = {1}): {2}\r\n", name, p_gcc.ExitCode, gccerror);
 			}
 
 			Process p_prog = new Process
@@ -164,16 +189,21 @@ namespace BefunGen
 					ErrorDialog = false
 				}
 			};
+
+			tm_run = Environment.TickCount;
+
 			p_prog.Start();
 			string output = p_prog.StandardOutput.ReadToEnd().Replace("\r\n", "\n").Replace("\n", "\\n");
 			p_prog.WaitForExit();
+
+			tm_run = Environment.TickCount - tm_run;
 
 			if (p_prog.ExitCode != 0)
 			{
 				File.Delete(fn1);
 				File.Delete(fn2);
 
-				return string.Format("[{0}] FAILURE (PROG ExitCode  = {1}): {2}\r\n", name, p_prog.ExitCode, output);
+				return string.Format("[{0,000}] FAILURE (PROG ExitCode  = {1}): {2}\r\n", name, p_prog.ExitCode, output);
 			}
 
 			if (output != result)
@@ -181,7 +211,7 @@ namespace BefunGen
 				File.Delete(fn1);
 				File.Delete(fn2);
 
-				return string.Format("[{0}] FAILURE ('{1}' <> '{2}')\r\n", name, output, result);
+				return string.Format("[{0,000}] FAILURE ('{1}' <> '{2}')\r\n", name, output, result);
 			}
 
 			File.Delete(fn1);
@@ -190,10 +220,15 @@ namespace BefunGen
 			return string.Empty;
 		}
 
-		private string TestCSC(string name, string code, string result, bool safeAcc)
+		private string TestCSC(string name, string code, string result, bool safeAcc, out int tm_gen, out int tm_compile, out int tm_run)
 		{
+			tm_gen = Environment.TickCount;
+
 			var bc = new BefunCompiler(code, true, true, safeAcc, safeAcc, true);
 			var gencode = bc.GenerateCode(OutputLanguage.CSharp);
+
+			tm_gen = Environment.TickCount - tm_gen;
+
 			var fn1 = Path.GetTempFileName() + ".cs";
 			var fn2 = Path.GetTempPath() + Guid.NewGuid() + ".exe";
 			File.WriteAllText(fn1, gencode);
@@ -211,6 +246,9 @@ namespace BefunGen
 					ErrorDialog = false
 				}
 			};
+
+			tm_compile = Environment.TickCount;
+
 			p_csc.Start();
 			Output.AppendLine();
 			Output.AppendLine("> " + p_csc.StartInfo.FileName + " " + p_csc.StartInfo.Arguments);
@@ -221,13 +259,16 @@ namespace BefunGen
 			Output.AppendLine(cscerror);
 			Output.AppendLine(cscoutput);
 
+			tm_compile = Environment.TickCount - tm_compile;
 
 			if (p_csc.ExitCode != 0)
 			{
 				File.Delete(fn1);
 				File.Delete(fn2);
 
-				return string.Format("[{0}] FAILURE (CSC ExitCode  = {1}): {2}\r\n", name, p_csc.ExitCode, cscoutput); // csc writes errors to stdout
+				tm_run = 0;
+
+				return string.Format("[{0,000}] FAILURE (CSC ExitCode  = {1}): {2}\r\n", name, p_csc.ExitCode, cscoutput); // csc writes errors to stdout
 			}
 
 			Process p_prog = new Process
@@ -242,16 +283,21 @@ namespace BefunGen
 					ErrorDialog = false
 				}
 			};
+
+			tm_run = Environment.TickCount;
+
 			p_prog.Start();
 			string output = p_prog.StandardOutput.ReadToEnd().Replace("\r\n", "\n").Replace("\n", "\\n");
 			p_prog.WaitForExit();
+
+			tm_run = Environment.TickCount - tm_run;
 
 			if (p_prog.ExitCode != 0)
 			{
 				File.Delete(fn1);
 				File.Delete(fn2);
 
-				return string.Format("[{0}] FAILURE (PROG ExitCode  = {1}): {2}\r\n", name, p_prog.ExitCode, output);
+				return string.Format("[{0,000}] FAILURE (PROG ExitCode  = {1}): {2}\r\n", name, p_prog.ExitCode, output);
 			}
 
 			if (output != result)
@@ -259,7 +305,7 @@ namespace BefunGen
 				File.Delete(fn1);
 				File.Delete(fn2);
 
-				return string.Format("[{0}] FAILURE ('{1}' <> '{2}')\r\n", name, output, result);
+				return string.Format("[{0,000}] FAILURE ('{1}' <> '{2}')\r\n", name, output, result);
 			}
 
 			File.Delete(fn1);
