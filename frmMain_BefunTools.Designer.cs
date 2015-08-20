@@ -29,14 +29,18 @@
 		private void InitializeComponent()
 		{
 			this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-			this.edSquashInputIn = new System.Windows.Forms.TextBox();
+			this.edMiscInput = new System.Windows.Forms.TextBox();
 			this.edReverseIn = new System.Windows.Forms.TextBox();
 			this.edReverseOut = new System.Windows.Forms.TextBox();
 			this.btnReverse = new System.Windows.Forms.Button();
-			this.edSquashInputOut = new System.Windows.Forms.TextBox();
+			this.edMiscOutput = new System.Windows.Forms.TextBox();
 			this.btnSquash = new System.Windows.Forms.Button();
 			this.chkbxReverseAutoDirection = new System.Windows.Forms.CheckBox();
 			this.lblReverseValidity = new System.Windows.Forms.Label();
+			this.btnRotateL = new System.Windows.Forms.Button();
+			this.btnRotateR = new System.Windows.Forms.Button();
+			this.btnFlip = new System.Windows.Forms.Button();
+			this.btnRotate180 = new System.Windows.Forms.Button();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -118,18 +122,23 @@
 			this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-			this.tableLayoutPanel9.Controls.Add(this.edSquashInputIn, 0, 4);
+			this.tableLayoutPanel9.Controls.Add(this.edMiscInput, 0, 4);
 			this.tableLayoutPanel9.Controls.Add(this.edReverseIn, 0, 0);
 			this.tableLayoutPanel9.Controls.Add(this.edReverseOut, 1, 0);
 			this.tableLayoutPanel9.Controls.Add(this.btnReverse, 2, 1);
-			this.tableLayoutPanel9.Controls.Add(this.edSquashInputOut, 1, 4);
+			this.tableLayoutPanel9.Controls.Add(this.edMiscOutput, 1, 4);
 			this.tableLayoutPanel9.Controls.Add(this.btnSquash, 2, 4);
 			this.tableLayoutPanel9.Controls.Add(this.chkbxReverseAutoDirection, 2, 0);
 			this.tableLayoutPanel9.Controls.Add(this.lblReverseValidity, 2, 2);
+			this.tableLayoutPanel9.Controls.Add(this.btnRotateL, 2, 6);
+			this.tableLayoutPanel9.Controls.Add(this.btnRotateR, 2, 7);
+			this.tableLayoutPanel9.Controls.Add(this.btnFlip, 2, 5);
+			this.tableLayoutPanel9.Controls.Add(this.btnRotate180, 2, 8);
 			this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-			this.tableLayoutPanel9.RowCount = 9;
+			this.tableLayoutPanel9.RowCount = 10;
+			this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
 			this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
 			this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
 			this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
@@ -139,26 +148,22 @@
 			this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
 			this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
 			this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel9.Size = new System.Drawing.Size(786, 568);
 			this.tableLayoutPanel9.TabIndex = 0;
 			// 
-			// edSquashInputIn
+			// edMiscInput
 			// 
-			this.edSquashInputIn.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.edSquashInputIn.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.edSquashInputIn.Location = new System.Drawing.Point(3, 115);
-			this.edSquashInputIn.MaxLength = 2147483647;
-			this.edSquashInputIn.Multiline = true;
-			this.edSquashInputIn.Name = "edSquashInputIn";
-			this.tableLayoutPanel9.SetRowSpan(this.edSquashInputIn, 5);
-			this.edSquashInputIn.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.edSquashInputIn.Size = new System.Drawing.Size(312, 482);
-			this.edSquashInputIn.TabIndex = 7;
-			this.edSquashInputIn.WordWrap = false;
+			this.edMiscInput.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.edMiscInput.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.edMiscInput.Location = new System.Drawing.Point(3, 115);
+			this.edMiscInput.MaxLength = 2147483647;
+			this.edMiscInput.Multiline = true;
+			this.edMiscInput.Name = "edMiscInput";
+			this.tableLayoutPanel9.SetRowSpan(this.edMiscInput, 6);
+			this.edMiscInput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+			this.edMiscInput.Size = new System.Drawing.Size(312, 134);
+			this.edMiscInput.TabIndex = 7;
+			this.edMiscInput.WordWrap = false;
 			// 
 			// edReverseIn
 			// 
@@ -196,21 +201,21 @@
 			this.btnReverse.UseVisualStyleBackColor = true;
 			this.btnReverse.Click += new System.EventHandler(this.btnReverse_Click);
 			// 
-			// edSquashInputOut
+			// edMiscOutput
 			// 
-			this.edSquashInputOut.BackColor = System.Drawing.SystemColors.Window;
-			this.edSquashInputOut.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.edSquashInputOut.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.edSquashInputOut.Location = new System.Drawing.Point(321, 115);
-			this.edSquashInputOut.MaxLength = 2147483647;
-			this.edSquashInputOut.Multiline = true;
-			this.edSquashInputOut.Name = "edSquashInputOut";
-			this.edSquashInputOut.ReadOnly = true;
-			this.tableLayoutPanel9.SetRowSpan(this.edSquashInputOut, 5);
-			this.edSquashInputOut.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.edSquashInputOut.Size = new System.Drawing.Size(312, 482);
-			this.edSquashInputOut.TabIndex = 2;
-			this.edSquashInputOut.WordWrap = false;
+			this.edMiscOutput.BackColor = System.Drawing.SystemColors.Window;
+			this.edMiscOutput.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.edMiscOutput.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.edMiscOutput.Location = new System.Drawing.Point(321, 115);
+			this.edMiscOutput.MaxLength = 2147483647;
+			this.edMiscOutput.Multiline = true;
+			this.edMiscOutput.Name = "edMiscOutput";
+			this.edMiscOutput.ReadOnly = true;
+			this.tableLayoutPanel9.SetRowSpan(this.edMiscOutput, 6);
+			this.edMiscOutput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+			this.edMiscOutput.Size = new System.Drawing.Size(312, 134);
+			this.edMiscOutput.TabIndex = 2;
+			this.edMiscOutput.WordWrap = false;
 			// 
 			// btnSquash
 			// 
@@ -245,6 +250,50 @@
 			this.lblReverseValidity.TabIndex = 5;
 			this.lblReverseValidity.Text = "???";
 			this.lblReverseValidity.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// btnRotateL
+			// 
+			this.btnRotateL.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnRotateL.Location = new System.Drawing.Point(639, 171);
+			this.btnRotateL.Name = "btnRotateL";
+			this.btnRotateL.Size = new System.Drawing.Size(144, 22);
+			this.btnRotateL.TabIndex = 8;
+			this.btnRotateL.Text = "Rotate 90 CCW";
+			this.btnRotateL.UseVisualStyleBackColor = true;
+			this.btnRotateL.Click += new System.EventHandler(this.btnRotateL_Click);
+			// 
+			// btnRotateR
+			// 
+			this.btnRotateR.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnRotateR.Location = new System.Drawing.Point(639, 199);
+			this.btnRotateR.Name = "btnRotateR";
+			this.btnRotateR.Size = new System.Drawing.Size(144, 22);
+			this.btnRotateR.TabIndex = 9;
+			this.btnRotateR.Text = "Rotate 90 CW";
+			this.btnRotateR.UseVisualStyleBackColor = true;
+			this.btnRotateR.Click += new System.EventHandler(this.btnRotateR_Click);
+			// 
+			// btnFlip
+			// 
+			this.btnFlip.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnFlip.Location = new System.Drawing.Point(639, 143);
+			this.btnFlip.Name = "btnFlip";
+			this.btnFlip.Size = new System.Drawing.Size(144, 22);
+			this.btnFlip.TabIndex = 10;
+			this.btnFlip.Text = "Flip";
+			this.btnFlip.UseVisualStyleBackColor = true;
+			this.btnFlip.Click += new System.EventHandler(this.btnFlip_Click);
+			// 
+			// btnRotate180
+			// 
+			this.btnRotate180.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnRotate180.Location = new System.Drawing.Point(639, 227);
+			this.btnRotate180.Name = "btnRotate180";
+			this.btnRotate180.Size = new System.Drawing.Size(144, 22);
+			this.btnRotate180.TabIndex = 11;
+			this.btnRotate180.Text = "Rotate 180";
+			this.btnRotate180.UseVisualStyleBackColor = true;
+			this.btnRotate180.Click += new System.EventHandler(this.btnRotate180_Click);
 			// 
 			// tabControl1
 			// 
@@ -944,11 +993,11 @@
 		#endregion
 
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
-		private System.Windows.Forms.TextBox edSquashInputIn;
+		private System.Windows.Forms.TextBox edMiscInput;
 		private System.Windows.Forms.TextBox edReverseIn;
 		private System.Windows.Forms.TextBox edReverseOut;
 		private System.Windows.Forms.Button btnReverse;
-		private System.Windows.Forms.TextBox edSquashInputOut;
+		private System.Windows.Forms.TextBox edMiscOutput;
 		private System.Windows.Forms.Button btnSquash;
 		private System.Windows.Forms.CheckBox chkbxReverseAutoDirection;
 		private System.Windows.Forms.Label lblReverseValidity;
@@ -1005,5 +1054,9 @@
 		private System.Windows.Forms.PictureBox imgDebug;
 		private System.Windows.Forms.PictureBox imgASCII;
 		private System.Windows.Forms.Label edArea;
+		private System.Windows.Forms.Button btnRotateL;
+		private System.Windows.Forms.Button btnRotateR;
+		private System.Windows.Forms.Button btnFlip;
+		private System.Windows.Forms.Button btnRotate180;
 	}
 }

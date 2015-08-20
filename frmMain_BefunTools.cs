@@ -17,7 +17,9 @@ namespace BefunGen
 		public frmMain_BefunTools()
 		{
 			InitializeComponent();
-		}
+
+			tabControl1.SelectedIndex = 0;
+        }
 
 		private void btnReverse_Click(object sender, EventArgs e)
 		{
@@ -56,12 +58,108 @@ namespace BefunGen
 
 		private void btnSquash_Click(object sender, EventArgs e)
 		{
-			SquashHelper sh = new SquashHelper(edSquashInputIn.Text);
+			SquashHelper sh = new SquashHelper(edMiscInput.Text);
 
 			sh.Squash();
 
-			edSquashInputOut.Text = sh.ToString();
+			edMiscOutput.Text = sh.ToString();
+		}
 
+		char[,] GetStringAsGrid(string text)
+		{
+			var lines = text.Split(new string[] { Environment.NewLine }, StringSplitOptions.None).ToList();
+			int w = lines.Max(p => p.Length);
+			int h = lines.Count();
+
+			char[,] map = new char[w, h];
+			for (int x = 0; x < w; x++)
+				for (int y = 0; y < h; y++)
+					map[x, y] = ' ';
+
+			for (int y = 0; y < h; y++)
+				for (int x = 0; x < lines[y].Length; x++)
+					map[x, y] = lines[y][x];
+
+			return map;
+		}
+
+		string GetGridAsString(char[,] map)
+		{
+			var w = map.GetLength(0);
+			var h = map.GetLength(1);
+
+			return Enumerable
+				.Range(0, h)
+				.Select(y => Enumerable.Range(0, w).Select(x => "" + map[x, y]).Aggregate(string.Concat).TrimEnd())
+				.Aggregate((a, b) => a + Environment.NewLine + b);
+		}
+
+		private void btnFlip_Click(object sender, EventArgs e)
+		{
+			string text = edMiscInput.Text;
+			if (string.IsNullOrWhiteSpace(text)) return;
+
+			var map = GetStringAsGrid(text);
+			var w = map.GetLength(0);
+			var h = map.GetLength(1);
+			var map2 = new char[h, w];
+
+			for (int y = 0; y < w; y++)
+				for (int x = 0; x < h; x++)
+					map2[x, y] = map[y, x];
+
+			edMiscOutput.Text = GetGridAsString(map2);
+		}
+
+		private void btnRotateL_Click(object sender, EventArgs e)
+		{
+			string text = edMiscInput.Text;
+			if (string.IsNullOrWhiteSpace(text)) return;
+
+			var map = GetStringAsGrid(text);
+			var w = map.GetLength(0);
+			var h = map.GetLength(1);
+			var map2 = new char[h, w];
+
+			for (int y = 0; y < w; y++)
+				for (int x = 0; x < h; x++)
+					map2[x, y] = map[w - y - 1, x];
+
+			edMiscOutput.Text = GetGridAsString(map2);
+		}
+
+		private void btnRotateR_Click(object sender, EventArgs e)
+		{
+			string text = edMiscInput.Text;
+			if (string.IsNullOrWhiteSpace(text)) return;
+
+			var map = GetStringAsGrid(text);
+			var w = map.GetLength(0);
+			var h = map.GetLength(1);
+			var map2 = new char[h, w];
+
+			for (int y = 0; y < w; y++)
+				for (int x = 0; x < h; x++)
+					map2[x, y] = map[y, h - x - 1];
+
+			edMiscOutput.Text = GetGridAsString(map2);
+		}
+
+		private void btnRotate180_Click(object sender, EventArgs e)
+		{
+			string text = edMiscInput.Text;
+			if (string.IsNullOrWhiteSpace(text)) return;
+
+			var map = GetStringAsGrid(text);
+			var w = map.GetLength(0);
+			var h = map.GetLength(1);
+			var map2 = new char[w, h];
+
+			for (int y = 0; y < h; y++)
+				for (int x = 0; x < w; x++)
+					map2[x, y] = map[w - x - 1, h - y - 1];
+
+			edMiscOutput.Text = GetGridAsString(map2);
 		}
 
 		private void btnChooseIn_Click(object sender, EventArgs e)
