@@ -384,5 +384,32 @@ namespace BefunGen
 				edASCIIOut.Text = ex.ToString();
 			}
 		}
+
+		private void btnGenerateEmpty_Click(object sender, EventArgs e)
+		{
+			int FIELD_WIDTH = (int)edFieldWidth.Value;
+			int FIELD_HEIGHT = (int)edFieldHeight.Value;
+
+			int BORDER_SIZE = (int)edBorderSize.Value;
+			
+			char CHARACTER_EMPTY = edCharEmpty.Text.Length == 0 ? ' ' : edCharEmpty.Text[0];
+			char CHARACTER_BORDER = edCharBorder.Text.Length == 0 ? ' ' : edCharBorder.Text[0];
+
+			StringBuilder b = new StringBuilder();
+
+			for (int y = 0; y < FIELD_HEIGHT; y++)
+			{
+				for (int x = 0; x < FIELD_WIDTH; x++)
+				{
+					if (x < BORDER_SIZE ||y < BORDER_SIZE || FIELD_WIDTH - x <= BORDER_SIZE || FIELD_HEIGHT - y <= BORDER_SIZE)
+						b.Append(CHARACTER_BORDER);
+					else
+						b.Append(CHARACTER_EMPTY);
+				}
+				b.AppendLine();
+			}
+
+			edASCIIOut.Text = b.ToString();
+		}
 	}
 }

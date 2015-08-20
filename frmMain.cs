@@ -1,24 +1,4 @@
-﻿using BefunCompile;
-using BefunCompile.Graph;
-using BefunCompile.Math;
-using BefunGen.AST;
-using BefunGen.AST.CodeGen;
-using BefunGen.AST.CodeGen.NumberCode;
-using BefunHighlight;
-using BefunRep;
-using BefunRep.FileHandling;
-using BefunRep.OutputHandling;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading;
-using System.Windows.Forms;
-using BefunCompile.Graph.Vertex;
+﻿using System.Windows.Forms;
 
 namespace BefunGen
 {
@@ -35,6 +15,7 @@ namespace BefunGen
 		{
 			control_BefunGen.frm_Closing(sender, e);
 		}
-		
 	}
 }
+
+//TODO BefunTool : Compare two programs (graph compare, ignores NOP's and posiitons on grid)

@@ -94,6 +94,7 @@
 			this.edASCIIOut = new System.Windows.Forms.TextBox();
 			this.imgDebug = new System.Windows.Forms.PictureBox();
 			this.imgASCII = new System.Windows.Forms.PictureBox();
+			this.btnGenerateEmpty = new System.Windows.Forms.Button();
 			this.tableLayoutPanel9.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -161,7 +162,7 @@
 			this.edMiscInput.Name = "edMiscInput";
 			this.tableLayoutPanel9.SetRowSpan(this.edMiscInput, 6);
 			this.edMiscInput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.edMiscInput.Size = new System.Drawing.Size(312, 134);
+			this.edMiscInput.Size = new System.Drawing.Size(312, 450);
 			this.edMiscInput.TabIndex = 7;
 			this.edMiscInput.WordWrap = false;
 			// 
@@ -213,7 +214,7 @@
 			this.edMiscOutput.ReadOnly = true;
 			this.tableLayoutPanel9.SetRowSpan(this.edMiscOutput, 6);
 			this.edMiscOutput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.edMiscOutput.Size = new System.Drawing.Size(312, 134);
+			this.edMiscOutput.Size = new System.Drawing.Size(312, 450);
 			this.edMiscOutput.TabIndex = 2;
 			this.edMiscOutput.WordWrap = false;
 			// 
@@ -872,6 +873,7 @@
 			// 
 			this.tableLayoutPanel1.SetColumnSpan(this.flowLayoutPanel1, 3);
 			this.flowLayoutPanel1.Controls.Add(this.btnSave);
+			this.flowLayoutPanel1.Controls.Add(this.btnGenerateEmpty);
 			this.flowLayoutPanel1.Controls.Add(this.btnGenerate);
 			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
@@ -893,7 +895,7 @@
 			// btnGenerate
 			// 
 			this.btnGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnGenerate.Location = new System.Drawing.Point(621, 3);
+			this.btnGenerate.Location = new System.Drawing.Point(508, 3);
 			this.btnGenerate.Name = "btnGenerate";
 			this.btnGenerate.Size = new System.Drawing.Size(75, 23);
 			this.btnGenerate.TabIndex = 0;
@@ -924,7 +926,7 @@
 			this.edASCIIOut.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.edASCIIOut.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.edASCIIOut.Location = new System.Drawing.Point(471, 3);
-			this.edASCIIOut.MaxLength = 327670000;
+			this.edASCIIOut.MaxLength = 2147483647;
 			this.edASCIIOut.Multiline = true;
 			this.edASCIIOut.Name = "edASCIIOut";
 			this.edASCIIOut.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -954,6 +956,17 @@
 			this.imgASCII.TabIndex = 5;
 			this.imgASCII.TabStop = false;
 			// 
+			// btnGenerateEmpty
+			// 
+			this.btnGenerateEmpty.AutoSize = true;
+			this.btnGenerateEmpty.Location = new System.Drawing.Point(589, 3);
+			this.btnGenerateEmpty.Name = "btnGenerateEmpty";
+			this.btnGenerateEmpty.Size = new System.Drawing.Size(107, 23);
+			this.btnGenerateEmpty.TabIndex = 2;
+			this.btnGenerateEmpty.Text = "Generate Grid Only";
+			this.btnGenerateEmpty.UseVisualStyleBackColor = true;
+			this.btnGenerateEmpty.Click += new System.EventHandler(this.btnGenerateEmpty_Click);
+			// 
 			// frmMain_BefunTools
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -982,6 +995,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.edFieldHeight)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.edFieldWidth)).EndInit();
 			this.flowLayoutPanel1.ResumeLayout(false);
+			this.flowLayoutPanel1.PerformLayout();
 			this.tableLayoutPanel2.ResumeLayout(false);
 			this.tableLayoutPanel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.imgDebug)).EndInit();
@@ -1058,5 +1072,6 @@
 		private System.Windows.Forms.Button btnRotateR;
 		private System.Windows.Forms.Button btnFlip;
 		private System.Windows.Forms.Button btnRotate180;
+		private System.Windows.Forms.Button btnGenerateEmpty;
 	}
 }
