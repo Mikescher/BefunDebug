@@ -256,110 +256,88 @@ namespace BefunGen
 
 			return p;
 		}
-		/*
-				private void debugExpression(string expr)
-				{
-					txtDebug.Clear();
 
-					try
-					{
-						expr = expr.Replace(@"''", "\"");
+		private void debugExpression(string expr)
+		{
+			txtDebug.Clear();
 
-						txtDebug.Text += expr + Environment.NewLine;
+			try
+			{
+				expr = expr.Replace(@"''", "\"");
 
-						Expression e = parseExpression(expr);
-						CodePiece pc = e.generateCode(false);
-						txtDebug.Text += pc.ToString() + Environment.NewLine;
-					}
-					catch (Exception e)
-					{
-						txtDebug.Text += e.ToString();
-					}
-				}
+				txtDebug.Text += expr + Environment.NewLine;
 
-				private void debugStatement(string stmt)
-				{
-					txtDebug.Clear();
+				Expression e = parseExpression(expr);
+				CodePiece pc = e.generateCode(false);
+				txtDebug.Text += pc.ToString() + Environment.NewLine;
+			}
+			catch (Exception e)
+			{
+				txtDebug.Text += e.ToString();
+			}
+		}
 
-					try
-					{
-						stmt = stmt.Replace(@"''", "\"");
+		private void debugStatement(string stmt)
+		{
+			txtDebug.Clear();
 
-						txtDebug.Text += stmt + Environment.NewLine;
+			try
+			{
+				stmt = stmt.Replace(@"''", "\"");
 
-						Statement e = parseStatement(stmt);
-						CodePiece pc = e.generateCode(false);
-						txtDebug.Text += pc.ToString() + Environment.NewLine;
-					}
-					catch (Exception e)
-					{
-						txtDebug.Text += e.ToString();
-					}
-				}
+				txtDebug.Text += stmt + Environment.NewLine;
 
-				private void debugMethod(string meth)
-				{
-					txtDebug.Clear();
+				Statement e = parseStatement(stmt);
+				CodePiece pc = e.generateCode(false);
+				txtDebug.Text += pc.ToString() + Environment.NewLine;
+			}
+			catch (Exception e)
+			{
+				txtDebug.Text += e.ToString();
+			}
+		}
 
-					try
-					{
-						meth = meth.Replace(@"''", "\"");
+		private void debugMethod(string meth)
+		{
+			txtDebug.Clear();
 
-						meth = Regex.Replace(meth, @"[\r\n]{1,2}[ \t]+[\r\n]{1,2}", "\r\n");
-						meth = Regex.Replace(meth, @"^[ \t]*[\r\n]{1,2}", "");
-						meth = Regex.Replace(meth, @"[\r\n]{1,2}[ \t]*$", "");
+			try
+			{
+				meth = meth.Replace(@"''", "\"");
 
-						Method e = parseMethod(meth);
-						txtDebug.Text += "[METHOD] " + e.Identifier + ":" + e.MethodAddr + Environment.NewLine;
-						CodePiece pc = e.generateCode(0, 0);
-						txtDebug.Text += pc.ToString() + Environment.NewLine;
-					}
-					catch (Exception e)
-					{
-						txtDebug.Text += e.ToString();
-					}
-				}
+				meth = Regex.Replace(meth, @"[\r\n]{1,2}[ \t]+[\r\n]{1,2}", "\r\n");
+				meth = Regex.Replace(meth, @"^[ \t]*[\r\n]{1,2}", "");
+				meth = Regex.Replace(meth, @"[\r\n]{1,2}[ \t]*$", "");
 
-				private void debugProgram(string prog)
-				{
-					txtDebug.Clear();
+				Method e = parseMethod(meth);
+				txtDebug.Text += "[METHOD] " + e.Identifier + ":" + e.MethodAddr + Environment.NewLine;
+				CodePiece pc = e.generateCode(0, 0);
+				txtDebug.Text += pc.ToString() + Environment.NewLine;
+			}
+			catch (Exception e)
+			{
+				txtDebug.Text += e.ToString();
+			}
+		}
 
-					try
-					{
-						prog = prog.Replace(@"''", "\"");
+		private void debugProgram(string prog)
+		{
+			txtDebug.Clear();
 
-						BefunGen.AST.Program e = parseProgram(prog);
-						txtDebug.Text += "[PROGRAM] " + e.Identifier + Environment.NewLine;
-						CodePiece pc = e.generateCode();
-						txtDebug.Text += pc.ToString() + Environment.NewLine;
-					}
-					catch (Exception e)
-					{
-						txtDebug.Text += e.ToString();
-					}
-				}
-				private void btnExecuteDebug_Click(object sender, EventArgs earg)
-				{
-					debugProgram(@"
-		program example
-			begin
-				a();
-			end
+			try
+			{
+				prog = prog.Replace(@"''", "\"");
 
-			void a()
-			var
-				int i;
-			begin
-				FOR(i = (int)'A'; i <= (int)'Z'; i++) DO
-					OUT (char)i;
-				END
-			end
-		end
-					");
-
-					txtDebug.Text += CodePieceStore.ModuloRangeLimiter(131, false).ToString();
-				}
-			*/
+				BefunGen.AST.Program e = parseProgram(prog);
+				txtDebug.Text += "[PROGRAM] " + e.Identifier + Environment.NewLine;
+				CodePiece pc = e.generateCode();
+				txtDebug.Text += pc.ToString() + Environment.NewLine;
+			}
+			catch (Exception e)
+			{
+				txtDebug.Text += e.ToString();
+			}
+		}
 
 		private void btnRun_Click(object sender, EventArgs e)
 		{
@@ -413,6 +391,26 @@ namespace BefunGen
 			var code = CodePieceStore.CODEPIECES[cbxCodePieceStore.SelectedIndex].Function();
 
 			txtCode.Text = code.ToSimpleString();
+		}
+
+		private void btnGenExpr_Click(object sender, EventArgs e)
+		{
+			debugExpression(txtDebugIn.Text);
+		}
+
+		private void btnGenStmt_Click(object sender, EventArgs e)
+		{
+			debugStatement(txtDebugIn.Text);
+		}
+
+		private void btnGenSub_Click(object sender, EventArgs e)
+		{
+			debugMethod(txtDebugIn.Text);
+		}
+
+		private void btnGenProg_Click(object sender, EventArgs e)
+		{
+			debugProgram(txtDebugIn.Text);
 		}
 	}
 }
