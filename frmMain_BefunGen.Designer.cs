@@ -494,16 +494,19 @@
 			this.txtDebugIn.ScrollBars = System.Windows.Forms.ScrollBars.Both;
 			this.txtDebugIn.Size = new System.Drawing.Size(600, 110);
 			this.txtDebugIn.TabIndex = 0;
+			this.txtDebugIn.WordWrap = false;
 			// 
 			// txtDebug
 			// 
 			this.txtDebug.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.txtDebug.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtDebug.Location = new System.Drawing.Point(3, 119);
 			this.txtDebug.Multiline = true;
 			this.txtDebug.Name = "txtDebug";
 			this.txtDebug.ScrollBars = System.Windows.Forms.ScrollBars.Both;
 			this.txtDebug.Size = new System.Drawing.Size(600, 136);
 			this.txtDebug.TabIndex = 1;
+			this.txtDebug.WordWrap = false;
 			// 
 			// tableLayoutPanel5
 			// 
