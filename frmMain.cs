@@ -19,3 +19,4 @@ namespace BefunGen
 }
 
 //TODO BefunTool : Compare two programs (graph compare, ignores NOP's and posiitons on grid)
+//TODO BefunRep from existing safe (single numer or range) (+ safe infos) (+ safe gen)
