@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,9 +18,39 @@ namespace BefunGen
 {
 	public partial class frmMain_BefunRep : UserControl
 	{
+		private const string SAFE_FILENAME = "safe.bin";
+
+		private BinarySafe safe;
+
 		public frmMain_BefunRep()
 		{
 			InitializeComponent();
+
+			try
+			{
+				if (! File.Exists(SAFE_FILENAME)) throw new FileNotFoundException();
+
+				safe = new BinarySafe(SAFE_FILENAME, 0, 0);
+				safe.start();
+				safe.stop();
+
+				edSafeMin.Text = safe.getLowestValue().ToString();
+				edSafeMax.Text = safe.getHighestValue().ToString();
+
+				pnlSafeState.BackColor = Color.Green;
+			}
+			catch (Exception e)
+			{
+				btnSafeGet.Enabled = false;
+				btnSafeInfo.Enabled = false;
+				btnSafeRange.Enabled = false;
+				
+				edSafeValue.Enabled = false;
+				edSafeRangeMax.Enabled = false;
+				edSafeRangeMin.Enabled = false;
+
+				pnlSafeState.BackColor = Color.Red;
+			}
 		}
 
 		private void btnSingleBefunRepRep_Click(object sender, EventArgs e)
@@ -37,12 +68,12 @@ namespace BefunGen
 			string result = safe.get(number);
 
 			if (result == null)
-				txtDebug.Text = "ERROR";
+				txtDebug.Text += Environment.NewLine + Environment.NewLine + number + ": ERROR";
 			else
 			{
 				var algorithm = RepCalculator.algorithmNames[safe.getAlgorithm(number).Value];
 
-				txtDebug.Text = algorithm + "         " + result;
+				txtDebug.Text += Environment.NewLine + Environment.NewLine + number + ":       " + algorithm + "         " + result;
 			}
 		}
 
@@ -101,7 +132,7 @@ namespace BefunGen
 					.Select(p => p.Item1 + ":  " + p.Item2.ToSimpleString())
 					.ToList());
 
-			txtDebug.Text = bench;
+			txtDebug.Text += Environment.NewLine + Environment.NewLine + bench;
 		}
 
 		private void btnQCircle_Click(object sender, EventArgs e)
@@ -124,5 +155,56 @@ namespace BefunGen
 			txtDebug.Text = p.ToSimpleString();
 		}
 
+		private void btnSafeGet_Click(object sender, EventArgs e)
+		{
+			long val = (long)edSafeValue.Value;
+
+			safe.start();
+			var rep = safe.get(val);
+			var algo = safe.getAlgorithm(val);
+			safe.stop();
+
+			if (rep != null)
+			{
+				txtDebug.Text += string.Format("{0}{0}Algorithm-ID:   {1}{0}Algorithm:      {2}{0}Representation: {3}", 
+					Environment.NewLine,
+					algo,
+					RepCalculator.algorithmNames[algo ?? -1],
+					rep);
+			}
+			else
+			{
+				txtDebug.Text += Environment.NewLine + Environment.NewLine + "Value not found in Safe";
+			}
+		}
+
+		private void btnSafeRange_Click(object sender, EventArgs e)
+		{
+			long min = (long) edSafeRangeMin.Value;
+			long max = (long) edSafeRangeMax.Value;
+
+			safe.start();
+			txtDebug.Text += Environment.NewLine;
+			for (long val = min; val < max; val++)
+			{
+				var rep = safe.get(val);
+				var algo = safe.getAlgorithm(val);
+
+				if (rep != null)
+				{
+					txtDebug.Text += Environment.NewLine +  string.Format("{0,6}:  {1,-20} {2}", val, RepCalculator.algorithmNames[algo ?? -1], rep);
+				}
+				else
+				{
+					txtDebug.Text += Environment.NewLine + string.Format("{0,6}:  [NOT IN SAFE]", val);
+				}
+			}
+			safe.stop();
+		}
+
+		private void btnClear_Click(object sender, EventArgs e)
+		{
+			txtDebug.Text = string.Empty;
+		}
 	}
 }
