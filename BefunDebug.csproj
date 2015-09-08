@@ -158,6 +158,9 @@
     <Compile Include="Graph\PocGraph.cs" />
     <Compile Include="Graph\PocGraphLayout.cs" />
     <Compile Include="Graph\PocVertex.cs" />
+    <Compile Include="PictureBoxWithInterpolationMode.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs">
       <SubType>Code</SubType>
     </Compile>

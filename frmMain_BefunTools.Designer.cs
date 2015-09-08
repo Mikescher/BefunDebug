@@ -52,6 +52,14 @@
 			this.btnChooseIn = new System.Windows.Forms.Button();
 			this.btnChooseOut = new System.Windows.Forms.Button();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.panel8 = new System.Windows.Forms.Panel();
+			this.panel7 = new System.Windows.Forms.Panel();
+			this.panel6 = new System.Windows.Forms.Panel();
+			this.panel5 = new System.Windows.Forms.Panel();
+			this.panel4 = new System.Windows.Forms.Panel();
+			this.panel3 = new System.Windows.Forms.Panel();
+			this.label18 = new System.Windows.Forms.Label();
+			this.edCharImgT = new System.Windows.Forms.TextBox();
 			this.edArea = new System.Windows.Forms.Label();
 			this.label17 = new System.Windows.Forms.Label();
 			this.label16 = new System.Windows.Forms.Label();
@@ -89,12 +97,12 @@
 			this.label5 = new System.Windows.Forms.Label();
 			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.btnSave = new System.Windows.Forms.Button();
+			this.btnGenerateEmpty = new System.Windows.Forms.Button();
 			this.btnGenerate = new System.Windows.Forms.Button();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.edASCIIOut = new System.Windows.Forms.TextBox();
-			this.imgDebug = new System.Windows.Forms.PictureBox();
-			this.imgASCII = new System.Windows.Forms.PictureBox();
-			this.btnGenerateEmpty = new System.Windows.Forms.Button();
+			this.imgDebug = new BefunGen.PictureBoxWithInterpolationMode();
+			this.imgASCII = new BefunGen.PictureBoxWithInterpolationMode();
 			this.tableLayoutPanel9.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -353,7 +361,7 @@
 			this.tableLayoutPanel1.RowCount = 5;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 250F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 280F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(786, 568);
@@ -423,6 +431,14 @@
 			// panel1
 			// 
 			this.tableLayoutPanel1.SetColumnSpan(this.panel1, 3);
+			this.panel1.Controls.Add(this.panel8);
+			this.panel1.Controls.Add(this.panel7);
+			this.panel1.Controls.Add(this.panel6);
+			this.panel1.Controls.Add(this.panel5);
+			this.panel1.Controls.Add(this.panel4);
+			this.panel1.Controls.Add(this.panel3);
+			this.panel1.Controls.Add(this.label18);
+			this.panel1.Controls.Add(this.edCharImgT);
 			this.panel1.Controls.Add(this.edArea);
 			this.panel1.Controls.Add(this.label17);
 			this.panel1.Controls.Add(this.label16);
@@ -460,8 +476,80 @@
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel1.Location = new System.Drawing.Point(3, 63);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(780, 244);
+			this.panel1.Size = new System.Drawing.Size(780, 274);
 			this.panel1.TabIndex = 6;
+			// 
+			// panel8
+			// 
+			this.panel8.BackColor = System.Drawing.Color.Fuchsia;
+			this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.panel8.Location = new System.Drawing.Point(590, 246);
+			this.panel8.Name = "panel8";
+			this.panel8.Size = new System.Drawing.Size(17, 17);
+			this.panel8.TabIndex = 37;
+			// 
+			// panel7
+			// 
+			this.panel7.BackColor = System.Drawing.Color.Black;
+			this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.panel7.Location = new System.Drawing.Point(590, 220);
+			this.panel7.Name = "panel7";
+			this.panel7.Size = new System.Drawing.Size(17, 17);
+			this.panel7.TabIndex = 37;
+			// 
+			// panel6
+			// 
+			this.panel6.BackColor = System.Drawing.Color.White;
+			this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.panel6.Location = new System.Drawing.Point(590, 194);
+			this.panel6.Name = "panel6";
+			this.panel6.Size = new System.Drawing.Size(17, 17);
+			this.panel6.TabIndex = 37;
+			// 
+			// panel5
+			// 
+			this.panel5.BackColor = System.Drawing.Color.Lime;
+			this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.panel5.Location = new System.Drawing.Point(590, 168);
+			this.panel5.Name = "panel5";
+			this.panel5.Size = new System.Drawing.Size(17, 17);
+			this.panel5.TabIndex = 37;
+			// 
+			// panel4
+			// 
+			this.panel4.BackColor = System.Drawing.Color.Blue;
+			this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.panel4.Location = new System.Drawing.Point(590, 145);
+			this.panel4.Name = "panel4";
+			this.panel4.Size = new System.Drawing.Size(17, 17);
+			this.panel4.TabIndex = 37;
+			// 
+			// panel3
+			// 
+			this.panel3.BackColor = System.Drawing.Color.Red;
+			this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.panel3.Location = new System.Drawing.Point(590, 119);
+			this.panel3.Name = "panel3";
+			this.panel3.Size = new System.Drawing.Size(17, 17);
+			this.panel3.TabIndex = 36;
+			// 
+			// label18
+			// 
+			this.label18.AutoSize = true;
+			this.label18.Location = new System.Drawing.Point(418, 246);
+			this.label18.Name = "label18";
+			this.label18.Size = new System.Drawing.Size(88, 13);
+			this.label18.TabIndex = 35;
+			this.label18.Text = "TRANSPARENT";
+			// 
+			// edCharImgT
+			// 
+			this.edCharImgT.Location = new System.Drawing.Point(512, 243);
+			this.edCharImgT.MaxLength = 1;
+			this.edCharImgT.Name = "edCharImgT";
+			this.edCharImgT.Size = new System.Drawing.Size(71, 20);
+			this.edCharImgT.TabIndex = 34;
+			this.edCharImgT.Text = " ";
 			// 
 			// edArea
 			// 
@@ -892,6 +980,17 @@
 			this.btnSave.UseVisualStyleBackColor = true;
 			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
 			// 
+			// btnGenerateEmpty
+			// 
+			this.btnGenerateEmpty.AutoSize = true;
+			this.btnGenerateEmpty.Location = new System.Drawing.Point(589, 3);
+			this.btnGenerateEmpty.Name = "btnGenerateEmpty";
+			this.btnGenerateEmpty.Size = new System.Drawing.Size(107, 23);
+			this.btnGenerateEmpty.TabIndex = 2;
+			this.btnGenerateEmpty.Text = "Generate Grid Only";
+			this.btnGenerateEmpty.UseVisualStyleBackColor = true;
+			this.btnGenerateEmpty.Click += new System.EventHandler(this.btnGenerateEmpty_Click);
+			// 
 			// btnGenerate
 			// 
 			this.btnGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -914,11 +1013,11 @@
 			this.tableLayoutPanel2.Controls.Add(this.imgDebug, 0, 0);
 			this.tableLayoutPanel2.Controls.Add(this.imgASCII, 1, 0);
 			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 313);
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 343);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
 			this.tableLayoutPanel2.RowCount = 1;
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(780, 217);
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(780, 187);
 			this.tableLayoutPanel2.TabIndex = 9;
 			// 
 			// edASCIIOut
@@ -930,7 +1029,7 @@
 			this.edASCIIOut.Multiline = true;
 			this.edASCIIOut.Name = "edASCIIOut";
 			this.edASCIIOut.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.edASCIIOut.Size = new System.Drawing.Size(306, 211);
+			this.edASCIIOut.Size = new System.Drawing.Size(306, 181);
 			this.edASCIIOut.TabIndex = 3;
 			this.edASCIIOut.WordWrap = false;
 			// 
@@ -938,9 +1037,10 @@
 			// 
 			this.imgDebug.BackColor = System.Drawing.Color.Thistle;
 			this.imgDebug.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.imgDebug.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
 			this.imgDebug.Location = new System.Drawing.Point(3, 3);
 			this.imgDebug.Name = "imgDebug";
-			this.imgDebug.Size = new System.Drawing.Size(228, 211);
+			this.imgDebug.Size = new System.Drawing.Size(228, 181);
 			this.imgDebug.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.imgDebug.TabIndex = 4;
 			this.imgDebug.TabStop = false;
@@ -949,23 +1049,13 @@
 			// 
 			this.imgASCII.BackColor = System.Drawing.Color.Thistle;
 			this.imgASCII.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.imgASCII.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
 			this.imgASCII.Location = new System.Drawing.Point(237, 3);
 			this.imgASCII.Name = "imgASCII";
-			this.imgASCII.Size = new System.Drawing.Size(228, 211);
+			this.imgASCII.Size = new System.Drawing.Size(228, 181);
 			this.imgASCII.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.imgASCII.TabIndex = 5;
 			this.imgASCII.TabStop = false;
-			// 
-			// btnGenerateEmpty
-			// 
-			this.btnGenerateEmpty.AutoSize = true;
-			this.btnGenerateEmpty.Location = new System.Drawing.Point(589, 3);
-			this.btnGenerateEmpty.Name = "btnGenerateEmpty";
-			this.btnGenerateEmpty.Size = new System.Drawing.Size(107, 23);
-			this.btnGenerateEmpty.TabIndex = 2;
-			this.btnGenerateEmpty.Text = "Generate Grid Only";
-			this.btnGenerateEmpty.UseVisualStyleBackColor = true;
-			this.btnGenerateEmpty.Click += new System.EventHandler(this.btnGenerateEmpty_Click);
 			// 
 			// frmMain_BefunTools
 			// 
@@ -1065,13 +1155,21 @@
 		private System.Windows.Forms.Button btnGenerate;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
 		private System.Windows.Forms.TextBox edASCIIOut;
-		private System.Windows.Forms.PictureBox imgDebug;
-		private System.Windows.Forms.PictureBox imgASCII;
+		private PictureBoxWithInterpolationMode imgDebug;
+		private PictureBoxWithInterpolationMode imgASCII;
 		private System.Windows.Forms.Label edArea;
 		private System.Windows.Forms.Button btnRotateL;
 		private System.Windows.Forms.Button btnRotateR;
 		private System.Windows.Forms.Button btnFlip;
 		private System.Windows.Forms.Button btnRotate180;
 		private System.Windows.Forms.Button btnGenerateEmpty;
+		private System.Windows.Forms.Panel panel8;
+		private System.Windows.Forms.Panel panel7;
+		private System.Windows.Forms.Panel panel6;
+		private System.Windows.Forms.Panel panel5;
+		private System.Windows.Forms.Panel panel4;
+		private System.Windows.Forms.Panel panel3;
+		private System.Windows.Forms.Label label18;
+		private System.Windows.Forms.TextBox edCharImgT;
 	}
 }

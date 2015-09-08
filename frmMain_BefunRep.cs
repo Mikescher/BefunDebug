@@ -39,7 +39,7 @@ namespace BefunGen
 
 				pnlSafeState.BackColor = Color.Green;
 			}
-			catch (Exception e)
+			catch (Exception)
 			{
 				btnSafeGet.Enabled = false;
 				btnSafeInfo.Enabled = false;

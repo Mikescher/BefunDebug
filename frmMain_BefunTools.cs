@@ -193,7 +193,6 @@ namespace BefunGen
 		static Brush GrayscaleB(int g) { return new SolidBrush(Grayscale(g)); }
 		static int Grayscale(Color g) { return (g.R + g.G + g.B) / 3; }
 		static double Ratio(Rectangle r) { return r.Width * 1.0 / r.Height; }
-		static int CDist(Color a, Color b) { return (a.R - b.R) * (a.R - b.R) + (a.G - b.G) * (a.G - b.G) + (a.B - b.B) * (a.B - b.B); }
 
 		private void Generate()
 		{
@@ -218,26 +217,10 @@ namespace BefunGen
 
 			int CHAR_RATIO_W = (int)edCharRatioWidth.Value;
 			int CHAR_RATIO_H = (int)edCharRatioHeight.Value;
-
-
-			char CHARACTER_CONV_R = edCharImgR.Text.Length == 0 ? ' ' : edCharImgR.Text[0];
-			char CHARACTER_CONV_G = edCharImgG.Text.Length == 0 ? ' ' : edCharImgG.Text[0];
-			char CHARACTER_CONV_B = edCharImgB.Text.Length == 0 ? ' ' : edCharImgB.Text[0];
-			char CHARACTER_CONV_W = edCharImgW.Text.Length == 0 ? ' ' : edCharImgW.Text[0];
-			char CHARACTER_CONV_K = edCharImgK.Text.Length == 0 ? ' ' : edCharImgK.Text[0];
-
+			
 			Func<Color, char> GET_CHARMAP = (c) =>
 			{
-				var ls = new List<Tuple<int, char>>()
-				{
-					Tuple.Create(CDist(c, Color.Red),   CHARACTER_CONV_R),
-					Tuple.Create(CDist(c, Color.Green), CHARACTER_CONV_G),
-					Tuple.Create(CDist(c, Color.Blue),  CHARACTER_CONV_B),
-					Tuple.Create(CDist(c, Color.White), CHARACTER_CONV_W),
-					Tuple.Create(CDist(c, Color.Black), CHARACTER_CONV_K),
-				};
-
-				return ls.OrderBy(p => p.Item1).First().Item2;
+				return GetCharacterCList(c).OrderBy(p => p.Item2).First().Item3;
 			};
 
 			//##########################################################################
@@ -252,6 +235,43 @@ namespace BefunGen
 			ASCII_Debug(FIELD_WIDTH, FIELD_HEIGHT, BORDER_SIZE, GET_CHARMAP, source, renderField, ref sourceRect, ref targetRect);
 			ASCII_Generate(FIELD_WIDTH, FIELD_HEIGHT, BORDER_SIZE, CHARACTER_PAD, CHARACTER_EMPTY, CHARACTER_BORDER, GET_CHARMAP, source, renderField, sourceRect, targetRect, out result);
 			ASCII_Output(FIELD_WIDTH, FIELD_HEIGHT, result);
+		}
+
+		private List<Tuple<Color, double, char>> GetCharacterCList(Color c)
+		{
+			char CHARACTER_CONV_R = edCharImgR.Text.Length == 0 ? ' ' : edCharImgR.Text[0];
+			char CHARACTER_CONV_G = edCharImgG.Text.Length == 0 ? ' ' : edCharImgG.Text[0];
+			char CHARACTER_CONV_B = edCharImgB.Text.Length == 0 ? ' ' : edCharImgB.Text[0];
+			char CHARACTER_CONV_W = edCharImgW.Text.Length == 0 ? ' ' : edCharImgW.Text[0];
+			char CHARACTER_CONV_K = edCharImgK.Text.Length == 0 ? ' ' : edCharImgK.Text[0];
+			char CHARACTER_CONV_T = edCharImgK.Text.Length == 0 ? ' ' : edCharImgT.Text[0];
+
+			return new List<Tuple<Color, double, char>>
+			{
+				Tuple.Create(Color.Red, CDist(c, Color.Red), CHARACTER_CONV_R),
+				Tuple.Create(Color.Green, CDist(c, Color.Lime), CHARACTER_CONV_G),
+				Tuple.Create(Color.Blue, CDist(c, Color.Blue), CHARACTER_CONV_B),
+				Tuple.Create(Color.White, CDist(c, Color.White), CHARACTER_CONV_W),
+				Tuple.Create(Color.Black, CDist(c, Color.Black), CHARACTER_CONV_K),
+				Tuple.Create(Color.Transparent, CDist(c, Color.Transparent), CHARACTER_CONV_T),
+			};
+		}
+
+		/// <summary>
+		/// http://stackoverflow.com/a/13484101/1761622
+		/// </summary>
+		private double CDist(Color a, Color b)
+		{
+			var rd = a.R / 255.0 - b.R / 255.0;
+			var gd = a.G / 255.0 - b.G / 255.0;
+			var bd = a.B / 255.0 - b.B / 255.0;
+			var aa = a.A / 255.0 - b.A / 255.0;
+
+			var m1 = Math.Max(rd * rd, (rd - aa) * (rd - aa));
+			var m2 = Math.Max(gd * gd, (gd - aa) * (gd - aa));
+			var m3 = Math.Max(bd * bd, (bd - aa) * (bd - aa));
+
+			return m1 + m2 + m3;
 		}
 
 		private void ASCII_Output(int FIELD_WIDTH, int FIELD_HEIGHT, Bitmap result)
@@ -307,9 +327,6 @@ namespace BefunGen
 
 		private void ASCII_Debug(int FIELD_WIDTH, int FIELD_HEIGHT, int BORDER_SIZE, Func<Color, char> GET_CHARMAP, Bitmap source, Rectangle renderField, ref Rectangle sourceRect, ref Rectangle targetRect)
 		{
-			Random R = new Random(0);
-			Color[] cmap = Enumerable.Range(0, 256).Select(p => Color.FromArgb(R.Next() % 256, R.Next() % 256, R.Next() % 256)).ToArray();
-
 			Bitmap debug_image = new Bitmap(FIELD_WIDTH, FIELD_HEIGHT, PixelFormat.Format24bppRgb);
 			using (Graphics g = Graphics.FromImage(debug_image))
 			{
@@ -325,18 +342,20 @@ namespace BefunGen
 					{
 						var source_x = Math.Min(sourceRect.Width - 1, Math.Max(0, (int)(x * scaleX)));
 						var source_y = Math.Min(sourceRect.Height - 1, Math.Max(0, (int)(y * scaleY)));
-						char v = GET_CHARMAP(source.GetPixel(source_x, source_y));
 
-						g.FillRectangle(new SolidBrush(cmap[v]), targetRect.Left + x, targetRect.Top + y, 1, 1);
+						var col = GetCharacterCList(source.GetPixel(source_x, source_y)).OrderBy(p => p.Item2).First().Item1;
+						if (col == Color.Transparent) col = Color.Fuchsia;
+
+						g.FillRectangle(new SolidBrush(col), targetRect.Left + x, targetRect.Top + y, 1, 1);
 					}
 				}
 
 				if (BORDER_SIZE > 0)
 				{
-					g.FillRectangle(Brushes.Red, 0, 0, FIELD_WIDTH, BORDER_SIZE);
-					g.FillRectangle(Brushes.Red, 0, 0, BORDER_SIZE, FIELD_HEIGHT);
-					g.FillRectangle(Brushes.Red, FIELD_WIDTH - BORDER_SIZE, 0, BORDER_SIZE, FIELD_HEIGHT);
-					g.FillRectangle(Brushes.Red, 0, FIELD_HEIGHT - BORDER_SIZE, FIELD_WIDTH, BORDER_SIZE);
+					g.FillRectangle(Brushes.BlueViolet, 0, 0, FIELD_WIDTH, BORDER_SIZE);
+					g.FillRectangle(Brushes.BlueViolet, 0, 0, BORDER_SIZE, FIELD_HEIGHT);
+					g.FillRectangle(Brushes.BlueViolet, FIELD_WIDTH - BORDER_SIZE, 0, BORDER_SIZE, FIELD_HEIGHT);
+					g.FillRectangle(Brushes.BlueViolet, 0, FIELD_HEIGHT - BORDER_SIZE, FIELD_WIDTH, BORDER_SIZE);
 				}
 			}
 			imgDebug.Image = debug_image;
