@@ -67,6 +67,12 @@ namespace BefunGen
 			{ "data_067", Resources.testdata_067, "7273" },
 			{ "data_068", Resources.testdata_068, "6531031914842725" },
 			{ "data_069", Resources.testdata_069, "510510" },
+			{ "data_070", Resources.testdata_070, "8319823" },
+			{ "data_071", Resources.testdata_071, @"428570 /\n999997" },
+			{ "data_076", Resources.testdata_076, "190569291" },
+			{ "data_077", Resources.testdata_077, "71" },
+			{ "data_079", Resources.testdata_079, "73162890" },
+
 		};
 
 		public StringBuilder Output;
@@ -104,7 +110,9 @@ namespace BefunGen
 				var singleresultlog = TestGCC(name, code, result, true, out tm_gen, out tm_compile, out tm_run);
 
 				if (singleresultlog == string.Empty)
-					resultlog += string.Format("[{0,000}-GCC] Tests successful ({1,-5} ms) :: Generate= {2,-10} Compile= {3,-10} Run= {4,-10}\r\n", name, (int)(DateTime.Now - tmstart).TotalMilliseconds, tm_gen, tm_compile, tm_run);
+					resultlog += string.Format("[{0,000}-GCC] Tests successful ({1,-5} ms) :: Generate= {2,-10} Compile= {3,-10} Run= {4,-10}\r\n", name, (int) (DateTime.Now - tmstart).TotalMilliseconds, tm_gen, tm_compile, tm_run);
+				else
+					resultlog += singleresultlog;
 			}
 			catch (Exception e)
 			{
@@ -117,6 +125,8 @@ namespace BefunGen
 
 				if (singleresultlog == string.Empty)
 					resultlog += string.Format("[{0,000}-CSC] Tests successful ({1,-5} ms) :: Generate= {2,-10} Compile= {3,-10} Run= {4,-10}\r\n", name, (int)(DateTime.Now - tmstart).TotalMilliseconds, tm_gen, tm_compile, tm_run);
+				else
+					resultlog += singleresultlog;
 			}
 			catch (Exception e)
 			{

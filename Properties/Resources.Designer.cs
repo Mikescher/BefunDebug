@@ -966,6 +966,91 @@ namespace BefunGen.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to v00000 000 // Project Euler - Problem 70
+        /// ccc
+        /// ?? ?? ??
+        ///######################################################################################################################################################
+        ///######################################################################################################################################################
+        ///##################################################################################################################################################### [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string testdata_070 {
+            get {
+                return ResourceManager.GetString("testdata_070", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v X X C
+        ///  X X ????
+        ///
+        ///&gt;020p040p121p141p&quot;}}@&quot;**60pv
+        ///v0                         &lt;         &gt;01+*v
+        ///&gt;1+ :3*7%!#v_:61p:3*7/:71p7*61g3*-:0`|    &gt;81p61g7*91p41g91g*21g81g*`#v_v
+        ///|-g06:     &lt;                        &lt;&gt;01-*^v  p04g16p02g17p12g19p14g18&lt;
+        ///&gt;$20g.&quot;/ &quot;,,55+,40g.@               ^      &lt;                            &lt;.
+        /// </summary>
+        internal static string testdata_071 {
+            get {
+                return ResourceManager.GetString("testdata_071", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v  X OO    // Project Euler - Problem 76
+        ///v
+        ///v
+        ///   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        ///   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        ///   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        ///   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        ///   +++++++++++++++++++++++++++++++++++++ [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string testdata_076 {
+            get {
+                return ResourceManager.GetString("testdata_076", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v00000 00  // Project Euler - Problem 77
+        /// XXXXXX
+        ///#####################################################################################################
+        ///
+        ///#####################################################################################################
+        ///#####################################################################################################
+        ///#####################################################################################################
+        ///############################################### [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string testdata_077 {
+            get {
+                return ResourceManager.GetString("testdata_077", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v
+        /// ++++++++++ 319 680 180 690 129 620 762 689 762 318
+        /// ++++++++++ 368 710 720 710 629 168 160 689 716 731
+        /// ++++++++++ 736 729 316 729 729 710 769 290 719 680
+        /// ++++++++++ 318 389 162 289 162 718 729 319 790 680
+        /// ++++++++++ 890 362 319 760 316 729 380 319 728 716
+        /// ++++++++++
+        /// ++++++++++ ##########
+        /// ++++++++++
+        /// ++++++++++ XXXXXXXXXX
+        /// ++++++++++
+        ///
+        ///&gt;55+&gt;:1\:v&gt;:55+/1+30p:55+%4*66++20p020g0+30gg&quot;0&quot;-:50p66v
+        ///    |:-1p&lt; v1g070p+1g07+1g062p+1g07+1g052p+1g06+1g052&lt; +
+        ///    &gt;$ 77*^&gt;+50g1+p070g1+60g1vv&lt;        [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string testdata_079 {
+            get {
+                return ResourceManager.GetString("testdata_079", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] TextFunge {

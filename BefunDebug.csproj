@@ -263,6 +263,11 @@
     <None Include="Resources\testdata_067.b93" />
     <None Include="Resources\testdata_068.b93" />
     <None Include="Resources\testdata_069.b93" />
+    <None Include="Resources\testdata_070.b93" />
+    <None Include="Resources\testdata_071.b93" />
+    <None Include="Resources\testdata_076.b93" />
+    <None Include="Resources\testdata_077.b93" />
+    <None Include="Resources\testdata_079.b93" />
     <None Include="Resources\TextFunge.syn" />
     <None Include="TextFunge.syn">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
