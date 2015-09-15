@@ -20,3 +20,9 @@ namespace BefunGen
 
 //TODO BefunTool : Compare two programs (graph compare, ignores NOP's and posiitons on grid)
 //tODO Resharper Inspections (Solution-wide)
+
+//TODO BefunGIF --> Generate FullRes Images and gifs from befunge-progs
+//              --> (like BeunExec View)
+//              --> (also BefunExec Debug View)
+//              --> Show optional stack in gif
+//              --> evtl create gfy 
