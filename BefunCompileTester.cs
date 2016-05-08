@@ -1,8 +1,9 @@
 ﻿
 using BefunCompile;
+using BefunCompile.CodeGeneration;
+using BefunCompile.CodeGeneration.Compiler;
 using BefunGen.Properties;
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
@@ -99,347 +100,61 @@ namespace BefunGen
 		public string TestAll(string name, string code, string result)
 		{
 			var resultlog = string.Empty;
-			var tmstart = DateTime.Now;
-
-			int tm_gen;
-			int tm_compile;
-			int tm_run;
-
-			try
+			
+			foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
 			{
-				var singleresultlog = TestGCC(name, code, result, true, out tm_gen, out tm_compile, out tm_run);
+				var tmstart = DateTime.Now;
 
-				if (singleresultlog == string.Empty)
-					resultlog += string.Format("[{0,000}-GCC] Tests successful ({1,-5} ms) :: Generate= {2,-10} Compile= {3,-10} Run= {4,-10}\r\n", name, (int) (DateTime.Now - tmstart).TotalMilliseconds, tm_gen, tm_compile, tm_run);
-				else
-					resultlog += singleresultlog;
-			}
-			catch (Exception e)
-			{
-				return string.Format("[{0,000}-GCC] Exception thrown: {1}: {2}\r\n", name, e.GetType().Name, e.Message);
-			}
+				int timeGenerate = 0;
+				int timeCompile = 0;
+				int timeExecute = 0;
 
-			try
-			{
-				var singleresultlog = TestCSC(name, code, result, true, out tm_gen, out tm_compile, out tm_run);
+				var bc = new BefunCompiler(code, true, true, true, true, true);
 
-				if (singleresultlog == string.Empty)
-					resultlog += string.Format("[{0,000}-CSC] Tests successful ({1,-5} ms) :: Generate= {2,-10} Compile= {3,-10} Run= {4,-10}\r\n", name, (int)(DateTime.Now - tmstart).TotalMilliseconds, tm_gen, tm_compile, tm_run);
-				else
-					resultlog += singleresultlog;
-			}
-			catch (Exception e)
-			{
-				return string.Format("[{0,000}-CSC] Exception thrown: {1}: {2}\r\n", name, e.GetType().Name, e.Message);
+				timeGenerate = Environment.TickCount;
+				var gencode = bc.GenerateCode(lang);
+				timeGenerate = Environment.TickCount - timeGenerate;
+
+				var file = Path.GetTempFileName() + "." + CodeCompiler.GetBinaryExtension(lang);
+
+				bool failed = false;
+				try
+				{
+					timeCompile = Environment.TickCount;
+					CodeCompiler.Compile(lang, gencode, file, Output);
+					timeCompile = Environment.TickCount - timeCompile;
+
+					timeExecute = Environment.TickCount;
+					string output = CodeCompiler.Execute(lang, file).Replace("\r\n", "\n").Replace("\n", "\\n");
+					timeExecute = Environment.TickCount - timeExecute;
+
+					if (output != result)
+					{
+						resultlog += string.Format("[{0,000}-{1}] Failure: ('{2}' <> '{3}')\r\n", name, CodeCompiler.GetAcronym(lang), output, result) + Environment.NewLine;
+						failed = true;
+					}
+				}
+				catch (CodeCompilerError e)
+				{
+					resultlog += string.Format("[{0,000}-{1}] Failure: {2}: {3}\r\n", name, CodeCompiler.GetAcronym(lang), e.ExitCode, e.StdErr) + Environment.NewLine;
+					failed = true;
+				}
+
+				File.Delete(file);
+
+				if (!failed)
+				{
+					resultlog += string.Format("[{0,000}-{1}] Tests successful ({2,-5} ms) :: Generate= {3,-10} Compile= {4,-10} Run= {5,-10}\r\n", 
+						name, 
+						CodeCompiler.GetAcronym(lang), 
+						(int)(DateTime.Now - tmstart).TotalMilliseconds, 
+						timeGenerate, 
+						timeCompile, 
+						timeExecute);
+				}
 			}
 
 			return resultlog;
-		}
-
-		private string TestGCC(string name, string code, string result, bool safeAcc, out int tm_gen, out int tm_compile, out int tm_run)
-		{
-			tm_gen = Environment.TickCount;
-			
-			var bc = new BefunCompiler(code, true, true, safeAcc, safeAcc, true);
-			var gencode = bc.GenerateCode(OutputLanguage.C);
-
-			tm_gen = Environment.TickCount - tm_gen;
-
-			var fn1 = Path.GetTempFileName();
-			var fn2 = Path.GetTempPath() + Guid.NewGuid() + ".exe";
-			File.WriteAllText(fn1, gencode);
-
-			tm_compile = Environment.TickCount;
-
-			Process p_gcc = new Process
-			{
-				StartInfo =
-				{
-					FileName = "gcc.exe",
-					Arguments = string.Format(" -x c \"{0}\" -o \"{1}\"", fn1, fn2),
-					UseShellExecute = false,
-					RedirectStandardOutput = true,
-					RedirectStandardError = true,
-					CreateNoWindow = true,
-					ErrorDialog = false
-				}
-			};
-			p_gcc.Start();
-			Output.AppendLine();
-			Output.AppendLine("> " + p_gcc.StartInfo.FileName + " " + p_gcc.StartInfo.Arguments);
-
-			string gccerror = p_gcc.StandardError.ReadToEnd();
-			string gccoutput = p_gcc.StandardOutput.ReadToEnd();
-
-			p_gcc.WaitForExit();
-			Output.AppendLine(gccerror);
-			Output.AppendLine(gccoutput);
-
-			tm_compile = Environment.TickCount - tm_compile;
-
-			if (p_gcc.ExitCode != 0)
-			{
-				File.Delete(fn1);
-				File.Delete(fn2);
-
-				tm_run = 0;
-
-				return string.Format("[{0,000}] FAILURE (GCC ExitCode  = {1}): {2}\r\n", name, p_gcc.ExitCode, gccerror);
-			}
-
-			Process p_prog = new Process
-			{
-				StartInfo =
-				{
-					FileName = fn2,
-					Arguments = string.Empty,
-					UseShellExecute = false,
-					RedirectStandardOutput = true,
-					CreateNoWindow = true,
-					ErrorDialog = false
-				}
-			};
-
-			tm_run = Environment.TickCount;
-
-			p_prog.Start();
-			string output = p_prog.StandardOutput.ReadToEnd().Replace("\r\n", "\n").Replace("\n", "\\n");
-			p_prog.WaitForExit();
-
-			tm_run = Environment.TickCount - tm_run;
-
-			if (p_prog.ExitCode != 0)
-			{
-				File.Delete(fn1);
-				File.Delete(fn2);
-
-				return string.Format("[{0,000}] FAILURE (PROG ExitCode  = {1}): {2}\r\n", name, p_prog.ExitCode, output);
-			}
-
-			if (output != result)
-			{
-				File.Delete(fn1);
-				File.Delete(fn2);
-
-				return string.Format("[{0,000}] FAILURE ('{1}' <> '{2}')\r\n", name, output, result);
-			}
-
-			File.Delete(fn1);
-			File.Delete(fn2);
-
-			return string.Empty;
-		}
-
-		private string TestCSC(string name, string code, string result, bool safeAcc, out int tm_gen, out int tm_compile, out int tm_run)
-		{
-			tm_gen = Environment.TickCount;
-
-			var bc = new BefunCompiler(code, true, true, safeAcc, safeAcc, true);
-			var gencode = bc.GenerateCode(OutputLanguage.CSharp);
-
-			tm_gen = Environment.TickCount - tm_gen;
-
-			var fn1 = Path.GetTempFileName() + ".cs";
-			var fn2 = Path.GetTempPath() + Guid.NewGuid() + ".exe";
-			File.WriteAllText(fn1, gencode);
-
-			Process p_csc = new Process
-			{
-				StartInfo =
-				{
-					FileName = "csc.exe",
-					Arguments = string.Format("/out:\"{1}\" /optimize /nologo \"{0}\"", fn1, fn2),
-					UseShellExecute = false,
-					RedirectStandardOutput = true,
-					RedirectStandardError = true,
-					CreateNoWindow = true,
-					ErrorDialog = false
-				}
-			};
-
-			tm_compile = Environment.TickCount;
-
-			p_csc.Start();
-			Output.AppendLine();
-			Output.AppendLine("> " + p_csc.StartInfo.FileName + " " + p_csc.StartInfo.Arguments);
-
-			string cscoutput = p_csc.StandardOutput.ReadToEnd();
-			string cscerror = p_csc.StandardError.ReadToEnd();
-			p_csc.WaitForExit();
-			Output.AppendLine(cscerror);
-			Output.AppendLine(cscoutput);
-
-			tm_compile = Environment.TickCount - tm_compile;
-
-			if (p_csc.ExitCode != 0)
-			{
-				File.Delete(fn1);
-				File.Delete(fn2);
-
-				tm_run = 0;
-
-				return string.Format("[{0,000}] FAILURE (CSC ExitCode  = {1}): {2}\r\n", name, p_csc.ExitCode, cscoutput); // csc writes errors to stdout
-			}
-
-			Process p_prog = new Process
-			{
-				StartInfo =
-				{
-					FileName = fn2,
-					Arguments = string.Empty,
-					UseShellExecute = false,
-					RedirectStandardOutput = true,
-					CreateNoWindow = true,
-					ErrorDialog = false
-				}
-			};
-
-			tm_run = Environment.TickCount;
-
-			p_prog.Start();
-			string output = p_prog.StandardOutput.ReadToEnd().Replace("\r\n", "\n").Replace("\n", "\\n");
-			p_prog.WaitForExit();
-
-			tm_run = Environment.TickCount - tm_run;
-
-			if (p_prog.ExitCode != 0)
-			{
-				File.Delete(fn1);
-				File.Delete(fn2);
-
-				return string.Format("[{0,000}] FAILURE (PROG ExitCode  = {1}): {2}\r\n", name, p_prog.ExitCode, output);
-			}
-
-			if (output != result)
-			{
-				File.Delete(fn1);
-				File.Delete(fn2);
-
-				return string.Format("[{0,000}] FAILURE ('{1}' <> '{2}')\r\n", name, output, result);
-			}
-
-			File.Delete(fn1);
-			File.Delete(fn2);
-
-			return string.Empty;
-		}
-
-		public string ExecuteGCC(string code)
-		{
-			var fn1 = Path.GetTempPath() + Guid.NewGuid() + ".b93.c";
-			var fn2 = Path.GetTempPath() + Guid.NewGuid() + ".exe";
-			File.WriteAllText(fn1, code);
-
-			Process p_gcc = new Process
-			{
-				StartInfo =
-				{
-					FileName = "gcc.exe",
-					Arguments = string.Format(" -x c \"{0}\" -o \"{1}\"", fn1, fn2),
-					UseShellExecute = false,
-					RedirectStandardError = true,
-					CreateNoWindow = true,
-					ErrorDialog = false
-				}
-			};
-
-			p_gcc.Start();
-			string gccerror = p_gcc.StandardError.ReadToEnd();
-			p_gcc.WaitForExit();
-
-			if (p_gcc.ExitCode != 0)
-			{
-				File.Delete(fn1);
-				File.Delete(fn2);
-
-				return string.Format("FAILURE (GCC ExitCode  = {0}): {1}\r\n", p_gcc.ExitCode, gccerror);
-			}
-
-			Process p_prog = new Process
-			{
-				StartInfo =
-				{
-					FileName = fn2,
-					Arguments = string.Empty,
-					UseShellExecute = false,
-					RedirectStandardOutput = true,
-					CreateNoWindow = true,
-					ErrorDialog = false
-				}
-			};
-
-			p_prog.Start();
-			string output = p_prog.StandardOutput.ReadToEnd();
-			p_prog.WaitForExit();
-
-			File.Delete(fn1);
-			File.Delete(fn2);
-
-			if (p_prog.ExitCode != 0)
-			{
-				return string.Format("FAILURE (PROG ExitCode  = {0}): {1}\r\n", p_prog.ExitCode, output);
-			}
-
-			return output;
-		}
-
-		public string ExecuteCSC(string code)
-		{
-			var fn1 = Path.GetTempPath() + Guid.NewGuid() + ".b93.cs";
-			var fn2 = Path.GetTempPath() + Guid.NewGuid() + ".exe";
-			File.WriteAllText(fn1, code);
-
-			Process p_csc = new Process
-			{
-				StartInfo =
-				{
-					FileName = "csc.exe",
-					Arguments = string.Format("/out:\"{1}\" /optimize /nologo \"{0}\"", fn1, fn2),
-					UseShellExecute = false,
-					RedirectStandardOutput = true,
-					CreateNoWindow = true,
-					ErrorDialog = false
-				}
-			};
-
-			p_csc.Start();
-			string cscerror = p_csc.StandardOutput.ReadToEnd();
-			p_csc.WaitForExit();
-
-			if (p_csc.ExitCode != 0)
-			{
-				File.Delete(fn1);
-				File.Delete(fn2);
-
-				return string.Format("FAILURE (CSC ExitCode  = {0}): {1}\r\n", p_csc.ExitCode, cscerror);
-			}
-
-			Process p_prog = new Process
-			{
-				StartInfo =
-				{
-					FileName = fn2,
-					Arguments = string.Empty,
-					UseShellExecute = false,
-					RedirectStandardOutput = true,
-					CreateNoWindow = true,
-					ErrorDialog = false
-				}
-			};
-
-			p_prog.Start();
-			string output = p_prog.StandardOutput.ReadToEnd();
-			p_prog.WaitForExit();
-
-			File.Delete(fn1);
-			File.Delete(fn2);
-
-			if (p_prog.ExitCode != 0)
-			{
-				return string.Format("FAILURE (PROG ExitCode  = {0}): {1}\r\n", p_prog.ExitCode, output);
-			}
-
-			return output;
 		}
 	}
 }

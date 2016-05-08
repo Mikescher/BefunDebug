@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using BefunCompile.Math;
-using System.Diagnostics;
-using BefunCompile;
+﻿using BefunCompile;
+using BefunCompile.CodeGeneration;
+using BefunCompile.CodeGeneration.Generator;
 using BefunCompile.Graph;
 using BefunCompile.Graph.Vertex;
+using BefunCompile.Math;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
 
 namespace BefunGen
 {
@@ -83,15 +82,22 @@ namespace BefunGen
 					cbUseGZip.Checked);
 
 				var cbcGraph = comp.GENERATION_LEVELS[cbxCompileLevel.SelectedIndex].Run();
-				var cbcCodeGCC = cbcGraph.GenerateCodeC(cbOutFormat.Checked, cbSafeStackAccess.Checked, cbSafeGridAccess.Checked, cbUseGZip.Checked);
-				var cbcCodeCSC = cbcGraph.GenerateCodeCSharp(cbOutFormat.Checked, cbSafeStackAccess.Checked, cbSafeGridAccess.Checked, cbUseGZip.Checked);
+
+				var cbcCodeGCC = CodeGenerator.GenerateCode(OutputLanguage.C, cbcGraph, cbOutFormat.Checked, cbSafeStackAccess.Checked, cbSafeGridAccess.Checked, cbUseGZip.Checked);
+				var cbcCodeCSC = CodeGenerator.GenerateCode(OutputLanguage.CSharp, cbcGraph, cbOutFormat.Checked, cbSafeStackAccess.Checked, cbSafeGridAccess.Checked, cbUseGZip.Checked);
+				var cbcCodeJVC = CodeGenerator.GenerateCode(OutputLanguage.Java, cbcGraph, cbOutFormat.Checked, cbSafeStackAccess.Checked, cbSafeGridAccess.Checked, cbUseGZip.Checked);
 
 				var tester = new BefunCompileTester();
 
 				var output_GCC = tester.ExecuteGCC(cbcCodeGCC);
-				var output_CSC = tester.ExecuteCSC(cbcCodeCSC);
+				memoCompileLog.Text += Environment.NewLine + "[Execute GCC]" + output_GCC;
 
-				memoCompileLog.Text += Environment.NewLine + "[Execute GCC]" + output_GCC + Environment.NewLine + "[Execute CSC]" + output_CSC;
+				var output_CSC = tester.ExecuteCSC(cbcCodeCSC);
+				memoCompileLog.Text += Environment.NewLine + "[Execute CSC]" + output_CSC;
+
+				var output_JVC = tester.ExecuteJVC(cbcCodeJVC);
+				memoCompileLog.Text += Environment.NewLine + "[Execute JVC]" + output_CSC;
+
 				tabCompileControl.SelectedIndex = 4;
 			}
 			catch (Exception exc)
@@ -146,7 +152,7 @@ namespace BefunGen
 
 				foreach (var item in comp.GENERATION_LEVELS)
 				{
-					int cycles = comp.log_Cycles[item.Level];
+					int cycles = comp.LogCycles[item.Level];
 					memoCompileLog.Text += "[" + item.Level + "] " + item.Name + " Cycles: " + cycles + Environment.NewLine;
 				}
 
@@ -194,39 +200,13 @@ namespace BefunGen
 		{
 			try
 			{
-				var comp = new BefunCompiler(memoCompileInput.Text,
+				memoCompileOut.Text = CodeGenerator.GenerateCode(
+					(OutputLanguage)cbxCompileLanguage.SelectedItem, 
+					cbcGraph,
 					cbOutFormat.Checked,
-					cbIgnoreSelfModification.Checked,
 					cbSafeStackAccess.Checked,
 					cbSafeGridAccess.Checked,
 					cbUseGZip.Checked);
-
-				switch ((OutputLanguage)cbxCompileLanguage.SelectedItem)
-				{
-					case OutputLanguage.CSharp:
-						memoCompileOut.Text = cbcGraph.GenerateCodeCSharp(
-							cbOutFormat.Checked,
-						cbSafeStackAccess.Checked,
-						cbSafeGridAccess.Checked,
-					cbUseGZip.Checked);
-						break;
-					case OutputLanguage.C:
-						memoCompileOut.Text = cbcGraph.GenerateCodeC(
-							cbOutFormat.Checked,
-							cbSafeStackAccess.Checked,
-							cbSafeGridAccess.Checked,
-							cbUseGZip.Checked);
-						break;
-					case OutputLanguage.Python:
-						memoCompileOut.Text = cbcGraph.GenerateCodePython(
-							cbOutFormat.Checked,
-							cbSafeStackAccess.Checked,
-							cbSafeGridAccess.Checked,
-					cbUseGZip.Checked);
-						break;
-					default:
-						break;
-				}
 
 				memoCompileLog.Text += Environment.NewLine;
 				memoCompileLog.Text += "Vertices: " + cbcGraph.Vertices.Count + Environment.NewLine;
@@ -275,20 +255,14 @@ namespace BefunGen
 					cbUseGZip.Checked);
 
 				var craph = comp.GENERATION_LEVELS[cbxCompileLevel.SelectedIndex].Run();
-				string code = string.Empty;
 
-				switch ((OutputLanguage)cbxCompileLanguage.SelectedItem)
-				{
-					case OutputLanguage.CSharp:
-						code = craph.GenerateCodeCSharp(cbOutFormat.Checked, cbSafeStackAccess.Checked, cbSafeGridAccess.Checked, cbUseGZip.Checked);
-						break;
-					case OutputLanguage.C:
-						code = craph.GenerateCodeC(cbOutFormat.Checked, cbSafeStackAccess.Checked, cbSafeGridAccess.Checked, cbUseGZip.Checked);
-						break;
-					case OutputLanguage.Python:
-						code = craph.GenerateCodePython(cbOutFormat.Checked, cbSafeStackAccess.Checked, cbSafeGridAccess.Checked, cbUseGZip.Checked);
-						break;
-				}
+				string code = CodeGenerator.GenerateCode(
+					(OutputLanguage)cbxCompileLanguage.SelectedItem,
+					craph, 
+					cbOutFormat.Checked, 
+					cbSafeStackAccess.Checked, 
+					cbSafeGridAccess.Checked, 
+					cbUseGZip.Checked);
 
 				memoCompileOut.Text = code;
 				tabCompileControl.SelectedIndex = 3;
@@ -536,7 +510,7 @@ namespace BefunGen
 				var cell_stackAcc = graph.Vertices.Count(p => !p.IsNotStackAccess());
 				var cell_varAcc = graph.Vertices.Count(p => !p.IsNotVariableAccess());
 				var cell_size = graph.GetAllCodePositions().Count;
-				var cell_cycles = string.Join(" ", compiler.log_Cycles.Select(p => string.Format("{0,3}", p)));
+				var cell_cycles = string.Join(" ", compiler.LogCycles.Select(p => string.Format("{0,3}", p)));
 				var cell_time = sw_time.ToString();
 
 				sb.AppendLine(string.Format(row,
