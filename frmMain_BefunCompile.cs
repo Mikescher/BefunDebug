@@ -1,5 +1,6 @@
 ﻿using BefunCompile;
 using BefunCompile.CodeGeneration;
+using BefunCompile.CodeGeneration.Compiler;
 using BefunCompile.CodeGeneration.Generator;
 using BefunCompile.Graph;
 using BefunCompile.Graph.Vertex;
@@ -16,6 +17,8 @@ namespace BefunGen
 {
 	public partial class frmMain_BefunCompile : UserControl
 	{
+		private Dictionary<OutputLanguage, TextBox> OutputTextBoxes = new Dictionary<OutputLanguage, TextBox>(); 
+
 		public frmMain_BefunCompile()
 		{
 			InitializeComponent();
@@ -25,7 +28,26 @@ namespace BefunGen
 			
 			foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
 			{
-				cbxCompileLanguage.Items.Add(lang);
+				int idx = listBoxOutputLanguages.Items.Add(lang);
+				listBoxOutputLanguages.SetItemCheckState(idx, CheckState.Checked);
+
+				var page = new TabPage(lang.ToString());
+				var textbox = new TextBox
+				{
+					Dock = DockStyle.Fill,
+					Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0),
+					MaxLength = 2147483647,
+					Multiline = true,
+					Name = "memoCompileOut",
+					ScrollBars = ScrollBars.Vertical,
+					Size = new System.Drawing.Size(616, 530),
+					TabIndex = 0,
+					WordWrap = false
+				};
+				page.Controls.Add(textbox);
+				tabControlOutput.TabPages.Add(page);
+
+				OutputTextBoxes[lang] = textbox;
 			}
 
 			for (int i = 0; i < BefunCompileTester.TestData.GetLength(0); i++)
@@ -38,8 +60,18 @@ namespace BefunGen
 				cbxCompileLevel.Items.Add(item.ToString());
 			}
 			
-			cbxCompileLanguage.SelectedIndex = 0;
 			cbxCompileLevel.SelectedIndex = cbxCompileLevel.Items.Count - 1;
+		}
+
+		private IEnumerable<OutputLanguage> GetCheckedLanguages()
+		{
+			foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
+			{
+				int idx = listBoxOutputLanguages.Items.IndexOf(lang);
+				if (listBoxOutputLanguages.GetItemCheckState(idx) != CheckState.Checked) continue;
+
+				yield return lang;
+			}
 		}
 
 		private void frm_Load(object sender, EventArgs e)
@@ -58,14 +90,18 @@ namespace BefunGen
 					cbSafeGridAccess.Checked,
 					cbUseGZip.Checked);
 
-				memoCompileOut.Text = comp.GenerateCode((OutputLanguage)cbxCompileLanguage.SelectedItem);
+				foreach (var lang in (OutputLanguage[]) Enum.GetValues(typeof (OutputLanguage)))
+				{
+					OutputTextBoxes[lang].Text = comp.GenerateCode(lang);
+				}
+
 				tabCompileControl.SelectedIndex = 3;
 			}
 			catch (Exception exc)
 			{
 
 				memoCompileLog.Text += Environment.NewLine;
-				memoCompileLog.Text += "ERROR: " + exc.ToString() + Environment.NewLine;
+				memoCompileLog.Text += "ERROR: " + exc + Environment.NewLine;
 				tabCompileControl.SelectedIndex = 4;
 			}
 		}
@@ -83,20 +119,15 @@ namespace BefunGen
 
 				var cbcGraph = comp.GENERATION_LEVELS[cbxCompileLevel.SelectedIndex].Run();
 
-				var cbcCodeGCC = CodeGenerator.GenerateCode(OutputLanguage.C, cbcGraph, cbOutFormat.Checked, cbSafeStackAccess.Checked, cbSafeGridAccess.Checked, cbUseGZip.Checked);
-				var cbcCodeCSC = CodeGenerator.GenerateCode(OutputLanguage.CSharp, cbcGraph, cbOutFormat.Checked, cbSafeStackAccess.Checked, cbSafeGridAccess.Checked, cbUseGZip.Checked);
-				var cbcCodeJVC = CodeGenerator.GenerateCode(OutputLanguage.Java, cbcGraph, cbOutFormat.Checked, cbSafeStackAccess.Checked, cbSafeGridAccess.Checked, cbUseGZip.Checked);
+				foreach (var lang in GetCheckedLanguages())
+				{
+					var code = CodeGenerator.GenerateCode(lang, cbcGraph, cbOutFormat.Checked, cbSafeStackAccess.Checked, cbSafeGridAccess.Checked, cbUseGZip.Checked);
 
-				var tester = new BefunCompileTester();
+					var output = CodeCompiler.ExecuteCode(lang, code);
 
-				var output_GCC = tester.ExecuteGCC(cbcCodeGCC);
-				memoCompileLog.Text += Environment.NewLine + "[Execute GCC]" + output_GCC;
+					memoCompileLog.Text += string.Format("\r\n[Execute {0}]\r\n{1}\r\n", CodeCompiler.GetAcronym(lang), output);
 
-				var output_CSC = tester.ExecuteCSC(cbcCodeCSC);
-				memoCompileLog.Text += Environment.NewLine + "[Execute CSC]" + output_CSC;
-
-				var output_JVC = tester.ExecuteJVC(cbcCodeJVC);
-				memoCompileLog.Text += Environment.NewLine + "[Execute JVC]" + output_CSC;
+				}
 
 				tabCompileControl.SelectedIndex = 4;
 			}
@@ -200,13 +231,16 @@ namespace BefunGen
 		{
 			try
 			{
-				memoCompileOut.Text = CodeGenerator.GenerateCode(
-					(OutputLanguage)cbxCompileLanguage.SelectedItem, 
+				foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
+				{
+					OutputTextBoxes[lang].Text = CodeGenerator.GenerateCode(
+					lang,
 					cbcGraph,
 					cbOutFormat.Checked,
 					cbSafeStackAccess.Checked,
 					cbSafeGridAccess.Checked,
 					cbUseGZip.Checked);
+				}
 
 				memoCompileLog.Text += Environment.NewLine;
 				memoCompileLog.Text += "Vertices: " + cbcGraph.Vertices.Count + Environment.NewLine;
@@ -221,7 +255,7 @@ namespace BefunGen
 			{
 
 				memoCompileLog.Text += Environment.NewLine;
-				memoCompileLog.Text += "ERROR: " + exc.ToString() + Environment.NewLine;
+				memoCompileLog.Text += "ERROR: " + exc + Environment.NewLine;
 				tabCompileControl.SelectedIndex = 4;
 			}
 		}
@@ -232,7 +266,7 @@ namespace BefunGen
 
 			tabCompileControl.SelectedIndex = 4;
 
-			bct.Test(ref memoCompileLog);
+			bct.Test(ref memoCompileLog, GetCheckedLanguages());
 
 			edBefunCompileConsole.Text = bct.Output.ToString();
 		}
@@ -256,22 +290,27 @@ namespace BefunGen
 
 				var craph = comp.GENERATION_LEVELS[cbxCompileLevel.SelectedIndex].Run();
 
-				string code = CodeGenerator.GenerateCode(
-					(OutputLanguage)cbxCompileLanguage.SelectedItem,
-					craph, 
-					cbOutFormat.Checked, 
-					cbSafeStackAccess.Checked, 
-					cbSafeGridAccess.Checked, 
-					cbUseGZip.Checked);
 
-				memoCompileOut.Text = code;
+				foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
+				{
+					string code = CodeGenerator.GenerateCode(
+						lang,
+						craph,
+						cbOutFormat.Checked,
+						cbSafeStackAccess.Checked,
+						cbSafeGridAccess.Checked,
+						cbUseGZip.Checked);
+
+					OutputTextBoxes[lang].Text = code;
+				}
+
 				tabCompileControl.SelectedIndex = 3;
 			}
 			catch (Exception exc)
 			{
 
 				memoCompileLog.Text += Environment.NewLine;
-				memoCompileLog.Text += "ERROR: " + exc.ToString() + Environment.NewLine;
+				memoCompileLog.Text += "ERROR: " + exc + Environment.NewLine;
 				tabCompileControl.SelectedIndex = 4;
 			}
 		}
@@ -472,7 +511,7 @@ namespace BefunGen
 
 		private void btnGenOverview_Click(object sender, EventArgs e)
 		{
-			tabCompileControl.SelectedIndex = 3;
+			tabCompileControl.SelectedIndex = 4;
 
 			StringBuilder sb = new StringBuilder();
 
@@ -517,8 +556,8 @@ namespace BefunGen
 					cell_Name, cell_Vertices, cell_Nops, cell_Leafs, cell_cIOAcc, cell_dIOAcc,
 					cell_uservar, cell_systotal, cell_stackAcc, cell_varAcc, cell_size, cell_cycles, cell_time));
 
-				memoCompileOut.Text = sb.ToString();
-				memoCompileOut.Refresh();
+				memoCompileLog.Text = sb.ToString();
+				memoCompileLog.Refresh();
 			}
 
 		}

@@ -4,6 +4,7 @@ using BefunCompile.CodeGeneration;
 using BefunCompile.CodeGeneration.Compiler;
 using BefunGen.Properties;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
@@ -78,7 +79,7 @@ namespace BefunGen
 
 		public StringBuilder Output;
 
-		public void Test(ref TextBox logbox)
+		public void Test(ref TextBox logbox, IEnumerable<OutputLanguage> languages)
 		{
 			logbox.Text += Environment.NewLine;
 			logbox.Text += "Running Tests" + Environment.NewLine;
@@ -86,7 +87,7 @@ namespace BefunGen
 			Output = new StringBuilder();
 			for (int i = 0; i < TestData.GetLength(0); i++)
 			{
-				logbox.Text += TestAll(TestData[i, 0], TestData[i, 1], TestData[i, 2]);
+				logbox.Text += TestAll(TestData[i, 0], TestData[i, 1], TestData[i, 2], languages);
 				logbox.SelectionStart = logbox.Text.Length;
 				logbox.ScrollToCaret();
 				logbox.Refresh();
@@ -97,11 +98,11 @@ namespace BefunGen
 			logbox.Refresh();
 		}
 
-		public string TestAll(string name, string code, string result)
+		public string TestAll(string name, string code, string result, IEnumerable<OutputLanguage> languages)
 		{
 			var resultlog = string.Empty;
 			
-			foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
+			foreach (var lang in languages)
 			{
 				var tmstart = DateTime.Now;
 

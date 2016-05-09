@@ -52,12 +52,10 @@
 			this.cbSafeStackAccess = new System.Windows.Forms.CheckBox();
 			this.cbIgnoreSelfModification = new System.Windows.Forms.CheckBox();
 			this.cbOutFormat = new System.Windows.Forms.CheckBox();
-			this.cbxCompileLanguage = new System.Windows.Forms.ComboBox();
+			this.listBoxOutputLanguages = new System.Windows.Forms.CheckedListBox();
 			this.tabPage14 = new System.Windows.Forms.TabPage();
-			this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
-			this.graphUserControl1 = new BefunGen.GraphUserControl();
 			this.tabPage13 = new System.Windows.Forms.TabPage();
-			this.memoCompileOut = new System.Windows.Forms.TextBox();
+			this.tabControlOutput = new System.Windows.Forms.TabControl();
 			this.tabPage15 = new System.Windows.Forms.TabPage();
 			this.memoCompileLog = new System.Windows.Forms.TextBox();
 			this.tabPage11 = new System.Windows.Forms.TabPage();
@@ -81,6 +79,8 @@
 			this.memoCodeCompressionInput = new System.Windows.Forms.TextBox();
 			this.memoCodeCompressionOutput = new System.Windows.Forms.TextBox();
 			this.memoCodeCompressionLog = new System.Windows.Forms.TextBox();
+			this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+			this.graphUserControl1 = new BefunGen.GraphUserControl();
 			this.tabCompileOuterControl.SuspendLayout();
 			this.tabPage7.SuspendLayout();
 			this.tableLayoutPanel10.SuspendLayout();
@@ -344,7 +344,7 @@
 			this.tableLayoutPanel12.Controls.Add(this.cbSafeStackAccess, 0, 1);
 			this.tableLayoutPanel12.Controls.Add(this.cbIgnoreSelfModification, 0, 0);
 			this.tableLayoutPanel12.Controls.Add(this.cbOutFormat, 0, 3);
-			this.tableLayoutPanel12.Controls.Add(this.cbxCompileLanguage, 0, 5);
+			this.tableLayoutPanel12.Controls.Add(this.listBoxOutputLanguages, 0, 5);
 			this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel12.Name = "tableLayoutPanel12";
@@ -354,7 +354,7 @@
 			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
 			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel12.Size = new System.Drawing.Size(616, 530);
 			this.tableLayoutPanel12.TabIndex = 0;
@@ -424,15 +424,15 @@
 			this.cbOutFormat.Text = "Format Compile Output";
 			this.cbOutFormat.UseVisualStyleBackColor = true;
 			// 
-			// cbxCompileLanguage
+			// listBoxOutputLanguages
 			// 
-			this.cbxCompileLanguage.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.cbxCompileLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbxCompileLanguage.FormattingEnabled = true;
-			this.cbxCompileLanguage.Location = new System.Drawing.Point(3, 153);
-			this.cbxCompileLanguage.Name = "cbxCompileLanguage";
-			this.cbxCompileLanguage.Size = new System.Drawing.Size(610, 21);
-			this.cbxCompileLanguage.TabIndex = 4;
+			this.listBoxOutputLanguages.CheckOnClick = true;
+			this.listBoxOutputLanguages.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.listBoxOutputLanguages.FormattingEnabled = true;
+			this.listBoxOutputLanguages.Location = new System.Drawing.Point(3, 153);
+			this.listBoxOutputLanguages.Name = "listBoxOutputLanguages";
+			this.listBoxOutputLanguages.Size = new System.Drawing.Size(610, 94);
+			this.listBoxOutputLanguages.TabIndex = 6;
 			// 
 			// tabPage14
 			// 
@@ -445,19 +445,9 @@
 			this.tabPage14.Text = "Graph";
 			this.tabPage14.UseVisualStyleBackColor = true;
 			// 
-			// elementHost1
-			// 
-			this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.elementHost1.Location = new System.Drawing.Point(3, 3);
-			this.elementHost1.Name = "elementHost1";
-			this.elementHost1.Size = new System.Drawing.Size(616, 530);
-			this.elementHost1.TabIndex = 0;
-			this.elementHost1.Text = "elementHost1";
-			this.elementHost1.Child = this.graphUserControl1;
-			// 
 			// tabPage13
 			// 
-			this.tabPage13.Controls.Add(this.memoCompileOut);
+			this.tabPage13.Controls.Add(this.tabControlOutput);
 			this.tabPage13.Location = new System.Drawing.Point(4, 22);
 			this.tabPage13.Name = "tabPage13";
 			this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
@@ -466,18 +456,14 @@
 			this.tabPage13.Text = "Output";
 			this.tabPage13.UseVisualStyleBackColor = true;
 			// 
-			// memoCompileOut
+			// tabControlOutput
 			// 
-			this.memoCompileOut.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.memoCompileOut.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.memoCompileOut.Location = new System.Drawing.Point(3, 3);
-			this.memoCompileOut.MaxLength = 2147483647;
-			this.memoCompileOut.Multiline = true;
-			this.memoCompileOut.Name = "memoCompileOut";
-			this.memoCompileOut.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.memoCompileOut.Size = new System.Drawing.Size(616, 530);
-			this.memoCompileOut.TabIndex = 0;
-			this.memoCompileOut.WordWrap = false;
+			this.tabControlOutput.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabControlOutput.Location = new System.Drawing.Point(3, 3);
+			this.tabControlOutput.Name = "tabControlOutput";
+			this.tabControlOutput.SelectedIndex = 0;
+			this.tabControlOutput.Size = new System.Drawing.Size(616, 530);
+			this.tabControlOutput.TabIndex = 0;
 			// 
 			// tabPage15
 			// 
@@ -780,6 +766,16 @@
 			this.memoCodeCompressionLog.TabIndex = 2;
 			this.memoCodeCompressionLog.WordWrap = false;
 			// 
+			// elementHost1
+			// 
+			this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.elementHost1.Location = new System.Drawing.Point(3, 3);
+			this.elementHost1.Name = "elementHost1";
+			this.elementHost1.Size = new System.Drawing.Size(616, 530);
+			this.elementHost1.TabIndex = 0;
+			this.elementHost1.Text = "elementHost1";
+			this.elementHost1.Child = this.graphUserControl1;
+			// 
 			// frmMain_BefunCompile
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -801,7 +797,6 @@
 			this.tableLayoutPanel12.PerformLayout();
 			this.tabPage14.ResumeLayout(false);
 			this.tabPage13.ResumeLayout(false);
-			this.tabPage13.PerformLayout();
 			this.tabPage15.ResumeLayout(false);
 			this.tabPage15.PerformLayout();
 			this.tabPage11.ResumeLayout(false);
@@ -842,12 +837,10 @@
 		private System.Windows.Forms.CheckBox cbSafeStackAccess;
 		private System.Windows.Forms.CheckBox cbIgnoreSelfModification;
 		private System.Windows.Forms.CheckBox cbOutFormat;
-		private System.Windows.Forms.ComboBox cbxCompileLanguage;
 		private System.Windows.Forms.TabPage tabPage14;
 		private System.Windows.Forms.Integration.ElementHost elementHost1;
 		private GraphUserControl graphUserControl1;
 		private System.Windows.Forms.TabPage tabPage13;
-		private System.Windows.Forms.TextBox memoCompileOut;
 		private System.Windows.Forms.TabPage tabPage15;
 		private System.Windows.Forms.TextBox memoCompileLog;
 		private System.Windows.Forms.TabPage tabPage11;
@@ -871,5 +864,7 @@
 		private System.Windows.Forms.TextBox memoCodeCompressionInput;
 		private System.Windows.Forms.TextBox memoCodeCompressionOutput;
 		private System.Windows.Forms.TextBox memoCodeCompressionLog;
+		private System.Windows.Forms.TabControl tabControlOutput;
+		private System.Windows.Forms.CheckedListBox listBoxOutputLanguages;
 	}
 }
