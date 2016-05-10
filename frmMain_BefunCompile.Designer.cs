@@ -54,6 +54,8 @@
 			this.cbOutFormat = new System.Windows.Forms.CheckBox();
 			this.listBoxOutputLanguages = new System.Windows.Forms.CheckedListBox();
 			this.tabPage14 = new System.Windows.Forms.TabPage();
+			this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+			this.graphUserControl1 = new BefunGen.GraphUserControl();
 			this.tabPage13 = new System.Windows.Forms.TabPage();
 			this.tabControlOutput = new System.Windows.Forms.TabControl();
 			this.tabPage15 = new System.Windows.Forms.TabPage();
@@ -79,8 +81,6 @@
 			this.memoCodeCompressionInput = new System.Windows.Forms.TextBox();
 			this.memoCodeCompressionOutput = new System.Windows.Forms.TextBox();
 			this.memoCodeCompressionLog = new System.Windows.Forms.TextBox();
-			this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
-			this.graphUserControl1 = new BefunGen.GraphUserControl();
 			this.tabCompileOuterControl.SuspendLayout();
 			this.tabPage7.SuspendLayout();
 			this.tableLayoutPanel10.SuspendLayout();
@@ -371,6 +371,7 @@
 			this.cbUseGZip.TabIndex = 5;
 			this.cbUseGZip.Text = "Use GZip compression";
 			this.cbUseGZip.UseVisualStyleBackColor = true;
+			this.cbUseGZip.CheckedChanged += new System.EventHandler(this.cbUseGZip_CheckedChanged);
 			// 
 			// cbSafeGridAccess
 			// 
@@ -384,6 +385,7 @@
 			this.cbSafeGridAccess.TabIndex = 2;
 			this.cbSafeGridAccess.Text = "Implement Safe Grid Access";
 			this.cbSafeGridAccess.UseVisualStyleBackColor = true;
+			this.cbSafeGridAccess.CheckedChanged += new System.EventHandler(this.cbSafeGridAccess_CheckedChanged);
 			// 
 			// cbSafeStackAccess
 			// 
@@ -397,6 +399,7 @@
 			this.cbSafeStackAccess.TabIndex = 1;
 			this.cbSafeStackAccess.Text = "Implement Safe Stack Access";
 			this.cbSafeStackAccess.UseVisualStyleBackColor = true;
+			this.cbSafeStackAccess.CheckedChanged += new System.EventHandler(this.cbSafeStackAccess_CheckedChanged);
 			// 
 			// cbIgnoreSelfModification
 			// 
@@ -410,6 +413,7 @@
 			this.cbIgnoreSelfModification.TabIndex = 0;
 			this.cbIgnoreSelfModification.Text = "Ignore Self Modifications";
 			this.cbIgnoreSelfModification.UseVisualStyleBackColor = true;
+			this.cbIgnoreSelfModification.CheckedChanged += new System.EventHandler(this.cbIgnoreSelfModification_CheckedChanged);
 			// 
 			// cbOutFormat
 			// 
@@ -423,6 +427,7 @@
 			this.cbOutFormat.TabIndex = 3;
 			this.cbOutFormat.Text = "Format Compile Output";
 			this.cbOutFormat.UseVisualStyleBackColor = true;
+			this.cbOutFormat.CheckedChanged += new System.EventHandler(this.cbOutFormat_CheckedChanged);
 			// 
 			// listBoxOutputLanguages
 			// 
@@ -433,6 +438,7 @@
 			this.listBoxOutputLanguages.Name = "listBoxOutputLanguages";
 			this.listBoxOutputLanguages.Size = new System.Drawing.Size(610, 94);
 			this.listBoxOutputLanguages.TabIndex = 6;
+			this.listBoxOutputLanguages.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.listBoxOutputLanguages_ItemCheck);
 			// 
 			// tabPage14
 			// 
@@ -444,6 +450,16 @@
 			this.tabPage14.TabIndex = 1;
 			this.tabPage14.Text = "Graph";
 			this.tabPage14.UseVisualStyleBackColor = true;
+			// 
+			// elementHost1
+			// 
+			this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.elementHost1.Location = new System.Drawing.Point(3, 3);
+			this.elementHost1.Name = "elementHost1";
+			this.elementHost1.Size = new System.Drawing.Size(616, 530);
+			this.elementHost1.TabIndex = 0;
+			this.elementHost1.Text = "elementHost1";
+			this.elementHost1.Child = this.graphUserControl1;
 			// 
 			// tabPage13
 			// 
@@ -765,16 +781,6 @@
 			this.memoCodeCompressionLog.Size = new System.Drawing.Size(624, 144);
 			this.memoCodeCompressionLog.TabIndex = 2;
 			this.memoCodeCompressionLog.WordWrap = false;
-			// 
-			// elementHost1
-			// 
-			this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.elementHost1.Location = new System.Drawing.Point(3, 3);
-			this.elementHost1.Name = "elementHost1";
-			this.elementHost1.Size = new System.Drawing.Size(616, 530);
-			this.elementHost1.TabIndex = 0;
-			this.elementHost1.Text = "elementHost1";
-			this.elementHost1.Child = this.graphUserControl1;
 			// 
 			// frmMain_BefunCompile
 			// 

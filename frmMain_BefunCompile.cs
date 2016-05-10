@@ -9,9 +9,11 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace BefunGen
 {
@@ -25,7 +27,8 @@ namespace BefunGen
 
 			tabCompileControl.SelectedIndex = 0;
 			tabCompileOuterControl.SelectedIndex = 0;
-			
+
+			_swallowOptionsChangedEvent = true;
 			foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
 			{
 				int idx = listBoxOutputLanguages.Items.Add(lang);
@@ -49,6 +52,7 @@ namespace BefunGen
 
 				OutputTextBoxes[lang] = textbox;
 			}
+			_swallowOptionsChangedEvent = false;
 
 			for (int i = 0; i < BefunCompileTester.TestData.GetLength(0); i++)
 			{
@@ -61,6 +65,8 @@ namespace BefunGen
 			}
 			
 			cbxCompileLevel.SelectedIndex = cbxCompileLevel.Items.Count - 1;
+
+			LoadOptions();
 		}
 
 		private IEnumerable<OutputLanguage> GetCheckedLanguages()
@@ -146,19 +152,19 @@ namespace BefunGen
 		{
 			if (cbxCompileLevel.SelectedIndex < 0)
 			{
-				btnCompileGraph.Text = "Graph     [ --- ]";
+				btnCompileGraph.Text   = "Graph     [ --- ]";
 				btnCompileExecute.Text = "Execute   [ --- ]";
 				btnCompileCompile.Text = "Compile   [ --- ]";
 			}
 			else if (cbxCompileLevel.SelectedIndex == 0)
 			{
-				btnCompileGraph.Text = "Graph     [     ]";
+				btnCompileGraph.Text   = "Graph     [     ]";
 				btnCompileExecute.Text = "Execute   [     ]";
 				btnCompileCompile.Text = "Compile   [     ]";
 			}
 			else
 			{
-				btnCompileGraph.Text = "Graph     [ O:" + cbxCompileLevel.SelectedIndex.ToString("X") + " ]";
+				btnCompileGraph.Text   = "Graph     [ O:" + cbxCompileLevel.SelectedIndex.ToString("X") + " ]";
 				btnCompileExecute.Text = "Execute   [ O:" + cbxCompileLevel.SelectedIndex.ToString("X") + " ]";
 				btnCompileCompile.Text = "Compile   [ O:" + cbxCompileLevel.SelectedIndex.ToString("X") + " ]";
 			}
@@ -562,6 +568,73 @@ namespace BefunGen
 
 		}
 
+		private void listBoxOutputLanguages_ItemCheck(object sender, ItemCheckEventArgs e) => OnOptionsChanged();
 
+		private void cbIgnoreSelfModification_CheckedChanged(object sender, EventArgs e) => OnOptionsChanged();
+
+		private void cbSafeStackAccess_CheckedChanged(object sender, EventArgs e) => OnOptionsChanged();
+
+		private void cbSafeGridAccess_CheckedChanged(object sender, EventArgs e) => OnOptionsChanged();
+
+		private void cbOutFormat_CheckedChanged(object sender, EventArgs e) => OnOptionsChanged();
+
+		private void cbUseGZip_CheckedChanged(object sender, EventArgs e) => OnOptionsChanged();
+
+		private bool _swallowOptionsChangedEvent = false;
+		private void OnOptionsChanged()
+		{
+			if (_swallowOptionsChangedEvent) return;
+
+			Dictionary<string, bool> dict = new SerializableDictionary<string, bool>();
+
+			dict["cbIgnoreSelfModification"] = cbIgnoreSelfModification.Checked;
+			dict["cbIgnoreSelfModification"] = cbSafeStackAccess.Checked;
+			dict["cbIgnoreSelfModification"] = cbSafeGridAccess.Checked;
+			dict["cbIgnoreSelfModification"] = cbOutFormat.Checked;
+			dict["cbIgnoreSelfModification"] = cbUseGZip.Checked;
+
+			foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
+			{
+				int idx = listBoxOutputLanguages.Items.IndexOf(lang);
+				dict["OutputLanguage."+lang] = listBoxOutputLanguages.GetItemCheckState(idx) == CheckState.Checked;
+			}
+
+
+			var serializer = new XmlSerializer(typeof(SerializableDictionary<string, bool>));
+
+			using (var stream = new StreamWriter(@"BefunDebug_BefunCompile_settings.xml"))
+			{
+				serializer.Serialize(stream, dict);
+			}
+		}
+
+
+		private void LoadOptions()
+		{
+			if (!File.Exists(@"BefunDebug_BefunCompile_settings.xml")) return;
+
+			_swallowOptionsChangedEvent = true;
+
+			Dictionary<string, bool> dict = new SerializableDictionary<string, bool>();
+			var serializer = new XmlSerializer(typeof(SerializableDictionary<string, bool>));
+			using (var stream = new FileStream(@"BefunDebug_BefunCompile_settings.xml", FileMode.Open, FileAccess.Read, FileShare.Read))
+			{
+				dict = (SerializableDictionary<string, bool>)serializer.Deserialize(stream);
+			}
+			
+			cbIgnoreSelfModification.Checked = dict["cbIgnoreSelfModification"];
+			cbSafeStackAccess.Checked = dict["cbIgnoreSelfModification"];
+			cbSafeGridAccess.Checked = dict["cbIgnoreSelfModification"];
+			cbOutFormat.Checked = dict["cbIgnoreSelfModification"];
+			cbUseGZip.Checked = dict["cbIgnoreSelfModification"];
+
+			foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
+			{
+				int idx = listBoxOutputLanguages.Items.IndexOf(lang);
+				listBoxOutputLanguages.SetItemCheckState(idx, dict["OutputLanguage." + lang] ? CheckState.Checked : CheckState.Unchecked);
+			}
+
+			_swallowOptionsChangedEvent = false;
+		}
 	}
 }
