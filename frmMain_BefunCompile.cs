@@ -116,6 +116,8 @@ namespace BefunGen
 		{
 			try
 			{
+				var console = new StringBuilder();
+
 				var comp = new BefunCompiler(memoCompileInput.Text,
 					cbOutFormat.Checked,
 					cbIgnoreSelfModification.Checked,
@@ -129,19 +131,19 @@ namespace BefunGen
 				{
 					var code = CodeGenerator.GenerateCode(lang, cbcGraph, cbOutFormat.Checked, cbSafeStackAccess.Checked, cbSafeGridAccess.Checked, cbUseGZip.Checked);
 
-					var output = CodeCompiler.ExecuteCode(lang, code);
+					var output = CodeCompiler.ExecuteCode(lang, code, console);
 
-					memoCompileLog.Text += string.Format("\r\n[Execute {0}]\r\n{1}\r\n", CodeCompiler.GetAcronym(lang), output);
-
+					memoCompileLog.Text += string.Format("[Execute {0}]\r\n{1}\r\n\r\n", CodeCompiler.GetAcronym(lang), output.TrimEnd('\r', '\n'));
 				}
+				
+				edBefunCompileConsole.Text = console.ToString();
 
 				tabCompileControl.SelectedIndex = 4;
 			}
 			catch (Exception exc)
 			{
-
 				memoCompileLog.Text += Environment.NewLine;
-				memoCompileLog.Text += "ERROR: " + exc.ToString() + Environment.NewLine;
+				memoCompileLog.Text += "ERROR: " + exc + Environment.NewLine;
 				tabCompileControl.SelectedIndex = 4;
 			}
 		}
@@ -228,7 +230,7 @@ namespace BefunGen
 			{
 
 				memoCompileLog.Text += Environment.NewLine;
-				memoCompileLog.Text += "ERROR: " + exc.ToString() + Environment.NewLine;
+				memoCompileLog.Text += "ERROR: " + exc + Environment.NewLine;
 				tabCompileControl.SelectedIndex = 4;
 			}
 		}
@@ -251,15 +253,14 @@ namespace BefunGen
 				memoCompileLog.Text += Environment.NewLine;
 				memoCompileLog.Text += "Vertices: " + cbcGraph.Vertices.Count + Environment.NewLine;
 
-				var ctrl = (elementHost1.Child as GraphUserControl);
-				var model = ctrl.graphLayout.DataContext as MainGraphViewModel;
+				var ctrl = (GraphUserControl)elementHost1.Child;
+				var model = (MainGraphViewModel)ctrl.graphLayout.DataContext;
 
 				model.loadGraph(cbcGraph);
 				tabCompileControl.SelectedIndex = 3;
 			}
 			catch (Exception exc)
 			{
-
 				memoCompileLog.Text += Environment.NewLine;
 				memoCompileLog.Text += "ERROR: " + exc + Environment.NewLine;
 				tabCompileControl.SelectedIndex = 4;
@@ -314,7 +315,6 @@ namespace BefunGen
 			}
 			catch (Exception exc)
 			{
-
 				memoCompileLog.Text += Environment.NewLine;
 				memoCompileLog.Text += "ERROR: " + exc + Environment.NewLine;
 				tabCompileControl.SelectedIndex = 4;
@@ -333,7 +333,7 @@ namespace BefunGen
 
 			memoCodeCompressionLog.Text += Environment.NewLine;
 
-			memoCodeCompressionLog.Text += String.Format("Compressed from {0} to {1} ({2:0.#}%)", input.Count(), output.Count(), (output.Count() * 100.0) / input.Count()) + Environment.NewLine;
+			memoCodeCompressionLog.Text += string.Format("Compressed from {0} to {1} ({2:0.#}%)", input.Count(), output.Count(), (output.Count() * 100.0) / input.Count()) + Environment.NewLine;
 
 			memoCodeCompressionOutput.Text = string.Join("", output.Select(p => (char)p));
 		}
@@ -347,7 +347,7 @@ namespace BefunGen
 
 			memoCodeCompressionLog.Text += Environment.NewLine;
 
-			memoCodeCompressionLog.Text += String.Format("Decompressed from {0} to {1} ({2:0.#}%)", input.Count(), output.Count(), (input.Count() * 100.0) / output.Count()) + Environment.NewLine;
+			memoCodeCompressionLog.Text += string.Format("Decompressed from {0} to {1} ({2:0.#}%)", input.Count(), output.Count(), (input.Count() * 100.0) / output.Count()) + Environment.NewLine;
 
 			memoCodeCompressionInput.Text = string.Join("", output.Select(p => (char)p));
 		}
@@ -363,7 +363,7 @@ namespace BefunGen
 
 			memoCodeCompressionLog.Text += Environment.NewLine;
 
-			memoCodeCompressionLog.Text += String.Format("Compressed from {0} to {1} ({2:0.#}%)", input.Count(), output.Count(), (output.Count() * 100.0) / input.Count()) + Environment.NewLine;
+			memoCodeCompressionLog.Text += string.Format("Compressed from {0} to {1} ({2:0.#}%)", input.Count(), output.Count(), (output.Count() * 100.0) / input.Count()) + Environment.NewLine;
 			memoCodeCompressionLog.Text += "in " + it + " Recursions" + Environment.NewLine;
 
 			memoCodeCompressionOutput.Text = string.Join("", output.Select(p => (char)p));
@@ -378,7 +378,7 @@ namespace BefunGen
 
 			memoCodeCompressionLog.Text += Environment.NewLine;
 
-			memoCodeCompressionLog.Text += String.Format("Decompressed from {0} to {1} ({2:0.#}%)", input.Count(), output.Count(), (input.Count() * 100.0) / output.Count()) + Environment.NewLine;
+			memoCodeCompressionLog.Text += string.Format("Decompressed from {0} to {1} ({2:0.#}%)", input.Count(), output.Count(), (input.Count() * 100.0) / output.Count()) + Environment.NewLine;
 
 			memoCodeCompressionInput.Text = string.Join("", output.Select(p => (char)p));
 		}
@@ -394,7 +394,7 @@ namespace BefunGen
 
 			memoCodeCompressionLog.Text += Environment.NewLine;
 
-			memoCodeCompressionLog.Text += String.Format("Compressed from {0} to {1} ({2:0.#}%)", input.Count(), output.Length, (output.Length * 100.0) / input.Count()) + Environment.NewLine;
+			memoCodeCompressionLog.Text += string.Format("Compressed from {0} to {1} ({2:0.#}%)", input.Count(), output.Length, (output.Length * 100.0) / input.Count()) + Environment.NewLine;
 			memoCodeCompressionLog.Text += "in " + it + " Recursions" + Environment.NewLine;
 
 			memoCodeCompressionOutput.Text = output;
@@ -409,7 +409,7 @@ namespace BefunGen
 
 			memoCodeCompressionLog.Text += Environment.NewLine;
 
-			memoCodeCompressionLog.Text += String.Format("Decompressed from {0} to {1} ({2:0.#}%)", memoCodeCompressionOutput.Text.Length, output.Count(), (memoCodeCompressionOutput.Text.Length * 100.0) / output.Count()) + Environment.NewLine;
+			memoCodeCompressionLog.Text += string.Format("Decompressed from {0} to {1} ({2:0.#}%)", memoCodeCompressionOutput.Text.Length, output.Count(), (memoCodeCompressionOutput.Text.Length * 100.0) / output.Count()) + Environment.NewLine;
 
 			memoCodeCompressionInput.Text = string.Join("", output.Select(p => (char)p));
 		}
@@ -588,10 +588,10 @@ namespace BefunGen
 			Dictionary<string, bool> dict = new SerializableDictionary<string, bool>();
 
 			dict["cbIgnoreSelfModification"] = cbIgnoreSelfModification.Checked;
-			dict["cbIgnoreSelfModification"] = cbSafeStackAccess.Checked;
-			dict["cbIgnoreSelfModification"] = cbSafeGridAccess.Checked;
-			dict["cbIgnoreSelfModification"] = cbOutFormat.Checked;
-			dict["cbIgnoreSelfModification"] = cbUseGZip.Checked;
+			dict["cbSafeStackAccess"] = cbSafeStackAccess.Checked;
+			dict["cbSafeGridAccess"] = cbSafeGridAccess.Checked;
+			dict["cbOutFormat"] = cbOutFormat.Checked;
+			dict["cbUseGZip"] = cbUseGZip.Checked;
 
 			foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
 			{
@@ -623,10 +623,10 @@ namespace BefunGen
 			}
 			
 			cbIgnoreSelfModification.Checked = dict["cbIgnoreSelfModification"];
-			cbSafeStackAccess.Checked = dict["cbIgnoreSelfModification"];
-			cbSafeGridAccess.Checked = dict["cbIgnoreSelfModification"];
-			cbOutFormat.Checked = dict["cbIgnoreSelfModification"];
-			cbUseGZip.Checked = dict["cbIgnoreSelfModification"];
+			cbSafeStackAccess.Checked = dict["cbSafeStackAccess"];
+			cbSafeGridAccess.Checked = dict["cbSafeGridAccess"];
+			cbOutFormat.Checked = dict["cbOutFormat"];
+			cbUseGZip.Checked = dict["cbUseGZip"];
 
 			foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
 			{

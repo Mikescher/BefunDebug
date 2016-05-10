@@ -54,8 +54,6 @@
 			this.cbOutFormat = new System.Windows.Forms.CheckBox();
 			this.listBoxOutputLanguages = new System.Windows.Forms.CheckedListBox();
 			this.tabPage14 = new System.Windows.Forms.TabPage();
-			this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
-			this.graphUserControl1 = new BefunGen.GraphUserControl();
 			this.tabPage13 = new System.Windows.Forms.TabPage();
 			this.tabControlOutput = new System.Windows.Forms.TabControl();
 			this.tabPage15 = new System.Windows.Forms.TabPage();
@@ -81,6 +79,8 @@
 			this.memoCodeCompressionInput = new System.Windows.Forms.TextBox();
 			this.memoCodeCompressionOutput = new System.Windows.Forms.TextBox();
 			this.memoCodeCompressionLog = new System.Windows.Forms.TextBox();
+			this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+			this.graphUserControl1 = new BefunGen.GraphUserControl();
 			this.tabCompileOuterControl.SuspendLayout();
 			this.tabPage7.SuspendLayout();
 			this.tableLayoutPanel10.SuspendLayout();
@@ -451,16 +451,6 @@
 			this.tabPage14.Text = "Graph";
 			this.tabPage14.UseVisualStyleBackColor = true;
 			// 
-			// elementHost1
-			// 
-			this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.elementHost1.Location = new System.Drawing.Point(3, 3);
-			this.elementHost1.Name = "elementHost1";
-			this.elementHost1.Size = new System.Drawing.Size(616, 530);
-			this.elementHost1.TabIndex = 0;
-			this.elementHost1.Text = "elementHost1";
-			this.elementHost1.Child = this.graphUserControl1;
-			// 
 			// tabPage13
 			// 
 			this.tabPage13.Controls.Add(this.tabControlOutput);
@@ -504,6 +494,7 @@
 			this.memoCompileLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.memoCompileLog.Size = new System.Drawing.Size(616, 530);
 			this.memoCompileLog.TabIndex = 1;
+			this.memoCompileLog.WordWrap = false;
 			// 
 			// tabPage11
 			// 
@@ -528,6 +519,7 @@
 			this.edBefunCompileConsole.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.edBefunCompileConsole.Size = new System.Drawing.Size(616, 530);
 			this.edBefunCompileConsole.TabIndex = 0;
+			this.edBefunCompileConsole.WordWrap = false;
 			// 
 			// tabPage8
 			// 
@@ -781,6 +773,16 @@
 			this.memoCodeCompressionLog.Size = new System.Drawing.Size(624, 144);
 			this.memoCodeCompressionLog.TabIndex = 2;
 			this.memoCodeCompressionLog.WordWrap = false;
+			// 
+			// elementHost1
+			// 
+			this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.elementHost1.Location = new System.Drawing.Point(3, 3);
+			this.elementHost1.Name = "elementHost1";
+			this.elementHost1.Size = new System.Drawing.Size(616, 530);
+			this.elementHost1.TabIndex = 0;
+			this.elementHost1.Text = "elementHost1";
+			this.elementHost1.Child = this.graphUserControl1;
 			// 
 			// frmMain_BefunCompile
 			// 
