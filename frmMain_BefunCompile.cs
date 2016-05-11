@@ -19,7 +19,9 @@ namespace BefunGen
 {
 	public partial class frmMain_BefunCompile : UserControl
 	{
-		private Dictionary<OutputLanguage, TextBox> OutputTextBoxes = new Dictionary<OutputLanguage, TextBox>(); 
+		private Dictionary<OutputLanguage, TextBox> OutputTextBoxes = new Dictionary<OutputLanguage, TextBox>();
+
+		private readonly BefunCompileTester tester = new BefunCompileTester();
 
 		public frmMain_BefunCompile()
 		{
@@ -47,6 +49,7 @@ namespace BefunGen
 					TabIndex = 0,
 					WordWrap = false
 				};
+				textbox.KeyDown += GenericTextBoxKeyDown;
 				page.Controls.Add(textbox);
 				tabControlOutput.TabPages.Add(page);
 
@@ -269,13 +272,9 @@ namespace BefunGen
 
 		private void btnCompileTest_Click(object sender, EventArgs e)
 		{
-			BefunCompileTester bct = new BefunCompileTester();
-
 			tabCompileControl.SelectedIndex = 4;
 
-			bct.Test(ref memoCompileLog, GetCheckedLanguages());
-
-			edBefunCompileConsole.Text = bct.Output.ToString();
+			tester.TriggerAction(memoCompileLog, edBefunCompileConsole, btnCompileTest, GetCheckedLanguages());
 		}
 
 		private void cbxCompileData_SelectedIndexChanged(object sender, EventArgs e)
@@ -635,6 +634,15 @@ namespace BefunGen
 			}
 
 			_swallowOptionsChangedEvent = false;
+		}
+
+		private void GenericTextBoxKeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.Control && (e.KeyCode == Keys.A))
+			{
+				(sender as TextBox)?.SelectAll();
+				e.Handled = true;
+			}
 		}
 	}
 }
