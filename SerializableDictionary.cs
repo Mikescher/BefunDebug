@@ -234,5 +234,29 @@ namespace BefunGen
 				writer.WriteEndElement();
 			}
 		}
+
+		public TValue GetValueOrDefault(TKey key)
+		{
+			TValue v;
+
+			if (TryGetValue(key, out v))
+			{
+				return v;
+			}
+
+			return default(TValue);
+		}
+
+		public TValue GetValueOrDefault(TKey key, TValue defValue)
+		{
+			TValue v;
+
+			if (TryGetValue(key, out v))
+			{
+				return v;
+			}
+
+			return defValue;
+		}
 	}
 }

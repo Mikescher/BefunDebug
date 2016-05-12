@@ -614,23 +614,23 @@ namespace BefunGen
 
 			_swallowOptionsChangedEvent = true;
 
-			Dictionary<string, bool> dict = new SerializableDictionary<string, bool>();
+			SerializableDictionary<string, bool> dict;
 			var serializer = new XmlSerializer(typeof(SerializableDictionary<string, bool>));
 			using (var stream = new FileStream(@"BefunDebug_BefunCompile_settings.xml", FileMode.Open, FileAccess.Read, FileShare.Read))
 			{
 				dict = (SerializableDictionary<string, bool>)serializer.Deserialize(stream);
 			}
 			
-			cbIgnoreSelfModification.Checked = dict["cbIgnoreSelfModification"];
-			cbSafeStackAccess.Checked = dict["cbSafeStackAccess"];
-			cbSafeGridAccess.Checked = dict["cbSafeGridAccess"];
-			cbOutFormat.Checked = dict["cbOutFormat"];
-			cbUseGZip.Checked = dict["cbUseGZip"];
+			cbIgnoreSelfModification.Checked = dict.GetValueOrDefault("cbIgnoreSelfModification", true);
+			cbSafeStackAccess.Checked = dict.GetValueOrDefault("cbSafeStackAccess", true);
+			cbSafeGridAccess.Checked = dict.GetValueOrDefault("cbSafeGridAccess", true);
+			cbOutFormat.Checked = dict.GetValueOrDefault("cbOutFormat", true);
+			cbUseGZip.Checked = dict.GetValueOrDefault("cbUseGZip", true);
 
 			foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
 			{
 				int idx = listBoxOutputLanguages.Items.IndexOf(lang);
-				listBoxOutputLanguages.SetItemCheckState(idx, dict["OutputLanguage." + lang] ? CheckState.Checked : CheckState.Unchecked);
+				listBoxOutputLanguages.SetItemCheckState(idx, dict.GetValueOrDefault("OutputLanguage." + lang, true) ? CheckState.Checked : CheckState.Unchecked);
 			}
 
 			_swallowOptionsChangedEvent = false;
