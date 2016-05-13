@@ -1,23 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using BefunGen.AST;
-using System.Threading;
-using System.IO;
+﻿using BefunGen.AST;
 using BefunGen.AST.CodeGen;
+using System;
 using System.Diagnostics;
+using System.IO;
 using System.Text.RegularExpressions;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace BefunGen
 {
-    public partial class frmMain_BefunGen: UserControl
-    {
+	public partial class frmMain_BefunGen: UserControl
+	{
 		private DemoParser MyParser = new DemoParser();
 		private TextFungeParser GParser = new TextFungeParser();
 
@@ -28,8 +21,8 @@ namespace BefunGen
 		bool threadRunning = true;
 
 		public frmMain_BefunGen()
-        {
-            InitializeComponent();
+		{
+			InitializeComponent();
 
 			tabBefunGenControl.SelectedIndex = 0;
 

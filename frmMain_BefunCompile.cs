@@ -128,15 +128,26 @@ namespace BefunGen
 					cbSafeGridAccess.Checked,
 					cbUseGZip.Checked);
 
-				var cbcGraph = comp.GENERATION_LEVELS[cbxCompileLevel.SelectedIndex].Run();
+				var graph = comp.GENERATION_LEVELS[cbxCompileLevel.SelectedIndex].Run();
 
 				foreach (var lang in GetCheckedLanguages())
 				{
-					var code = CodeGenerator.GenerateCode(lang, cbcGraph, cbOutFormat.Checked, cbSafeStackAccess.Checked, cbSafeGridAccess.Checked, cbUseGZip.Checked);
+					try
+					{
+						var code = CodeGenerator.GenerateCode(lang, graph, cbOutFormat.Checked, cbSafeStackAccess.Checked, cbSafeGridAccess.Checked, cbUseGZip.Checked);
 
-					var output = CodeCompiler.ExecuteCode(lang, code, console);
+						var output = CodeCompiler.ExecuteCode(lang, code, console);
 
-					memoCompileLog.Text += string.Format("[Execute {0}]\r\n{1}\r\n\r\n", CodeCompiler.GetAcronym(lang), output.TrimEnd('\r', '\n'));
+						memoCompileLog.Text += string.Format("[Execute {0}]\r\n{1}\r\n\r\n", CodeCompiler.GetAcronym(lang), output.TrimEnd('\r', '\n'));
+
+					}
+					catch (Exception exc)
+					{
+						memoCompileLog.Text += string.Format("[Execute {0}]\r\nERROR: {1}\r\n\r\n", CodeCompiler.GetAcronym(lang), exc);
+						tabCompileControl.SelectedIndex = 4;
+					}
+
+					memoCompileLog.Refresh();
 				}
 				
 				edBefunCompileConsole.Text = console.ToString();
