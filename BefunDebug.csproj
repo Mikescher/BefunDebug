@@ -124,34 +124,40 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain_BefunCompile.cs">
+    <Compile Include="Pages\frmMain_BefunCompile.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="frmMain_BefunCompile.Designer.cs">
+    <Compile Include="Pages\frmMain_BefunCompile.Designer.cs">
       <DependentUpon>frmMain_BefunCompile.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain_BefunGen.cs">
+    <Compile Include="Pages\frmMain_BefunGen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="frmMain_BefunGen.Designer.cs">
+    <Compile Include="Pages\frmMain_BefunGen.Designer.cs">
       <DependentUpon>frmMain_BefunGen.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain_BefunHighlight.cs">
+    <Compile Include="Pages\frmMain_BefunRun.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="frmMain_BefunHighlight.Designer.cs">
+    <Compile Include="Pages\frmMain_BefunRun.Designer.cs">
+      <DependentUpon>frmMain_BefunRun.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\frmMain_BefunHighlight.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pages\frmMain_BefunHighlight.Designer.cs">
       <DependentUpon>frmMain_BefunHighlight.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain_BefunRep.cs">
+    <Compile Include="Pages\frmMain_BefunRep.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="frmMain_BefunRep.Designer.cs">
+    <Compile Include="Pages\frmMain_BefunRep.Designer.cs">
       <DependentUpon>frmMain_BefunRep.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain_BefunTools.cs">
+    <Compile Include="Pages\frmMain_BefunTools.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="frmMain_BefunTools.Designer.cs">
+    <Compile Include="Pages\frmMain_BefunTools.Designer.cs">
       <DependentUpon>frmMain_BefunTools.cs</DependentUpon>
     </Compile>
     <Compile Include="Graph\GraphUserControl.xaml.cs">
@@ -162,6 +168,7 @@
     <Compile Include="Graph\PocGraph.cs" />
     <Compile Include="Graph\PocGraphLayout.cs" />
     <Compile Include="Graph\PocVertex.cs" />
+    <Compile Include="Helper\ProcessHelper.cs" />
     <Compile Include="PictureBoxWithInterpolationMode.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -169,27 +176,30 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SerializableDictionary.cs" />
-    <Compile Include="SquashHelper.cs" />
-    <Compile Include="StaticStopWatch.cs" />
-    <Compile Include="ThreadedControlExtension.cs" />
+    <Compile Include="Helper\SerializableDictionary.cs" />
+    <Compile Include="Helper\SquashHelper.cs" />
+    <Compile Include="Helper\StaticStopWatch.cs" />
+    <Compile Include="Helper\ThreadedControlExtension.cs" />
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain_BefunCompile.resx">
+    <EmbeddedResource Include="Pages\frmMain_BefunCompile.resx">
       <DependentUpon>frmMain_BefunCompile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain_BefunGen.resx">
+    <EmbeddedResource Include="Pages\frmMain_BefunGen.resx">
       <DependentUpon>frmMain_BefunGen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain_BefunHighlight.resx">
+    <EmbeddedResource Include="Pages\frmMain_BefunRun.resx">
+      <DependentUpon>frmMain_BefunRun.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\frmMain_BefunHighlight.resx">
       <DependentUpon>frmMain_BefunHighlight.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain_BefunRep.resx">
+    <EmbeddedResource Include="Pages\frmMain_BefunRep.resx">
       <DependentUpon>frmMain_BefunRep.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain_BefunTools.resx">
+    <EmbeddedResource Include="Pages\frmMain_BefunTools.resx">
       <DependentUpon>frmMain_BefunTools.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

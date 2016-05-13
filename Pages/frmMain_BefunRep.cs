@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using BefunGen.AST.CodeGen;
+using BefunGen.AST.CodeGen.NumberCode;
+using BefunRep;
+using BefunRep.FileHandling;
+using BefunRep.OutputHandling;
+using System;
 using System.Drawing;
-using System.Data;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using BefunRep;
-using BefunRep.OutputHandling;
-using BefunRep.FileHandling;
-using BefunGen.AST.CodeGen.NumberCode;
-using BefunGen.AST.CodeGen;
 
-namespace BefunGen
+namespace BefunGen.Pages
 {
 	public partial class frmMain_BefunRep : UserControl
 	{

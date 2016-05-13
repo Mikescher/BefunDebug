@@ -6,8 +6,9 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
+using BefunGen.Helper;
 
-namespace BefunGen
+namespace BefunGen.Pages
 {
 	public partial class frmMain_BefunGen: UserControl
 	{

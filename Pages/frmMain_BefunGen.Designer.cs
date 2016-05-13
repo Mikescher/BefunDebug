@@ -1,4 +1,4 @@
-﻿namespace BefunGen
+﻿namespace BefunGen.Pages
 {
 	partial class frmMain_BefunGen
 	{

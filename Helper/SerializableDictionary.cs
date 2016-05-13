@@ -5,7 +5,7 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 
-namespace BefunGen
+namespace BefunGen.Helper
 {
 	[Serializable]
 	[XmlRoot("dictionary")]

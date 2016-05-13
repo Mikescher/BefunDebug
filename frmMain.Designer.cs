@@ -1,4 +1,6 @@
-﻿namespace BefunGen
+﻿using BefunGen.Pages;
+
+namespace BefunGen
 {
 	partial class frmMain
 	{
@@ -31,21 +33,24 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
 			this.tabMainControl = new System.Windows.Forms.TabControl();
 			this.tabPageBefunGen = new System.Windows.Forms.TabPage();
-			this.control_BefunGen = new BefunGen.frmMain_BefunGen();
+			this.control_BefunGen = new frmMain_BefunGen();
 			this.tabPageBefunRep = new System.Windows.Forms.TabPage();
-			this.control_BefunRep = new BefunGen.frmMain_BefunRep();
+			this.control_BefunRep = new frmMain_BefunRep();
 			this.tabPageBefunHighlight = new System.Windows.Forms.TabPage();
-			this.control_BefunHighlight = new BefunGen.frmMain_BefunHighlight();
+			this.control_BefunHighlight = new frmMain_BefunHighlight();
 			this.tabPageBefunCompile = new System.Windows.Forms.TabPage();
-			this.control_BefunCompile = new BefunGen.frmMain_BefunCompile();
+			this.control_BefunCompile = new frmMain_BefunCompile();
 			this.tabPageTools = new System.Windows.Forms.TabPage();
-			this.control_BefunTools = new BefunGen.frmMain_BefunTools();
+			this.control_BefunTools = new frmMain_BefunTools();
+			this.tabPageBefunRun = new System.Windows.Forms.TabPage();
+			this.control_BefunRun = new frmMain_BefunRun();
 			this.tabMainControl.SuspendLayout();
 			this.tabPageBefunGen.SuspendLayout();
 			this.tabPageBefunRep.SuspendLayout();
 			this.tabPageBefunHighlight.SuspendLayout();
 			this.tabPageBefunCompile.SuspendLayout();
 			this.tabPageTools.SuspendLayout();
+			this.tabPageBefunRun.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tabMainControl
@@ -55,6 +60,7 @@
 			this.tabMainControl.Controls.Add(this.tabPageBefunRep);
 			this.tabMainControl.Controls.Add(this.tabPageBefunHighlight);
 			this.tabMainControl.Controls.Add(this.tabPageBefunCompile);
+			this.tabMainControl.Controls.Add(this.tabPageBefunRun);
 			this.tabMainControl.Controls.Add(this.tabPageTools);
 			this.tabMainControl.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabMainControl.Location = new System.Drawing.Point(0, 0);
@@ -89,7 +95,7 @@
 			this.tabPageBefunRep.Location = new System.Drawing.Point(4, 25);
 			this.tabPageBefunRep.Name = "tabPageBefunRep";
 			this.tabPageBefunRep.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPageBefunRep.Size = new System.Drawing.Size(876, 668);
+			this.tabPageBefunRep.Size = new System.Drawing.Size(976, 668);
 			this.tabPageBefunRep.TabIndex = 2;
 			this.tabPageBefunRep.Text = "BefunRep";
 			this.tabPageBefunRep.UseVisualStyleBackColor = true;
@@ -100,7 +106,7 @@
 			this.control_BefunRep.Location = new System.Drawing.Point(3, 3);
 			this.control_BefunRep.Margin = new System.Windows.Forms.Padding(0);
 			this.control_BefunRep.Name = "control_BefunRep";
-			this.control_BefunRep.Size = new System.Drawing.Size(870, 662);
+			this.control_BefunRep.Size = new System.Drawing.Size(970, 662);
 			this.control_BefunRep.TabIndex = 0;
 			// 
 			// tabPageBefunHighlight
@@ -109,7 +115,7 @@
 			this.tabPageBefunHighlight.Location = new System.Drawing.Point(4, 25);
 			this.tabPageBefunHighlight.Name = "tabPageBefunHighlight";
 			this.tabPageBefunHighlight.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPageBefunHighlight.Size = new System.Drawing.Size(876, 668);
+			this.tabPageBefunHighlight.Size = new System.Drawing.Size(976, 668);
 			this.tabPageBefunHighlight.TabIndex = 3;
 			this.tabPageBefunHighlight.Text = "BefunHighlight";
 			this.tabPageBefunHighlight.UseVisualStyleBackColor = true;
@@ -120,7 +126,7 @@
 			this.control_BefunHighlight.Location = new System.Drawing.Point(3, 3);
 			this.control_BefunHighlight.Margin = new System.Windows.Forms.Padding(0);
 			this.control_BefunHighlight.Name = "control_BefunHighlight";
-			this.control_BefunHighlight.Size = new System.Drawing.Size(870, 662);
+			this.control_BefunHighlight.Size = new System.Drawing.Size(970, 662);
 			this.control_BefunHighlight.TabIndex = 0;
 			// 
 			// tabPageBefunCompile
@@ -129,7 +135,7 @@
 			this.tabPageBefunCompile.Location = new System.Drawing.Point(4, 25);
 			this.tabPageBefunCompile.Name = "tabPageBefunCompile";
 			this.tabPageBefunCompile.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPageBefunCompile.Size = new System.Drawing.Size(876, 668);
+			this.tabPageBefunCompile.Size = new System.Drawing.Size(976, 668);
 			this.tabPageBefunCompile.TabIndex = 4;
 			this.tabPageBefunCompile.Text = "BefunCompile";
 			this.tabPageBefunCompile.UseVisualStyleBackColor = true;
@@ -140,7 +146,7 @@
 			this.control_BefunCompile.Location = new System.Drawing.Point(3, 3);
 			this.control_BefunCompile.Margin = new System.Windows.Forms.Padding(0);
 			this.control_BefunCompile.Name = "control_BefunCompile";
-			this.control_BefunCompile.Size = new System.Drawing.Size(870, 662);
+			this.control_BefunCompile.Size = new System.Drawing.Size(970, 662);
 			this.control_BefunCompile.TabIndex = 0;
 			// 
 			// tabPageTools
@@ -149,7 +155,7 @@
 			this.tabPageTools.Location = new System.Drawing.Point(4, 25);
 			this.tabPageTools.Name = "tabPageTools";
 			this.tabPageTools.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPageTools.Size = new System.Drawing.Size(876, 668);
+			this.tabPageTools.Size = new System.Drawing.Size(976, 668);
 			this.tabPageTools.TabIndex = 5;
 			this.tabPageTools.Text = "Befunge Tools";
 			this.tabPageTools.UseVisualStyleBackColor = true;
@@ -160,8 +166,28 @@
 			this.control_BefunTools.Location = new System.Drawing.Point(3, 3);
 			this.control_BefunTools.Margin = new System.Windows.Forms.Padding(0);
 			this.control_BefunTools.Name = "control_BefunTools";
-			this.control_BefunTools.Size = new System.Drawing.Size(870, 662);
+			this.control_BefunTools.Size = new System.Drawing.Size(970, 662);
 			this.control_BefunTools.TabIndex = 0;
+			// 
+			// tabPageBefunRun
+			// 
+			this.tabPageBefunRun.Controls.Add(this.control_BefunRun);
+			this.tabPageBefunRun.Location = new System.Drawing.Point(4, 25);
+			this.tabPageBefunRun.Name = "tabPageBefunRun";
+			this.tabPageBefunRun.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPageBefunRun.Size = new System.Drawing.Size(976, 668);
+			this.tabPageBefunRun.TabIndex = 6;
+			this.tabPageBefunRun.Text = "BefunRun";
+			this.tabPageBefunRun.UseVisualStyleBackColor = true;
+			// 
+			// control_BefunRun
+			// 
+			this.control_BefunRun.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.control_BefunRun.Location = new System.Drawing.Point(3, 3);
+			this.control_BefunRun.Margin = new System.Windows.Forms.Padding(0);
+			this.control_BefunRun.Name = "control_BefunRun";
+			this.control_BefunRun.Size = new System.Drawing.Size(970, 662);
+			this.control_BefunRun.TabIndex = 0;
 			// 
 			// frmMain
 			// 
@@ -179,6 +205,7 @@
 			this.tabPageBefunHighlight.ResumeLayout(false);
 			this.tabPageBefunCompile.ResumeLayout(false);
 			this.tabPageTools.ResumeLayout(false);
+			this.tabPageBefunRun.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -195,6 +222,8 @@
 		private frmMain_BefunHighlight control_BefunHighlight;
 		private frmMain_BefunCompile control_BefunCompile;
 		private frmMain_BefunTools control_BefunTools;
+		private System.Windows.Forms.TabPage tabPageBefunRun;
+		private frmMain_BefunRun control_BefunRun;
 	}
 }
 

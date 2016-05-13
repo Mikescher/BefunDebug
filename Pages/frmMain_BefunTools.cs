@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using BefunGen.Helper;
 
-namespace BefunGen
+namespace BefunGen.Pages
 {
 	public partial class frmMain_BefunTools : UserControl
 	{

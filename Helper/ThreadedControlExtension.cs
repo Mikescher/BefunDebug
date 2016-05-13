@@ -1,10 +1,10 @@
-﻿using JetBrains.Annotations;
-using System;
+﻿using System;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Windows.Forms;
+using JetBrains.Annotations;
 
-namespace BefunGen
+namespace BefunGen.Helper
 {
 	public static class ThreadedControlExtension
 	{
@@ -40,7 +40,7 @@ namespace BefunGen
 			}));
 		}
 
-		[StringFormatMethodAttribute("lineFormat")]
+		[StringFormatMethod("lineFormat")]
 		public static void Output(this TextBox box, string lineFormat, params object[] args)
 		{
 			box.BeginInvoke(new Action(() =>

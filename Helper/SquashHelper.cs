@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text;
 
-namespace BefunGen
+namespace BefunGen.Helper
 {
 	class SquashHelper
 	{

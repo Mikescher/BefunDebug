@@ -7,15 +7,15 @@ using BefunCompile.Graph.Vertex;
 using BefunCompile.Math;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using BefunGen.Helper;
 
-namespace BefunGen
+namespace BefunGen.Pages
 {
 	public partial class frmMain_BefunCompile : UserControl
 	{

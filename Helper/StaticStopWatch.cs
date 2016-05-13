@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace BefunGen
+namespace BefunGen.Helper
 {
 	public class StaticStopWatch
 	{
