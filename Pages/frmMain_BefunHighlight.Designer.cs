@@ -36,11 +36,14 @@
 			this.edHighlightCode = new System.Windows.Forms.TextBox();
 			this.tabPage10 = new System.Windows.Forms.TabPage();
 			this.edHighlighted = new System.Windows.Forms.TextBox();
+			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.edBigGraph = new System.Windows.Forms.TextBox();
 			this.tableLayoutPanel7.SuspendLayout();
 			this.flowLayoutPanel1.SuspendLayout();
 			this.tcHighlight.SuspendLayout();
 			this.tabPage9.SuspendLayout();
 			this.tabPage10.SuspendLayout();
+			this.tabPage1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tableLayoutPanel7
@@ -81,6 +84,7 @@
 			// 
 			this.tcHighlight.Controls.Add(this.tabPage9);
 			this.tcHighlight.Controls.Add(this.tabPage10);
+			this.tcHighlight.Controls.Add(this.tabPage1);
 			this.tcHighlight.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tcHighlight.Location = new System.Drawing.Point(3, 3);
 			this.tcHighlight.Name = "tcHighlight";
@@ -134,6 +138,30 @@
 			this.edHighlighted.Size = new System.Drawing.Size(700, 562);
 			this.edHighlighted.TabIndex = 2;
 			// 
+			// tabPage1
+			// 
+			this.tabPage1.Controls.Add(this.edBigGraph);
+			this.tabPage1.Location = new System.Drawing.Point(4, 22);
+			this.tabPage1.Name = "tabPage1";
+			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage1.Size = new System.Drawing.Size(706, 568);
+			this.tabPage1.TabIndex = 2;
+			this.tabPage1.Text = "Graph";
+			this.tabPage1.UseVisualStyleBackColor = true;
+			// 
+			// edBigGraph
+			// 
+			this.edBigGraph.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.edBigGraph.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.edBigGraph.Location = new System.Drawing.Point(3, 3);
+			this.edBigGraph.MaxLength = 2147483647;
+			this.edBigGraph.Multiline = true;
+			this.edBigGraph.Name = "edBigGraph";
+			this.edBigGraph.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+			this.edBigGraph.Size = new System.Drawing.Size(700, 562);
+			this.edBigGraph.TabIndex = 3;
+			this.edBigGraph.WordWrap = false;
+			// 
 			// frmMain_BefunHighlight
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -149,6 +177,8 @@
 			this.tabPage9.PerformLayout();
 			this.tabPage10.ResumeLayout(false);
 			this.tabPage10.PerformLayout();
+			this.tabPage1.ResumeLayout(false);
+			this.tabPage1.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -163,5 +193,7 @@
 		private System.Windows.Forms.TextBox edHighlightCode;
 		private System.Windows.Forms.TabPage tabPage10;
 		private System.Windows.Forms.TextBox edHighlighted;
+		private System.Windows.Forms.TabPage tabPage1;
+		private System.Windows.Forms.TextBox edBigGraph;
 	}
 }
