@@ -21,26 +21,29 @@ namespace BefunGen.ThreadRunner
 		protected override string GetButtonTextStart() => "Start collecting BefunRun info";
 
 		protected override string GetButtonTextStop() => "Stop collecting BefunRun info";
-
+		
 		protected override bool RunAction(string[,] data)
 		{
 			try
 			{
 				for (int i = 0; i < data.GetLength(0); i++)
 				{
-					var lineBuilder = new StringBuilder();
 
 					string name = data[i, 0];
 					string code = data[i, 1];
 					string path = Path.Combine(Path.GetTempPath(), Guid.NewGuid() + ".b93");
 					File.WriteAllText(path, code);
 
+					if (i > 0)
+					{
+						Output(outputBox, string.Format(" {0,-" + GetColSize("name") + "}", name));
+					}
+
 					var result = ProcessHelper.ProcExecute("BefunRun", $"\"{path}\" --info");
-
-
+					
 					if (result.ExitCode != 0)
 					{
-						lineBuilder.Append(string.Format(" {0,-10} {1}", name, "Error: " + result.StdOut.Replace("\r", "").Replace("\n", " ")));
+						OutputLine(outputBox, "Error: " + result.StdOut.Replace("\r", "").Replace("\n", " "));
 					}
 					else
 					{
@@ -54,25 +57,29 @@ namespace BefunGen.ThreadRunner
 
 						if (i == 0)
 						{
-							lineBuilder.Append(" ");
-							lineBuilder.Append("name    ");
+							var lineBuilder2 = new StringBuilder();
+
+							lineBuilder2.Append(" ");
+							lineBuilder2.Append(string.Format("{0,-"+ GetColSize("name") + "}", "name"));
 							foreach (var line in lines)
 							{
-								lineBuilder.Append(" | " + line.Name + "   ");
+								lineBuilder2.AppendFormat(" | {0,-" + GetColSize(line.Name) + "}", line.Name);
 							}
-							lineBuilder.AppendLine();
-						}
 
-						lineBuilder.Append(" ");
-						lineBuilder.Append(string.Format("{0,-8}", name));
+							OutputLine(outputBox, lineBuilder2.ToString());
+						}
+						
+						if (i == 0) Output(outputBox, string.Format(" {0,-" + GetColSize("name") + "}", name));
+
+						var lineBuilder = new StringBuilder();
 						foreach (var line in lines)
 						{
 							lineBuilder.Append(" | ");
-							lineBuilder.Append(string.Format("{0,-" + (line.Name.Length+3) + "}", line.Value));
+							lineBuilder.Append(string.Format("{0,-" + GetColSize(line.Name) + "}", line.Value));
 						}
+						OutputLine(outputBox, lineBuilder.ToString());
 					}
 
-					OutputLine(outputBox, lineBuilder.ToString());
 
 					File.Delete(path);
 
@@ -86,6 +93,16 @@ namespace BefunGen.ThreadRunner
 				OutputLine(outputBox, e.ToString());
 				return true;
 			}
+		}
+
+		private int GetColSize(string title)
+		{
+			if (title == "name") return 8;
+			if (title == "steps") return 9;
+			if (title == "value_min") return 20;
+			if (title == "value_max") return 20;
+
+			return title.Length;
 		}
 	}
 }

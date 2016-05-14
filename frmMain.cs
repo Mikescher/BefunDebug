@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace BefunGen
 {
@@ -8,12 +9,17 @@ namespace BefunGen
 		{
 			InitializeComponent();
 			
-			tabMainControl.SelectedIndex = 0;
+			tabMainControl.SelectedIndex = Program.GetConfigValue(this, "SelectedTab", 0);
 		}
 		
 		private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			control_BefunGen.frm_Closing(sender, e);
+		}
+
+		private void tabMainControl_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			Program.SetConfigValue(this, "SelectedTab", tabMainControl.SelectedIndex);
 		}
 	}
 }

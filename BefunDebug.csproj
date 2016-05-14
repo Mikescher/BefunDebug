@@ -176,7 +176,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Helper\SerializableDictionary.cs" />
+    <Compile Include="Helper\SerializableStringDictionary.cs" />
     <Compile Include="Helper\SquashHelper.cs" />
     <Compile Include="Helper\StaticStopWatch.cs" />
     <Compile Include="Helper\ThreadedControlExtension.cs" />

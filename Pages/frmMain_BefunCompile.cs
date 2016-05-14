@@ -5,15 +5,12 @@ using BefunCompile.CodeGeneration.Generator;
 using BefunCompile.Graph;
 using BefunCompile.Graph.Vertex;
 using BefunCompile.Math;
-using BefunGen.Helper;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 
 namespace BefunGen.Pages
 {
@@ -23,6 +20,8 @@ namespace BefunGen.Pages
 
 		private readonly BefunCompileTester tester;
 
+		private bool isConstructed = false;
+
 		public frmMain_BefunCompile()
 		{
 			InitializeComponent();
@@ -31,8 +30,7 @@ namespace BefunGen.Pages
 
 			tabCompileControl.SelectedIndex = 0;
 			tabCompileOuterControl.SelectedIndex = 0;
-
-			_swallowOptionsChangedEvent = true;
+			
 			foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
 			{
 				int idx = listBoxOutputLanguages.Items.Add(lang);
@@ -57,7 +55,6 @@ namespace BefunGen.Pages
 
 				OutputTextBoxes[lang] = textbox;
 			}
-			_swallowOptionsChangedEvent = false;
 
 			for (int i = 0; i < BefunCompileTester.TestData.GetLength(0); i++)
 			{
@@ -72,6 +69,8 @@ namespace BefunGen.Pages
 			cbxCompileLevel.SelectedIndex = cbxCompileLevel.Items.Count - 1;
 
 			LoadOptions();
+
+			isConstructed = true;
 		}
 
 		private IEnumerable<OutputLanguage> GetCheckedLanguages()
@@ -591,62 +590,39 @@ namespace BefunGen.Pages
 		private void cbOutFormat_CheckedChanged(object sender, EventArgs e) => OnOptionsChanged();
 
 		private void cbUseGZip_CheckedChanged(object sender, EventArgs e) => OnOptionsChanged();
-
-		private bool _swallowOptionsChangedEvent = false;
+		
 		private void OnOptionsChanged()
 		{
-			if (_swallowOptionsChangedEvent) return;
+			if (!isConstructed) return;
 
-			Dictionary<string, bool> dict = new SerializableDictionary<string, bool>();
-
-			dict["cbIgnoreSelfModification"] = cbIgnoreSelfModification.Checked;
-			dict["cbSafeStackAccess"] = cbSafeStackAccess.Checked;
-			dict["cbSafeGridAccess"] = cbSafeGridAccess.Checked;
-			dict["cbOutFormat"] = cbOutFormat.Checked;
-			dict["cbUseGZip"] = cbUseGZip.Checked;
+			Program.SetConfigValue(this, "cbIgnoreSelfModification", cbIgnoreSelfModification.Checked);
+			Program.SetConfigValue(this, "cbSafeStackAccess", cbSafeStackAccess.Checked);
+			Program.SetConfigValue(this, "cbSafeGridAccess", cbSafeGridAccess.Checked);
+			Program.SetConfigValue(this, "cbOutFormat", cbOutFormat.Checked);
+			Program.SetConfigValue(this, "cbUseGZip", cbUseGZip.Checked);
 
 			foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
 			{
 				int idx = listBoxOutputLanguages.Items.IndexOf(lang);
-				dict["OutputLanguage."+lang] = listBoxOutputLanguages.GetItemCheckState(idx) == CheckState.Checked;
-			}
-
-
-			var serializer = new XmlSerializer(typeof(SerializableDictionary<string, bool>));
-
-			using (var stream = new StreamWriter(@"BefunDebug_BefunCompile_settings.xml"))
-			{
-				serializer.Serialize(stream, dict);
+				Program.SetConfigValue(this, "OutputLanguage." + lang, listBoxOutputLanguages.GetItemCheckState(idx) == CheckState.Checked);
 			}
 		}
-
-
+		
 		private void LoadOptions()
 		{
-			if (!File.Exists(@"BefunDebug_BefunCompile_settings.xml")) return;
-
-			_swallowOptionsChangedEvent = true;
-
-			SerializableDictionary<string, bool> dict;
-			var serializer = new XmlSerializer(typeof(SerializableDictionary<string, bool>));
-			using (var stream = new FileStream(@"BefunDebug_BefunCompile_settings.xml", FileMode.Open, FileAccess.Read, FileShare.Read))
-			{
-				dict = (SerializableDictionary<string, bool>)serializer.Deserialize(stream);
-			}
-			
-			cbIgnoreSelfModification.Checked = dict.GetValueOrDefault("cbIgnoreSelfModification", true);
-			cbSafeStackAccess.Checked = dict.GetValueOrDefault("cbSafeStackAccess", true);
-			cbSafeGridAccess.Checked = dict.GetValueOrDefault("cbSafeGridAccess", true);
-			cbOutFormat.Checked = dict.GetValueOrDefault("cbOutFormat", true);
-			cbUseGZip.Checked = dict.GetValueOrDefault("cbUseGZip", true);
+			cbIgnoreSelfModification.Checked = Program.GetConfigValue(this, "cbIgnoreSelfModification", true);
+			cbSafeStackAccess.Checked        = Program.GetConfigValue(this, "cbSafeStackAccess", true);
+			cbSafeGridAccess.Checked         = Program.GetConfigValue(this, "cbSafeGridAccess", true);
+			cbOutFormat.Checked              = Program.GetConfigValue(this, "cbOutFormat", true);
+			cbUseGZip.Checked                = Program.GetConfigValue(this, "cbUseGZip", true);
 
 			foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
 			{
 				int idx = listBoxOutputLanguages.Items.IndexOf(lang);
-				listBoxOutputLanguages.SetItemCheckState(idx, dict.GetValueOrDefault("OutputLanguage." + lang, true) ? CheckState.Checked : CheckState.Unchecked);
-			}
+				bool cfgValue = Program.GetConfigValue(this, "OutputLanguage." + lang, true);
 
-			_swallowOptionsChangedEvent = false;
+				listBoxOutputLanguages.SetItemCheckState(idx, cfgValue ? CheckState.Checked : CheckState.Unchecked);
+			}
 		}
 
 		private void GenericTextBoxKeyDown(object sender, KeyEventArgs e)

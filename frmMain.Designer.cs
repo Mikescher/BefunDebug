@@ -69,6 +69,7 @@ namespace BefunGen
 			this.tabMainControl.SelectedIndex = 0;
 			this.tabMainControl.Size = new System.Drawing.Size(984, 697);
 			this.tabMainControl.TabIndex = 6;
+			this.tabMainControl.SelectedIndexChanged += new System.EventHandler(this.tabMainControl_SelectedIndexChanged);
 			// 
 			// tabPageBefunGen
 			// 
