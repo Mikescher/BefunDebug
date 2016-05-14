@@ -5,6 +5,7 @@ using BefunCompile.CodeGeneration.Generator;
 using BefunCompile.Graph;
 using BefunCompile.Graph.Vertex;
 using BefunCompile.Math;
+using BefunGen.Helper;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,7 +14,6 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
-using BefunGen.Helper;
 
 namespace BefunGen.Pages
 {
@@ -21,11 +21,13 @@ namespace BefunGen.Pages
 	{
 		private Dictionary<OutputLanguage, TextBox> OutputTextBoxes = new Dictionary<OutputLanguage, TextBox>();
 
-		private readonly BefunCompileTester tester = new BefunCompileTester();
+		private readonly BefunCompileTester tester;
 
 		public frmMain_BefunCompile()
 		{
 			InitializeComponent();
+
+			tester = new BefunCompileTester(memoCompileLog, edBefunCompileConsole, btnCompileTest);
 
 			tabCompileControl.SelectedIndex = 0;
 			tabCompileOuterControl.SelectedIndex = 0;
@@ -285,7 +287,7 @@ namespace BefunGen.Pages
 		{
 			tabCompileControl.SelectedIndex = 4;
 
-			tester.TriggerAction(memoCompileLog, edBefunCompileConsole, btnCompileTest, GetCheckedLanguages());
+			tester.TriggerAction(GetCheckedLanguages().ToList());
 		}
 
 		private void cbxCompileData_SelectedIndexChanged(object sender, EventArgs e)
@@ -654,6 +656,13 @@ namespace BefunGen.Pages
 				(sender as TextBox)?.SelectAll();
 				e.Handled = true;
 			}
+		}
+
+		protected override void OnHandleDestroyed(EventArgs e)
+		{
+			base.OnHandleDestroyed(e);
+
+			tester.Stop();
 		}
 	}
 }

@@ -3,17 +3,16 @@ using BefunCompile;
 using BefunCompile.CodeGeneration;
 using BefunCompile.CodeGeneration.Compiler;
 using BefunGen.Properties;
+using BefunGen.ThreadRunner;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace BefunGen
 {
-	internal class BefunCompileTester
+	internal class BefunCompileTester : ThreadRunner<List<OutputLanguage>>
 	{
 		public static readonly string[,] TestData = 
 		{
@@ -78,107 +77,42 @@ namespace BefunGen
 			{ "data_079", Resources.testdata_079, "73162890" },
 
 		};
-		
-		private bool forceStop = false;
-		private bool running = false;
-		private Thread runner = null;
 
-		public void TriggerAction(TextBox tbLog, TextBox tbConsole, Button btnRun, IEnumerable<OutputLanguage> languages)
+		private readonly TextBox logbox;
+		private readonly TextBox consoleBox;
+
+		public BefunCompileTester(TextBox tbLog, TextBox tbConsole, Button btnRun) : base(btnRun)
 		{
-			languages = languages.ToList();
-
-			if (!running)
-			{
-				btnRun.Text = "Starting ...";
-
-				runner = new Thread(Run);
-
-				forceStop = false;
-				runner.Start(Tuple.Create(tbLog, tbConsole, btnRun, languages.ToList()));
-			}
-			else
-			{
-				btnRun.Text = "Stopping";
-
-				forceStop = true;
-
-				int i = 0;
-				while (running)
-				{
-					i++;
-					btnRun.Text = new string('.', i % 4) + " Stopping " + new string('.', i % 4);
-					btnRun.Refresh();
-
-					Thread.Sleep(200);
-				}
-
-				forceStop = false;
-
-				btnRun.Text = "Run Tests"; ;
-			}
+			logbox = tbLog;
+			consoleBox = tbConsole;
 		}
 
-		private void Run(object obj)
-		{
-			var data = (Tuple<TextBox, TextBox, Button, List<OutputLanguage>>)obj;
+		protected override string GetButtonTextStart() => "Run Tests";
 
-			running = true;
-			try
-			{
-				data.Item3.BeginInvoke(new Action(() => { data.Item3.Text = "Stop Tests"; }));
+		protected override string GetButtonTextStop() => "Stop Tests";
 
-				StartTest(data.Item1, data.Item2, data.Item4);
-			}
-			finally
-			{
-				if (forceStop) Thread.Sleep(2000);
-				data.Item3.BeginInvoke(new Action(() => { data.Item3.Text = "Run Tests"; }));
-				running = false;
-			}
-		}
-
-		private void Output(TextBox box, string line)
-		{
-			box.BeginInvoke(new Action(() =>
-			{
-				box.Text += line;
-				box.SelectionStart = box.Text.Length;
-				box.ScrollToCaret();
-			}));
-		}
-
-		private void OutputLine(TextBox box, string line = "")
-		{
-			box.BeginInvoke(new Action(() =>
-			{
-				box.Text += line + Environment.NewLine;
-				box.SelectionStart = box.Text.Length;
-				box.ScrollToCaret();
-			}));
-		}
-
-		private bool StartTest(TextBox logbox, TextBox consoleBox, List<OutputLanguage> languages)
+		protected override bool RunAction(List<OutputLanguage> languages)
 		{
 			OutputLine(logbox);
 			OutputLine(logbox, "Running Tests");
 			
 			for (int i = 0; i < TestData.GetLength(0); i++)
 			{
-				TestAll(TestData[i, 0], TestData[i, 1], TestData[i, 2], languages, logbox, consoleBox);
+				TestAll(TestData[i, 0], TestData[i, 1], TestData[i, 2], languages);
 				OutputLine(logbox);
 
-				if (forceStop) return false;
+				if (ForceStop) return false;
 			}
 
 			OutputLine(logbox, "Tests finished");
 			return true;
 		}
 
-		private bool TestAll(string name, string code, string result, IEnumerable<OutputLanguage> languages, TextBox logbox, TextBox consoleBox)
+		private bool TestAll(string name, string code, string result, IEnumerable<OutputLanguage> languages)
 		{
 			foreach (var lang in languages)
 			{
-				if (forceStop) return false;
+				if (ForceStop) return false;
 
 				var tmstart = DateTime.Now;
 
@@ -192,7 +126,7 @@ namespace BefunGen
 				var gencode = bc.GenerateCode(lang);
 				timeGenerate = Environment.TickCount - timeGenerate;
 
-				if (forceStop) return false;
+				if (ForceStop) return false;
 
 				var file = Path.GetTempFileName() + "." + CodeCompiler.GetBinaryExtension(lang);
 
@@ -206,13 +140,13 @@ namespace BefunGen
 					if (consoleBuilder.Length > 0)
 						OutputLine(consoleBox, consoleBuilder.ToString());
 
-					if (forceStop) return false;
+					if (ForceStop) return false;
 
 					timeExecute = Environment.TickCount;
 					string output = CodeCompiler.Execute(lang, file).Replace("\r\n", "\n").Replace("\n", "\\n");
 					timeExecute = Environment.TickCount - timeExecute;
 
-					if (forceStop) return false;
+					if (ForceStop) return false;
 
 					if (output != result)
 					{

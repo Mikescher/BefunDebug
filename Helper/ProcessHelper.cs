@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Text;
 
 namespace BefunGen.Helper
@@ -46,7 +47,7 @@ namespace BefunGen.Helper
 				if (builderOut.Length == 0)
 					builderOut.Append(args.Data);
 				else
-					builderOut.Append("\n" + args.Data);
+					builderOut.Append(Environment.NewLine + args.Data);
 			};
 
 			process.ErrorDataReceived += (sender, args) =>
@@ -56,7 +57,7 @@ namespace BefunGen.Helper
 				if (builderErr.Length == 0)
 					builderErr.Append(args.Data);
 				else
-					builderErr.Append("\n" + args.Data);
+					builderErr.Append(Environment.NewLine + args.Data);
 			};
 
 			process.Start();

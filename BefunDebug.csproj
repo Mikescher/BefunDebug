@@ -116,7 +116,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BefunCompileTester.cs" />
+    <Compile Include="ThreadRunner\BefunCompileTester.cs" />
     <Compile Include="DemoParser.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -180,6 +180,8 @@
     <Compile Include="Helper\SquashHelper.cs" />
     <Compile Include="Helper\StaticStopWatch.cs" />
     <Compile Include="Helper\ThreadedControlExtension.cs" />
+    <Compile Include="ThreadRunner\BefunRunInfoCollector.cs" />
+    <Compile Include="ThreadRunner\ThreadRunner.cs" />
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
       <SubType>Designer</SubType>
