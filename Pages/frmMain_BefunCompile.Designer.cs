@@ -32,6 +32,7 @@
 			this.tabPage7 = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+			this.btnCompileStackPredict = new System.Windows.Forms.Button();
 			this.btnCompileGraphCompile = new System.Windows.Forms.Button();
 			this.btnCompile = new System.Windows.Forms.Button();
 			this.btnCompileGraph = new System.Windows.Forms.Button();
@@ -142,20 +143,22 @@
 			// 
 			this.tableLayoutPanel11.ColumnCount = 1;
 			this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel11.Controls.Add(this.btnCompileGraphCompile, 0, 8);
+			this.tableLayoutPanel11.Controls.Add(this.btnCompileStackPredict, 0, 5);
+			this.tableLayoutPanel11.Controls.Add(this.btnCompileGraphCompile, 0, 9);
 			this.tableLayoutPanel11.Controls.Add(this.btnCompile, 0, 0);
 			this.tableLayoutPanel11.Controls.Add(this.btnCompileGraph, 0, 2);
-			this.tableLayoutPanel11.Controls.Add(this.btnRunCurrGraph, 0, 7);
+			this.tableLayoutPanel11.Controls.Add(this.btnRunCurrGraph, 0, 8);
 			this.tableLayoutPanel11.Controls.Add(this.cbxCompileLevel, 0, 1);
-			this.tableLayoutPanel11.Controls.Add(this.btnCompileTest, 0, 11);
-			this.tableLayoutPanel11.Controls.Add(this.cbxCompileData, 0, 6);
+			this.tableLayoutPanel11.Controls.Add(this.btnCompileTest, 0, 12);
+			this.tableLayoutPanel11.Controls.Add(this.cbxCompileData, 0, 7);
 			this.tableLayoutPanel11.Controls.Add(this.btnCompileExecute, 0, 4);
 			this.tableLayoutPanel11.Controls.Add(this.btnCompileCompile, 0, 3);
-			this.tableLayoutPanel11.Controls.Add(this.btnGenOverview, 0, 10);
+			this.tableLayoutPanel11.Controls.Add(this.btnGenOverview, 0, 11);
 			this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-			this.tableLayoutPanel11.RowCount = 12;
+			this.tableLayoutPanel11.RowCount = 13;
+			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
@@ -168,8 +171,21 @@
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel11.Size = new System.Drawing.Size(144, 562);
 			this.tableLayoutPanel11.TabIndex = 0;
+			// 
+			// btnCompileStackPredict
+			// 
+			this.btnCompileStackPredict.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnCompileStackPredict.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold);
+			this.btnCompileStackPredict.Location = new System.Drawing.Point(3, 153);
+			this.btnCompileStackPredict.Name = "btnCompileStackPredict";
+			this.btnCompileStackPredict.Size = new System.Drawing.Size(138, 24);
+			this.btnCompileStackPredict.TabIndex = 16;
+			this.btnCompileStackPredict.Text = "Stacksize [     ]";
+			this.btnCompileStackPredict.UseVisualStyleBackColor = true;
+			this.btnCompileStackPredict.Click += new System.EventHandler(this.btnCompileStackPredict_Click);
 			// 
 			// btnCompileGraphCompile
 			// 
@@ -202,7 +218,7 @@
 			this.btnCompileGraph.Name = "btnCompileGraph";
 			this.btnCompileGraph.Size = new System.Drawing.Size(138, 24);
 			this.btnCompileGraph.TabIndex = 2;
-			this.btnCompileGraph.Text = "Graph   [     ]";
+			this.btnCompileGraph.Text = "Graph     [     ]";
 			this.btnCompileGraph.UseVisualStyleBackColor = true;
 			this.btnCompileGraph.Click += new System.EventHandler(this.btnGraph_Compile_Click);
 			// 
@@ -258,7 +274,7 @@
 			this.btnCompileExecute.Name = "btnCompileExecute";
 			this.btnCompileExecute.Size = new System.Drawing.Size(138, 24);
 			this.btnCompileExecute.TabIndex = 13;
-			this.btnCompileExecute.Text = "Execute [     ]";
+			this.btnCompileExecute.Text = "Execute   [     ]";
 			this.btnCompileExecute.UseVisualStyleBackColor = true;
 			this.btnCompileExecute.Click += new System.EventHandler(this.btnCompileExecute_Click);
 			// 
@@ -270,7 +286,7 @@
 			this.btnCompileCompile.Name = "btnCompileCompile";
 			this.btnCompileCompile.Size = new System.Drawing.Size(138, 24);
 			this.btnCompileCompile.TabIndex = 14;
-			this.btnCompileCompile.Text = "Compile [     ]";
+			this.btnCompileCompile.Text = "Compile   [     ]";
 			this.btnCompileCompile.UseVisualStyleBackColor = true;
 			this.btnCompileCompile.Click += new System.EventHandler(this.btnCompileCompile_Click);
 			// 
@@ -877,5 +893,6 @@
 		private System.Windows.Forms.TextBox memoCodeCompressionLog;
 		private System.Windows.Forms.TabControl tabControlOutput;
 		private System.Windows.Forms.CheckedListBox listBoxOutputLanguages;
+		private System.Windows.Forms.Button btnCompileStackPredict;
 	}
 }

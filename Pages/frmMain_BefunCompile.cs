@@ -16,7 +16,7 @@ namespace BefunGen.Pages
 {
 	public partial class frmMain_BefunCompile : UserControl
 	{
-		private Dictionary<OutputLanguage, TextBox> OutputTextBoxes = new Dictionary<OutputLanguage, TextBox>();
+		private readonly Dictionary<OutputLanguage, TextBox> outputTextBoxes = new Dictionary<OutputLanguage, TextBox>();
 
 		private readonly BefunCompileTester tester;
 
@@ -53,7 +53,7 @@ namespace BefunGen.Pages
 				page.Controls.Add(textbox);
 				tabControlOutput.TabPages.Add(page);
 
-				OutputTextBoxes[lang] = textbox;
+				outputTextBoxes[lang] = textbox;
 			}
 
 			for (int i = 0; i < BefunCompileTester.TestData.GetLength(0); i++)
@@ -102,7 +102,7 @@ namespace BefunGen.Pages
 
 				foreach (var lang in (OutputLanguage[]) Enum.GetValues(typeof (OutputLanguage)))
 				{
-					OutputTextBoxes[lang].Text = comp.GenerateCode(lang);
+					outputTextBoxes[lang].Text = comp.GenerateCode(lang);
 				}
 
 				tabCompileControl.SelectedIndex = 3;
@@ -169,21 +169,24 @@ namespace BefunGen.Pages
 		{
 			if (cbxCompileLevel.SelectedIndex < 0)
 			{
-				btnCompileGraph.Text   = "Graph     [ --- ]";
-				btnCompileExecute.Text = "Execute   [ --- ]";
-				btnCompileCompile.Text = "Compile   [ --- ]";
+				btnCompileGraph.Text        = "Graph     [ --- ]";
+				btnCompileExecute.Text      = "Execute   [ --- ]";
+				btnCompileCompile.Text      = "Compile   [ --- ]";
+				btnCompileStackPredict.Text = "Stacksize [ --- ]";
 			}
 			else if (cbxCompileLevel.SelectedIndex == 0)
 			{
-				btnCompileGraph.Text   = "Graph     [     ]";
-				btnCompileExecute.Text = "Execute   [     ]";
-				btnCompileCompile.Text = "Compile   [     ]";
+				btnCompileGraph.Text        = "Graph     [     ]";
+				btnCompileExecute.Text      = "Execute   [     ]";
+				btnCompileCompile.Text      = "Compile   [     ]";
+				btnCompileStackPredict.Text = "Stacksize [     ]";
 			}
 			else
 			{
-				btnCompileGraph.Text   = "Graph     [ O:" + cbxCompileLevel.SelectedIndex.ToString("X") + " ]";
-				btnCompileExecute.Text = "Execute   [ O:" + cbxCompileLevel.SelectedIndex.ToString("X") + " ]";
-				btnCompileCompile.Text = "Compile   [ O:" + cbxCompileLevel.SelectedIndex.ToString("X") + " ]";
+				btnCompileGraph.Text        = "Graph     [ O:" + cbxCompileLevel.SelectedIndex.ToString("X") + " ]";
+				btnCompileExecute.Text      = "Execute   [ O:" + cbxCompileLevel.SelectedIndex.ToString("X") + " ]";
+				btnCompileCompile.Text      = "Compile   [ O:" + cbxCompileLevel.SelectedIndex.ToString("X") + " ]";
+				btnCompileStackPredict.Text = "Stacksize [ O:" + cbxCompileLevel.SelectedIndex.ToString("X") + " ]";
 			}
 		}
 
@@ -256,7 +259,7 @@ namespace BefunGen.Pages
 			{
 				foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
 				{
-					OutputTextBoxes[lang].Text = CodeGenerator.GenerateCode(
+					outputTextBoxes[lang].Text = CodeGenerator.GenerateCode(
 					lang,
 					cbcGraph,
 					cbOutFormat.Checked,
@@ -307,8 +310,7 @@ namespace BefunGen.Pages
 					cbUseGZip.Checked);
 
 				var craph = comp.GENERATION_LEVELS[cbxCompileLevel.SelectedIndex].Run();
-
-
+				
 				foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
 				{
 					string code = CodeGenerator.GenerateCode(
@@ -319,7 +321,7 @@ namespace BefunGen.Pages
 						cbSafeGridAccess.Checked,
 						cbUseGZip.Checked);
 
-					OutputTextBoxes[lang].Text = code;
+					outputTextBoxes[lang].Text = code;
 				}
 
 				tabCompileControl.SelectedIndex = 3;
@@ -330,6 +332,54 @@ namespace BefunGen.Pages
 				memoCompileLog.Text += "ERROR: " + exc + Environment.NewLine;
 				tabCompileControl.SelectedIndex = 4;
 			}
+		}
+
+		private void btnCompileStackPredict_Click(object sender, EventArgs e)
+		{
+			var outBuilder = new StringBuilder();
+
+			for (int i = 0; i < BefunCompileTester.TestData.GetLength(0); i++)
+			{
+				try
+				{
+					var comp = new BefunCompiler(BefunCompileTester.TestData[i, 1],
+						cbOutFormat.Checked,
+						cbIgnoreSelfModification.Checked,
+						cbSafeStackAccess.Checked,
+						cbSafeGridAccess.Checked,
+						cbUseGZip.Checked);
+
+					var craph = comp.GENERATION_LEVELS[cbxCompileLevel.SelectedIndex].Run();
+
+					var stacksize = craph.PredictStackSize();
+
+					if (stacksize == null)
+					{
+						outBuilder.AppendLine(string.Format("[{0} | O:{1}] predicted stacksize => {2}", 
+							BefunCompileTester.TestData[i, 0], 
+							cbxCompileLevel.SelectedIndex, 
+							"UnboundedGrowth"));
+					}
+					else
+					{
+						outBuilder.AppendLine(string.Format("[{0} | O:{1}] predicted stacksize => {2}", 
+							BefunCompileTester.TestData[i, 0], 
+							cbxCompileLevel.SelectedIndex, 
+							stacksize));
+					}
+				}
+				catch (Exception exc)
+				{
+					outBuilder.AppendLine(string.Format("[{0} | O:{1}] ERROR => {2}",
+						BefunCompileTester.TestData[i, 0],
+						cbxCompileLevel.SelectedIndex,
+						exc.Message));
+				}
+			}
+
+			memoCompileLog.Text = outBuilder.ToString();
+
+			tabCompileControl.SelectedIndex = 4;
 		}
 
 		private void btnMSZipCompressSingle_Click(object sender, EventArgs e)
