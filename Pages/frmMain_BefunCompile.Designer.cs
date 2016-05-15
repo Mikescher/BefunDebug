@@ -371,7 +371,7 @@
 			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
 			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel12.Size = new System.Drawing.Size(616, 530);
 			this.tableLayoutPanel12.TabIndex = 0;
@@ -453,7 +453,7 @@
 			this.listBoxOutputLanguages.FormattingEnabled = true;
 			this.listBoxOutputLanguages.Location = new System.Drawing.Point(3, 153);
 			this.listBoxOutputLanguages.Name = "listBoxOutputLanguages";
-			this.listBoxOutputLanguages.Size = new System.Drawing.Size(610, 94);
+			this.listBoxOutputLanguages.Size = new System.Drawing.Size(610, 194);
 			this.listBoxOutputLanguages.TabIndex = 6;
 			this.listBoxOutputLanguages.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.listBoxOutputLanguages_ItemCheck);
 			// 

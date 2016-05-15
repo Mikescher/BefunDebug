@@ -34,7 +34,6 @@ namespace BefunGen.Pages
 			foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
 			{
 				int idx = listBoxOutputLanguages.Items.Add(lang);
-				listBoxOutputLanguages.SetItemCheckState(idx, CheckState.Checked);
 
 				var page = new TabPage(lang.ToString());
 				var textbox = new TextBox
@@ -629,7 +628,7 @@ namespace BefunGen.Pages
 
 		}
 
-		private void listBoxOutputLanguages_ItemCheck(object sender, ItemCheckEventArgs e) => OnOptionsChanged();
+		private void listBoxOutputLanguages_ItemCheck(object sender, ItemCheckEventArgs e) => OnOptionsChanged(e);
 
 		private void cbIgnoreSelfModification_CheckedChanged(object sender, EventArgs e) => OnOptionsChanged();
 
@@ -641,7 +640,7 @@ namespace BefunGen.Pages
 
 		private void cbUseGZip_CheckedChanged(object sender, EventArgs e) => OnOptionsChanged();
 		
-		private void OnOptionsChanged()
+		private void OnOptionsChanged(ItemCheckEventArgs e = null)
 		{
 			if (!isConstructed) return;
 
@@ -654,7 +653,11 @@ namespace BefunGen.Pages
 			foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
 			{
 				int idx = listBoxOutputLanguages.Items.IndexOf(lang);
-				Program.SetConfigValue(this, "OutputLanguage." + lang, listBoxOutputLanguages.GetItemCheckState(idx) == CheckState.Checked);
+				var value = listBoxOutputLanguages.GetItemCheckState(idx) == CheckState.Checked;
+				if (e != null && e.Index == idx)
+					value = e.NewValue == CheckState.Checked;
+
+				Program.SetConfigValue(this, "OutputLanguage." + lang, value);
 			}
 		}
 		
