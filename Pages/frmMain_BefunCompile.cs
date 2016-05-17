@@ -5,6 +5,8 @@ using BefunCompile.CodeGeneration.Generator;
 using BefunCompile.Graph;
 using BefunCompile.Graph.Vertex;
 using BefunCompile.Math;
+using BefunGen.BCTestData;
+using BefunGen.ThreadRunner;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -18,7 +20,9 @@ namespace BefunGen.Pages
 	{
 		private readonly Dictionary<OutputLanguage, TextBox> outputTextBoxes = new Dictionary<OutputLanguage, TextBox>();
 
-		private readonly BefunCompileTester tester;
+		private readonly BefunCompileTester bcTester;
+		private readonly StackPredictTester spTester;
+		private readonly FullStackPredictTester fspTester;
 
 		private bool isConstructed = false;
 
@@ -26,7 +30,9 @@ namespace BefunGen.Pages
 		{
 			InitializeComponent();
 
-			tester = new BefunCompileTester(memoCompileLog, edBefunCompileConsole, btnCompileTest);
+			bcTester = new BefunCompileTester(memoCompileLog, edBefunCompileConsole, btnCompileTest);
+			spTester = new StackPredictTester(memoCompileLog, btnCompileStackPredict);
+			fspTester = new FullStackPredictTester(memoCompileLog, btnFullSSS);
 
 			tabCompileControl.SelectedIndex = 0;
 			tabCompileOuterControl.SelectedIndex = 0;
@@ -55,9 +61,9 @@ namespace BefunGen.Pages
 				outputTextBoxes[lang] = textbox;
 			}
 
-			for (int i = 0; i < BefunCompileTester.TestData.GetLength(0); i++)
+			foreach (var data in BefunCompileTestData.Data)
 			{
-				cbxCompileData.Items.Add(BefunCompileTester.TestData[i, 0]);
+				cbxCompileData.Items.Add(data.Name);
 			}
 
 			foreach (var item in (new BefunCompiler("", false, false, false, false, false)).GENERATION_LEVELS)
@@ -171,21 +177,21 @@ namespace BefunGen.Pages
 				btnCompileGraph.Text        = "Graph     [ --- ]";
 				btnCompileExecute.Text      = "Execute   [ --- ]";
 				btnCompileCompile.Text      = "Compile   [ --- ]";
-				btnCompileStackPredict.Text = "Stacksize [ --- ]";
+				btnCompileStackPredict.Text = "Stacksize Summary";
 			}
 			else if (cbxCompileLevel.SelectedIndex == 0)
 			{
 				btnCompileGraph.Text        = "Graph     [     ]";
 				btnCompileExecute.Text      = "Execute   [     ]";
 				btnCompileCompile.Text      = "Compile   [     ]";
-				btnCompileStackPredict.Text = "Stacksize [     ]";
+				btnCompileStackPredict.Text = "Stacksize Summary (O:" + cbxCompileLevel.SelectedIndex.ToString("X") + ")";
 			}
 			else
 			{
 				btnCompileGraph.Text        = "Graph     [ O:" + cbxCompileLevel.SelectedIndex.ToString("X") + " ]";
 				btnCompileExecute.Text      = "Execute   [ O:" + cbxCompileLevel.SelectedIndex.ToString("X") + " ]";
 				btnCompileCompile.Text      = "Compile   [ O:" + cbxCompileLevel.SelectedIndex.ToString("X") + " ]";
-				btnCompileStackPredict.Text = "Stacksize [ O:" + cbxCompileLevel.SelectedIndex.ToString("X") + " ]";
+				btnCompileStackPredict.Text = "Stacksize Summary (O:" + cbxCompileLevel.SelectedIndex.ToString("X") + ")";
 			}
 		}
 
@@ -288,12 +294,12 @@ namespace BefunGen.Pages
 		{
 			tabCompileControl.SelectedIndex = 4;
 
-			tester.TriggerAction(GetCheckedLanguages().ToList());
+			bcTester.TriggerAction(GetCheckedLanguages().ToList());
 		}
 
 		private void cbxCompileData_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			memoCompileInput.Text = BefunCompileTester.TestData[cbxCompileData.SelectedIndex, 1];
+			memoCompileInput.Text = BefunCompileTestData.Data[cbxCompileData.SelectedIndex].Code;
 			tabCompileControl.SelectedIndex = 0;
 		}
 
@@ -335,50 +341,9 @@ namespace BefunGen.Pages
 
 		private void btnCompileStackPredict_Click(object sender, EventArgs e)
 		{
-			var outBuilder = new StringBuilder();
-
-			for (int i = 0; i < BefunCompileTester.TestData.GetLength(0); i++)
-			{
-				try
-				{
-					var comp = new BefunCompiler(BefunCompileTester.TestData[i, 1],
-						cbOutFormat.Checked,
-						cbIgnoreSelfModification.Checked,
-						cbSafeStackAccess.Checked,
-						cbSafeGridAccess.Checked,
-						cbUseGZip.Checked);
-
-					var craph = comp.GENERATION_LEVELS[cbxCompileLevel.SelectedIndex].Run();
-
-					var stacksize = craph.PredictStackSize();
-
-					if (stacksize == null)
-					{
-						outBuilder.AppendLine(string.Format("[{0} | O:{1}] predicted stacksize => {2}", 
-							BefunCompileTester.TestData[i, 0], 
-							cbxCompileLevel.SelectedIndex, 
-							"UnboundedGrowth"));
-					}
-					else
-					{
-						outBuilder.AppendLine(string.Format("[{0} | O:{1}] predicted stacksize => {2}", 
-							BefunCompileTester.TestData[i, 0], 
-							cbxCompileLevel.SelectedIndex, 
-							stacksize));
-					}
-				}
-				catch (Exception exc)
-				{
-					outBuilder.AppendLine(string.Format("[{0} | O:{1}] ERROR => {2}",
-						BefunCompileTester.TestData[i, 0],
-						cbxCompileLevel.SelectedIndex,
-						exc.Message));
-				}
-			}
-
-			memoCompileLog.Text = outBuilder.ToString();
-
 			tabCompileControl.SelectedIndex = 4;
+
+			spTester.TriggerAction(cbxCompileLevel.SelectedIndex);
 		}
 
 		private void btnMSZipCompressSingle_Click(object sender, EventArgs e)
@@ -498,20 +463,18 @@ namespace BefunGen.Pages
 			memoCodeCompressionInput.Text += "Data       | Compression (%) | Initial     | Final       | Recursions | Time (ms)" + Environment.NewLine;
 
 			var mszip = new MSZipImplementation();
-			for (int i = 0; i < BefunCompileTester.TestData.GetLength(0); i++)
+			foreach (var data in BefunCompileTestData.Data)
 			{
-				var name = BefunCompileTester.TestData[i, 0];
-				var data = BefunCompileTester.TestData[i, 1];
 				int reccount = 0;
 
 				sw.Restart();
-				var comp = mszip.CompressToString(data, ref reccount);
+				var comp = mszip.CompressToString(data.Code, ref reccount);
 				sw.Stop();
 
 				var str = string.Format("{0,-10} | {1,-15:#,0} | {2,-11:#,0} | {3,-11:#,0} | {4,-10} | {5,-9:#,0}",
-					name,
-					(int)(data.Length * 100.0 / comp.Length),
-					data.Length,
+					data.Name,
+					(int)(data.Code.Length * 100.0 / comp.Length),
+					data.Code.Length,
 					comp.Length,
 					reccount,
 					sw.ElapsedMilliseconds);
@@ -524,20 +487,18 @@ namespace BefunGen.Pages
 			memoCodeCompressionOutput.Text += "Data       | Compression (%) | Initial     | Final       | Recursions | Time (ms)" + Environment.NewLine;
 
 			var gzip = new GZipImplementation();
-			for (int i = 0; i < BefunCompileTester.TestData.GetLength(0); i++)
+			foreach (var data in BefunCompileTestData.Data)
 			{
-				var name = BefunCompileTester.TestData[i, 0];
-				var data = BefunCompileTester.TestData[i, 1];
 				int reccount = 0;
 
 				sw.Restart();
-				var comp = gzip.CompressToString(data);
+				var comp = gzip.CompressToString(data.Code);
 				sw.Stop();
 
 				var str = string.Format("{0,-10} | {1,-15:#,0} | {2,-11:#,0} | {3,-11:#,0} | {4,-10} | {5,-9:#,0}",
-					name,
-					(int)(data.Length * 100.0 / comp.Length),
-					data.Length,
+					data.Name,
+					(int)(data.Code.Length * 100.0 / comp.Length),
+					data.Code.Length,
 					comp.Length,
 					reccount,
 					sw.ElapsedMilliseconds);
@@ -549,8 +510,8 @@ namespace BefunGen.Pages
 		private void btnRunCodeCompressionTests_Click(object sender, EventArgs e)
 		{
 			var mszip = new MSZipImplementation();
-			var result_mszip = Enumerable.Range(0, BefunCompileTester.TestData.GetLength(0))
-				.Select(p => new { Name = BefunCompileTester.TestData[p, 0], Data = BefunCompileTester.TestData[p, 1], Compressed = mszip.CompressToString(BefunCompileTester.TestData[p, 1]) })
+			var result_mszip = BefunCompileTestData.Data
+				.Select(p => new { Name = p.Name, Data = p.Code, Compressed = mszip.CompressToString(p.Code) })
 				.Select(p => new { Name = p.Name, Data = p.Data, Compressed = p.Compressed, Decompressed = mszip.DecompressToString(p.Compressed, p.Data.Length * 2) })
 				.Select(p => new { Name = p.Name, Data = p.Data, Compressed = p.Compressed, Decompressed = p.Decompressed, Success = p.Data == p.Decompressed })
 				.ToList();
@@ -562,8 +523,8 @@ namespace BefunGen.Pages
 			memoCodeCompressionInput.Text += string.Join(Environment.NewLine, result_mszip.Where(p => !p.Success).Select(p => p.Name + " (" + p.Data.Length + " vs " + p.Decompressed.Length + ")"));
 
 			var gzip = new MSZipImplementation();
-			var result_gzip = Enumerable.Range(0, BefunCompileTester.TestData.GetLength(0))
-				.Select(p => new { Name = BefunCompileTester.TestData[p, 0], Data = BefunCompileTester.TestData[p, 1], Compressed = gzip.CompressToString(BefunCompileTester.TestData[p, 1]) })
+			var result_gzip = BefunCompileTestData.Data
+				.Select(p => new { Name = p.Name, Data = p.Code, Compressed = gzip.CompressToString(p.Code) })
 				.Select(p => new { Name = p.Name, Data = p.Data, Compressed = p.Compressed, Decompressed = gzip.DecompressToString(p.Compressed, p.Data.Length * 2) })
 				.Select(p => new { Name = p.Name, Data = p.Data, Compressed = p.Compressed, Decompressed = p.Decompressed, Success = p.Data == p.Decompressed })
 				.ToList();
@@ -588,11 +549,11 @@ namespace BefunGen.Pages
 			sb.AppendLine(header);
 			sb.AppendLine(new String('-', header.Length));
 
-			for (int i = 0; i < BefunCompileTester.TestData.GetLength(0); i++)
+			foreach (var data in BefunCompileTestData.Data)
 			{
 				long sw_time = Environment.TickCount;
 
-				var compiler = new BefunCompiler(BefunCompileTester.TestData[i, 1],
+				var compiler = new BefunCompiler(data.Code,
 					cbOutFormat.Checked,
 					cbIgnoreSelfModification.Checked,
 					cbSafeStackAccess.Checked,
@@ -602,7 +563,7 @@ namespace BefunGen.Pages
 
 				sw_time = Environment.TickCount - sw_time;
 
-				var cell_Name = BefunCompileTester.TestData[i, 0];
+				var cell_Name = data.Name;
 				var cell_Vertices = graph.Vertices.Count;
 				var cell_Nops = graph.Vertices.Count(p => p is BCVertexNOP);
 				var cell_Leafs = graph.Vertices.Count(p => p.Children.Count == 0);
@@ -691,7 +652,14 @@ namespace BefunGen.Pages
 		{
 			base.OnHandleDestroyed(e);
 
-			tester.Stop();
+			bcTester.Stop();
+		}
+
+		private void btnFullSSS_Click(object sender, EventArgs e)
+		{
+			tabCompileControl.SelectedIndex = 4;
+
+			fspTester.TriggerAction(BefunCompileTestData.Data);
 		}
 	}
 }

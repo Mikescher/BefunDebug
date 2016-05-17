@@ -24,7 +24,7 @@ namespace BefunGen
 	}
 }
 
-//TODO BefunTool : Compare two programs (graph compare, ignores NOP's and posiitons on grid)
+//TODO BefunTool : Compare two programs (Graph compare, ignores NOP's and posiitons on grid)
 //tODO Resharper Inspections (Solution-wide)
 
 //TODO BefunGIF --> Generate FullRes Images and gifs from befunge-progs

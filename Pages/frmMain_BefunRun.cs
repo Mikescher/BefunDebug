@@ -1,4 +1,5 @@
-﻿using BefunGen.Helper;
+﻿using BefunGen.BCTestData;
+using BefunGen.Helper;
 using BefunGen.ThreadRunner;
 using System;
 using System.IO;
@@ -49,7 +50,7 @@ namespace BefunGen.Pages
 
 		private void btnAllInfo_Click(object sender, EventArgs e)
 		{
-			infoCollector.TriggerAction(BefunCompileTester.TestData);
+			infoCollector.TriggerAction(BefunCompileTestData.Data);
 		}
 
 		protected override void OnHandleDestroyed(EventArgs e)

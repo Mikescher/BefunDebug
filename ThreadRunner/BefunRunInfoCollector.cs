@@ -1,4 +1,5 @@
-﻿using BefunGen.Helper;
+﻿using BefunGen.BCTestData;
+using BefunGen.Helper;
 using System;
 using System.IO;
 using System.Linq;
@@ -9,7 +10,7 @@ using Path = System.IO.Path;
 
 namespace BefunGen.ThreadRunner
 {
-	class BefunRunInfoCollector : ThreadRunner<string[,]>
+	class BefunRunInfoCollector : ThreadRunner<BefunCompileTestData.BCData[]>
 	{
 		private readonly TextBox outputBox;
 
@@ -18,25 +19,24 @@ namespace BefunGen.ThreadRunner
 			outputBox = box;
 		}
 
-		protected override string GetButtonTextStart() => "Start collecting BefunRun info";
+		protected override string GetButtonTextStart(BefunCompileTestData.BCData[] data) => "Start collecting BefunRun info";
 
-		protected override string GetButtonTextStop() => "Stop collecting BefunRun info";
+		protected override string GetButtonTextStop(BefunCompileTestData.BCData[] data) => "Stop collecting BefunRun info";
 		
-		protected override bool RunAction(string[,] data)
+		protected override bool RunAction(BefunCompileTestData.BCData[] datas)
 		{
 			try
 			{
-				for (int i = 0; i < data.GetLength(0); i++)
+				bool first = true;
+				foreach (var data in datas)
 				{
-
-					string name = data[i, 0];
-					string code = data[i, 1];
+					
 					string path = Path.Combine(Path.GetTempPath(), Guid.NewGuid() + ".b93");
-					File.WriteAllText(path, code);
+					File.WriteAllText(path, data.Code);
 
-					if (i > 0)
+					if (! first)
 					{
-						Output(outputBox, string.Format(" {0,-" + GetColSize("name") + "}", name));
+						Output(outputBox, string.Format(" {0,-" + GetColSize("name") + "}", data.Name));
 					}
 
 					var result = ProcessHelper.ProcExecute("BefunRun", $"\"{path}\" --info");
@@ -55,7 +55,7 @@ namespace BefunGen.ThreadRunner
 							.Select(p => new {Name = p[0], Value = p[1]})
 							.ToList();
 
-						if (i == 0)
+						if (first)
 						{
 							var lineBuilder2 = new StringBuilder();
 
@@ -69,7 +69,7 @@ namespace BefunGen.ThreadRunner
 							OutputLine(outputBox, lineBuilder2.ToString());
 						}
 						
-						if (i == 0) Output(outputBox, string.Format(" {0,-" + GetColSize("name") + "}", name));
+						if (first) Output(outputBox, string.Format(" {0,-" + GetColSize("name") + "}", data.Name));
 
 						var lineBuilder = new StringBuilder();
 						foreach (var line in lines)
@@ -83,6 +83,7 @@ namespace BefunGen.ThreadRunner
 
 					File.Delete(path);
 
+					first = false;
 					if (ForceStop) return false;
 				}
 

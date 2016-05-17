@@ -46,7 +46,7 @@ namespace BefunGen.ThreadRunner
 
 				ForceStop = false;
 
-				btnCaller.Text = GetButtonTextStart();
+				btnCaller.Text = GetButtonTextStart(data);
 			}
 		}
 
@@ -57,21 +57,21 @@ namespace BefunGen.ThreadRunner
 
 			try
 			{
-				btnCaller.BeginInvoke(new Action(() => { btnCaller.Text = GetButtonTextStop(); }));
+				btnCaller.BeginInvoke(new Action(() => { btnCaller.Text = GetButtonTextStop(data); }));
 
 				RunAction(data);
 			}
 			finally
 			{
 				if (ForceStop) Thread.Sleep(2000);
-				btnCaller.BeginInvoke(new Action(() => { btnCaller.Text = GetButtonTextStart(); }));
+				btnCaller.BeginInvoke(new Action(() => { btnCaller.Text = GetButtonTextStart(data); }));
 
 				running = false;
 			}
 		}
 
-		protected abstract string GetButtonTextStart();
-		protected abstract string GetButtonTextStop();
+		protected abstract string GetButtonTextStart(T data);
+		protected abstract string GetButtonTextStop(T data);
 		
 		protected abstract bool RunAction(T data);
 
