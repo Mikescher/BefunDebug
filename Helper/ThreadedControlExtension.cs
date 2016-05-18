@@ -4,7 +4,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using JetBrains.Annotations;
 
-namespace BefunGen.Helper
+namespace BefunDebug.Helper
 {
 	public static class ThreadedControlExtension
 	{

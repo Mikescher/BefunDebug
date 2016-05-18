@@ -1,4 +1,4 @@
-﻿namespace BefunGen.Pages
+﻿namespace BefunDebug.Pages
 {
 	partial class frmMain_BefunHighlight
 	{

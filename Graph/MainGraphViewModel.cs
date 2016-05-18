@@ -1,11 +1,11 @@
-﻿using BefunCompile.Graph;
-using BefunCompile.Graph.Vertex;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using BefunCompile.Graph;
+using BefunCompile.Graph.Vertex;
 
-namespace BefunGen
+namespace BefunDebug.Graph
 {
 	public class MainGraphViewModel : INotifyPropertyChanged
 	{

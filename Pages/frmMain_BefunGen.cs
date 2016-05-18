@@ -1,4 +1,5 @@
-﻿using BefunGen.AST;
+﻿using BefunDebug.Helper;
+using BefunGen.AST;
 using BefunGen.AST.CodeGen;
 using System;
 using System.Diagnostics;
@@ -6,9 +7,8 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
-using BefunGen.Helper;
 
-namespace BefunGen.Pages
+namespace BefunDebug.Pages
 {
 	public partial class frmMain_BefunGen: UserControl
 	{

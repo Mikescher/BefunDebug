@@ -1,7 +1,7 @@
-﻿using QuickGraph;
-using System.Diagnostics;
+﻿using System.Diagnostics;
+using QuickGraph;
 
-namespace BefunGen
+namespace BefunDebug.Graph
 {
 	[DebuggerDisplay("{Source.ID} -> {Target.ID}")]
 	public class PocEdge : Edge<PocVertex>

@@ -4,8 +4,9 @@ using BefunCompile.CodeGeneration.Compiler;
 using BefunCompile.CodeGeneration.Generator;
 using BefunCompile.Graph;
 using BefunCompile.Math;
-using BefunGen.BCTestData;
-using BefunGen.ThreadRunner;
+using BefunDebug.BCTestData;
+using BefunDebug.Graph;
+using BefunDebug.ThreadRunner;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,7 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace BefunGen.Pages
+namespace BefunDebug.Pages
 {
 	public partial class frmMain_BefunCompile : UserControl
 	{

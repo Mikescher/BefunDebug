@@ -1,13 +1,13 @@
-﻿using BefunCompile;
-using BefunGen.BCTestData;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using BefunCompile;
+using BefunDebug.BCTestData;
 
-namespace BefunGen.ThreadRunner
+namespace BefunDebug.ThreadRunner
 {
 	class FullStackPredictTester : ThreadRunner<BefunCompileTestData.BCData[]>
 	{

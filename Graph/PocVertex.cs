@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace BefunGen
+namespace BefunDebug.Graph
 {
 	[DebuggerDisplay("{ID}")]
 	public class PocVertex

@@ -1,11 +1,10 @@
-﻿using BefunGen.Helper;
-using System;
+﻿using System;
 using System.IO;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using BefunDebug.Helper;
 
-
-namespace BefunGen
+namespace BefunDebug
 {
 	using ConfigDict = SerializableStringDictionary<SerializableStringDictionary<object>>;
 

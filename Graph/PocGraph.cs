@@ -1,6 +1,6 @@
 ﻿using QuickGraph;
 
-namespace BefunGen
+namespace BefunDebug.Graph
 {
 	public class PocGraph : BidirectionalGraph<PocVertex, PocEdge>
 	{

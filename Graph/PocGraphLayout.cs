@@ -1,6 +1,6 @@
 ﻿using GraphSharp.Controls;
 
-namespace BefunGen
+namespace BefunDebug.Graph
 {
 	public class PocGraphLayout : GraphLayout<PocVertex, PocEdge, PocGraph> { }
 }

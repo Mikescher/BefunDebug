@@ -1,6 +1,6 @@
-﻿using BefunGen.Properties;
+﻿using BefunDebug.Properties;
 
-namespace BefunGen.BCTestData
+namespace BefunDebug.BCTestData
 {
 	public static class BefunCompileTestData
 	{

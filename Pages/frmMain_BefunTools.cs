@@ -6,9 +6,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using BefunGen.Helper;
+using BefunDebug.Helper;
 
-namespace BefunGen.Pages
+namespace BefunDebug.Pages
 {
 	public partial class frmMain_BefunTools : UserControl
 	{

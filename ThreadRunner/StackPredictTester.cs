@@ -1,9 +1,9 @@
-﻿using BefunCompile;
-using BefunGen.BCTestData;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using BefunCompile;
+using BefunDebug.BCTestData;
 
-namespace BefunGen.ThreadRunner
+namespace BefunDebug.ThreadRunner
 {
 	class StackPredictTester : ThreadRunner<int>
 	{

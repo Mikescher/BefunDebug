@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Text;
 
-namespace BefunGen.Helper
+namespace BefunDebug.Helper
 {
 	public struct ProcessOutput
 	{

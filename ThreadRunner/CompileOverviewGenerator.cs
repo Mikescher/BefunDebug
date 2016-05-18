@@ -1,11 +1,11 @@
-﻿using BefunCompile;
-using BefunCompile.Graph.Vertex;
-using BefunGen.BCTestData;
-using System;
+﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using BefunCompile;
+using BefunCompile.Graph.Vertex;
+using BefunDebug.BCTestData;
 
-namespace BefunGen.ThreadRunner
+namespace BefunDebug.ThreadRunner
 {
 	class CompileOverviewGenerator : ThreadRunner<BefunCompileTestData.BCData[]>
 	{

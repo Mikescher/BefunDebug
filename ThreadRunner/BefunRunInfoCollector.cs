@@ -1,14 +1,14 @@
-﻿using BefunGen.BCTestData;
-using BefunGen.Helper;
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using BefunDebug.BCTestData;
+using BefunDebug.Helper;
 using Path = System.IO.Path;
 
-namespace BefunGen.ThreadRunner
+namespace BefunDebug.ThreadRunner
 {
 	class BefunRunInfoCollector : ThreadRunner<BefunCompileTestData.BCData[]>
 	{

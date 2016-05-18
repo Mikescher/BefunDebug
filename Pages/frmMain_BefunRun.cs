@@ -1,11 +1,11 @@
-﻿using BefunGen.BCTestData;
-using BefunGen.Helper;
-using BefunGen.ThreadRunner;
+﻿using BefunDebug.BCTestData;
+using BefunDebug.Helper;
+using BefunDebug.ThreadRunner;
 using System;
 using System.IO;
 using System.Windows.Forms;
 
-namespace BefunGen.Pages
+namespace BefunDebug.Pages
 {
 	public partial class frmMain_BefunRun : UserControl
 	{

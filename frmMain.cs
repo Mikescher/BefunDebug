@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace BefunGen
+namespace BefunDebug
 {
 	public partial class frmMain : Form
 	{

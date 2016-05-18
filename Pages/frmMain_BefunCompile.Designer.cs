@@ -1,4 +1,6 @@
-﻿namespace BefunGen.Pages
+﻿using BefunDebug.Graph;
+
+namespace BefunDebug.Pages
 {
 	partial class frmMain_BefunCompile
 	{
@@ -57,7 +59,7 @@
 			this.listBoxOutputLanguages = new System.Windows.Forms.CheckedListBox();
 			this.tabPage14 = new System.Windows.Forms.TabPage();
 			this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
-			this.graphUserControl1 = new BefunGen.GraphUserControl();
+			this.graphUserControl1 = new GraphUserControl();
 			this.tabPage13 = new System.Windows.Forms.TabPage();
 			this.tabControlOutput = new System.Windows.Forms.TabControl();
 			this.tabPage15 = new System.Windows.Forms.TabPage();

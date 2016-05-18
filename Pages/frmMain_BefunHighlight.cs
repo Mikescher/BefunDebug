@@ -3,7 +3,7 @@ using System;
 using System.Text;
 using System.Windows.Forms;
 
-namespace BefunGen.Pages
+namespace BefunDebug.Pages
 {
 	public partial class frmMain_BefunHighlight : UserControl
 	{

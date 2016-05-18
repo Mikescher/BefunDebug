@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Windows.Forms;
 
-namespace BefunGen.ThreadRunner
+namespace BefunDebug.ThreadRunner
 {
 	public abstract class ThreadRunner<T>
 	{

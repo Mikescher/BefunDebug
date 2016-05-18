@@ -1,16 +1,14 @@
-﻿
-using BefunCompile;
-using BefunCompile.CodeGeneration;
-using BefunCompile.CodeGeneration.Compiler;
-using BefunGen.BCTestData;
-using BefunGen.ThreadRunner;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using BefunCompile;
+using BefunCompile.CodeGeneration;
+using BefunCompile.CodeGeneration.Compiler;
+using BefunDebug.BCTestData;
 
-namespace BefunGen
+namespace BefunDebug.ThreadRunner
 {
 	internal class BefunCompileTester : ThreadRunner<List<OutputLanguage>>
 	{

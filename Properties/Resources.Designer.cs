@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BefunGen.Properties {
+namespace BefunDebug.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace BefunGen.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BefunGen.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BefunDebug.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -80,11 +80,12 @@ namespace BefunGen.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ~00g+.@
-        ///
-        /////------------
-        ///
-        ///0&quot;!dlroW olleH&quot;&gt;:#,_$@.
+        ///   Looks up a localized string similar to vvv:           &lt;           &lt;
+        ///1&gt; 1+:::3/3*-!#^_&gt;::5/5*-!#^_v
+        ///1$v          &gt;# v#      &gt;# v#&lt;
+        ///1 &gt;:5558***-!|v$&lt;&gt;+\:1-!|v$&lt;
+        ///&gt;^           &lt;&gt;$$^\     &lt;&gt;.@
+        ///.
         /// </summary>
         internal static string example_compile {
             get {

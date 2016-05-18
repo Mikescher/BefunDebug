@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace BefunGen
+namespace BefunDebug.Graph
 {
 	/// <summary>
 	/// Interaction logic for GraphUserControl.xaml

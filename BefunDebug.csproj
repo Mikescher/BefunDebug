@@ -8,7 +8,7 @@
     <ProjectGuid>{EDAF7AC1-5908-4AF0-B228-26D1E1539233}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BefunGen</RootNamespace>
+    <RootNamespace>BefunDebug</RootNamespace>
     <AssemblyName>BefunDebug</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

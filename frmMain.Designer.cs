@@ -1,6 +1,6 @@
-﻿using BefunGen.Pages;
+﻿using BefunDebug.Pages;
 
-namespace BefunGen
+namespace BefunDebug
 {
 	partial class frmMain
 	{

@@ -1,4 +1,4 @@
-﻿namespace BefunGen.Pages
+﻿namespace BefunDebug.Pages
 {
 	partial class frmMain_BefunTools
 	{
@@ -101,8 +101,8 @@
 			this.btnGenerate = new System.Windows.Forms.Button();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.edASCIIOut = new System.Windows.Forms.TextBox();
-			this.imgDebug = new BefunGen.PictureBoxWithInterpolationMode();
-			this.imgASCII = new BefunGen.PictureBoxWithInterpolationMode();
+			this.imgDebug = new PictureBoxWithInterpolationMode();
+			this.imgASCII = new PictureBoxWithInterpolationMode();
 			this.tableLayoutPanel9.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
