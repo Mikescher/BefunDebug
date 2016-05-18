@@ -1,12 +1,13 @@
-﻿using System;
+﻿using BefunCompile;
+using BefunCompile.CodeGeneration;
+using BefunCompile.CodeGeneration.Generator;
+using BefunDebug.BCTestData;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using BefunCompile;
-using BefunCompile.CodeGeneration;
-using BefunCompile.CodeGeneration.Compiler;
-using BefunDebug.BCTestData;
+using CodeCompiler = BefunCompile.CodeGeneration.Compiler.CodeCompiler;
 
 namespace BefunDebug.ThreadRunner
 {
@@ -62,7 +63,7 @@ namespace BefunDebug.ThreadRunner
 				int timeCompile = 0;
 				int timeExecute = 0;
 
-				var bc = new BefunCompiler(code, true, true, true, true, true);
+				var bc = new BefunCompiler(code, true, new CodeGeneratorOptions(true, true, true, true, false));
 
 				timeGenerate = Environment.TickCount;
 				var gencode = bc.GenerateCode(lang);

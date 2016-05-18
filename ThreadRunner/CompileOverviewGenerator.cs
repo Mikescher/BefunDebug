@@ -1,9 +1,10 @@
-﻿using System;
-using System.Linq;
-using System.Windows.Forms;
-using BefunCompile;
+﻿using BefunCompile;
+using BefunCompile.CodeGeneration.Generator;
 using BefunCompile.Graph.Vertex;
 using BefunDebug.BCTestData;
+using System;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace BefunDebug.ThreadRunner
 {
@@ -33,7 +34,7 @@ namespace BefunDebug.ThreadRunner
 			{
 				long swTime = Environment.TickCount;
 
-				var compiler = new BefunCompiler(data.Code, false, true, true, true, true);
+				var compiler = new BefunCompiler(data.Code, false, new CodeGeneratorOptions(true, true, true, true, false));
 				var graph = compiler.GenerateGraph();
 
 				swTime = Environment.TickCount - swTime;

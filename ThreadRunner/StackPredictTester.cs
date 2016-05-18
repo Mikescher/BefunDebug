@@ -1,7 +1,8 @@
-﻿using System;
-using System.Windows.Forms;
-using BefunCompile;
+﻿using BefunCompile;
+using BefunCompile.CodeGeneration.Generator;
 using BefunDebug.BCTestData;
+using System;
+using System.Windows.Forms;
 
 namespace BefunDebug.ThreadRunner
 {
@@ -24,7 +25,7 @@ namespace BefunDebug.ThreadRunner
 			{
 				try
 				{
-					var comp = new BefunCompiler(data.Code, false, true, false, false, true);
+					var comp = new BefunCompiler(data.Code, false, new CodeGeneratorOptions(true, false, false, true, false));
 					var craph = comp.GENERATION_LEVELS[optimizeLevel].Run();
 					var stacksize = craph.PredictStackSize();
 

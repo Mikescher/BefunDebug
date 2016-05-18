@@ -68,7 +68,7 @@ namespace BefunDebug.Pages
 				cbxCompileData.Items.Add(data.Name);
 			}
 
-			foreach (var item in (new BefunCompiler("", false, false, false, false, false)).GENERATION_LEVELS)
+			foreach (var item in (new BefunCompiler("", false, new CodeGeneratorOptions(false, false, false, false, false))).GENERATION_LEVELS)
 			{
 				cbxCompileLevel.Items.Add(item.ToString());
 			}
@@ -100,12 +100,7 @@ namespace BefunDebug.Pages
 		{
 			try
 			{
-				var comp = new BefunCompiler(memoCompileInput.Text,
-					cbOutFormat.Checked,
-					cbIgnoreSelfModification.Checked,
-					cbSafeStackAccess.Checked,
-					cbSafeGridAccess.Checked,
-					cbUseGZip.Checked);
+				var comp = new BefunCompiler(memoCompileInput.Text, cbIgnoreSelfModification.Checked, GetCGOptions());
 
 				foreach (var lang in (OutputLanguage[]) Enum.GetValues(typeof (OutputLanguage)))
 				{
@@ -123,18 +118,18 @@ namespace BefunDebug.Pages
 			}
 		}
 
+		private CodeGeneratorOptions GetCGOptions()
+		{
+			return new CodeGeneratorOptions(cbOutFormat.Checked, cbSafeStackAccess.Checked, cbSafeGridAccess.Checked, cbUseGZip.Checked, cbPureCosmeticSwitch.Checked);
+		}
+
 		private void btnCompileExecute_Click(object sender, EventArgs e)
 		{
 			try
 			{
 				var console = new StringBuilder();
 
-				var comp = new BefunCompiler(memoCompileInput.Text,
-					cbOutFormat.Checked,
-					cbIgnoreSelfModification.Checked,
-					cbSafeStackAccess.Checked,
-					cbSafeGridAccess.Checked,
-					cbUseGZip.Checked);
+				var comp = new BefunCompiler(memoCompileInput.Text, cbIgnoreSelfModification.Checked, GetCGOptions());
 
 				var graph = comp.GENERATION_LEVELS[cbxCompileLevel.SelectedIndex].Run();
 
@@ -142,7 +137,7 @@ namespace BefunDebug.Pages
 				{
 					try
 					{
-						var code = CodeGenerator.GenerateCode(lang, graph, cbOutFormat.Checked, cbSafeStackAccess.Checked, cbSafeGridAccess.Checked, cbUseGZip.Checked);
+						var code = CodeGenerator.GenerateCode(lang, graph, GetCGOptions());
 
 						var output = CodeCompiler.ExecuteCode(lang, code, console);
 
@@ -201,12 +196,7 @@ namespace BefunDebug.Pages
 		{
 			try
 			{
-				var comp = new BefunCompiler(memoCompileInput.Text,
-					cbOutFormat.Checked,
-					cbIgnoreSelfModification.Checked,
-					cbSafeStackAccess.Checked,
-					cbSafeGridAccess.Checked,
-					cbUseGZip.Checked);
+				var comp = new BefunCompiler(memoCompileInput.Text, cbIgnoreSelfModification.Checked, GetCGOptions());
 
 				cbcGraph = comp.GENERATION_LEVELS[cbxCompileLevel.SelectedIndex].Run();
 
@@ -266,13 +256,7 @@ namespace BefunDebug.Pages
 			{
 				foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
 				{
-					outputTextBoxes[lang].Text = CodeGenerator.GenerateCode(
-					lang,
-					cbcGraph,
-					cbOutFormat.Checked,
-					cbSafeStackAccess.Checked,
-					cbSafeGridAccess.Checked,
-					cbUseGZip.Checked);
+					outputTextBoxes[lang].Text = CodeGenerator.GenerateCode(lang, cbcGraph, GetCGOptions());
 				}
 
 				memoCompileLog.Text += Environment.NewLine;
@@ -309,24 +293,13 @@ namespace BefunDebug.Pages
 		{
 			try
 			{
-				var comp = new BefunCompiler(memoCompileInput.Text,
-					cbOutFormat.Checked,
-					cbIgnoreSelfModification.Checked,
-					cbSafeStackAccess.Checked,
-					cbSafeGridAccess.Checked,
-					cbUseGZip.Checked);
+				var comp = new BefunCompiler(memoCompileInput.Text, cbIgnoreSelfModification.Checked, GetCGOptions());
 
 				var craph = comp.GENERATION_LEVELS[cbxCompileLevel.SelectedIndex].Run();
 				
 				foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
 				{
-					string code = CodeGenerator.GenerateCode(
-						lang,
-						craph,
-						cbOutFormat.Checked,
-						cbSafeStackAccess.Checked,
-						cbSafeGridAccess.Checked,
-						cbUseGZip.Checked);
+					string code = CodeGenerator.GenerateCode(lang, craph, GetCGOptions());
 
 					outputTextBoxes[lang].Text = code;
 				}
@@ -557,11 +530,14 @@ namespace BefunDebug.Pages
 
 		private void cbUseGZip_CheckedChanged(object sender, EventArgs e) => OnOptionsChanged();
 		
+		private void cbPureCosmeticSwitch_CheckedChanged(object sender, EventArgs e) => OnOptionsChanged();
+
 		private void OnOptionsChanged(ItemCheckEventArgs e = null)
 		{
 			if (!isConstructed) return;
 
 			Program.SetConfigValue(this, "cbIgnoreSelfModification", cbIgnoreSelfModification.Checked);
+			Program.SetConfigValue(this, "cbPureCosmeticSwitch", cbPureCosmeticSwitch.Checked);
 			Program.SetConfigValue(this, "cbSafeStackAccess", cbSafeStackAccess.Checked);
 			Program.SetConfigValue(this, "cbSafeGridAccess", cbSafeGridAccess.Checked);
 			Program.SetConfigValue(this, "cbOutFormat", cbOutFormat.Checked);
@@ -581,6 +557,7 @@ namespace BefunDebug.Pages
 		private void LoadOptions()
 		{
 			cbIgnoreSelfModification.Checked = Program.GetConfigValue(this, "cbIgnoreSelfModification", true);
+			cbPureCosmeticSwitch.Checked     = Program.GetConfigValue(this, "cbPureCosmeticSwitch", true);
 			cbSafeStackAccess.Checked        = Program.GetConfigValue(this, "cbSafeStackAccess", true);
 			cbSafeGridAccess.Checked         = Program.GetConfigValue(this, "cbSafeGridAccess", true);
 			cbOutFormat.Checked              = Program.GetConfigValue(this, "cbOutFormat", true);
@@ -617,5 +594,6 @@ namespace BefunDebug.Pages
 
 			fspTester.TriggerAction(BefunCompileTestData.Data);
 		}
+
 	}
 }

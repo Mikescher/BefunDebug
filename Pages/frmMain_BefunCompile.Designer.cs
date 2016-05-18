@@ -59,7 +59,7 @@ namespace BefunDebug.Pages
 			this.listBoxOutputLanguages = new System.Windows.Forms.CheckedListBox();
 			this.tabPage14 = new System.Windows.Forms.TabPage();
 			this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
-			this.graphUserControl1 = new GraphUserControl();
+			this.graphUserControl1 = new BefunDebug.Graph.GraphUserControl();
 			this.tabPage13 = new System.Windows.Forms.TabPage();
 			this.tabControlOutput = new System.Windows.Forms.TabControl();
 			this.tabPage15 = new System.Windows.Forms.TabPage();
@@ -85,6 +85,7 @@ namespace BefunDebug.Pages
 			this.memoCodeCompressionInput = new System.Windows.Forms.TextBox();
 			this.memoCodeCompressionOutput = new System.Windows.Forms.TextBox();
 			this.memoCodeCompressionLog = new System.Windows.Forms.TextBox();
+			this.cbPureCosmeticSwitch = new System.Windows.Forms.CheckBox();
 			this.tabCompileOuterControl.SuspendLayout();
 			this.tabPage7.SuspendLayout();
 			this.tableLayoutPanel10.SuspendLayout();
@@ -371,16 +372,18 @@ namespace BefunDebug.Pages
 			// 
 			this.tableLayoutPanel12.ColumnCount = 1;
 			this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel12.Controls.Add(this.cbPureCosmeticSwitch, 0, 5);
 			this.tableLayoutPanel12.Controls.Add(this.cbUseGZip, 0, 4);
 			this.tableLayoutPanel12.Controls.Add(this.cbSafeGridAccess, 0, 2);
 			this.tableLayoutPanel12.Controls.Add(this.cbSafeStackAccess, 0, 1);
 			this.tableLayoutPanel12.Controls.Add(this.cbIgnoreSelfModification, 0, 0);
 			this.tableLayoutPanel12.Controls.Add(this.cbOutFormat, 0, 3);
-			this.tableLayoutPanel12.Controls.Add(this.listBoxOutputLanguages, 0, 5);
+			this.tableLayoutPanel12.Controls.Add(this.listBoxOutputLanguages, 0, 6);
 			this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel12.Name = "tableLayoutPanel12";
-			this.tableLayoutPanel12.RowCount = 7;
+			this.tableLayoutPanel12.RowCount = 8;
+			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
@@ -466,7 +469,7 @@ namespace BefunDebug.Pages
 			this.listBoxOutputLanguages.CheckOnClick = true;
 			this.listBoxOutputLanguages.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.listBoxOutputLanguages.FormattingEnabled = true;
-			this.listBoxOutputLanguages.Location = new System.Drawing.Point(3, 153);
+			this.listBoxOutputLanguages.Location = new System.Drawing.Point(3, 183);
 			this.listBoxOutputLanguages.Name = "listBoxOutputLanguages";
 			this.listBoxOutputLanguages.Size = new System.Drawing.Size(610, 194);
 			this.listBoxOutputLanguages.TabIndex = 6;
@@ -818,6 +821,20 @@ namespace BefunDebug.Pages
 			this.memoCodeCompressionLog.TabIndex = 2;
 			this.memoCodeCompressionLog.WordWrap = false;
 			// 
+			// cbPureCosmeticSwitch
+			// 
+			this.cbPureCosmeticSwitch.AutoSize = true;
+			this.cbPureCosmeticSwitch.Checked = true;
+			this.cbPureCosmeticSwitch.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.cbPureCosmeticSwitch.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.cbPureCosmeticSwitch.Location = new System.Drawing.Point(3, 153);
+			this.cbPureCosmeticSwitch.Name = "cbPureCosmeticSwitch";
+			this.cbPureCosmeticSwitch.Size = new System.Drawing.Size(610, 24);
+			this.cbPureCosmeticSwitch.TabIndex = 7;
+			this.cbPureCosmeticSwitch.Text = "Use purely cosmetic options";
+			this.cbPureCosmeticSwitch.UseVisualStyleBackColor = true;
+			this.cbPureCosmeticSwitch.CheckedChanged += new System.EventHandler(this.cbPureCosmeticSwitch_CheckedChanged);
+			// 
 			// frmMain_BefunCompile
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -910,5 +927,6 @@ namespace BefunDebug.Pages
 		private System.Windows.Forms.Button btnFullSSS;
 		private System.Windows.Forms.Button btnRunCurrGraph;
 		private System.Windows.Forms.ComboBox cbxCompileData;
+		private System.Windows.Forms.CheckBox cbPureCosmeticSwitch;
 	}
 }

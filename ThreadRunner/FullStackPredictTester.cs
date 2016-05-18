@@ -1,11 +1,12 @@
-﻿using System;
+﻿using BefunCompile;
+using BefunCompile.CodeGeneration.Generator;
+using BefunDebug.BCTestData;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using BefunCompile;
-using BefunDebug.BCTestData;
 
 namespace BefunDebug.ThreadRunner
 {
@@ -32,7 +33,7 @@ namespace BefunDebug.ThreadRunner
 				{
 					var data = datas[i];
 
-					var comp = new BefunCompiler(data.Code, false, true, false, false, true);
+					var comp = new BefunCompiler(data.Code, false, new CodeGeneratorOptions(true, false, false, true, false));
 
 					var builderTop = new List<string>();
 					var builderBot = new List<string>();
