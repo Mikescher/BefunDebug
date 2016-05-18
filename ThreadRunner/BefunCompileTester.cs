@@ -34,8 +34,16 @@ namespace BefunGen
 
 			foreach (var data in BefunCompileTestData.Data)
 			{
-				TestAll(data.Name, data.Code, data.Result, languages);
-				OutputLine(logbox);
+				try
+				{
+					TestAll(data.Name, data.Code, data.Result, languages);
+					OutputLine(logbox);
+				}
+				catch (Exception e)
+				{
+					OutputLine(logbox, e.ToString());
+					return false;
+				}
 
 				if (ForceStop) return false;
 			}

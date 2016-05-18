@@ -63,7 +63,6 @@ namespace BefunGen.ThreadRunner
 			}
 			finally
 			{
-				if (ForceStop) Thread.Sleep(2000);
 				btnCaller.BeginInvoke(new Action(() => { btnCaller.Text = GetButtonTextStart(data); }));
 
 				running = false;
