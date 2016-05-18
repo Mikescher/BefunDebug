@@ -3,7 +3,6 @@ using BefunCompile.CodeGeneration;
 using BefunCompile.CodeGeneration.Compiler;
 using BefunCompile.CodeGeneration.Generator;
 using BefunCompile.Graph;
-using BefunCompile.Graph.Vertex;
 using BefunCompile.Math;
 using BefunGen.BCTestData;
 using BefunGen.ThreadRunner;
@@ -23,6 +22,7 @@ namespace BefunGen.Pages
 		private readonly BefunCompileTester bcTester;
 		private readonly StackPredictTester spTester;
 		private readonly FullStackPredictTester fspTester;
+		private readonly CompileOverviewGenerator coGenerator;
 
 		private bool isConstructed = false;
 
@@ -33,6 +33,7 @@ namespace BefunGen.Pages
 			bcTester = new BefunCompileTester(memoCompileLog, edBefunCompileConsole, btnCompileTest);
 			spTester = new StackPredictTester(memoCompileLog, btnCompileStackPredict);
 			fspTester = new FullStackPredictTester(memoCompileLog, btnFullSSS);
+			coGenerator = new CompileOverviewGenerator(memoCompileLog, btnGenOverview);
 
 			tabCompileControl.SelectedIndex = 0;
 			tabCompileOuterControl.SelectedIndex = 0;
@@ -540,53 +541,7 @@ namespace BefunGen.Pages
 		{
 			tabCompileControl.SelectedIndex = 4;
 
-			StringBuilder sb = new StringBuilder();
-
-			string row = "{0,-10} | {1,-10} | {2,-10} | {3,-10} | {4,-15} | {5,-15} | {6,-10} | {7,-10} | {8,-10} | {9,-10} | {10,-10} | {11,-35} | {12,-10}";
-
-			string header = string.Format(row, "Name", "Vertices", "NOPs", "Leafs", "const IO Acc", "dyn. IO Acc", "userVar", "systemVar", "Stack Acc", "Var Acc", "Size", "Cycles", "Time (ms)");
-
-			sb.AppendLine(header);
-			sb.AppendLine(new String('-', header.Length));
-
-			foreach (var data in BefunCompileTestData.Data)
-			{
-				long sw_time = Environment.TickCount;
-
-				var compiler = new BefunCompiler(data.Code,
-					cbOutFormat.Checked,
-					cbIgnoreSelfModification.Checked,
-					cbSafeStackAccess.Checked,
-					cbSafeGridAccess.Checked,
-					cbUseGZip.Checked);
-				var graph = compiler.GenerateGraph();
-
-				sw_time = Environment.TickCount - sw_time;
-
-				var cell_Name = data.Name;
-				var cell_Vertices = graph.Vertices.Count;
-				var cell_Nops = graph.Vertices.Count(p => p is BCVertexNOP);
-				var cell_Leafs = graph.Vertices.Count(p => p.Children.Count == 0);
-				var cell_cIOAcc = graph.ListConstantVariableAccess().Count();
-				var cell_dIOAcc = graph.ListDynamicVariableAccess().Count();
-				var cell_uservar = graph.Variables.Count(p => p.isUserDefinied);
-				var cell_sysvar = graph.Variables.Count(p => !p.isUserDefinied);
-				var cell_sysscopes = graph.Variables.Where(p => !p.isUserDefinied).Sum(p => p.Scope.Count);
-				var cell_systotal = string.Format("{0,-3} ({1})", cell_sysvar, cell_sysscopes);
-				var cell_stackAcc = graph.Vertices.Count(p => !p.IsNotStackAccess());
-				var cell_varAcc = graph.Vertices.Count(p => !p.IsNotVariableAccess());
-				var cell_size = graph.GetAllCodePositions().Count;
-				var cell_cycles = string.Join(" ", compiler.LogCycles.Select(p => string.Format("{0,3}", p)));
-				var cell_time = sw_time.ToString();
-
-				sb.AppendLine(string.Format(row,
-					cell_Name, cell_Vertices, cell_Nops, cell_Leafs, cell_cIOAcc, cell_dIOAcc,
-					cell_uservar, cell_systotal, cell_stackAcc, cell_varAcc, cell_size, cell_cycles, cell_time));
-
-				memoCompileLog.Text = sb.ToString();
-				memoCompileLog.Refresh();
-			}
-
+			coGenerator.TriggerAction(BefunCompileTestData.Data);
 		}
 
 		private void listBoxOutputLanguages_ItemCheck(object sender, ItemCheckEventArgs e) => OnOptionsChanged(e);

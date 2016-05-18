@@ -182,6 +182,7 @@
     <Compile Include="Helper\StaticStopWatch.cs" />
     <Compile Include="Helper\ThreadedControlExtension.cs" />
     <Compile Include="ThreadRunner\BefunRunInfoCollector.cs" />
+    <Compile Include="ThreadRunner\CompileOverviewGenerator.cs" />
     <Compile Include="ThreadRunner\FullStackPredictTester.cs" />
     <Compile Include="ThreadRunner\StackPredictTester.cs" />
     <Compile Include="ThreadRunner\ThreadRunner.cs" />
