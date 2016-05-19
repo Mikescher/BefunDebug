@@ -61,6 +61,10 @@ namespace BefunDebug.ThreadRunner
 
 				RunAction(data);
 			}
+			catch (Exception e)
+			{
+				btnCaller.BeginInvoke(new Action(() => { MessageBox.Show(e.ToString()); }));
+			}
 			finally
 			{
 				btnCaller.BeginInvoke(new Action(() => { btnCaller.Text = GetButtonTextStart(data); }));

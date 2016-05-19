@@ -25,7 +25,7 @@ namespace BefunDebug.ThreadRunner
 			{
 				try
 				{
-					var comp = new BefunCompiler(data.Code, false, new CodeGeneratorOptions(true, false, false, true, false));
+					var comp = new BefunCompiler(data.Code, true, new CodeGeneratorOptions(false, false, false, true, false));
 					var craph = comp.GENERATION_LEVELS[optimizeLevel].Run();
 					var stacksize = craph.PredictStackSize();
 

@@ -34,7 +34,7 @@ namespace BefunDebug.ThreadRunner
 			{
 				long swTime = Environment.TickCount;
 
-				var compiler = new BefunCompiler(data.Code, false, new CodeGeneratorOptions(true, true, true, true, false));
+				var compiler = new BefunCompiler(data.Code, true, new CodeGeneratorOptions(false, true, true, true, false));
 				var graph = compiler.GenerateGraph();
 
 				swTime = Environment.TickCount - swTime;

@@ -33,7 +33,7 @@ namespace BefunDebug.ThreadRunner
 				{
 					var data = datas[i];
 
-					var comp = new BefunCompiler(data.Code, false, new CodeGeneratorOptions(true, false, false, true, false));
+					var comp = new BefunCompiler(data.Code, true, new CodeGeneratorOptions(false, false, false, true, false));
 
 					var builderTop = new List<string>();
 					var builderBot = new List<string>();
