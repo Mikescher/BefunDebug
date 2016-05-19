@@ -1,13 +1,15 @@
-﻿using System;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Windows.Forms;
-using BefunGen.AST.CodeGen;
+﻿using BefunGen.AST.CodeGen;
 using BefunGen.AST.CodeGen.NumberCode;
 using BefunRep;
 using BefunRep.FileHandling;
 using BefunRep.OutputHandling;
+using System;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
 
 namespace BefunDebug.Pages
 {
@@ -21,31 +23,7 @@ namespace BefunDebug.Pages
 		{
 			InitializeComponent();
 
-			try
-			{
-				if (! File.Exists(SAFE_FILENAME)) throw new FileNotFoundException();
-
-				safe = new BinarySafe(SAFE_FILENAME, 0, 0);
-				safe.start();
-				safe.stop();
-
-				edSafeMin.Text = safe.getLowestValue().ToString();
-				edSafeMax.Text = safe.getHighestValue().ToString();
-
-				pnlSafeState.BackColor = Color.Green;
-			}
-			catch (Exception)
-			{
-				btnSafeGet.Enabled = false;
-				btnSafeInfo.Enabled = false;
-				btnSafeRange.Enabled = false;
-				
-				edSafeValue.Enabled = false;
-				edSafeRangeMax.Enabled = false;
-				edSafeRangeMin.Enabled = false;
-
-				pnlSafeState.BackColor = Color.Red;
-			}
+			ReloadSafe();
 		}
 
 		private void btnSingleBefunRepRep_Click(object sender, EventArgs e)
@@ -150,9 +128,56 @@ namespace BefunDebug.Pages
 			txtDebug.Text = p.ToSimpleString();
 		}
 
-		private void btnSafeGet_Click(object sender, EventArgs e)
+		private void btnSafeRange_Click(object sender, EventArgs e)
 		{
-			long val = (long)edSafeValue.Value;
+			if (safe == null) return;
+
+			long min = (long) edSafeRangeMin.Value;
+			long max = (long) edSafeRangeMax.Value;
+
+			safe.start();
+			edSafeLog.Text += Environment.NewLine;
+			for (long val = min; val < max; val++)
+			{
+				var rep = safe.get(val);
+				var algo = safe.getAlgorithm(val);
+
+				if (rep != null)
+				{
+					edSafeLog.Text += Environment.NewLine +  string.Format("{0,6}:  {1,-20} {2}", val, RepCalculator.algorithmNames[algo ?? -1], rep);
+				}
+				else
+				{
+					edSafeLog.Text += Environment.NewLine + string.Format("{0,6}:  [NOT IN SAFE]", val);
+				}
+			}
+			safe.stop();
+		}
+
+		private void GenericTextBoxKeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.Control && (e.KeyCode == Keys.A))
+			{
+				(sender as TextBox)?.SelectAll();
+				e.Handled = true;
+			}
+		}
+
+		private void btnSafeReload_Click(object sender, EventArgs e)
+		{
+			ReloadSafe();
+		}
+
+		private void btnClear_Click(object sender, EventArgs e)
+		{
+			txtDebug.Text = string.Empty;
+		}
+
+		private void btnSafeRetrieve_Click(object sender, EventArgs e)
+		{
+			if (safe == null) return;
+
+			long val = (long)edSafeRetrieveValue.Value;
 
 			safe.start();
 			var rep = safe.get(val);
@@ -161,7 +186,7 @@ namespace BefunDebug.Pages
 
 			if (rep != null)
 			{
-				txtDebug.Text += string.Format("{0}{0}Algorithm-ID:   {1}{0}Algorithm:      {2}{0}Representation: {3}", 
+				edSafeLog.Text += string.Format("{0}{0}Algorithm-ID:   {1}{0}Algorithm:      {2}{0}Representation: {3}",
 					Environment.NewLine,
 					algo,
 					RepCalculator.algorithmNames[algo ?? -1],
@@ -169,37 +194,99 @@ namespace BefunDebug.Pages
 			}
 			else
 			{
-				txtDebug.Text += Environment.NewLine + Environment.NewLine + "Value not found in Safe";
+				edSafeLog.Text += Environment.NewLine + Environment.NewLine + "Value not found in Safe";
 			}
 		}
 
-		private void btnSafeRange_Click(object sender, EventArgs e)
+		private void btnSafeInfo_Click(object sender, EventArgs e)
 		{
-			long min = (long) edSafeRangeMin.Value;
-			long max = (long) edSafeRangeMax.Value;
+			if (safe == null) return;
 
 			safe.start();
-			txtDebug.Text += Environment.NewLine;
-			for (long val = min; val < max; val++)
-			{
-				var rep = safe.get(val);
-				var algo = safe.getAlgorithm(val);
-
-				if (rep != null)
-				{
-					txtDebug.Text += Environment.NewLine +  string.Format("{0,6}:  {1,-20} {2}", val, RepCalculator.algorithmNames[algo ?? -1], rep);
-				}
-				else
-				{
-					txtDebug.Text += Environment.NewLine + string.Format("{0,6}:  [NOT IN SAFE]", val);
-				}
-			}
+			var info = safe.getInformations();
 			safe.stop();
+
+			StringBuilder b = new StringBuilder();
+
+			b.AppendLine(string.Format("Low          = {0}", info.low));
+			b.AppendLine(string.Format("High         = {0}", info.high));
+			b.AppendLine(string.Format("Total Count  = {0}", info.count));
+			b.AppendLine(string.Format("Found Count  = {0}", info.nonNullCount));
+			b.AppendLine(string.Format("Total Length = {0}", info.totalLen));
+			b.AppendLine(string.Format("Avg Length   = {0}", info.avgLen));
+			b.AppendLine(string.Format("Min Length   = {0}", info.minLen));
+			b.AppendLine(string.Format("Max Length   = {0}", info.maxLen));
+
+			for (int i = 0; i < RepCalculator.algorithms.Length; i++)
+			{
+				b.AppendLine();
+				b.AppendLine(RepCalculator.algorithmNames[i]);
+				b.AppendLine("{");
+				b.AppendLine(string.Format("    Found Count  = {0}", info.nonNullPerAlgorithm[i]));
+				b.AppendLine(string.Format("    Total Length = {0}", info.totalLenPerAlgorithm[i]));
+				b.AppendLine(string.Format("      Avg Length = {0}", info.avgLenPerAlgorithm[i]));
+				b.AppendLine(string.Format("      Min Length = {0}", info.minLenPerAlgorithm[i]));
+				b.AppendLine(string.Format("      Max Length = {0}", info.maxLenPerAlgorithm[i]));
+				b.AppendLine("}");
+			}
+
+			edSafeLog.Text = b.ToString();
 		}
 
-		private void btnClear_Click(object sender, EventArgs e)
+		private void ReloadSafe()
 		{
-			txtDebug.Text = string.Empty;
+			Stopwatch sw = Stopwatch.StartNew();
+			string error = "";
+
+			try
+			{
+				if (!File.Exists(SAFE_FILENAME)) throw new FileNotFoundException();
+
+				safe = new BinarySafe(SAFE_FILENAME, 0, 0);
+				safe.start();
+				safe.stop();
+			}
+			catch (Exception e)
+			{
+				error = e.ToString();
+				safe = null;
+			}
+
+			bool loaded = (safe != null);
+
+			btnSafeRetrieve.Enabled = loaded;
+			btnSafeInfo.Enabled = loaded;
+			btnSafeRange.Enabled = loaded;
+
+			edSafeRetrieveValue.Enabled = loaded;
+			edSafeRangeMax.Enabled = loaded;
+			edSafeRangeMin.Enabled = loaded;
+
+			if (loaded)
+			{
+				edSafeMin.Text = safe.getLowestValue().ToString();
+				edSafeMax.Text = safe.getHighestValue().ToString();
+
+				edSafeLog.Text = $"Loaded in {sw.ElapsedTicks} nanoseconds ( = {sw.ElapsedMilliseconds}ms)";
+			}
+			else
+			{
+				edSafeMin.Text = "";
+				edSafeMax.Text = "";
+
+				edSafeLog.Text = "ERROR while loading safe:\r\n\r\n" + error;
+			}
+
+			pnlSafeStatus.BackColor = loaded ? Color.Green : Color.Red;
+		}
+
+		private void btnSafeCreate_Click(object sender, EventArgs e)
+		{
+			safe = new BinarySafe(SAFE_FILENAME, 0, 0);
+			safe.start();
+			safe.stop();
+
+			ReloadSafe();
 		}
 	}
 }

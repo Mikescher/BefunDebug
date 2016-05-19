@@ -4,7 +4,6 @@
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
 			 xmlns:graphsharp="clr-namespace:GraphSharp.Controls;assembly=GraphSharp.Controls"
-			 xmlns:local="clr-namespace:BefunGen"
 			 xmlns:zoom="clr-namespace:WPFExtensions.Controls;assembly=WPFExtensions"
 			 xmlns:graph="clr-namespace:BefunDebug.Graph"
 			 mc:Ignorable="d" 
@@ -18,19 +17,19 @@
 				</StackPanel>
 			</Border>
 
-            <DataTemplate.Triggers>
-                <DataTrigger Binding="{Binding isLeaf}" Value="true">
-                    <Setter TargetName="brdr" Property="Background" Value="DarkRed" />
-                </DataTrigger>
-                <DataTrigger Binding="{Binding isBlock}" Value="true">
-                    <Setter TargetName="brdr" Property="CornerRadius" Value="1" />
-                </DataTrigger>
-                <DataTrigger Binding="{Binding isRoot}" Value="true">
-                    <Setter TargetName="brdr" Property="Background" Value="DarkGreen" />
-                    <Setter TargetName="brdr" Property="BorderThickness" Value="3" />
-                    <Setter TargetName="brdr" Property="CornerRadius" Value="0" />
-                </DataTrigger>
-            </DataTemplate.Triggers>
+			<DataTemplate.Triggers>
+				<DataTrigger Binding="{Binding isLeaf}" Value="true">
+					<Setter TargetName="brdr" Property="Background" Value="DarkRed" />
+				</DataTrigger>
+				<DataTrigger Binding="{Binding isBlock}" Value="true">
+					<Setter TargetName="brdr" Property="CornerRadius" Value="1" />
+				</DataTrigger>
+				<DataTrigger Binding="{Binding isRoot}" Value="true">
+					<Setter TargetName="brdr" Property="Background" Value="DarkGreen" />
+					<Setter TargetName="brdr" Property="BorderThickness" Value="3" />
+					<Setter TargetName="brdr" Property="CornerRadius" Value="0" />
+				</DataTrigger>
+			</DataTemplate.Triggers>
 		</DataTemplate>
 
 		<Style TargetType="{x:Type graphsharp:VertexControl}">
@@ -59,16 +58,16 @@
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
 
 		<StackPanel Orientation="Vertical" Grid.Row="0" >
 			<StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0">
 				<Label VerticalAlignment="Center"  FontWeight="Bold" Content="Pick Layout Type"/>
 				<ComboBox ItemsSource="{Binding LayoutAlgorithmTypes}" SelectedItem="{Binding Path=LayoutAlgorithmType, Mode=TwoWay}" Width="150" Height="25" Margin="5" />
-                <Button Content="Relayout" Margin="5" Click="Button_Click"/>
-            </StackPanel>
+				<Button Content="Relayout" Margin="5" Click="Button_Click"/>
+			</StackPanel>
 		</StackPanel>
 		
 		<zoom:ZoomControl  Grid.Row="1"  Zoom="0.2" ZoomBoxOpacity="0.5" Background="#ff656565">
@@ -77,7 +76,7 @@
 				LayoutAlgorithmType="{Binding Path=LayoutAlgorithmType, Mode=OneWay}"
 				OverlapRemovalAlgorithmType="FSA"
 				HighlightAlgorithmType="Simple" />
-        </zoom:ZoomControl>
-        <TextBlock Grid.Row="2" VerticalAlignment="Center" Text="{Binding GInfo}" TextWrapping="Wrap" Padding="4"/>
-    </Grid>
+		</zoom:ZoomControl>
+		<TextBlock Grid.Row="2" VerticalAlignment="Center" Text="{Binding GInfo}" TextWrapping="Wrap" Padding="4"/>
+	</Grid>
 </UserControl>
