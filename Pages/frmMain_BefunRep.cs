@@ -16,9 +16,9 @@ namespace BefunDebug.Pages
 {
 	public partial class frmMain_BefunRep : UserControl
 	{
-		private const string SAFE_FILENAME = "safe.bin";
+		private const string SAFE_FILENAME = "safe.bin.gz";
 
-		private BinarySafe safe;
+		private RepresentationSafe safe;
 
 		public frmMain_BefunRep()
 		{
@@ -31,21 +31,23 @@ namespace BefunDebug.Pages
 		{
 			long number = Convert.ToInt64(edSingleBefunRepRep.Value);
 
-			RepresentationSafe safe = new MemorySafe();
+			RepresentationSafe msafe = new MemorySafe();
 
-			RepCalculator c1 = new RepCalculator(0, 4069, false, safe, true);
+			RepCalculator c1 = new RepCalculator(0, 4069, false, msafe, true);
 			c1.calculate();
 
-			RepCalculator c2 = new RepCalculator(number - 64, number + 64, false, safe, true);
+			RepCalculator c2 = new RepCalculator(number - 64, number + 64, false, msafe, true);
 			c2.calculate();
 
-			string result = safe.get(number);
+			string result = msafe.get(number);
 
 			if (result == null)
+			{
 				txtDebug.Text += Environment.NewLine + Environment.NewLine + number + ": ERROR";
+			}
 			else
 			{
-				var algorithm = RepCalculator.algorithmNames[safe.getAlgorithm(number).Value];
+				var algorithm = RepCalculator.algorithmNames[msafe.getAlgorithm(number) ?? 0];
 
 				txtDebug.Text += Environment.NewLine + Environment.NewLine + number + ":       " + algorithm + "         " + result;
 			}
@@ -55,39 +57,39 @@ namespace BefunDebug.Pages
 		{
 			long number = Convert.ToInt64(edBenchBefunRep.Value);
 
-			RepresentationSafe safe = new MemorySafe();
+			RepresentationSafe msafe = new MemorySafe();
 			OutputFormatter fmt = new CSVOutputFormatter();
 
-			RepCalculator c1 = new RepCalculator(0, number, false, safe, true);
+			RepCalculator c1 = new RepCalculator(0, number, false, msafe, true);
 			c1.calculate();
 
-			txtDebug.Text = fmt.Convert(safe, 0, number);
+			txtDebug.Text = fmt.Convert(msafe, 0, number);
 		}
 
 		private void btnBenchBefunRepXML_Click(object sender, EventArgs e)
 		{
 			long number = Convert.ToInt64(edBenchBefunRep.Value);
 
-			RepresentationSafe safe = new MemorySafe();
+			RepresentationSafe msafe = new MemorySafe();
 			OutputFormatter fmt = new XMLOutputFormatter();
 
-			RepCalculator c1 = new RepCalculator(0, number, false, safe, true);
+			RepCalculator c1 = new RepCalculator(0, number, false, msafe, true);
 			c1.calculate();
 
-			txtDebug.Text = fmt.Convert(safe, 0, number);
+			txtDebug.Text = fmt.Convert(msafe, 0, number);
 		}
 
 		private void btnBenchBefunRepJSON_Click(object sender, EventArgs e)
 		{
 			long number = Convert.ToInt64(edBenchBefunRep.Value);
 
-			RepresentationSafe safe = new MemorySafe();
+			RepresentationSafe msafe = new MemorySafe();
 			OutputFormatter fmt = new JSONOutputFormatter();
 
-			RepCalculator c1 = new RepCalculator(0, number, false, safe, true);
+			RepCalculator c1 = new RepCalculator(0, number, false, msafe, true);
 			c1.calculate();
 
-			txtDebug.Text = fmt.Convert(safe, 0, number);
+			txtDebug.Text = fmt.Convert(msafe, 0, number);
 		}
 
 		private void btnDebugNumberRep_Click(object sender, EventArgs e)
@@ -253,14 +255,14 @@ namespace BefunDebug.Pages
 			{
 				if (!File.Exists(SAFE_FILENAME)) throw new FileNotFoundException();
 
-				safe = new BinarySafe(SAFE_FILENAME, 0, 0);
-				safe.start();
-				safe.stop();
+				safe = new GZipBinarySafe(SAFE_FILENAME, 0, 0);
+				safe.LightLoad();
 			}
 			catch (Exception e)
 			{
 				error = e.ToString();
 				safe = null;
+				if (e is FileNotFoundException) error = null;
 			}
 
 			bool loaded = (safe != null);
@@ -275,8 +277,8 @@ namespace BefunDebug.Pages
 
 			if (loaded)
 			{
-				edSafeMin.Text = safe.getLowestValue().ToString();
-				edSafeMax.Text = safe.getHighestValue().ToString();
+				edSafeMin.Text = FmtLongWithSpaces(safe.getLowestValue());
+				edSafeMax.Text = FmtLongWithSpaces(safe.getHighestValue());
 
 				if (!quiet)
 				{
@@ -290,7 +292,7 @@ namespace BefunDebug.Pages
 				edSafeMin.Text = "";
 				edSafeMax.Text = "";
 
-				if (!quiet)
+				if (!quiet && error != null)
 				{
 					edSafeLog.Text += "\r\n\r\nERROR while loading safe:\r\n\r\n" + error;
 					edSafeLog.SelectionStart = edSafeLog.Text.Length;
@@ -302,9 +304,19 @@ namespace BefunDebug.Pages
 			pnlSafeStatus.BackColor = loaded ? Color.Green : Color.Red;
 		}
 
+		private string FmtLongWithSpaces(long k)
+		{
+			if (k == 0) return "0";
+
+			if (k < 0) return "-" + string.Format("{0:### ### ### ### ### ### ### ###}", -k).Trim();
+			if (k > 0) return "+" + string.Format("{0:### ### ### ### ### ### ### ###}", +k).Trim();
+
+			throw new ArgumentException();
+		}
+
 		private void btnSafeCreate_Click(object sender, EventArgs e)
 		{
-			safe = new BinarySafe(SAFE_FILENAME, 0, 0);
+			safe = new GZipBinarySafe(SAFE_FILENAME, 0, 0);
 			safe.start();
 			safe.stop();
 

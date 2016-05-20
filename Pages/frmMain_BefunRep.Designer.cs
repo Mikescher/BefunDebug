@@ -51,6 +51,10 @@
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.edSafeLog = new System.Windows.Forms.TextBox();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+			this.label6 = new System.Windows.Forms.Label();
+			this.label5 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.label1 = new System.Windows.Forms.Label();
 			this.edSafeRetrieveValue = new System.Windows.Forms.NumericUpDown();
 			this.label7 = new System.Windows.Forms.Label();
 			this.label10 = new System.Windows.Forms.Label();
@@ -66,10 +70,6 @@
 			this.btnSafeRange = new System.Windows.Forms.Button();
 			this.btnSafeReload = new System.Windows.Forms.Button();
 			this.btnSafeCreate = new System.Windows.Forms.Button();
-			this.label1 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label5 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
 			this.edRepRunnerStart = new System.Windows.Forms.NumericUpDown();
 			this.btnRunBefunRep = new System.Windows.Forms.Button();
 			this.edRepRunnerEnd = new System.Windows.Forms.NumericUpDown();
@@ -409,7 +409,7 @@
 			// 
 			this.tableLayoutPanel2.ColumnCount = 2;
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 280F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 330F));
 			this.tableLayoutPanel2.Controls.Add(this.edSafeLog, 0, 0);
 			this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 0);
 			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -431,16 +431,17 @@
 			this.edSafeLog.Name = "edSafeLog";
 			this.edSafeLog.ReadOnly = true;
 			this.edSafeLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.edSafeLog.Size = new System.Drawing.Size(500, 562);
+			this.edSafeLog.Size = new System.Drawing.Size(450, 562);
 			this.edSafeLog.TabIndex = 0;
 			this.edSafeLog.WordWrap = false;
 			this.edSafeLog.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GenericTextBoxKeyDown);
 			// 
 			// tableLayoutPanel3
 			// 
-			this.tableLayoutPanel3.ColumnCount = 2;
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+			this.tableLayoutPanel3.ColumnCount = 3;
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel3.Controls.Add(this.label6, 0, 15);
 			this.tableLayoutPanel3.Controls.Add(this.label5, 0, 14);
 			this.tableLayoutPanel3.Controls.Add(this.label2, 0, 13);
@@ -450,23 +451,23 @@
 			this.tableLayoutPanel3.Controls.Add(this.label10, 0, 1);
 			this.tableLayoutPanel3.Controls.Add(this.label11, 0, 3);
 			this.tableLayoutPanel3.Controls.Add(this.label12, 0, 4);
-			this.tableLayoutPanel3.Controls.Add(this.pnlSafeStatus, 1, 1);
+			this.tableLayoutPanel3.Controls.Add(this.pnlSafeStatus, 2, 1);
 			this.tableLayoutPanel3.Controls.Add(this.edSafeMin, 1, 3);
 			this.tableLayoutPanel3.Controls.Add(this.edSafeMax, 1, 4);
-			this.tableLayoutPanel3.Controls.Add(this.btnSafeRetrieve, 1, 5);
+			this.tableLayoutPanel3.Controls.Add(this.btnSafeRetrieve, 2, 5);
 			this.tableLayoutPanel3.Controls.Add(this.btnSafeInfo, 0, 8);
 			this.tableLayoutPanel3.Controls.Add(this.edSafeRangeMin, 0, 6);
 			this.tableLayoutPanel3.Controls.Add(this.edSafeRangeMax, 0, 7);
-			this.tableLayoutPanel3.Controls.Add(this.btnSafeRange, 1, 6);
-			this.tableLayoutPanel3.Controls.Add(this.btnSafeReload, 1, 2);
+			this.tableLayoutPanel3.Controls.Add(this.btnSafeRange, 2, 6);
+			this.tableLayoutPanel3.Controls.Add(this.btnSafeReload, 2, 2);
 			this.tableLayoutPanel3.Controls.Add(this.btnSafeCreate, 0, 10);
-			this.tableLayoutPanel3.Controls.Add(this.edRepRunnerStart, 1, 12);
-			this.tableLayoutPanel3.Controls.Add(this.btnRunBefunRep, 1, 16);
-			this.tableLayoutPanel3.Controls.Add(this.edRepRunnerEnd, 1, 13);
-			this.tableLayoutPanel3.Controls.Add(this.edRepRunnerIterations, 1, 14);
-			this.tableLayoutPanel3.Controls.Add(this.cbRepRunnerTests, 1, 15);
+			this.tableLayoutPanel3.Controls.Add(this.edRepRunnerStart, 2, 12);
+			this.tableLayoutPanel3.Controls.Add(this.btnRunBefunRep, 2, 16);
+			this.tableLayoutPanel3.Controls.Add(this.edRepRunnerEnd, 2, 13);
+			this.tableLayoutPanel3.Controls.Add(this.edRepRunnerIterations, 2, 14);
+			this.tableLayoutPanel3.Controls.Add(this.cbRepRunnerTests, 2, 15);
 			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel3.Location = new System.Drawing.Point(509, 3);
+			this.tableLayoutPanel3.Location = new System.Drawing.Point(459, 3);
 			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
 			this.tableLayoutPanel3.RowCount = 18;
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
@@ -487,11 +488,60 @@
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel3.Size = new System.Drawing.Size(274, 562);
+			this.tableLayoutPanel3.Size = new System.Drawing.Size(324, 562);
 			this.tableLayoutPanel3.TabIndex = 1;
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.tableLayoutPanel3.SetColumnSpan(this.label6, 2);
+			this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label6.Location = new System.Drawing.Point(3, 444);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(114, 22);
+			this.label6.TabIndex = 31;
+			this.label6.Text = "Test";
+			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.tableLayoutPanel3.SetColumnSpan(this.label5, 2);
+			this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label5.Location = new System.Drawing.Point(3, 422);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(114, 22);
+			this.label5.TabIndex = 30;
+			this.label5.Text = "Iterations";
+			this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.tableLayoutPanel3.SetColumnSpan(this.label2, 2);
+			this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label2.Location = new System.Drawing.Point(3, 400);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(114, 22);
+			this.label2.TabIndex = 29;
+			this.label2.Text = "End";
+			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.tableLayoutPanel3.SetColumnSpan(this.label1, 2);
+			this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label1.Location = new System.Drawing.Point(3, 370);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(114, 30);
+			this.label1.TabIndex = 28;
+			this.label1.Text = "Start";
+			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// edSafeRetrieveValue
 			// 
+			this.tableLayoutPanel3.SetColumnSpan(this.edSafeRetrieveValue, 2);
 			this.edSafeRetrieveValue.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.edSafeRetrieveValue.Location = new System.Drawing.Point(3, 163);
 			this.edSafeRetrieveValue.Maximum = new decimal(new int[] {
@@ -505,7 +555,7 @@
             0,
             -2147483648});
 			this.edSafeRetrieveValue.Name = "edSafeRetrieveValue";
-			this.edSafeRetrieveValue.Size = new System.Drawing.Size(103, 20);
+			this.edSafeRetrieveValue.Size = new System.Drawing.Size(114, 20);
 			this.edSafeRetrieveValue.TabIndex = 19;
 			this.edSafeRetrieveValue.Value = new decimal(new int[] {
             1024,
@@ -516,23 +566,24 @@
 			// label7
 			// 
 			this.label7.AutoSize = true;
-			this.tableLayoutPanel3.SetColumnSpan(this.label7, 2);
+			this.tableLayoutPanel3.SetColumnSpan(this.label7, 3);
 			this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label7.Location = new System.Drawing.Point(3, 0);
 			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(268, 40);
+			this.label7.Size = new System.Drawing.Size(318, 40);
 			this.label7.TabIndex = 12;
-			this.label7.Text = "-- BefunRep (safe.bin) --";
+			this.label7.Text = "-- BefunRep (safe.bin.gz) --";
 			this.label7.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
 			// 
 			// label10
 			// 
 			this.label10.AutoSize = true;
+			this.tableLayoutPanel3.SetColumnSpan(this.label10, 2);
 			this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.label10.Location = new System.Drawing.Point(3, 40);
 			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(103, 30);
+			this.label10.Size = new System.Drawing.Size(114, 30);
 			this.label10.TabIndex = 13;
 			this.label10.Text = "Safe Status";
 			this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -543,7 +594,7 @@
 			this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.label11.Location = new System.Drawing.Point(3, 100);
 			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(103, 30);
+			this.label11.Size = new System.Drawing.Size(64, 30);
 			this.label11.TabIndex = 14;
 			this.label11.Text = "Range Min";
 			this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -554,7 +605,7 @@
 			this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.label12.Location = new System.Drawing.Point(3, 130);
 			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(103, 30);
+			this.label12.Size = new System.Drawing.Size(64, 30);
 			this.label12.TabIndex = 15;
 			this.label12.Text = "Range Max";
 			this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -562,37 +613,41 @@
 			// pnlSafeStatus
 			// 
 			this.pnlSafeStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.pnlSafeStatus.Location = new System.Drawing.Point(159, 45);
+			this.pnlSafeStatus.Location = new System.Drawing.Point(170, 45);
 			this.pnlSafeStatus.Margin = new System.Windows.Forms.Padding(50, 5, 50, 5);
 			this.pnlSafeStatus.Name = "pnlSafeStatus";
 			this.pnlSafeStatus.Padding = new System.Windows.Forms.Padding(5);
-			this.pnlSafeStatus.Size = new System.Drawing.Size(65, 20);
+			this.pnlSafeStatus.Size = new System.Drawing.Size(104, 20);
 			this.pnlSafeStatus.TabIndex = 16;
 			// 
 			// edSafeMin
 			// 
+			this.tableLayoutPanel3.SetColumnSpan(this.edSafeMin, 2);
 			this.edSafeMin.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.edSafeMin.Location = new System.Drawing.Point(112, 103);
+			this.edSafeMin.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.edSafeMin.Location = new System.Drawing.Point(73, 103);
 			this.edSafeMin.Name = "edSafeMin";
 			this.edSafeMin.ReadOnly = true;
-			this.edSafeMin.Size = new System.Drawing.Size(159, 20);
+			this.edSafeMin.Size = new System.Drawing.Size(248, 20);
 			this.edSafeMin.TabIndex = 17;
 			// 
 			// edSafeMax
 			// 
+			this.tableLayoutPanel3.SetColumnSpan(this.edSafeMax, 2);
 			this.edSafeMax.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.edSafeMax.Location = new System.Drawing.Point(112, 133);
+			this.edSafeMax.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.edSafeMax.Location = new System.Drawing.Point(73, 133);
 			this.edSafeMax.Name = "edSafeMax";
 			this.edSafeMax.ReadOnly = true;
-			this.edSafeMax.Size = new System.Drawing.Size(159, 20);
+			this.edSafeMax.Size = new System.Drawing.Size(248, 20);
 			this.edSafeMax.TabIndex = 18;
 			// 
 			// btnSafeRetrieve
 			// 
 			this.btnSafeRetrieve.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnSafeRetrieve.Location = new System.Drawing.Point(112, 163);
+			this.btnSafeRetrieve.Location = new System.Drawing.Point(123, 163);
 			this.btnSafeRetrieve.Name = "btnSafeRetrieve";
-			this.btnSafeRetrieve.Size = new System.Drawing.Size(159, 24);
+			this.btnSafeRetrieve.Size = new System.Drawing.Size(198, 24);
 			this.btnSafeRetrieve.TabIndex = 20;
 			this.btnSafeRetrieve.Text = "Retrieve";
 			this.btnSafeRetrieve.UseVisualStyleBackColor = true;
@@ -600,12 +655,12 @@
 			// 
 			// btnSafeInfo
 			// 
-			this.tableLayoutPanel3.SetColumnSpan(this.btnSafeInfo, 2);
+			this.tableLayoutPanel3.SetColumnSpan(this.btnSafeInfo, 3);
 			this.btnSafeInfo.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnSafeInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnSafeInfo.Location = new System.Drawing.Point(3, 253);
 			this.btnSafeInfo.Name = "btnSafeInfo";
-			this.btnSafeInfo.Size = new System.Drawing.Size(268, 24);
+			this.btnSafeInfo.Size = new System.Drawing.Size(318, 24);
 			this.btnSafeInfo.TabIndex = 21;
 			this.btnSafeInfo.Text = "Info";
 			this.btnSafeInfo.UseVisualStyleBackColor = true;
@@ -613,6 +668,7 @@
 			// 
 			// edSafeRangeMin
 			// 
+			this.tableLayoutPanel3.SetColumnSpan(this.edSafeRangeMin, 2);
 			this.edSafeRangeMin.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.edSafeRangeMin.Location = new System.Drawing.Point(3, 193);
 			this.edSafeRangeMin.Maximum = new decimal(new int[] {
@@ -626,11 +682,12 @@
             0,
             -2147483648});
 			this.edSafeRangeMin.Name = "edSafeRangeMin";
-			this.edSafeRangeMin.Size = new System.Drawing.Size(103, 20);
+			this.edSafeRangeMin.Size = new System.Drawing.Size(114, 20);
 			this.edSafeRangeMin.TabIndex = 22;
 			// 
 			// edSafeRangeMax
 			// 
+			this.tableLayoutPanel3.SetColumnSpan(this.edSafeRangeMax, 2);
 			this.edSafeRangeMax.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.edSafeRangeMax.Location = new System.Drawing.Point(3, 223);
 			this.edSafeRangeMax.Maximum = new decimal(new int[] {
@@ -644,7 +701,7 @@
             0,
             -2147483648});
 			this.edSafeRangeMax.Name = "edSafeRangeMax";
-			this.edSafeRangeMax.Size = new System.Drawing.Size(103, 20);
+			this.edSafeRangeMax.Size = new System.Drawing.Size(114, 20);
 			this.edSafeRangeMax.TabIndex = 23;
 			this.edSafeRangeMax.Value = new decimal(new int[] {
             128,
@@ -655,10 +712,10 @@
 			// btnSafeRange
 			// 
 			this.btnSafeRange.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnSafeRange.Location = new System.Drawing.Point(112, 193);
+			this.btnSafeRange.Location = new System.Drawing.Point(123, 193);
 			this.btnSafeRange.Name = "btnSafeRange";
 			this.tableLayoutPanel3.SetRowSpan(this.btnSafeRange, 2);
-			this.btnSafeRange.Size = new System.Drawing.Size(159, 54);
+			this.btnSafeRange.Size = new System.Drawing.Size(198, 54);
 			this.btnSafeRange.TabIndex = 24;
 			this.btnSafeRange.Text = "Range";
 			this.btnSafeRange.UseVisualStyleBackColor = true;
@@ -667,9 +724,9 @@
 			// btnSafeReload
 			// 
 			this.btnSafeReload.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnSafeReload.Location = new System.Drawing.Point(112, 73);
+			this.btnSafeReload.Location = new System.Drawing.Point(123, 73);
 			this.btnSafeReload.Name = "btnSafeReload";
-			this.btnSafeReload.Size = new System.Drawing.Size(159, 24);
+			this.btnSafeReload.Size = new System.Drawing.Size(198, 24);
 			this.btnSafeReload.TabIndex = 26;
 			this.btnSafeReload.Text = "Reload";
 			this.btnSafeReload.UseVisualStyleBackColor = true;
@@ -677,78 +734,35 @@
 			// 
 			// btnSafeCreate
 			// 
+			this.tableLayoutPanel3.SetColumnSpan(this.btnSafeCreate, 2);
 			this.btnSafeCreate.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnSafeCreate.Location = new System.Drawing.Point(3, 313);
 			this.btnSafeCreate.Name = "btnSafeCreate";
-			this.btnSafeCreate.Size = new System.Drawing.Size(103, 24);
+			this.btnSafeCreate.Size = new System.Drawing.Size(114, 24);
 			this.btnSafeCreate.TabIndex = 27;
 			this.btnSafeCreate.Text = "Create Empty";
 			this.btnSafeCreate.UseVisualStyleBackColor = true;
 			this.btnSafeCreate.Click += new System.EventHandler(this.btnSafeCreate_Click);
 			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label1.Location = new System.Drawing.Point(3, 370);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(103, 30);
-			this.label1.TabIndex = 28;
-			this.label1.Text = "Start";
-			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label2.Location = new System.Drawing.Point(3, 400);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(103, 22);
-			this.label2.TabIndex = 29;
-			this.label2.Text = "End";
-			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
-			// label5
-			// 
-			this.label5.AutoSize = true;
-			this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label5.Location = new System.Drawing.Point(3, 422);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(103, 22);
-			this.label5.TabIndex = 30;
-			this.label5.Text = "Iterations";
-			this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label6.Location = new System.Drawing.Point(3, 444);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(103, 22);
-			this.label6.TabIndex = 31;
-			this.label6.Text = "Test";
-			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
 			// edRepRunnerStart
 			// 
 			this.edRepRunnerStart.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.edRepRunnerStart.Location = new System.Drawing.Point(112, 373);
+			this.edRepRunnerStart.Location = new System.Drawing.Point(123, 373);
 			this.edRepRunnerStart.Maximum = new decimal(new int[] {
             100000000,
             0,
             0,
             0});
 			this.edRepRunnerStart.Name = "edRepRunnerStart";
-			this.edRepRunnerStart.Size = new System.Drawing.Size(159, 20);
+			this.edRepRunnerStart.Size = new System.Drawing.Size(198, 20);
 			this.edRepRunnerStart.TabIndex = 32;
 			// 
 			// btnRunBefunRep
 			// 
 			this.btnRunBefunRep.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnRunBefunRep.Location = new System.Drawing.Point(112, 469);
+			this.btnRunBefunRep.Location = new System.Drawing.Point(123, 469);
 			this.btnRunBefunRep.Name = "btnRunBefunRep";
-			this.btnRunBefunRep.Size = new System.Drawing.Size(159, 24);
+			this.btnRunBefunRep.Size = new System.Drawing.Size(198, 24);
 			this.btnRunBefunRep.TabIndex = 33;
 			this.btnRunBefunRep.Text = "Run BefunRep";
 			this.btnRunBefunRep.UseVisualStyleBackColor = true;
@@ -757,14 +771,14 @@
 			// edRepRunnerEnd
 			// 
 			this.edRepRunnerEnd.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.edRepRunnerEnd.Location = new System.Drawing.Point(112, 403);
+			this.edRepRunnerEnd.Location = new System.Drawing.Point(123, 403);
 			this.edRepRunnerEnd.Maximum = new decimal(new int[] {
             100000000,
             0,
             0,
             0});
 			this.edRepRunnerEnd.Name = "edRepRunnerEnd";
-			this.edRepRunnerEnd.Size = new System.Drawing.Size(159, 20);
+			this.edRepRunnerEnd.Size = new System.Drawing.Size(198, 20);
 			this.edRepRunnerEnd.TabIndex = 34;
 			this.edRepRunnerEnd.Value = new decimal(new int[] {
             2048,
@@ -775,14 +789,14 @@
 			// edRepRunnerIterations
 			// 
 			this.edRepRunnerIterations.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.edRepRunnerIterations.Location = new System.Drawing.Point(112, 425);
+			this.edRepRunnerIterations.Location = new System.Drawing.Point(123, 425);
 			this.edRepRunnerIterations.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             -2147483648});
 			this.edRepRunnerIterations.Name = "edRepRunnerIterations";
-			this.edRepRunnerIterations.Size = new System.Drawing.Size(159, 20);
+			this.edRepRunnerIterations.Size = new System.Drawing.Size(198, 20);
 			this.edRepRunnerIterations.TabIndex = 35;
 			this.edRepRunnerIterations.Value = new decimal(new int[] {
             1,
@@ -796,9 +810,9 @@
 			this.cbRepRunnerTests.Checked = true;
 			this.cbRepRunnerTests.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.cbRepRunnerTests.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.cbRepRunnerTests.Location = new System.Drawing.Point(112, 447);
+			this.cbRepRunnerTests.Location = new System.Drawing.Point(123, 447);
 			this.cbRepRunnerTests.Name = "cbRepRunnerTests";
-			this.cbRepRunnerTests.Size = new System.Drawing.Size(159, 16);
+			this.cbRepRunnerTests.Size = new System.Drawing.Size(198, 16);
 			this.cbRepRunnerTests.TabIndex = 36;
 			this.cbRepRunnerTests.Text = "--tests";
 			this.cbRepRunnerTests.UseVisualStyleBackColor = true;
