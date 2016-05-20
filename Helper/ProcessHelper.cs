@@ -20,7 +20,7 @@ namespace BefunDebug.Helper
 
 	public static class ProcessHelper
 	{
-		public static ProcessOutput ProcExecute(string command, string arguments, string workingDirectory = null)
+		public static ProcessOutput ProcExecute(string command, string arguments, string workingDirectory = null, bool showConsole = false)
 		{
 			Process process = new Process
 			{
@@ -30,9 +30,9 @@ namespace BefunDebug.Helper
 					Arguments = arguments,
 					WorkingDirectory = workingDirectory ?? string.Empty,
 					UseShellExecute = false,
-					RedirectStandardOutput = true,
-					RedirectStandardError = true,
-					CreateNoWindow = true,
+					RedirectStandardOutput = !showConsole,
+					RedirectStandardError = !showConsole,
+					CreateNoWindow = !showConsole,
 					ErrorDialog = false
 				}
 			};
@@ -40,30 +40,37 @@ namespace BefunDebug.Helper
 			StringBuilder builderOut = new StringBuilder();
 			StringBuilder builderErr = new StringBuilder();
 
-			process.OutputDataReceived += (sender, args) =>
+			if (!showConsole)
 			{
-				if (args.Data == null) return;
+				process.OutputDataReceived += (sender, args) =>
+				{
+					if (args.Data == null) return;
 
-				if (builderOut.Length == 0)
-					builderOut.Append(args.Data);
-				else
-					builderOut.Append(Environment.NewLine + args.Data);
-			};
+					if (builderOut.Length == 0)
+						builderOut.Append(args.Data);
+					else
+						builderOut.Append(Environment.NewLine + args.Data);
+				};
 
-			process.ErrorDataReceived += (sender, args) =>
-			{
-				if (args.Data == null) return;
+				process.ErrorDataReceived += (sender, args) =>
+				{
+					if (args.Data == null) return;
 
-				if (builderErr.Length == 0)
-					builderErr.Append(args.Data);
-				else
-					builderErr.Append(Environment.NewLine + args.Data);
-			};
+					if (builderErr.Length == 0)
+						builderErr.Append(args.Data);
+					else
+						builderErr.Append(Environment.NewLine + args.Data);
+				};
+			}
+
 
 			process.Start();
 
-			process.BeginOutputReadLine();
-			process.BeginErrorReadLine();
+			if (!showConsole)
+			{
+				process.BeginOutputReadLine();
+				process.BeginErrorReadLine();
+			}
 
 			process.WaitForExit();
 

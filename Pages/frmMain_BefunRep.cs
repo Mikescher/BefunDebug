@@ -1,4 +1,5 @@
-﻿using BefunGen.AST.CodeGen;
+﻿using BefunDebug.Helper;
+using BefunGen.AST.CodeGen;
 using BefunGen.AST.CodeGen.NumberCode;
 using BefunRep;
 using BefunRep.FileHandling;
@@ -145,10 +146,14 @@ namespace BefunDebug.Pages
 				if (rep != null)
 				{
 					edSafeLog.Text += Environment.NewLine +  string.Format("{0,6}:  {1,-20} {2}", val, RepCalculator.algorithmNames[algo ?? -1], rep);
+					edSafeLog.SelectionStart = edSafeLog.Text.Length;
+					edSafeLog.ScrollToCaret();
 				}
 				else
 				{
 					edSafeLog.Text += Environment.NewLine + string.Format("{0,6}:  [NOT IN SAFE]", val);
+					edSafeLog.SelectionStart = edSafeLog.Text.Length;
+					edSafeLog.ScrollToCaret();
 				}
 			}
 			safe.stop();
@@ -191,10 +196,14 @@ namespace BefunDebug.Pages
 					algo,
 					RepCalculator.algorithmNames[algo ?? -1],
 					rep);
+				edSafeLog.SelectionStart = edSafeLog.Text.Length;
+				edSafeLog.ScrollToCaret();
 			}
 			else
 			{
-				edSafeLog.Text += Environment.NewLine + Environment.NewLine + "Value not found in Safe";
+				edSafeLog.Text += "\r\n\r\nValue not found in Safe";
+				edSafeLog.SelectionStart = edSafeLog.Text.Length;
+				edSafeLog.ScrollToCaret();
 			}
 		}
 
@@ -231,9 +240,11 @@ namespace BefunDebug.Pages
 			}
 
 			edSafeLog.Text = b.ToString();
+			edSafeLog.SelectionStart = edSafeLog.Text.Length;
+			edSafeLog.ScrollToCaret();
 		}
 
-		private void ReloadSafe()
+		private void ReloadSafe(bool quiet = false)
 		{
 			Stopwatch sw = Stopwatch.StartNew();
 			string error = "";
@@ -267,14 +278,25 @@ namespace BefunDebug.Pages
 				edSafeMin.Text = safe.getLowestValue().ToString();
 				edSafeMax.Text = safe.getHighestValue().ToString();
 
-				edSafeLog.Text = $"Loaded in {sw.ElapsedTicks} nanoseconds ( = {sw.ElapsedMilliseconds}ms)";
+				if (!quiet)
+				{
+					edSafeLog.Text += $"\r\n\r\nLoaded in {sw.ElapsedTicks} nanoseconds ( = {sw.ElapsedMilliseconds}ms)";
+					edSafeLog.SelectionStart = edSafeLog.Text.Length;
+					edSafeLog.ScrollToCaret();
+				}
 			}
 			else
 			{
 				edSafeMin.Text = "";
 				edSafeMax.Text = "";
 
-				edSafeLog.Text = "ERROR while loading safe:\r\n\r\n" + error;
+				if (!quiet)
+				{
+					edSafeLog.Text += "\r\n\r\nERROR while loading safe:\r\n\r\n" + error;
+					edSafeLog.SelectionStart = edSafeLog.Text.Length;
+					edSafeLog.ScrollToCaret();
+				}
+
 			}
 
 			pnlSafeStatus.BackColor = loaded ? Color.Green : Color.Red;
@@ -286,7 +308,52 @@ namespace BefunDebug.Pages
 			safe.start();
 			safe.stop();
 
+			edSafeLog.Text += string.Format("\r\n\r\nNew empty safe created in {0}:\r\n\r\n", SAFE_FILENAME);
+
 			ReloadSafe();
+		}
+
+		private void btnRunBefunRep_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				var tmpFile = Path.GetTempFileName();
+
+				var args = string.Format("-safe=\"{0}\" -lower={1} -upper={2} -iterations={3} {4} -quiet -log=\"{5}\"",
+					SAFE_FILENAME,
+					edRepRunnerStart.Value,
+					edRepRunnerEnd.Value,
+					edRepRunnerIterations.Value,
+					cbRepRunnerTests.Checked ? "" : "-notest",
+					tmpFile);
+
+				var output = ProcessHelper.ProcExecute("BefunRep", args, null, true);
+
+				var log = File.ReadAllText(tmpFile);
+				File.Delete(tmpFile);
+
+				if (output.ExitCode != 0)
+				{
+					edSafeLog.Text = string.Format("ERROR {0}\r\n{1}", output.ExitCode, log);
+					edSafeLog.SelectionStart = edSafeLog.Text.Length;
+					edSafeLog.ScrollToCaret();
+				}
+				else
+				{
+					edSafeLog.Text = log;
+					edSafeLog.SelectionStart = edSafeLog.Text.Length;
+					edSafeLog.ScrollToCaret();
+				}
+
+			}
+			catch (Exception ex)
+			{
+				edSafeLog.Text = ex.ToString();
+				edSafeLog.SelectionStart = edSafeLog.Text.Length;
+				edSafeLog.ScrollToCaret();
+			}
+
+			ReloadSafe(true);
 		}
 	}
 }

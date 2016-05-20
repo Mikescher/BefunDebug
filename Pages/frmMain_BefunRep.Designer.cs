@@ -66,6 +66,15 @@
 			this.btnSafeRange = new System.Windows.Forms.Button();
 			this.btnSafeReload = new System.Windows.Forms.Button();
 			this.btnSafeCreate = new System.Windows.Forms.Button();
+			this.label1 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.label5 = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
+			this.edRepRunnerStart = new System.Windows.Forms.NumericUpDown();
+			this.btnRunBefunRep = new System.Windows.Forms.Button();
+			this.edRepRunnerEnd = new System.Windows.Forms.NumericUpDown();
+			this.edRepRunnerIterations = new System.Windows.Forms.NumericUpDown();
+			this.cbRepRunnerTests = new System.Windows.Forms.CheckBox();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel5.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.edBenchBefunRep)).BeginInit();
@@ -80,6 +89,9 @@
 			((System.ComponentModel.ISupportInitialize)(this.edSafeRetrieveValue)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.edSafeRangeMin)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.edSafeRangeMax)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.edRepRunnerStart)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.edRepRunnerEnd)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.edRepRunnerIterations)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tableLayoutPanel1
@@ -429,6 +441,10 @@
 			this.tableLayoutPanel3.ColumnCount = 2;
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+			this.tableLayoutPanel3.Controls.Add(this.label6, 0, 15);
+			this.tableLayoutPanel3.Controls.Add(this.label5, 0, 14);
+			this.tableLayoutPanel3.Controls.Add(this.label2, 0, 13);
+			this.tableLayoutPanel3.Controls.Add(this.label1, 0, 12);
 			this.tableLayoutPanel3.Controls.Add(this.edSafeRetrieveValue, 0, 5);
 			this.tableLayoutPanel3.Controls.Add(this.label7, 0, 0);
 			this.tableLayoutPanel3.Controls.Add(this.label10, 0, 1);
@@ -444,10 +460,15 @@
 			this.tableLayoutPanel3.Controls.Add(this.btnSafeRange, 1, 6);
 			this.tableLayoutPanel3.Controls.Add(this.btnSafeReload, 1, 2);
 			this.tableLayoutPanel3.Controls.Add(this.btnSafeCreate, 0, 10);
+			this.tableLayoutPanel3.Controls.Add(this.edRepRunnerStart, 1, 12);
+			this.tableLayoutPanel3.Controls.Add(this.btnRunBefunRep, 1, 16);
+			this.tableLayoutPanel3.Controls.Add(this.edRepRunnerEnd, 1, 13);
+			this.tableLayoutPanel3.Controls.Add(this.edRepRunnerIterations, 1, 14);
+			this.tableLayoutPanel3.Controls.Add(this.cbRepRunnerTests, 1, 15);
 			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel3.Location = new System.Drawing.Point(509, 3);
 			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-			this.tableLayoutPanel3.RowCount = 17;
+			this.tableLayoutPanel3.RowCount = 18;
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
@@ -461,10 +482,11 @@
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel3.Size = new System.Drawing.Size(274, 562);
 			this.tableLayoutPanel3.TabIndex = 1;
 			// 
@@ -664,6 +686,123 @@
 			this.btnSafeCreate.UseVisualStyleBackColor = true;
 			this.btnSafeCreate.Click += new System.EventHandler(this.btnSafeCreate_Click);
 			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label1.Location = new System.Drawing.Point(3, 370);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(103, 30);
+			this.label1.TabIndex = 28;
+			this.label1.Text = "Start";
+			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label2.Location = new System.Drawing.Point(3, 400);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(103, 22);
+			this.label2.TabIndex = 29;
+			this.label2.Text = "End";
+			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label5.Location = new System.Drawing.Point(3, 422);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(103, 22);
+			this.label5.TabIndex = 30;
+			this.label5.Text = "Iterations";
+			this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label6.Location = new System.Drawing.Point(3, 444);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(103, 22);
+			this.label6.TabIndex = 31;
+			this.label6.Text = "Test";
+			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
+			// edRepRunnerStart
+			// 
+			this.edRepRunnerStart.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.edRepRunnerStart.Location = new System.Drawing.Point(112, 373);
+			this.edRepRunnerStart.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+			this.edRepRunnerStart.Name = "edRepRunnerStart";
+			this.edRepRunnerStart.Size = new System.Drawing.Size(159, 20);
+			this.edRepRunnerStart.TabIndex = 32;
+			// 
+			// btnRunBefunRep
+			// 
+			this.btnRunBefunRep.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnRunBefunRep.Location = new System.Drawing.Point(112, 469);
+			this.btnRunBefunRep.Name = "btnRunBefunRep";
+			this.btnRunBefunRep.Size = new System.Drawing.Size(159, 24);
+			this.btnRunBefunRep.TabIndex = 33;
+			this.btnRunBefunRep.Text = "Run BefunRep";
+			this.btnRunBefunRep.UseVisualStyleBackColor = true;
+			this.btnRunBefunRep.Click += new System.EventHandler(this.btnRunBefunRep_Click);
+			// 
+			// edRepRunnerEnd
+			// 
+			this.edRepRunnerEnd.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.edRepRunnerEnd.Location = new System.Drawing.Point(112, 403);
+			this.edRepRunnerEnd.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+			this.edRepRunnerEnd.Name = "edRepRunnerEnd";
+			this.edRepRunnerEnd.Size = new System.Drawing.Size(159, 20);
+			this.edRepRunnerEnd.TabIndex = 34;
+			this.edRepRunnerEnd.Value = new decimal(new int[] {
+            2048,
+            0,
+            0,
+            0});
+			// 
+			// edRepRunnerIterations
+			// 
+			this.edRepRunnerIterations.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.edRepRunnerIterations.Location = new System.Drawing.Point(112, 425);
+			this.edRepRunnerIterations.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+			this.edRepRunnerIterations.Name = "edRepRunnerIterations";
+			this.edRepRunnerIterations.Size = new System.Drawing.Size(159, 20);
+			this.edRepRunnerIterations.TabIndex = 35;
+			this.edRepRunnerIterations.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+			// 
+			// cbRepRunnerTests
+			// 
+			this.cbRepRunnerTests.AutoSize = true;
+			this.cbRepRunnerTests.Checked = true;
+			this.cbRepRunnerTests.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.cbRepRunnerTests.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.cbRepRunnerTests.Location = new System.Drawing.Point(112, 447);
+			this.cbRepRunnerTests.Name = "cbRepRunnerTests";
+			this.cbRepRunnerTests.Size = new System.Drawing.Size(159, 16);
+			this.cbRepRunnerTests.TabIndex = 36;
+			this.cbRepRunnerTests.Text = "--tests";
+			this.cbRepRunnerTests.UseVisualStyleBackColor = true;
+			// 
 			// frmMain_BefunRep
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -690,6 +829,9 @@
 			((System.ComponentModel.ISupportInitialize)(this.edSafeRetrieveValue)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.edSafeRangeMin)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.edSafeRangeMax)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.edRepRunnerStart)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.edRepRunnerEnd)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.edRepRunnerIterations)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -734,5 +876,14 @@
 		private System.Windows.Forms.Button btnSafeReload;
 		private System.Windows.Forms.Button btnClear;
 		private System.Windows.Forms.Button btnSafeCreate;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.NumericUpDown edRepRunnerStart;
+		private System.Windows.Forms.Button btnRunBefunRep;
+		private System.Windows.Forms.NumericUpDown edRepRunnerEnd;
+		private System.Windows.Forms.NumericUpDown edRepRunnerIterations;
+		private System.Windows.Forms.CheckBox cbRepRunnerTests;
 	}
 }
