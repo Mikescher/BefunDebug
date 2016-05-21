@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BefunDebug.Helper;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -6,7 +7,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using BefunDebug.Helper;
 
 namespace BefunDebug.Pages
 {
@@ -17,7 +17,7 @@ namespace BefunDebug.Pages
 			InitializeComponent();
 
 			tabControl1.SelectedIndex = 0;
-        }
+		}
 
 		private void btnReverse_Click(object sender, EventArgs e)
 		{
@@ -185,7 +185,7 @@ namespace BefunDebug.Pages
 			{
 				edASCIIOut.Text = ex.ToString();
 			}
-        }
+		}
 
 		static Color Grayscale(int g) { return Color.FromArgb(g % 256, g % 256, g % 256); }
 		static Brush GrayscaleB(int g) { return new SolidBrush(Grayscale(g)); }
@@ -427,6 +427,15 @@ namespace BefunDebug.Pages
 			}
 
 			edASCIIOut.Text = b.ToString();
+		}
+
+		private void GenericTextBoxKeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.Control && (e.KeyCode == Keys.A))
+			{
+				(sender as TextBox)?.SelectAll();
+				e.Handled = true;
+			}
 		}
 	}
 }

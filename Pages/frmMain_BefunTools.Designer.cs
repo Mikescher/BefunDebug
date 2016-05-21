@@ -101,8 +101,8 @@
 			this.btnGenerate = new System.Windows.Forms.Button();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.edASCIIOut = new System.Windows.Forms.TextBox();
-			this.imgDebug = new PictureBoxWithInterpolationMode();
-			this.imgASCII = new PictureBoxWithInterpolationMode();
+			this.imgDebug = new BefunDebug.PictureBoxWithInterpolationMode();
+			this.imgASCII = new BefunDebug.PictureBoxWithInterpolationMode();
 			this.tableLayoutPanel9.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -173,6 +173,7 @@
 			this.edMiscInput.Size = new System.Drawing.Size(312, 450);
 			this.edMiscInput.TabIndex = 7;
 			this.edMiscInput.WordWrap = false;
+			this.edMiscInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GenericTextBoxKeyDown);
 			// 
 			// edReverseIn
 			// 
@@ -185,6 +186,7 @@
 			this.edReverseIn.Size = new System.Drawing.Size(312, 106);
 			this.edReverseIn.TabIndex = 6;
 			this.edReverseIn.TextChanged += new System.EventHandler(this.edReverse_TextChanged);
+			this.edReverseIn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GenericTextBoxKeyDown);
 			// 
 			// edReverseOut
 			// 
@@ -198,6 +200,7 @@
 			this.tableLayoutPanel9.SetRowSpan(this.edReverseOut, 4);
 			this.edReverseOut.Size = new System.Drawing.Size(312, 106);
 			this.edReverseOut.TabIndex = 0;
+			this.edReverseOut.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GenericTextBoxKeyDown);
 			// 
 			// btnReverse
 			// 
@@ -225,6 +228,7 @@
 			this.edMiscOutput.Size = new System.Drawing.Size(312, 450);
 			this.edMiscOutput.TabIndex = 2;
 			this.edMiscOutput.WordWrap = false;
+			this.edMiscOutput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GenericTextBoxKeyDown);
 			// 
 			// btnSquash
 			// 
@@ -1032,6 +1036,7 @@
 			this.edASCIIOut.Size = new System.Drawing.Size(306, 181);
 			this.edASCIIOut.TabIndex = 3;
 			this.edASCIIOut.WordWrap = false;
+			this.edASCIIOut.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GenericTextBoxKeyDown);
 			// 
 			// imgDebug
 			// 
