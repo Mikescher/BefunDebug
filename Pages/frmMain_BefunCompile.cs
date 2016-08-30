@@ -38,10 +38,10 @@ namespace BefunDebug.Pages
 
 			tabCompileControl.SelectedIndex = 0;
 			tabCompileOuterControl.SelectedIndex = 0;
-			
+
 			foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
 			{
-				int idx = listBoxOutputLanguages.Items.Add(lang);
+				listBoxOutputLanguages.Items.Add(lang);
 
 				var page = new TabPage(lang.ToString());
 				var textbox = new TextBox
@@ -72,7 +72,7 @@ namespace BefunDebug.Pages
 			{
 				cbxCompileLevel.Items.Add(item.ToString());
 			}
-			
+
 			cbxCompileLevel.SelectedIndex = cbxCompileLevel.Items.Count - 1;
 
 			LoadOptions();
@@ -567,7 +567,7 @@ namespace BefunDebug.Pages
 			{
 				int idx = listBoxOutputLanguages.Items.IndexOf(lang);
 				bool cfgValue = Program.GetConfigValue(this, "OutputLanguage." + lang, true);
-
+			
 				listBoxOutputLanguages.SetItemCheckState(idx, cfgValue ? CheckState.Checked : CheckState.Unchecked);
 			}
 		}
@@ -585,7 +585,7 @@ namespace BefunDebug.Pages
 		{
 			base.OnHandleDestroyed(e);
 
-			bcTester.Stop();
+			//bcTester.Stop();
 		}
 
 		private void btnFullSSS_Click(object sender, EventArgs e)

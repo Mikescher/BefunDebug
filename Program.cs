@@ -1,8 +1,8 @@
-﻿using System;
+﻿using BefunDebug.Helper;
+using System;
 using System.IO;
 using System.Windows.Forms;
 using System.Xml.Serialization;
-using BefunDebug.Helper;
 
 namespace BefunDebug
 {
@@ -73,14 +73,22 @@ namespace BefunDebug
 
 		public static T GetConfigValue<T>(object caller, string key, T defValue)
 		{
-			var dict = GetCallerConfig(caller);
+			try
+			{
+				var dict = GetCallerConfig(caller);
 
-			if (!dict.ContainsKey(key)) SetConfigValue(caller, key, defValue);
+				if (!dict.ContainsKey(key)) SetConfigValue(caller, key, defValue);
 
-			var value = dict.GetValueOrDefault(key, null);
-			if (value is T) return (T) value;
+				var value = dict.GetValueOrDefault(key, null);
+				if (value is T) return (T)value;
 
-			return defValue;
+				return defValue;
+			}
+			catch (Exception)
+			{
+				return defValue;
+			}
+
 		}
 	}
 }

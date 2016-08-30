@@ -51,6 +51,7 @@ namespace BefunDebug.Pages
 			this.memoCompileInput = new System.Windows.Forms.TextBox();
 			this.tabPage17 = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+			this.cbPureCosmeticSwitch = new System.Windows.Forms.CheckBox();
 			this.cbUseGZip = new System.Windows.Forms.CheckBox();
 			this.cbSafeGridAccess = new System.Windows.Forms.CheckBox();
 			this.cbSafeStackAccess = new System.Windows.Forms.CheckBox();
@@ -85,7 +86,6 @@ namespace BefunDebug.Pages
 			this.memoCodeCompressionInput = new System.Windows.Forms.TextBox();
 			this.memoCodeCompressionOutput = new System.Windows.Forms.TextBox();
 			this.memoCodeCompressionLog = new System.Windows.Forms.TextBox();
-			this.cbPureCosmeticSwitch = new System.Windows.Forms.CheckBox();
 			this.tabCompileOuterControl.SuspendLayout();
 			this.tabPage7.SuspendLayout();
 			this.tableLayoutPanel10.SuspendLayout();
@@ -393,6 +393,20 @@ namespace BefunDebug.Pages
 			this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel12.Size = new System.Drawing.Size(616, 530);
 			this.tableLayoutPanel12.TabIndex = 0;
+			// 
+			// cbPureCosmeticSwitch
+			// 
+			this.cbPureCosmeticSwitch.AutoSize = true;
+			this.cbPureCosmeticSwitch.Checked = true;
+			this.cbPureCosmeticSwitch.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.cbPureCosmeticSwitch.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.cbPureCosmeticSwitch.Location = new System.Drawing.Point(3, 153);
+			this.cbPureCosmeticSwitch.Name = "cbPureCosmeticSwitch";
+			this.cbPureCosmeticSwitch.Size = new System.Drawing.Size(610, 24);
+			this.cbPureCosmeticSwitch.TabIndex = 7;
+			this.cbPureCosmeticSwitch.Text = "Use purely cosmetic options";
+			this.cbPureCosmeticSwitch.UseVisualStyleBackColor = true;
+			this.cbPureCosmeticSwitch.CheckedChanged += new System.EventHandler(this.cbPureCosmeticSwitch_CheckedChanged);
 			// 
 			// cbUseGZip
 			// 
@@ -820,20 +834,6 @@ namespace BefunDebug.Pages
 			this.memoCodeCompressionLog.Size = new System.Drawing.Size(624, 144);
 			this.memoCodeCompressionLog.TabIndex = 2;
 			this.memoCodeCompressionLog.WordWrap = false;
-			// 
-			// cbPureCosmeticSwitch
-			// 
-			this.cbPureCosmeticSwitch.AutoSize = true;
-			this.cbPureCosmeticSwitch.Checked = true;
-			this.cbPureCosmeticSwitch.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.cbPureCosmeticSwitch.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.cbPureCosmeticSwitch.Location = new System.Drawing.Point(3, 153);
-			this.cbPureCosmeticSwitch.Name = "cbPureCosmeticSwitch";
-			this.cbPureCosmeticSwitch.Size = new System.Drawing.Size(610, 24);
-			this.cbPureCosmeticSwitch.TabIndex = 7;
-			this.cbPureCosmeticSwitch.Text = "Use purely cosmetic options";
-			this.cbPureCosmeticSwitch.UseVisualStyleBackColor = true;
-			this.cbPureCosmeticSwitch.CheckedChanged += new System.EventHandler(this.cbPureCosmeticSwitch_CheckedChanged);
 			// 
 			// frmMain_BefunCompile
 			// 
