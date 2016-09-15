@@ -297,7 +297,7 @@ namespace BefunDebug.Pages
 
 				var craph = comp.GENERATION_LEVELS[cbxCompileLevel.SelectedIndex].Run();
 				
-				foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
+				foreach (var lang in GetCheckedLanguages())
 				{
 					string code = CodeGenerator.GenerateCode(lang, craph, GetCGOptions());
 

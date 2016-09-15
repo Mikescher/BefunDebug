@@ -51,7 +51,6 @@
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.edSafeLog = new System.Windows.Forms.TextBox();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-			this.label6 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
@@ -75,6 +74,8 @@
 			this.edRepRunnerEnd = new System.Windows.Forms.NumericUpDown();
 			this.edRepRunnerIterations = new System.Windows.Forms.NumericUpDown();
 			this.cbRepRunnerTests = new System.Windows.Forms.CheckBox();
+			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+			this.cbRepRunnerQuiet = new System.Windows.Forms.CheckBox();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel5.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.edBenchBefunRep)).BeginInit();
@@ -92,6 +93,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.edRepRunnerStart)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.edRepRunnerEnd)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.edRepRunnerIterations)).BeginInit();
+			this.flowLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tableLayoutPanel1
@@ -442,7 +444,6 @@
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel3.Controls.Add(this.label6, 0, 15);
 			this.tableLayoutPanel3.Controls.Add(this.label5, 0, 14);
 			this.tableLayoutPanel3.Controls.Add(this.label2, 0, 13);
 			this.tableLayoutPanel3.Controls.Add(this.label1, 0, 12);
@@ -461,11 +462,11 @@
 			this.tableLayoutPanel3.Controls.Add(this.btnSafeRange, 2, 6);
 			this.tableLayoutPanel3.Controls.Add(this.btnSafeReload, 2, 2);
 			this.tableLayoutPanel3.Controls.Add(this.btnSafeCreate, 0, 10);
-			this.tableLayoutPanel3.Controls.Add(this.edRepRunnerStart, 2, 12);
+			this.tableLayoutPanel3.Controls.Add(this.edRepRunnerStart, 1, 12);
 			this.tableLayoutPanel3.Controls.Add(this.btnRunBefunRep, 2, 16);
-			this.tableLayoutPanel3.Controls.Add(this.edRepRunnerEnd, 2, 13);
-			this.tableLayoutPanel3.Controls.Add(this.edRepRunnerIterations, 2, 14);
-			this.tableLayoutPanel3.Controls.Add(this.cbRepRunnerTests, 2, 15);
+			this.tableLayoutPanel3.Controls.Add(this.edRepRunnerEnd, 1, 13);
+			this.tableLayoutPanel3.Controls.Add(this.edRepRunnerIterations, 1, 14);
+			this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanel1, 0, 15);
 			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel3.Location = new System.Drawing.Point(459, 3);
 			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -485,32 +486,19 @@
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel3.Size = new System.Drawing.Size(324, 562);
 			this.tableLayoutPanel3.TabIndex = 1;
 			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.tableLayoutPanel3.SetColumnSpan(this.label6, 2);
-			this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label6.Location = new System.Drawing.Point(3, 444);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(114, 22);
-			this.label6.TabIndex = 31;
-			this.label6.Text = "Test";
-			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.tableLayoutPanel3.SetColumnSpan(this.label5, 2);
 			this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.label5.Location = new System.Drawing.Point(3, 422);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(114, 22);
+			this.label5.Size = new System.Drawing.Size(64, 22);
 			this.label5.TabIndex = 30;
 			this.label5.Text = "Iterations";
 			this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -518,11 +506,10 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.tableLayoutPanel3.SetColumnSpan(this.label2, 2);
 			this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.label2.Location = new System.Drawing.Point(3, 400);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(114, 22);
+			this.label2.Size = new System.Drawing.Size(64, 22);
 			this.label2.TabIndex = 29;
 			this.label2.Text = "End";
 			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -530,11 +517,10 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.tableLayoutPanel3.SetColumnSpan(this.label1, 2);
 			this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.label1.Location = new System.Drawing.Point(3, 370);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(114, 30);
+			this.label1.Size = new System.Drawing.Size(64, 30);
 			this.label1.TabIndex = 28;
 			this.label1.Text = "Start";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -746,21 +732,22 @@
 			// 
 			// edRepRunnerStart
 			// 
+			this.tableLayoutPanel3.SetColumnSpan(this.edRepRunnerStart, 2);
 			this.edRepRunnerStart.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.edRepRunnerStart.Location = new System.Drawing.Point(123, 373);
+			this.edRepRunnerStart.Location = new System.Drawing.Point(73, 373);
 			this.edRepRunnerStart.Maximum = new decimal(new int[] {
             100000000,
             0,
             0,
             0});
 			this.edRepRunnerStart.Name = "edRepRunnerStart";
-			this.edRepRunnerStart.Size = new System.Drawing.Size(198, 20);
+			this.edRepRunnerStart.Size = new System.Drawing.Size(248, 20);
 			this.edRepRunnerStart.TabIndex = 32;
 			// 
 			// btnRunBefunRep
 			// 
 			this.btnRunBefunRep.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnRunBefunRep.Location = new System.Drawing.Point(123, 469);
+			this.btnRunBefunRep.Location = new System.Drawing.Point(123, 477);
 			this.btnRunBefunRep.Name = "btnRunBefunRep";
 			this.btnRunBefunRep.Size = new System.Drawing.Size(198, 24);
 			this.btnRunBefunRep.TabIndex = 33;
@@ -770,15 +757,16 @@
 			// 
 			// edRepRunnerEnd
 			// 
+			this.tableLayoutPanel3.SetColumnSpan(this.edRepRunnerEnd, 2);
 			this.edRepRunnerEnd.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.edRepRunnerEnd.Location = new System.Drawing.Point(123, 403);
+			this.edRepRunnerEnd.Location = new System.Drawing.Point(73, 403);
 			this.edRepRunnerEnd.Maximum = new decimal(new int[] {
             100000000,
             0,
             0,
             0});
 			this.edRepRunnerEnd.Name = "edRepRunnerEnd";
-			this.edRepRunnerEnd.Size = new System.Drawing.Size(198, 20);
+			this.edRepRunnerEnd.Size = new System.Drawing.Size(248, 20);
 			this.edRepRunnerEnd.TabIndex = 34;
 			this.edRepRunnerEnd.Value = new decimal(new int[] {
             2048,
@@ -788,15 +776,16 @@
 			// 
 			// edRepRunnerIterations
 			// 
+			this.tableLayoutPanel3.SetColumnSpan(this.edRepRunnerIterations, 2);
 			this.edRepRunnerIterations.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.edRepRunnerIterations.Location = new System.Drawing.Point(123, 425);
+			this.edRepRunnerIterations.Location = new System.Drawing.Point(73, 425);
 			this.edRepRunnerIterations.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             -2147483648});
 			this.edRepRunnerIterations.Name = "edRepRunnerIterations";
-			this.edRepRunnerIterations.Size = new System.Drawing.Size(198, 20);
+			this.edRepRunnerIterations.Size = new System.Drawing.Size(248, 20);
 			this.edRepRunnerIterations.TabIndex = 35;
 			this.edRepRunnerIterations.Value = new decimal(new int[] {
             1,
@@ -810,12 +799,36 @@
 			this.cbRepRunnerTests.Checked = true;
 			this.cbRepRunnerTests.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.cbRepRunnerTests.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.cbRepRunnerTests.Location = new System.Drawing.Point(123, 447);
+			this.cbRepRunnerTests.Location = new System.Drawing.Point(3, 3);
 			this.cbRepRunnerTests.Name = "cbRepRunnerTests";
-			this.cbRepRunnerTests.Size = new System.Drawing.Size(198, 16);
+			this.cbRepRunnerTests.Size = new System.Drawing.Size(54, 17);
 			this.cbRepRunnerTests.TabIndex = 36;
 			this.cbRepRunnerTests.Text = "--tests";
 			this.cbRepRunnerTests.UseVisualStyleBackColor = true;
+			// 
+			// flowLayoutPanel1
+			// 
+			this.tableLayoutPanel3.SetColumnSpan(this.flowLayoutPanel1, 3);
+			this.flowLayoutPanel1.Controls.Add(this.cbRepRunnerTests);
+			this.flowLayoutPanel1.Controls.Add(this.cbRepRunnerQuiet);
+			this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 447);
+			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(318, 24);
+			this.flowLayoutPanel1.TabIndex = 37;
+			// 
+			// cbRepRunnerQuiet
+			// 
+			this.cbRepRunnerQuiet.AutoSize = true;
+			this.cbRepRunnerQuiet.Checked = true;
+			this.cbRepRunnerQuiet.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.cbRepRunnerQuiet.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.cbRepRunnerQuiet.Location = new System.Drawing.Point(63, 3);
+			this.cbRepRunnerQuiet.Name = "cbRepRunnerQuiet";
+			this.cbRepRunnerQuiet.Size = new System.Drawing.Size(55, 17);
+			this.cbRepRunnerQuiet.TabIndex = 37;
+			this.cbRepRunnerQuiet.Text = "--quiet";
+			this.cbRepRunnerQuiet.UseVisualStyleBackColor = true;
 			// 
 			// frmMain_BefunRep
 			// 
@@ -846,6 +859,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.edRepRunnerStart)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.edRepRunnerEnd)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.edRepRunnerIterations)).EndInit();
+			this.flowLayoutPanel1.ResumeLayout(false);
+			this.flowLayoutPanel1.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -892,12 +907,13 @@
 		private System.Windows.Forms.Button btnSafeCreate;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.NumericUpDown edRepRunnerStart;
 		private System.Windows.Forms.Button btnRunBefunRep;
 		private System.Windows.Forms.NumericUpDown edRepRunnerEnd;
 		private System.Windows.Forms.NumericUpDown edRepRunnerIterations;
 		private System.Windows.Forms.CheckBox cbRepRunnerTests;
+		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+		private System.Windows.Forms.CheckBox cbRepRunnerQuiet;
 	}
 }

@@ -34,12 +34,12 @@ namespace BefunDebug.Pages
 			RepresentationSafe msafe = new MemorySafe();
 
 			RepCalculator c1 = new RepCalculator(0, 4069, false, msafe, true);
-			c1.calculate();
+			c1.Calculate();
 
 			RepCalculator c2 = new RepCalculator(number - 64, number + 64, false, msafe, true);
-			c2.calculate();
+			c2.Calculate();
 
-			string result = msafe.get(number);
+			var result = msafe.GetCombined(number);
 
 			if (result == null)
 			{
@@ -47,9 +47,9 @@ namespace BefunDebug.Pages
 			}
 			else
 			{
-				var algorithm = RepCalculator.algorithmNames[msafe.getAlgorithm(number) ?? 0];
+				var algorithm = RepCalculator.AlgorithmNames[result.Algorithm];
 
-				txtDebug.Text += Environment.NewLine + Environment.NewLine + number + ":       " + algorithm + "         " + result;
+				txtDebug.Text += string.Format("{0}{0}{1}:       {2}         {3}", Environment.NewLine, number, algorithm, result.Representation);
 			}
 		}
 
@@ -61,7 +61,7 @@ namespace BefunDebug.Pages
 			OutputFormatter fmt = new CSVOutputFormatter();
 
 			RepCalculator c1 = new RepCalculator(0, number, false, msafe, true);
-			c1.calculate();
+			c1.Calculate();
 
 			txtDebug.Text = fmt.Convert(msafe, 0, number);
 		}
@@ -74,7 +74,7 @@ namespace BefunDebug.Pages
 			OutputFormatter fmt = new XMLOutputFormatter();
 
 			RepCalculator c1 = new RepCalculator(0, number, false, msafe, true);
-			c1.calculate();
+			c1.Calculate();
 
 			txtDebug.Text = fmt.Convert(msafe, 0, number);
 		}
@@ -87,7 +87,7 @@ namespace BefunDebug.Pages
 			OutputFormatter fmt = new JSONOutputFormatter();
 
 			RepCalculator c1 = new RepCalculator(0, number, false, msafe, true);
-			c1.calculate();
+			c1.Calculate();
 
 			txtDebug.Text = fmt.Convert(msafe, 0, number);
 		}
@@ -138,16 +138,15 @@ namespace BefunDebug.Pages
 			long min = (long) edSafeRangeMin.Value;
 			long max = (long) edSafeRangeMax.Value;
 
-			safe.start();
+			safe.Start();
 			edSafeLog.Text += Environment.NewLine;
 			for (long val = min; val < max; val++)
 			{
-				var rep = safe.get(val);
-				var algo = safe.getAlgorithm(val);
+				var rep = safe.GetCombined(val);
 
 				if (rep != null)
 				{
-					edSafeLog.Text += Environment.NewLine +  string.Format("{0,6}:  {1,-20} {2}", val, RepCalculator.algorithmNames[algo ?? -1], rep);
+					edSafeLog.Text += Environment.NewLine +  string.Format("{0,6}:  {1,-20} {2}", val, RepCalculator.AlgorithmNames[rep.Algorithm], rep.Representation);
 					edSafeLog.SelectionStart = edSafeLog.Text.Length;
 					edSafeLog.ScrollToCaret();
 				}
@@ -158,7 +157,7 @@ namespace BefunDebug.Pages
 					edSafeLog.ScrollToCaret();
 				}
 			}
-			safe.stop();
+			safe.Stop();
 		}
 
 		private void GenericTextBoxKeyDown(object sender, KeyEventArgs e)
@@ -186,18 +185,18 @@ namespace BefunDebug.Pages
 
 			long val = (long)edSafeRetrieveValue.Value;
 
-			safe.start();
-			var rep = safe.get(val);
-			var algo = safe.getAlgorithm(val);
-			safe.stop();
+			safe.Start();
+
+			var rep = safe.GetCombined(val);
+			safe.Stop();
 
 			if (rep != null)
 			{
 				edSafeLog.Text += string.Format("{0}{0}Algorithm-ID:   {1}{0}Algorithm:      {2}{0}Representation: {3}",
 					Environment.NewLine,
-					algo,
-					RepCalculator.algorithmNames[algo ?? -1],
-					rep);
+					rep.Algorithm,
+					RepCalculator.AlgorithmNames[rep.Algorithm],
+					rep.Representation);
 				edSafeLog.SelectionStart = edSafeLog.Text.Length;
 				edSafeLog.ScrollToCaret();
 			}
@@ -213,31 +212,31 @@ namespace BefunDebug.Pages
 		{
 			if (safe == null) return;
 
-			safe.start();
-			var info = safe.getInformations();
-			safe.stop();
+			safe.Start();
+			var info = safe.GetInformations();
+			safe.Stop();
 
 			StringBuilder b = new StringBuilder();
 
-			b.AppendLine(string.Format("Low          = {0}", info.low));
-			b.AppendLine(string.Format("High         = {0}", info.high));
-			b.AppendLine(string.Format("Total Count  = {0}", info.count));
-			b.AppendLine(string.Format("Found Count  = {0}", info.nonNullCount));
-			b.AppendLine(string.Format("Total Length = {0}", info.totalLen));
-			b.AppendLine(string.Format("Avg Length   = {0}", info.avgLen));
-			b.AppendLine(string.Format("Min Length   = {0}", info.minLen));
-			b.AppendLine(string.Format("Max Length   = {0}", info.maxLen));
+			b.AppendLine(string.Format("Low          = {0}", info.LowestValue));
+			b.AppendLine(string.Format("High         = {0}", info.HighestValue));
+			b.AppendLine(string.Format("Total Count  = {0}", info.Count));
+			b.AppendLine(string.Format("Found Count  = {0}", info.NonNullCount));
+			b.AppendLine(string.Format("Total Length = {0}", info.TotalLen));
+			b.AppendLine(string.Format("Avg Length   = {0}", info.AvgLen));
+			b.AppendLine(string.Format("Min Length   = {0}", info.MinLen));
+			b.AppendLine(string.Format("Max Length   = {0}", info.MaxLen));
 
-			for (int i = 0; i < RepCalculator.algorithms.Length; i++)
+			for (int i = 0; i < RepCalculator.Algorithms.Length; i++)
 			{
 				b.AppendLine();
-				b.AppendLine(RepCalculator.algorithmNames[i]);
+				b.AppendLine(RepCalculator.AlgorithmNames[i]);
 				b.AppendLine("{");
-				b.AppendLine(string.Format("    Found Count  = {0}", info.nonNullPerAlgorithm[i]));
-				b.AppendLine(string.Format("    Total Length = {0}", info.totalLenPerAlgorithm[i]));
-				b.AppendLine(string.Format("      Avg Length = {0}", info.avgLenPerAlgorithm[i]));
-				b.AppendLine(string.Format("      Min Length = {0}", info.minLenPerAlgorithm[i]));
-				b.AppendLine(string.Format("      Max Length = {0}", info.maxLenPerAlgorithm[i]));
+				b.AppendLine(string.Format("    Found Count  = {0}", info.NonNullPerAlgorithm[i]));
+				b.AppendLine(string.Format("    Total Length = {0}", info.TotalLenPerAlgorithm[i]));
+				b.AppendLine(string.Format("      Avg Length = {0}", info.AvgLenPerAlgorithm[i]));
+				b.AppendLine(string.Format("      Min Length = {0}", info.MinLenPerAlgorithm[i]));
+				b.AppendLine(string.Format("      Max Length = {0}", info.MaxLenPerAlgorithm[i]));
 				b.AppendLine("}");
 			}
 
@@ -277,8 +276,8 @@ namespace BefunDebug.Pages
 
 			if (loaded)
 			{
-				edSafeMin.Text = FmtLongWithSpaces(safe.getLowestValue());
-				edSafeMax.Text = FmtLongWithSpaces(safe.getHighestValue());
+				edSafeMin.Text = FmtLongWithSpaces(safe.GetLowestValue());
+				edSafeMax.Text = FmtLongWithSpaces(safe.GetHighestValue());
 
 				if (!quiet)
 				{
@@ -317,8 +316,8 @@ namespace BefunDebug.Pages
 		private void btnSafeCreate_Click(object sender, EventArgs e)
 		{
 			safe = new GZipBinarySafe(SAFE_FILENAME, 0, 0);
-			safe.start();
-			safe.stop();
+			safe.Start();
+			safe.Stop();
 
 			edSafeLog.Text += string.Format("\r\n\r\nNew empty safe created in {0}:\r\n\r\n", SAFE_FILENAME);
 
@@ -331,12 +330,13 @@ namespace BefunDebug.Pages
 			{
 				var tmpFile = Path.GetTempFileName();
 
-				var args = string.Format("-safe=\"{0}\" -lower={1} -upper={2} -iterations={3} {4} -quiet -log=\"{5}\"",
+				var args = string.Format("--safe=\"{0}\" --lower={1} --upper={2} --iterations={3} {4} {5} --log=\"{6}\"",
 					SAFE_FILENAME,
 					edRepRunnerStart.Value,
 					edRepRunnerEnd.Value,
 					edRepRunnerIterations.Value,
 					cbRepRunnerTests.Checked ? "" : "-notest",
+					cbRepRunnerQuiet.Checked ? "--quiet" : "",
 					tmpFile);
 
 				var output = ProcessHelper.ProcExecute("BefunRep", args, null, true);
