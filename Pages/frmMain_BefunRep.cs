@@ -94,7 +94,7 @@ namespace BefunDebug.Pages
 
 		private void btnDebugNumberRep_Click(object sender, EventArgs e)
 		{
-			string bench = NumberCodeHelper.generateBenchmark(Convert.ToInt32(edNumberRep.Value), true);
+			string bench = NumberCodeHelper.GenerateBenchmark(Convert.ToInt32(edNumberRep.Value), true);
 
 			txtDebug.Text = bench;
 		}
@@ -104,7 +104,7 @@ namespace BefunDebug.Pages
 			string bench = String.Join(
 				Environment.NewLine,
 				NumberCodeHelper
-					.generateAllCode(Convert.ToInt64(edSingleRep.Value), true)
+					.GenerateAllCode(Convert.ToInt64(edSingleRep.Value), true)
 					.Select(p => p.Item1 + ":  " + p.Item2.ToSimpleString())
 					.ToList());
 
@@ -124,7 +124,7 @@ namespace BefunDebug.Pages
 				{
 					if (Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2)) < (CSIZE - 0.5))
 					{
-						p.replaceWalkway(CSIZE - 1 - x, CSIZE - 1 - y, BCHelper.chr('#'), false);
+						p.ReplaceWalkway(CSIZE - 1 - x, CSIZE - 1 - y, BCHelper.Chr('#'), false);
 					}
 				}
 			}

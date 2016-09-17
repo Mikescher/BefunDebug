@@ -62,7 +62,7 @@ namespace BefunDebug.Pages
 		{
 			try
 			{
-				if (MyParser.Setup(new BinaryReader(new MemoryStream(GParser.getGrammar()))))
+				if (MyParser.Setup(new BinaryReader(new MemoryStream(GParser.GetGrammar()))))
 				{
 					loaded = true;
 				}
@@ -138,12 +138,12 @@ namespace BefunDebug.Pages
 
 				try
 				{
-					BefunGen.AST.Program p = GParser.generateAST(txt);
+					BefunGen.AST.Program p = GParser.GenerateAst(txt);
 
 					log += (string.Format("AST-Gen: {0}ms\r\n", MyParser.Time));
 
 					long gdst = Environment.TickCount;
-					string debug = p.getDebugString().Replace("\n", Environment.NewLine);
+					string debug = p.GetDebugString().Replace("\n", Environment.NewLine);
 					gdst = Environment.TickCount - gdst;
 
 					asttree = debug;
@@ -155,7 +155,7 @@ namespace BefunDebug.Pages
 					asttree = e.ToString();
 				}
 
-				grammar = GParser.getGrammarDefinition();
+				grammar = GParser.GetGrammarDefinition();
 			}
 			else
 			{
@@ -221,32 +221,32 @@ namespace BefunDebug.Pages
 		{
 			string txt = String.Format("program b var  bool a; begin a = (bool)({0}); end end", expr);
 
-			BefunGen.AST.Program p = GParser.generateAST(txt);
+			BefunGen.AST.Program p = GParser.GenerateAst(txt);
 
 
-			return ((Expression_Cast)((Statement_Assignment)((Statement_StatementList)p.MainMethod.Body).List[0]).Expr).Expr;
+			return ((ExpressionCast)((StatementAssignment)((StatementStatementList)p.MainMethod.Body).List[0]).Expr).Expr;
 		}
 
 		private Statement parseStatement(string stmt)
 		{
 			string txt = String.Format("program b var  bool a; begin {0} end end", stmt);
-			BefunGen.AST.Program p = GParser.generateAST(txt);
+			BefunGen.AST.Program p = GParser.GenerateAst(txt);
 
 
-			return ((Statement_StatementList)p.MainMethod.Body).List[0];
+			return ((StatementStatementList)p.MainMethod.Body).List[0];
 		}
 
 		private Method parseMethod(string meth)
 		{
 			string txt = String.Format("program b begin end {0} end", meth);
-			BefunGen.AST.Program p = GParser.generateAST(txt);
+			BefunGen.AST.Program p = GParser.GenerateAst(txt);
 
 			return p.MethodList[1];
 		}
 
 		private BefunGen.AST.Program parseProgram(string prog)
 		{
-			BefunGen.AST.Program p = GParser.generateAST(prog);
+			BefunGen.AST.Program p = GParser.GenerateAst(prog);
 
 			return p;
 		}
@@ -262,7 +262,7 @@ namespace BefunDebug.Pages
 				txtDebug.Text += expr + Environment.NewLine;
 
 				Expression e = parseExpression(expr);
-				CodePiece pc = e.generateCode(false);
+				CodePiece pc = e.GenerateCode(false);
 				txtDebug.Text += pc.ToString() + Environment.NewLine;
 			}
 			catch (Exception e)
@@ -282,7 +282,7 @@ namespace BefunDebug.Pages
 				txtDebug.Text += stmt + Environment.NewLine;
 
 				Statement e = parseStatement(stmt);
-				CodePiece pc = e.generateCode(false);
+				CodePiece pc = e.GenerateCode(false);
 				txtDebug.Text += pc.ToString() + Environment.NewLine;
 			}
 			catch (Exception e)
@@ -305,7 +305,7 @@ namespace BefunDebug.Pages
 
 				Method e = parseMethod(meth);
 				txtDebug.Text += "[METHOD] " + e.Identifier + ":" + e.MethodAddr + Environment.NewLine;
-				CodePiece pc = e.generateCode(0, 0);
+				CodePiece pc = e.GenerateCode(0, 0);
 				txtDebug.Text += pc.ToString() + Environment.NewLine;
 			}
 			catch (Exception e)
@@ -324,7 +324,7 @@ namespace BefunDebug.Pages
 
 				BefunGen.AST.Program e = parseProgram(prog);
 				txtDebug.Text += "[PROGRAM] " + e.Identifier + Environment.NewLine;
-				CodePiece pc = e.generateCode();
+				CodePiece pc = e.GenerateCode();
 				txtDebug.Text += pc.ToString() + Environment.NewLine;
 			}
 			catch (Exception e)
@@ -362,11 +362,11 @@ namespace BefunDebug.Pages
 		{
 			try
 			{
-				BefunGen.AST.Program p = GParser.generateAST(txtSource.Document.Text);
+				BefunGen.AST.Program p = GParser.GenerateAst(txtSource.Document.Text);
 
 				try
 				{
-					txtCode.Text = p.generateCode().ToString();
+					txtCode.Text = p.GenerateCode().ToString();
 				}
 				catch (Exception ex)
 				{

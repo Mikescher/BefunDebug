@@ -77,7 +77,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="Puzzle.SyntaxBox">
-      <HintPath>..\Libraries\Puzzle.SyntaxBox.dll</HintPath>
+      <HintPath>Libraries\Puzzle.SyntaxBox.dll</HintPath>
     </Reference>
     <Reference Include="QuickGraph">
       <HintPath>..\packages\QuickGraph.3.6.61119.7\lib\net4\QuickGraph.dll</HintPath>
