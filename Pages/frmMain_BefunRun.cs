@@ -33,19 +33,27 @@ namespace BefunDebug.Pages
 
 		private void btnRun_Click(object sender, EventArgs e)
 		{
-			int errorlevel = cbxErrorLevel.SelectedIndex;
-			int limit = (int) edLimit.Value;
-			string code = edInputCode.Text;
-			string path = Path.Combine(Path.GetTempPath(), Guid.NewGuid() + ".b93");
-			File.WriteAllText(path, code);
+			try
+			{
+				int errorlevel = cbxErrorLevel.SelectedIndex;
+				int limit = (int)edLimit.Value;
+				string code = edInputCode.Text;
+				string path = Path.Combine(Path.GetTempPath(), Guid.NewGuid() + ".b93");
+				File.WriteAllText(path, code);
 
-			var result = ProcessHelper.ProcExecute("BefunRun", $"\"{path}\" --errorlevel={errorlevel} --limit={limit}" + (cbInfoRun.Checked ? " --info" : ""));
+				var result = ProcessHelper.ProcExecute("BefunRun", $"\"{path}\" --errorlevel={errorlevel} --limit={limit}" + (cbInfoRun.Checked ? " --info" : ""));
 
-			File.Delete(path);
+				File.Delete(path);
 
-			edReturnCode.Text = result.ExitCode.ToString();
-			edStdOut.Text = result.StdOut;
-			edStdErr.Text = result.StdErr;
+				edReturnCode.Text = result.ExitCode.ToString();
+				edStdOut.Text = result.StdOut;
+				edStdErr.Text = result.StdErr;
+			}
+			catch (Exception ex)
+			{
+				edStdErr.Text = ex.ToString();
+				edReturnCode.Text = "INTERNAL ERR";
+			}
 		}
 
 		private void btnAllInfo_Click(object sender, EventArgs e)
