@@ -312,7 +312,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BefunCompile\BefunCompile.csproj">
+    <ProjectReference Include="..\BefunCompile\BefunCompile\BefunCompile.csproj">
       <Project>{ecfe8d28-f8a6-4c2b-9202-c0e47a4ff906}</Project>
       <Name>BefunCompile</Name>
     </ProjectReference>
