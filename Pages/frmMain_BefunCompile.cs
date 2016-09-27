@@ -127,7 +127,7 @@ namespace BefunDebug.Pages
 		{
 			try
 			{
-				var console = new StringBuilder();
+				var console = new StringBuilderReciever();
 
 				var comp = new BefunCompiler(memoCompileInput.Text, cbIgnoreSelfModification.Checked, GetCGOptions());
 

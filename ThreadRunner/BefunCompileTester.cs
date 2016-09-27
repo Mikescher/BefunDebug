@@ -1,11 +1,11 @@
 ﻿using BefunCompile;
 using BefunCompile.CodeGeneration;
+using BefunCompile.CodeGeneration.Compiler;
 using BefunCompile.CodeGeneration.Generator;
 using BefunDebug.BCTestData;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Windows.Forms;
 using CodeCompiler = BefunCompile.CodeGeneration.Compiler.CodeCompiler;
 
@@ -77,7 +77,7 @@ namespace BefunDebug.ThreadRunner
 				try
 				{
 					timeCompile = Environment.TickCount;
-					var consoleBuilder = new StringBuilder();
+					var consoleBuilder = new StringBuilderReciever();
 					CodeCompiler.Compile(lang, gencode, file, consoleBuilder);
 					timeCompile = Environment.TickCount - timeCompile;
 					if (consoleBuilder.Length > 0)
