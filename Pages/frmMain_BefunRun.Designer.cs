@@ -172,7 +172,7 @@
 			this.btnRun.Name = "btnRun";
 			this.btnRun.Size = new System.Drawing.Size(144, 23);
 			this.btnRun.TabIndex = 4;
-			this.btnRun.Text = "Run with BefunExec";
+			this.btnRun.Text = "Run";
 			this.btnRun.UseVisualStyleBackColor = true;
 			this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
 			// 

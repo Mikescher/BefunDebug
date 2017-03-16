@@ -3,6 +3,7 @@ using BefunDebug.Helper;
 using BefunDebug.ThreadRunner;
 using System;
 using System.IO;
+using System.Text;
 using System.Windows.Forms;
 
 namespace BefunDebug.Pages
@@ -37,9 +38,9 @@ namespace BefunDebug.Pages
 			{
 				int errorlevel = cbxErrorLevel.SelectedIndex;
 				int limit = (int)edLimit.Value;
-				string code = edInputCode.Text;
+				string code = edInputCode.Text.Replace('¤', 'E');
 				string path = Path.Combine(Path.GetTempPath(), Guid.NewGuid() + ".b93");
-				File.WriteAllText(path, code);
+				File.WriteAllText(path, code, Encoding.ASCII);
 
 				var result = ProcessHelper.ProcExecute("BefunRun", $"\"{path}\" --errorlevel={errorlevel} --limit={limit}" + (cbInfoRun.Checked ? " --info" : ""));
 

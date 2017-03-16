@@ -4,6 +4,7 @@ using BefunGen.AST.CodeGen;
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
@@ -341,7 +342,7 @@ namespace BefunDebug.Pages
 
 				string path = Path.Combine(Application.StartupPath, "code_tmp.tfd");
 
-				File.WriteAllText(path, code);
+				File.WriteAllText(path, code, Encoding.UTF8);
 
 				//-----
 
@@ -356,6 +357,30 @@ namespace BefunDebug.Pages
 			{
 				txtCode.Text = ex.ToString();
 			}
+		}
+
+		private void btnRun2_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				BefunGen.AST.Program p = GParser.GenerateAst(txtSource.Document.Text);
+				txtCode.Text = p.GenerateCode().ToSimpleString();
+
+				string code = txtCode.Text.Replace('¤', 'A');
+				string path = Path.Combine(Path.GetTempPath(), Guid.NewGuid() + ".b93");
+				File.WriteAllText(path, code, Encoding.ASCII);
+
+				var result = ProcessHelper.ProcExecute("BefunRun", $"\"{path}\" --errorlevel=3 --limit={5*1000*1000}");
+
+				File.Delete(path);
+
+				tbCodeOut.Text = (result.StdOut + "\r\n" + result.StdErr).Trim();
+			}
+			catch (Exception e2)
+			{
+				tbCodeOut.Text = e2.ToString();
+			}
+
 		}
 
 		private void btnGen_Click(object sender, EventArgs e)

@@ -56,6 +56,8 @@
 			this.btnRun = new System.Windows.Forms.Button();
 			this.cbxCodePieceStore = new System.Windows.Forms.ComboBox();
 			this.btnCodePieceStorePreview = new System.Windows.Forms.Button();
+			this.btnRun2 = new System.Windows.Forms.Button();
+			this.tbCodeOut = new System.Windows.Forms.TextBox();
 			this.tabPage7 = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.txtDebugIn = new System.Windows.Forms.TextBox();
@@ -399,12 +401,15 @@
 			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel4.Controls.Add(this.btnGen, 0, 0);
 			this.tableLayoutPanel4.Controls.Add(this.btnRun, 0, 1);
-			this.tableLayoutPanel4.Controls.Add(this.cbxCodePieceStore, 0, 3);
-			this.tableLayoutPanel4.Controls.Add(this.btnCodePieceStorePreview, 0, 4);
+			this.tableLayoutPanel4.Controls.Add(this.cbxCodePieceStore, 0, 4);
+			this.tableLayoutPanel4.Controls.Add(this.btnCodePieceStorePreview, 0, 5);
+			this.tableLayoutPanel4.Controls.Add(this.btnRun2, 0, 2);
+			this.tableLayoutPanel4.Controls.Add(this.tbCodeOut, 0, 6);
 			this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-			this.tableLayoutPanel4.RowCount = 6;
+			this.tableLayoutPanel4.RowCount = 7;
+			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -432,7 +437,7 @@
 			this.btnRun.Name = "btnRun";
 			this.btnRun.Size = new System.Drawing.Size(208, 26);
 			this.btnRun.TabIndex = 1;
-			this.btnRun.Text = "Run";
+			this.btnRun.Text = "Run (BefunExec)";
 			this.btnRun.UseVisualStyleBackColor = true;
 			this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
 			// 
@@ -441,7 +446,7 @@
 			this.cbxCodePieceStore.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.cbxCodePieceStore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbxCodePieceStore.FormattingEnabled = true;
-			this.cbxCodePieceStore.Location = new System.Drawing.Point(3, 87);
+			this.cbxCodePieceStore.Location = new System.Drawing.Point(3, 119);
 			this.cbxCodePieceStore.Name = "cbxCodePieceStore";
 			this.cbxCodePieceStore.Size = new System.Drawing.Size(208, 21);
 			this.cbxCodePieceStore.TabIndex = 2;
@@ -449,13 +454,33 @@
 			// btnCodePieceStorePreview
 			// 
 			this.btnCodePieceStorePreview.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnCodePieceStorePreview.Location = new System.Drawing.Point(3, 119);
+			this.btnCodePieceStorePreview.Location = new System.Drawing.Point(3, 151);
 			this.btnCodePieceStorePreview.Name = "btnCodePieceStorePreview";
 			this.btnCodePieceStorePreview.Size = new System.Drawing.Size(208, 26);
 			this.btnCodePieceStorePreview.TabIndex = 3;
 			this.btnCodePieceStorePreview.Text = "Preview";
 			this.btnCodePieceStorePreview.UseVisualStyleBackColor = true;
 			this.btnCodePieceStorePreview.Click += new System.EventHandler(this.btnCodePieceStorePreview_Click);
+			// 
+			// btnRun2
+			// 
+			this.btnRun2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnRun2.Location = new System.Drawing.Point(3, 67);
+			this.btnRun2.Name = "btnRun2";
+			this.btnRun2.Size = new System.Drawing.Size(208, 26);
+			this.btnRun2.TabIndex = 4;
+			this.btnRun2.Text = "Run (BefunRun)";
+			this.btnRun2.UseVisualStyleBackColor = true;
+			this.btnRun2.Click += new System.EventHandler(this.btnRun2_Click);
+			// 
+			// tbCodeOut
+			// 
+			this.tbCodeOut.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tbCodeOut.Location = new System.Drawing.Point(3, 183);
+			this.tbCodeOut.Multiline = true;
+			this.tbCodeOut.Name = "tbCodeOut";
+			this.tbCodeOut.Size = new System.Drawing.Size(208, 72);
+			this.tbCodeOut.TabIndex = 5;
 			// 
 			// tabPage7
 			// 
@@ -609,6 +634,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
 			this.splitContainer2.ResumeLayout(false);
 			this.tableLayoutPanel4.ResumeLayout(false);
+			this.tableLayoutPanel4.PerformLayout();
 			this.tabPage7.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
@@ -655,5 +681,7 @@
 		private System.Windows.Forms.Button btnGenStmt;
 		private System.Windows.Forms.Button btnGenSub;
 		private System.Windows.Forms.Button btnGenProg;
+		private System.Windows.Forms.Button btnRun2;
+		private System.Windows.Forms.TextBox tbCodeOut;
 	}
 }
