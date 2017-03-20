@@ -9,6 +9,7 @@
 		<Bracket Start="if" End="end" Style="Keyword"/>
 		<Bracket Start="(" End=")" Style="Code"/>
 		<Bracket Start="[" End="]" Style="Code"/>
+		<Bracket Start="&lt;" End="&gt;" Style="Code"/>
 		<Bracket Start="{" End="}" Style="Code"/>
 		<!-- Keywords that can exist inside this block -->
 		<Keywords>
