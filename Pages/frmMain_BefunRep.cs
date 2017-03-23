@@ -248,21 +248,27 @@ namespace BefunDebug.Pages
 		private void ReloadSafe(bool quiet = false)
 		{
 			Stopwatch sw = Stopwatch.StartNew();
-			string error = "";
+			string error = null;
 
-			try
+			if (!File.Exists(SAFE_FILENAME))
 			{
-				if (!File.Exists(SAFE_FILENAME)) throw new FileNotFoundException();
-
-				safe = new GZipBinarySafe(SAFE_FILENAME, 0, 0);
-				safe.LightLoad();
-			}
-			catch (Exception e)
-			{
-				error = e.ToString();
 				safe = null;
-				if (e is FileNotFoundException) error = null;
 			}
+			else
+			{
+				try
+				{
+					safe = new GZipBinarySafe(SAFE_FILENAME, 0, 0);
+					safe.LightLoad();
+				}
+				catch (Exception e)
+				{
+					error = e.ToString();
+					safe = null;
+					if (e is FileNotFoundException) error = null;
+				}
+			}
+
 
 			bool loaded = (safe != null);
 

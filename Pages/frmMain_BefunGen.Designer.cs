@@ -67,6 +67,7 @@
 			this.btnGenStmt = new System.Windows.Forms.Button();
 			this.btnGenSub = new System.Windows.Forms.Button();
 			this.btnGenProg = new System.Windows.Forms.Button();
+			this.cbCodePieceStoreReverse = new System.Windows.Forms.CheckBox();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -397,14 +398,16 @@
 			// 
 			// tableLayoutPanel4
 			// 
-			this.tableLayoutPanel4.ColumnCount = 1;
+			this.tableLayoutPanel4.ColumnCount = 2;
 			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel4.Controls.Add(this.btnGen, 0, 0);
 			this.tableLayoutPanel4.Controls.Add(this.btnRun, 0, 1);
 			this.tableLayoutPanel4.Controls.Add(this.cbxCodePieceStore, 0, 4);
 			this.tableLayoutPanel4.Controls.Add(this.btnCodePieceStorePreview, 0, 5);
 			this.tableLayoutPanel4.Controls.Add(this.btnRun2, 0, 2);
 			this.tableLayoutPanel4.Controls.Add(this.tbCodeOut, 0, 6);
+			this.tableLayoutPanel4.Controls.Add(this.cbCodePieceStoreReverse, 1, 4);
 			this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -421,6 +424,7 @@
 			// 
 			// btnGen
 			// 
+			this.tableLayoutPanel4.SetColumnSpan(this.btnGen, 2);
 			this.btnGen.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnGen.Location = new System.Drawing.Point(3, 3);
 			this.btnGen.Name = "btnGen";
@@ -432,6 +436,7 @@
 			// 
 			// btnRun
 			// 
+			this.tableLayoutPanel4.SetColumnSpan(this.btnRun, 2);
 			this.btnRun.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnRun.Location = new System.Drawing.Point(3, 35);
 			this.btnRun.Name = "btnRun";
@@ -448,11 +453,12 @@
 			this.cbxCodePieceStore.FormattingEnabled = true;
 			this.cbxCodePieceStore.Location = new System.Drawing.Point(3, 119);
 			this.cbxCodePieceStore.Name = "cbxCodePieceStore";
-			this.cbxCodePieceStore.Size = new System.Drawing.Size(208, 21);
+			this.cbxCodePieceStore.Size = new System.Drawing.Size(188, 21);
 			this.cbxCodePieceStore.TabIndex = 2;
 			// 
 			// btnCodePieceStorePreview
 			// 
+			this.tableLayoutPanel4.SetColumnSpan(this.btnCodePieceStorePreview, 2);
 			this.btnCodePieceStorePreview.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnCodePieceStorePreview.Location = new System.Drawing.Point(3, 151);
 			this.btnCodePieceStorePreview.Name = "btnCodePieceStorePreview";
@@ -464,6 +470,7 @@
 			// 
 			// btnRun2
 			// 
+			this.tableLayoutPanel4.SetColumnSpan(this.btnRun2, 2);
 			this.btnRun2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnRun2.Location = new System.Drawing.Point(3, 67);
 			this.btnRun2.Name = "btnRun2";
@@ -475,6 +482,7 @@
 			// 
 			// tbCodeOut
 			// 
+			this.tableLayoutPanel4.SetColumnSpan(this.tbCodeOut, 2);
 			this.tbCodeOut.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tbCodeOut.Location = new System.Drawing.Point(3, 183);
 			this.tbCodeOut.Multiline = true;
@@ -600,6 +608,16 @@
 			this.btnGenProg.UseVisualStyleBackColor = true;
 			this.btnGenProg.Click += new System.EventHandler(this.btnGenProg_Click);
 			// 
+			// cbCodePieceStoreReverse
+			// 
+			this.cbCodePieceStoreReverse.AutoSize = true;
+			this.cbCodePieceStoreReverse.Location = new System.Drawing.Point(197, 119);
+			this.cbCodePieceStoreReverse.Name = "cbCodePieceStoreReverse";
+			this.cbCodePieceStoreReverse.Size = new System.Drawing.Size(14, 17);
+			this.cbCodePieceStoreReverse.TabIndex = 6;
+			this.cbCodePieceStoreReverse.Text = "checkBox1";
+			this.cbCodePieceStoreReverse.UseVisualStyleBackColor = true;
+			// 
 			// frmMain_BefunGen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -683,5 +701,6 @@
 		private System.Windows.Forms.Button btnGenProg;
 		private System.Windows.Forms.Button btnRun2;
 		private System.Windows.Forms.TextBox tbCodeOut;
+		private System.Windows.Forms.CheckBox cbCodePieceStoreReverse;
 	}
 }

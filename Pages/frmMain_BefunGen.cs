@@ -263,7 +263,7 @@ namespace BefunDebug.Pages
 				txtDebug.Text += expr + Environment.NewLine;
 
 				Expression e = parseExpression(expr);
-				CodePiece pc = e.GenerateCode(false);
+				CodePiece pc = e.GenerateCode(CodeGenEnvironment.CreateDummy(), false);
 				txtDebug.Text += pc.ToString() + Environment.NewLine;
 			}
 			catch (Exception e)
@@ -283,7 +283,7 @@ namespace BefunDebug.Pages
 				txtDebug.Text += stmt + Environment.NewLine;
 
 				Statement e = parseStatement(stmt);
-				CodePiece pc = e.GenerateCode(false);
+				CodePiece pc = e.GenerateCode(CodeGenEnvironment.CreateDummy(), false);
 				txtDebug.Text += pc.ToString() + Environment.NewLine;
 			}
 			catch (Exception e)
@@ -306,7 +306,7 @@ namespace BefunDebug.Pages
 
 				Method e = parseMethod(meth);
 				txtDebug.Text += "[METHOD] " + e.Identifier + ":" + e.MethodAddr + Environment.NewLine;
-				CodePiece pc = e.GenerateCode(0, 0);
+				CodePiece pc = e.GenerateCode(CodeGenEnvironment.CreateDummy(), 0, 0);
 				txtDebug.Text += pc.ToString() + Environment.NewLine;
 			}
 			catch (Exception e)
@@ -407,7 +407,7 @@ namespace BefunDebug.Pages
 
 		private void btnCodePieceStorePreview_Click(object sender, EventArgs e)
 		{
-			var code = CodePieceStore.CODEPIECES[cbxCodePieceStore.SelectedIndex].Function();
+			var code = CodePieceStore.CODEPIECES[cbxCodePieceStore.SelectedIndex].Function(cbCodePieceStoreReverse.Checked);
 
 			txtCode.Text = code.ToSimpleString();
 		}
