@@ -102,12 +102,38 @@ namespace BefunDebug.Pages
 			{
 				var comp = new BefunCompiler(memoCompileInput.Text, cbIgnoreSelfModification.Checked, GetCGOptions());
 
-				foreach (var lang in (OutputLanguage[]) Enum.GetValues(typeof (OutputLanguage)))
+				BCGraph g = null;
+
+				Dictionary<OutputLanguage, long> timings = new Dictionary<OutputLanguage, long>();
+
+				foreach (var lang in (OutputLanguage[]) Enum.GetValues(typeof(OutputLanguage))) outputTextBoxes[lang].Text = "";
+
+				foreach (var lang in GetCheckedLanguages())
 				{
-					outputTextBoxes[lang].Text = comp.GenerateCode(lang);
+					var sw = Stopwatch.StartNew();
+					outputTextBoxes[lang].Text = comp.GenerateCode(lang, out g);
+					timings[lang] = sw.ElapsedMilliseconds;
 				}
 
 				tabCompileControl.SelectedIndex = 3;
+
+				memoCompileLog.Text = "";
+
+				foreach (var t in timings) memoCompileLog.Text += $"Time {t.Key,-10}: {t.Value}ms{Environment.NewLine}";
+
+				memoCompileLog.Text += Environment.NewLine;
+				memoCompileLog.Text += Environment.NewLine;
+				memoCompileLog.Text += "Used Optimizations";
+				memoCompileLog.Text += Environment.NewLine;
+				memoCompileLog.Text += "==================";
+				memoCompileLog.Text += Environment.NewLine;
+				if (g != null)
+				{
+					foreach (var item in g.UsedOptimizations)
+					{
+						memoCompileLog.Text += item + Environment.NewLine;
+					}
+				}
 			}
 			catch (Exception exc)
 			{
@@ -131,22 +157,30 @@ namespace BefunDebug.Pages
 
 				var comp = new BefunCompiler(memoCompileInput.Text, cbIgnoreSelfModification.Checked, GetCGOptions());
 
+				memoCompileLog.Text = "";
+
+				var sw0 = Stopwatch.StartNew();
 				var graph = comp.GENERATION_LEVELS[cbxCompileLevel.SelectedIndex].Run();
+				memoCompileLog.Text = $"[Execute] Time(BefunGen) = {sw0.ElapsedMilliseconds}ms\r\n\r\n";
+
 
 				foreach (var lang in GetCheckedLanguages())
 				{
 					try
 					{
+						var sw = Stopwatch.StartNew();
+
 						var code = CodeGenerator.GenerateCode(lang, graph, GetCGOptions());
 
 						var output = CodeCompiler.ExecuteCode(lang, code, console);
 
-						memoCompileLog.Text += string.Format("[Execute {0}]\r\n{1}\r\n\r\n", CodeCompiler.GetAcronym(lang), output.TrimEnd('\r', '\n'));
+						memoCompileLog.Text += string.Format($"[Execute {CodeCompiler.GetAcronym(lang)}]\r\n{output.TrimEnd('\r', '\n')}\r\n");
+						memoCompileLog.Text += string.Format($"[Execute {CodeCompiler.GetAcronym(lang)}] Time = {sw.ElapsedMilliseconds}ms\r\n\r\n");
 
 					}
 					catch (Exception exc)
 					{
-						memoCompileLog.Text += string.Format("[Execute {0}]\r\nERROR: {1}\r\n\r\n", CodeCompiler.GetAcronym(lang), exc);
+						memoCompileLog.Text += string.Format($"[Execute {CodeCompiler.GetAcronym(lang)}]\r\nERROR: {exc}\r\n\r\n");
 						tabCompileControl.SelectedIndex = 4;
 					}
 
@@ -296,7 +330,9 @@ namespace BefunDebug.Pages
 				var comp = new BefunCompiler(memoCompileInput.Text, cbIgnoreSelfModification.Checked, GetCGOptions());
 
 				var craph = comp.GENERATION_LEVELS[cbxCompileLevel.SelectedIndex].Run();
-				
+
+				foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage))) outputTextBoxes[lang].Text = "";
+
 				foreach (var lang in GetCheckedLanguages())
 				{
 					string code = CodeGenerator.GenerateCode(lang, craph, GetCGOptions());

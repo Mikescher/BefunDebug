@@ -49,8 +49,8 @@ namespace BefunDebug.ThreadRunner
 				var cellSysvar = graph.Variables.Count(p => !p.isUserDefinied);
 				var cellSysscopes = graph.Variables.Where(p => !p.isUserDefinied).Sum(p => p.Scope.Count);
 				var cellSystotal = string.Format("{0,-3} ({1})", cellSysvar, cellSysscopes);
-				var cellStackAcc = graph.Vertices.Count(p => !p.IsNotStackAccess());
-				var cellVarAcc = graph.Vertices.Count(p => !p.IsNotVariableAccess());
+				var cellStackAcc = graph.Vertices.Count(p => p.IsStackAccess());
+				var cellVarAcc = graph.Vertices.Count(p => p.IsVariableAccess());
 				var cellSize = graph.GetAllCodePositions().Count;
 				var cellCycles = string.Join(" ", compiler.LogCycles.Select(p => string.Format("{0,3}", p)));
 				var cellTime = swTime.ToString();

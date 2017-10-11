@@ -129,8 +129,8 @@ namespace BefunDebug.Graph
 			var vars = bcGraph.Variables.Count;
 			var vars_user = bcGraph.Variables.Count(p => p.isUserDefinied);
 			var vars_system = bcGraph.Variables.Count(p => !p.isUserDefinied);
-			var stackacc = bcGraph.Vertices.Count(p => !p.IsNotStackAccess());
-			var varacc = bcGraph.Vertices.Count(p => !p.IsNotVariableAccess());
+			var stackacc = bcGraph.Vertices.Count(p => p.IsStackAccess());
+			var varacc = bcGraph.Vertices.Count(p => p.IsVariableAccess());
 			var positions = bcGraph.GetAllCodePositions();
 
 			GInfo = string.Format("{0} {1}.  {2} {3}.  {4} {5}." + "\r\n"
