@@ -119,5 +119,11 @@ namespace BefunDebug.ThreadRunner
 
 			return true;
 		}
+
+		protected override void OnStop()
+		{
+			var p = ProcessLauncher.CurrentProcess;
+			if (p != null && !p.HasExited) p.Kill();
+		}
 	}
 }

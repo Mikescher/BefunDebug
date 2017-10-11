@@ -58,6 +58,11 @@
 			this.btnCodePieceStorePreview = new System.Windows.Forms.Button();
 			this.btnRun2 = new System.Windows.Forms.Button();
 			this.tbCodeOut = new System.Windows.Forms.TextBox();
+			this.cbCodePieceStoreReverse = new System.Windows.Forms.CheckBox();
+			this.tabPage8 = new System.Windows.Forms.TabPage();
+			this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+			this.btnDirectRun = new System.Windows.Forms.Button();
+			this.edDirectRun = new System.Windows.Forms.TextBox();
 			this.tabPage7 = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.txtDebugIn = new System.Windows.Forms.TextBox();
@@ -67,7 +72,6 @@
 			this.btnGenStmt = new System.Windows.Forms.Button();
 			this.btnGenSub = new System.Windows.Forms.Button();
 			this.btnGenProg = new System.Windows.Forms.Button();
-			this.cbCodePieceStoreReverse = new System.Windows.Forms.CheckBox();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -86,6 +90,8 @@
 			this.splitContainer2.Panel2.SuspendLayout();
 			this.splitContainer2.SuspendLayout();
 			this.tableLayoutPanel4.SuspendLayout();
+			this.tabPage8.SuspendLayout();
+			this.tableLayoutPanel6.SuspendLayout();
 			this.tabPage7.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel5.SuspendLayout();
@@ -230,6 +236,7 @@
 			this.tabBefunGenControl.Controls.Add(this.tabPage4);
 			this.tabBefunGenControl.Controls.Add(this.tabPage5);
 			this.tabBefunGenControl.Controls.Add(this.tabPage6);
+			this.tabBefunGenControl.Controls.Add(this.tabPage8);
 			this.tabBefunGenControl.Controls.Add(this.tabPage7);
 			this.tabBefunGenControl.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabBefunGenControl.Location = new System.Drawing.Point(0, 0);
@@ -490,6 +497,65 @@
 			this.tbCodeOut.Size = new System.Drawing.Size(208, 72);
 			this.tbCodeOut.TabIndex = 5;
 			// 
+			// cbCodePieceStoreReverse
+			// 
+			this.cbCodePieceStoreReverse.AutoSize = true;
+			this.cbCodePieceStoreReverse.Location = new System.Drawing.Point(197, 119);
+			this.cbCodePieceStoreReverse.Name = "cbCodePieceStoreReverse";
+			this.cbCodePieceStoreReverse.Size = new System.Drawing.Size(14, 17);
+			this.cbCodePieceStoreReverse.TabIndex = 6;
+			this.cbCodePieceStoreReverse.Text = "checkBox1";
+			this.cbCodePieceStoreReverse.UseVisualStyleBackColor = true;
+			// 
+			// tabPage8
+			// 
+			this.tabPage8.Controls.Add(this.tableLayoutPanel6);
+			this.tabPage8.Location = new System.Drawing.Point(4, 4);
+			this.tabPage8.Name = "tabPage8";
+			this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage8.Size = new System.Drawing.Size(792, 264);
+			this.tabPage8.TabIndex = 7;
+			this.tabPage8.Text = "Runner";
+			this.tabPage8.UseVisualStyleBackColor = true;
+			// 
+			// tableLayoutPanel6
+			// 
+			this.tableLayoutPanel6.ColumnCount = 2;
+			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+			this.tableLayoutPanel6.Controls.Add(this.btnDirectRun, 1, 1);
+			this.tableLayoutPanel6.Controls.Add(this.edDirectRun, 0, 0);
+			this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
+			this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+			this.tableLayoutPanel6.RowCount = 2;
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableLayoutPanel6.Size = new System.Drawing.Size(786, 258);
+			this.tableLayoutPanel6.TabIndex = 0;
+			// 
+			// btnDirectRun
+			// 
+			this.btnDirectRun.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnDirectRun.Location = new System.Drawing.Point(689, 231);
+			this.btnDirectRun.Name = "btnDirectRun";
+			this.btnDirectRun.Size = new System.Drawing.Size(94, 24);
+			this.btnDirectRun.TabIndex = 0;
+			this.btnDirectRun.Text = "Run Direct";
+			this.btnDirectRun.UseVisualStyleBackColor = true;
+			this.btnDirectRun.Click += new System.EventHandler(this.btnDirectRun_Click);
+			// 
+			// edDirectRun
+			// 
+			this.tableLayoutPanel6.SetColumnSpan(this.edDirectRun, 2);
+			this.edDirectRun.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.edDirectRun.Location = new System.Drawing.Point(3, 3);
+			this.edDirectRun.Multiline = true;
+			this.edDirectRun.Name = "edDirectRun";
+			this.edDirectRun.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.edDirectRun.Size = new System.Drawing.Size(780, 222);
+			this.edDirectRun.TabIndex = 1;
+			// 
 			// tabPage7
 			// 
 			this.tabPage7.Controls.Add(this.tableLayoutPanel1);
@@ -608,16 +674,6 @@
 			this.btnGenProg.UseVisualStyleBackColor = true;
 			this.btnGenProg.Click += new System.EventHandler(this.btnGenProg_Click);
 			// 
-			// cbCodePieceStoreReverse
-			// 
-			this.cbCodePieceStoreReverse.AutoSize = true;
-			this.cbCodePieceStoreReverse.Location = new System.Drawing.Point(197, 119);
-			this.cbCodePieceStoreReverse.Name = "cbCodePieceStoreReverse";
-			this.cbCodePieceStoreReverse.Size = new System.Drawing.Size(14, 17);
-			this.cbCodePieceStoreReverse.TabIndex = 6;
-			this.cbCodePieceStoreReverse.Text = "checkBox1";
-			this.cbCodePieceStoreReverse.UseVisualStyleBackColor = true;
-			// 
 			// frmMain_BefunGen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -653,6 +709,9 @@
 			this.splitContainer2.ResumeLayout(false);
 			this.tableLayoutPanel4.ResumeLayout(false);
 			this.tableLayoutPanel4.PerformLayout();
+			this.tabPage8.ResumeLayout(false);
+			this.tableLayoutPanel6.ResumeLayout(false);
+			this.tableLayoutPanel6.PerformLayout();
 			this.tabPage7.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
@@ -702,5 +761,9 @@
 		private System.Windows.Forms.Button btnRun2;
 		private System.Windows.Forms.TextBox tbCodeOut;
 		private System.Windows.Forms.CheckBox cbCodePieceStoreReverse;
+		private System.Windows.Forms.TabPage tabPage8;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+		private System.Windows.Forms.Button btnDirectRun;
+		private System.Windows.Forms.TextBox edDirectRun;
 	}
 }

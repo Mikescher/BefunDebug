@@ -34,6 +34,8 @@ namespace BefunDebug.ThreadRunner
 
 				ForceStop = true;
 
+				OnStop();
+
 				int i = 0;
 				while (running)
 				{
@@ -77,6 +79,8 @@ namespace BefunDebug.ThreadRunner
 		protected abstract string GetButtonTextStop(T data);
 		
 		protected abstract bool RunAction(T data);
+
+		protected virtual void OnStop() { }
 
 		protected void Output(TextBox box, string line)
 		{

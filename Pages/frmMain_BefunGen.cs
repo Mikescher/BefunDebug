@@ -1,6 +1,8 @@
 ﻿using BefunDebug.Helper;
 using BefunGen.AST;
 using BefunGen.AST.CodeGen;
+using BefunGen.AST.DirectRun;
+using BefunGen.AST.Exceptions;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -430,6 +432,31 @@ namespace BefunDebug.Pages
 		private void btnGenProg_Click(object sender, EventArgs e)
 		{
 			debugProgram(txtDebugIn.Text);
+		}
+
+		private void btnDirectRun_Click(object sender, EventArgs e)
+		{
+			edDirectRun.Text = "";
+
+			try
+			{
+				string inputCode = txtSource.Document.Text;
+
+				var prog = GParser.GenerateAst(inputCode);
+				var env = new RunnerEnvironment();
+
+				prog.RunDirect(env, "");
+
+				edDirectRun.Text = env.Output.ToString();
+			}
+			catch (BefunGenException ex)
+			{
+				edDirectRun.Text = "Error while compiling:\n\n" + ex;
+			}
+			catch (Exception ex)
+			{
+				edDirectRun.Text = "Internal error:\n\n" + ex;
+			}
 		}
 	}
 }
