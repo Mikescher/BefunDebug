@@ -6,12 +6,13 @@
 			 xmlns:graphsharp="clr-namespace:GraphSharp.Controls;assembly=GraphSharp.Controls"
 			 xmlns:zoom="clr-namespace:WPFExtensions.Controls;assembly=WPFExtensions"
 			 xmlns:graph="clr-namespace:BefunDebug.Graph"
+			 xmlns:helper="clr-namespace:BefunDebug.Helper"
 			 mc:Ignorable="d" 
 			 d:DesignHeight="300" d:DesignWidth="500">
 
 	<UserControl.Resources>
 		<DataTemplate x:Key="demoTemplate" DataType="{x:Type graph:PocVertex}">
-			<Border x:Name="brdr" BorderBrush="White" Background="Black" BorderThickness="2" CornerRadius="10">
+			<Border x:Name="brdr" BorderBrush="White" Background="Black" BorderThickness="2" CornerRadius="10" MouseDown="OnSelectVertex">
 				<StackPanel Orientation="Horizontal" Margin="5">
 					<TextBlock Text="{Binding Path=ID, Mode=OneWay}" Foreground="White" />
 				</StackPanel>
@@ -71,12 +72,41 @@
 		</StackPanel>
 		
 		<zoom:ZoomControl  Grid.Row="1"  Zoom="0.2" ZoomBoxOpacity="0.5" Background="#ff656565">
-			<graph:PocGraphLayout x:Name="graphLayout" Margin="10"
+			<graph:PocGraphLayout 
+				x:Name="graphLayout" 
+				Margin="10"
 				Graph="{Binding Path=Graph}"
 				LayoutAlgorithmType="{Binding Path=LayoutAlgorithmType, Mode=OneWay}"
 				OverlapRemovalAlgorithmType="FSA"
-				HighlightAlgorithmType="Simple" />
+				HighlightAlgorithmType="Simple">
+			</graph:PocGraphLayout>
 		</zoom:ZoomControl>
-		<TextBlock Grid.Row="2" VerticalAlignment="Center" Text="{Binding GInfo}" TextWrapping="Wrap" Padding="4"/>
+		<Grid Grid.Row="2">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+
+			<TextBlock 
+				Grid.Column="0" 
+				VerticalAlignment="Center" 
+				Text="{Binding GInfo1}" 
+				TextWrapping="Wrap" 
+				Padding="4"/>
+
+			<helper:NoSizeDecorator Grid.Column="1" >
+				<ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Hidden" >
+					<TextBox 
+					VerticalAlignment="Center" 
+					Text="{Binding GInfo2}" 
+					FontFamily="Courier New"
+					Padding="4" 
+					Background="Transparent" 
+					BorderThickness="0" 
+					IsReadOnly="True"/>
+				</ScrollViewer>
+			</helper:NoSizeDecorator>
+
+		</Grid>
 	</Grid>
 </UserControl>

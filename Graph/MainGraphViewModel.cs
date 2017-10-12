@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using BefunCompile.Graph;
 using BefunCompile.Graph.Vertex;
+using System.Text;
 
 namespace BefunDebug.Graph
 {
@@ -11,14 +12,19 @@ namespace BefunDebug.Graph
 	{
 		private BCGraph bcGraph;
 
-		#region Data
 		private string layoutAlgorithmType;
-		private string graphInfo;
+		private string graphInfo = "";
+		private string vertexInfo = "";
 		private PocGraph graph;
 		private List<String> layoutAlgorithmTypes = new List<string>();
-		#endregion
 
-		#region Ctor
+		private PocVertex _selectedVertex;
+		public PocVertex SelectedVertex
+		{
+			get { return _selectedVertex; }
+			set { _selectedVertex = value; OnSelectionChanged(); }
+		}
+
 		public MainGraphViewModel()
 		{
 			bcGraph = new BCGraph(new long[,] { { } }, 0, 0);
@@ -38,9 +44,6 @@ namespace BefunDebug.Graph
 			//Pick a default Layout Algorithm Type
 			LayoutAlgorithmType = "KK";
 		}
-		#endregion
-
-		#region Public Properties
 
 		public List<String> LayoutAlgorithmTypes
 		{
@@ -57,13 +60,23 @@ namespace BefunDebug.Graph
 			}
 		}
 
-		public string GInfo
+		public string GInfo1
 		{
 			get { return graphInfo; }
 			set
 			{
 				graphInfo = value;
-				NotifyPropertyChanged("GInfo");
+				NotifyPropertyChanged("GInfo1");
+			}
+		}
+
+		public string GInfo2
+		{
+			get { return vertexInfo; }
+			set
+			{
+				vertexInfo = value;
+				NotifyPropertyChanged("GInfo2");
 			}
 		}
 
@@ -74,26 +87,19 @@ namespace BefunDebug.Graph
 			{
 				graph = value;
 				NotifyPropertyChanged("Graph");
-				updateInfo();
+				UpdateInfo();
+				SelectedVertex = null;
 			}
 		}
-		#endregion
-
-		#region INotifyPropertyChanged Implementation
-
+		
 		public event PropertyChangedEventHandler PropertyChanged;
 
-		private void NotifyPropertyChanged(String info)
+		private void NotifyPropertyChanged(string info)
 		{
-			if (PropertyChanged != null)
-			{
-				PropertyChanged(this, new PropertyChangedEventArgs(info));
-			}
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(info));
 		}
 
-		#endregion
-
-		public void loadGraph(BCGraph g)
+		public void LoadGraph(BCGraph g)
 		{
 			var ng = new PocGraph();
 
@@ -101,7 +107,7 @@ namespace BefunDebug.Graph
 
 			foreach (var vertex in g.Vertices)
 			{
-				var vx = new PocVertex(vertex.ToString(), vertex.Children.Count == 0, vertex == g.Root, vertex.IsBlock());
+				var vx = new PocVertex(vertex, vertex.ToString(), vertex.Children.Count == 0, vertex == g.Root, vertex.IsBlock());
 
 				ng.AddVertex(vx);
 				dic.Add(vertex, vx);
@@ -119,7 +125,7 @@ namespace BefunDebug.Graph
 			Graph = ng;
 		}
 
-		private void updateInfo()
+		private void UpdateInfo()
 		{
 			var vertices = bcGraph.Vertices.Count;
 			var nops = bcGraph.Vertices.Count(p => p is BCVertexNOP);
@@ -133,7 +139,7 @@ namespace BefunDebug.Graph
 			var varacc = bcGraph.Vertices.Count(p => p.IsVariableAccess());
 			var positions = bcGraph.GetAllCodePositions();
 
-			GInfo = string.Format("{0} {1}.  {2} {3}.  {4} {5}." + "\r\n"
+			GInfo1 = string.Format("{0} {1}.  {2} {3}.  {4} {5}." + "\r\n"
 								+ "{6} const IO Access. {7} dynamic IO Access." + "\r\n"
 								+ "{8} {9} ({10} user + {11} system)." + "\r\n"
 								+ "{12} stack access. {13} variable access." + "\r\n"
@@ -153,6 +159,29 @@ namespace BefunDebug.Graph
 				stackacc,
 				varacc,
 				positions.Count);
+		}
+
+		private void OnSelectionChanged()
+		{
+			if (SelectedVertex == null) { GInfo2 = ""; return; }
+
+			var v = SelectedVertex.Vertex;
+
+			StringBuilder b = new StringBuilder();
+
+			b.AppendLine($"Type: {v.GetType().Name}");
+			b.AppendLine($"SideEffects: {v.GetSideEffects()}");
+
+			b.Append($"{"Positions:",-9}");
+			int i = 1;
+			foreach (var p in v.Positions)
+			{
+				if (i++ % 5 == 0) b.AppendLine();
+				b.Append($" [{p.X,+3}|{p.Y,-3}]");
+			}
+			b.AppendLine();
+
+			GInfo2 = b.ToString();
 		}
 	}
 }

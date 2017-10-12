@@ -80,6 +80,11 @@ namespace BefunDebug.Pages
 			isConstructed = true;
 		}
 
+		private void Graph_SelectionChanged(PocVertex v, PocGraph sender, EventArgs e)
+		{
+			throw new NotImplementedException();
+		}
+
 		private IEnumerable<OutputLanguage> GetCheckedLanguages()
 		{
 			foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
@@ -174,13 +179,13 @@ namespace BefunDebug.Pages
 
 						var output = CodeCompiler.ExecuteCode(lang, code, console);
 
-						memoCompileLog.Text += string.Format($"[Execute {CodeCompiler.GetAcronym(lang)}]\r\n{output.TrimEnd('\r', '\n')}\r\n");
-						memoCompileLog.Text += string.Format($"[Execute {CodeCompiler.GetAcronym(lang)}] Time = {sw.ElapsedMilliseconds}ms\r\n\r\n");
+						memoCompileLog.Text += $"[Execute {CodeCompiler.GetAcronym(lang)}]\r\n{output.TrimEnd('\r', '\n')}\r\n";
+						memoCompileLog.Text += $"[Execute {CodeCompiler.GetAcronym(lang)}] Time = {sw.ElapsedMilliseconds}ms\r\n\r\n";
 
 					}
 					catch (Exception exc)
 					{
-						memoCompileLog.Text += string.Format($"[Execute {CodeCompiler.GetAcronym(lang)}]\r\nERROR: {exc}\r\n\r\n");
+						memoCompileLog.Text += $"[Execute {CodeCompiler.GetAcronym(lang)}]\r\nERROR: {exc}\r\n\r\n";
 						tabCompileControl.SelectedIndex = 4;
 					}
 
@@ -247,7 +252,7 @@ namespace BefunDebug.Pages
 				var ctrl = (elementHost1.Child as GraphUserControl);
 				var model = ctrl.graphLayout.DataContext as MainGraphViewModel;
 
-				model.loadGraph(cbcGraph);
+				model.LoadGraph(cbcGraph);
 				tabCompileControl.SelectedIndex = 2;
 			}
 			catch (Exception exc)
@@ -299,7 +304,7 @@ namespace BefunDebug.Pages
 				var ctrl = (GraphUserControl)elementHost1.Child;
 				var model = (MainGraphViewModel)ctrl.graphLayout.DataContext;
 
-				model.loadGraph(cbcGraph);
+				model.LoadGraph(cbcGraph);
 				tabCompileControl.SelectedIndex = 3;
 			}
 			catch (Exception exc)
