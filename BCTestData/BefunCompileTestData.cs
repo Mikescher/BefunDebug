@@ -26,7 +26,7 @@ namespace BefunDebug.BCTestData
 			new BCData("data_005", Resources.testdata_005, "232792560 "),
 			new BCData("data_006", Resources.testdata_006, "25164150 "),
 			new BCData("data_007", Resources.testdata_007, "104743 "),
-			new BCData("data_008", Resources.testdata_008, "5 5 7 6 6 8 9 6 6 4 8 9 5 =23514624000 "),
+			new BCData("data_008", Resources.testdata_008, "5576689664895=23514624000 "),
 			new BCData("data_010", Resources.testdata_010, "142913828922 "),
 			new BCData("data_011", Resources.testdata_011, "70600674 "),
 			new BCData("data_012", Resources.testdata_012, "76576500 "),
@@ -37,7 +37,7 @@ namespace BefunDebug.BCTestData
 			new BCData("data_018", Resources.testdata_018, "1074 "),
 			new BCData("data_019", Resources.testdata_019, "171 "),
 			new BCData("data_020", Resources.testdata_020, "648 "),
-			new BCData("data_024", Resources.testdata_024, "2 7 8 3 9 1 5 4 6 0 "),
+			new BCData("data_024", Resources.testdata_024, "2783915460"),
 			new BCData("data_026", Resources.testdata_026, "983 "),
 			new BCData("data_027", Resources.testdata_027, "-59231 "),
 			new BCData("data_028", Resources.testdata_028, "669171001 "),
@@ -78,7 +78,7 @@ namespace BefunDebug.BCTestData
 			new BCData("data_071", Resources.testdata_071, @"428570  /\n999997 "),
 			new BCData("data_076", Resources.testdata_076, "190569291 "),
 			new BCData("data_077", Resources.testdata_077, "71 "),
-			new BCData("data_079", Resources.testdata_079, "7 3 1 6 2 8 9 0 "),
+			new BCData("data_079", Resources.testdata_079, "73162890"),
 		};
 	}
 }
