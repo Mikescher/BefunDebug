@@ -171,6 +171,7 @@ namespace BefunDebug.Graph
 
 			b.AppendLine($"Type: {v.GetType().Name}");
 			b.AppendLine($"SideEffects: {v.GetSideEffects()}");
+			b.AppendLine($"Variables: {string.Join("; ", v.GetVariables().Select(vv => vv.Identifier))}");
 
 			b.Append($"{"Positions:",-9}");
 			int i = 1;
