@@ -19,7 +19,7 @@ namespace BefunDebug.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -61,48 +61,15 @@ namespace BefunDebug.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to /*
-        /// * Hello World
-        /// * by Mike Schwörer 2014
-        ///*/
-        ///
-        ///program example : display[0, 0]
-        ///	begin
-        ///		out &quot;Hello World\r\n&quot;;
-        ///		quit;
-        ///	end
-        ///end.
-        /// </summary>
-        internal static string example {
-            get {
-                return ResourceManager.GetString("example", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to vvv:           &lt;           &lt;
-        ///1&gt; 1+:::3/3*-!#^_&gt;::5/5*-!#^_v
-        ///1$v          &gt;# v#      &gt;# v#&lt;
-        ///1 &gt;:5558***-!|v$&lt;&gt;+\:1-!|v$&lt;
-        ///&gt;^           &lt;&gt;$$^\     &lt;&gt;.@
-        ///.
-        /// </summary>
-        internal static string example_compile {
-            get {
-                return ResourceManager.GetString("example_compile", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to vvv:           &lt;           &lt;
         ///1&gt; 1+:::3/3*-!#^_&gt;::5/5*-!#^_v
         ///1$v          &gt;# v#      &gt;# v#&lt;
         ///1 &gt;:5558***-!|v$&lt;&gt;+\:1-!|v$&lt;
         ///&gt;^           &lt;&gt;$$^\     &lt;&gt;.@.
         /// </summary>
-        internal static string testdata_001 {
+        internal static string Euler_Problem_001 {
             get {
-                return ResourceManager.GetString("testdata_001", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_001", resourceCulture);
             }
         }
         
@@ -113,9 +80,9 @@ namespace BefunDebug.Properties {
         ///:1&gt;^@$.g00&lt;&gt;*` #v_^
         ///&gt;^        ^     &lt;.
         /// </summary>
-        internal static string testdata_002 {
+        internal static string Euler_Problem_002 {
             get {
-                return ResourceManager.GetString("testdata_002", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_002", resourceCulture);
             }
         }
         
@@ -125,9 +92,23 @@ namespace BefunDebug.Properties {
         ///&gt;*+*+*+*+*+*+*v &gt;&quot;{.i &quot;+**10p#^ #p #0 #0 &lt;&gt;40g:1-40p2-|
         ///              &gt;#^ +# *# +# *# +# *# +# *# +#    &lt;@.g03&lt;.
         /// </summary>
-        internal static string testdata_003 {
+        internal static string Euler_Problem_003 {
             get {
-                return ResourceManager.GetString("testdata_003", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_003", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1:010:pp5558***04p&gt;10g1+::10p04g-00g \#v_1+:00p\$1:10p\:04g- #v_$$03g.@
+        ///                  ^         v $&lt;       &gt;1# 0# 1# p# *# :# v#  &lt;
+        ///   v_v#-g1-g20g10g 1g20&lt;p201&lt;v_^#:/+55p10+1g10p1g10%+55:  &lt;
+        ///   $ &gt;02g1+:02p 01 g - |     &gt;                            ^
+        ///   &gt;              ^    &gt;:03g\`#v_03pv
+        ///                  ^           $&lt;   0&lt;.
+        /// </summary>
+        internal static string Euler_Problem_004 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_004", resourceCulture);
             }
         }
         
@@ -139,9 +120,9 @@ namespace BefunDebug.Properties {
         ///                 ^                                &lt; |!%g05g04        &lt;
         ///                                                   ^&lt;.
         /// </summary>
-        internal static string testdata_005 {
+        internal static string Euler_Problem_005 {
             get {
-                return ResourceManager.GetString("testdata_005", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_005", resourceCulture);
             }
         }
         
@@ -156,9 +137,9 @@ namespace BefunDebug.Properties {
         ///##########             &gt;010g:5:+%\5:+/6+pv
         ///##########                           [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_006 {
+        internal static string Euler_Problem_006 {
             get {
-                return ResourceManager.GetString("testdata_006", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_006", resourceCulture);
             }
         }
         
@@ -166,32 +147,47 @@ namespace BefunDebug.Properties {
         ///   Looks up a localized string similar to v     // Project Euler - Problem 7
         ///############################################################################################################################################################################################################################################################################################################################################################################################################################################################################################ [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_007 {
+        internal static string Euler_Problem_007 {
             get {
-                return ResourceManager.GetString("testdata_007", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_007", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to &quot;v&quot;00p54*:10p552**:20p*30p85+40p050p060p070p080p    v
-        ///&gt;150g60p&gt;60g:20g%\20g/9+g&quot;0&quot;-*60g1+:60p50g-40g-#v_:80g`#v_$&gt;50g1+:50p30g-#v_ 970p &gt;70g0g.70g8-40g-#v_&quot;=&quot;,80g.@
+        ///&gt;150g60p&gt;60g:20g%\20g/9+g&quot;0&quot;-*60g1+:60p50g-40g-#v_:80g`#v_$&gt;50g1+:50p30g-#v_ 970p &gt;70g0g86*+,70g8-40g-#v_&quot;=&quot;,80g.@
         ///        ^                                       &lt;   $      ^                                                       &lt;
-        ///                                                        &gt;80p060p&gt;60g50g+:2 0g%\20g /9+g&quot;0&quot;-60g9+0p6 0g1+:60p40g-#v_^
-        ///^                                                   &lt;                     &lt;       ^p07+1g07        &lt;          [rest of string was truncated]&quot;;.
+        ///                                                        &gt;80p060p&gt;60g50g+:2 0g%\20g /9+g&quot;0&quot;-60g9+0p60g1+ :60p40g-#v_^
+        ///^                                                   &lt;                     &lt;       ^p07+1g07            &lt;  [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_008 {
+        internal static string Euler_Problem_008 {
             get {
-                return ResourceManager.GetString("testdata_008", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_008", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to v     // Project Euler - Problem 7
-        ///############################################################################################################################################################################################################################################################################################################################################################################################################################################################################################ [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;d&quot;5:+*00p210p&gt;   120p&gt;v                &gt;20g1+:20p10g-#v_10g1+:10p00g-#v_ @
+        ///                      ^                                &lt;
+        ///              ^                                                        &lt;
+        ///v                      &lt;                 
+        ///&gt;20g:*10g:*+:30p0&gt;::*30g-#v_:30p20g10g++ 00g-#v_20g:.&quot; &quot;,10g:.&quot; &quot;,30g:.&quot;=&quot;,**.@
+        ///                 |-g00 :+1&lt;                   
+        ///                 &gt;$$                    ^    $&lt;.
         /// </summary>
-        internal static string testdata_010 {
+        internal static string Euler_Problem_009 {
             get {
-                return ResourceManager.GetString("testdata_010", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_009", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v     // Project Euler - Problem 10
+        ///########################################################################################################################################################################################################################################################################################################################################################################################################################################################################################### [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_010 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_010", resourceCulture);
             }
         }
         
@@ -203,9 +199,9 @@ namespace BefunDebug.Properties {
         /// 08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08 | +++####################+++
         /// 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00 | +++################### [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_011 {
+        internal static string Euler_Problem_011 {
             get {
-                return ResourceManager.GetString("testdata_011", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_011", resourceCulture);
             }
         }
         
@@ -215,9 +211,9 @@ namespace BefunDebug.Properties {
         ///
         ///####################################################################################################################################################################################################################################################################################################################################################################################################################################################################################### [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_012 {
+        internal static string Euler_Problem_012 {
             get {
-                return ResourceManager.GetString("testdata_012", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_012", resourceCulture);
             }
         }
         
@@ -233,9 +229,23 @@ namespace BefunDebug.Properties {
         ///      44274228917432520321923589422876796487670272189318
         ///      47451 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_013 {
+        internal static string Euler_Problem_013 {
             get {
-                return ResourceManager.GetString("testdata_013", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_013", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v               &gt;3*1+v
+        ///&gt;0::p3&gt;1+:1\&gt;:2%|    &gt;\1+\:1- #v_$:00g\`#v_00p:10pv
+        ///v:0.g0 1&lt;   ^  $&gt;# 2/^#1       &lt;         $
+        ///g     ^_^#!`  **&quot;}}@&quot;:                   &lt;        &lt;
+        ///&gt;&quot;: &quot;,,.@
+        ///.
+        /// </summary>
+        internal static string Euler_Problem_014 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_014", resourceCulture);
             }
         }
         
@@ -262,9 +272,9 @@ namespace BefunDebug.Properties {
         /// 000000000000000000000
         /// 000000000000000000 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_015 {
+        internal static string Euler_Problem_015 {
             get {
-                return ResourceManager.GetString("testdata_015", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_015", resourceCulture);
             }
         }
         
@@ -280,9 +290,9 @@ namespace BefunDebug.Properties {
         ///v  p64*8&quot;}&quot;p60*p62:6p61:&quot;&lt;&quot;  &lt;v p66-1g66                &lt;
         ///       &gt;06g1-66p             0&gt; 66g16g [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_016 {
+        internal static string Euler_Problem_016 {
             get {
-                return ResourceManager.GetString("testdata_016", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_016", resourceCulture);
             }
         }
         
@@ -303,23 +313,23 @@ namespace BefunDebug.Properties {
         ///&gt;+# \:# _+          \ 1-                      :|
         ///               [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_017 {
+        internal static string Euler_Problem_017 {
             get {
-                return ResourceManager.GetString("testdata_017", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_017", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to $$&gt;53* 00p00g1-20p010p&gt;10g3*:20g1+g&quot;0&quot;-55+*\1+20g1+g&quot;0&quot;-+10g20g1+p10g1+:10p20g-1-#v_20g:1-20p010p#v_v
+        ///   Looks up a localized string similar to   &gt;53* 00p00g1-20p010p&gt;10g3*:20g1+g&quot;0&quot;-55+*\1+20g1+g&quot;0&quot;-+10g20g1+p10g1+:10p20g-1-#v_20g:1-20p010p#v_v
         ///75                    ^                                                           &lt;               &lt; v
         ///95 64                 v                                                                             &lt;
         ///17 47 82                                                                 &gt; $v
         ///18 35 87 10           &gt;00g2-:10p20p&gt;10g20g1+g10g20g2+g:10g1+20g2+g -:0`&gt;#^_-&gt;+10g20g1+p10g:1-10p#v_20g:1-:20p10p#v_01g.@
         ///20 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_018 {
+        internal static string Euler_Problem_018 {
             get {
-                return ResourceManager.GetString("testdata_018", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_018", resourceCulture);
             }
         }
         
@@ -337,9 +347,9 @@ namespace BefunDebug.Properties {
         ///                          v%*4&quot;d&quot;g23&lt;&gt;#^_1^  |-+1*&quot;(2&quot;g23&lt;p23+1g23p221&lt; 
         ///                          &gt;          ^&gt;1^    &gt;92g.@      ^             &lt;.
         /// </summary>
-        internal static string testdata_019 {
+        internal static string Euler_Problem_019 {
             get {
-                return ResourceManager.GetString("testdata_019", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_019", resourceCulture);
             }
         }
         
@@ -351,9 +361,46 @@ namespace BefunDebug.Properties {
         ///          &gt;&quot;~I&quot;+33p0&gt;33g&quot;d&quot;%1+33g&quot;d&quot;/g&quot;0&quot;-+  33g:1-33p v
         ///                 @._^#!                                &lt;.
         /// </summary>
-        internal static string testdata_020 {
+        internal static string Euler_Problem_020 {
             get {
-                return ResourceManager.GetString("testdata_020", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_020", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v
+        ///################################################################################################################################################################################################################################################################################################################################################################################################################
+        ///########################################################################################################### [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_021 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_021", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &gt;               v                                     &gt;   v
+        /// MARY           &gt;&quot;??IE&quot;*++:20p00p&gt;010p0 &gt;:00gg&quot;@&quot;-:0`#^_$0&gt;10g74**+10pv
+        /// PATRICIA                      &gt; ^      ^          _v#         -+66:+1&lt;
+        /// LINDA                    v   _^#!p00:-1g00pg000g01$&lt;          &gt;v
+        /// BARBARA                  &gt;20g30p&gt;       040p&gt; 040g1+g 040g2+g`|&gt;40g:1+&gt;60p70p66+:80p&gt;:60g1+g\70g1+g80g60g1+v
+        /// ELIZABETH                                   |`\-1g03 p04:+1g04&lt;                   $&lt;|\p08:-1:g08p+1g07g08p &lt;
+        /// JENNIFER        [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_022 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_022", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v
+        ///################################################################################################################################################################################################################################################################################################################################################################################################################
+        ///########################################################################################################### [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_023 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_023", resourceCulture);
             }
         }
         
@@ -362,14 +409,28 @@ namespace BefunDebug.Properties {
         ///&gt;&quot;ddd&quot;**1v
         ///vp129p11-&lt;
         ///       &gt;v&gt;v     v     &lt;  v    &lt;   &gt;  v   &gt;\1-\vv    p14+1g14&lt;
-        ///&gt;21g:1+|&gt;|&gt;21g0\&gt;:1-:#^_$&gt;*\:#^_$:|  &gt;31p 141p &gt;31g41g*11g`!|
-        ///       $                          &gt;$1^   |-&quot;x&quot; g0:\&lt;\1&lt;g14  &lt;
-        ///       @ &gt;                              v&gt;    &gt;1+\:|  1
-        ///^p12-1g12p11-*-1g14g13g11.p0\&quot;x&quot;\-&quot;0&quot;g0:&gt;#- #1 #$ #&lt;  ^.
+        ///&gt;21g:1+|&gt;|&gt;21g0\&gt;:1-:#^_v&gt;*\:#^_$:|  &gt;31p 141p &gt;31g41g*11g`!|
+        ///       $             &gt;$1 ^ &gt; p68*v&gt;$1^   |-&quot;x&quot; g0:\&lt;\1&lt;g14  &lt;
+        ///       @ &gt;          #^0#&lt;#v0#,+ #&lt;$     v&gt;    &gt;1+\:|  1
+        ///^p12-1g12p11-*-1g14g13g11 &lt;^\&quot;x&quot;\-&quot;0&quot;g0:&gt;#- #1 #$ #&lt;  ^.
         /// </summary>
-        internal static string testdata_024 {
+        internal static string Euler_Problem_024 {
             get {
-                return ResourceManager.GetString("testdata_024", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_024", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v
+        /// 00000000000000000000000000000000000000000000000000 00000000000000000000000000000000000000000000000000
+        /// 00000000000000000000000000000000000000000000000000 00000000000000000000000000000000000000000000000000
+        /// 00000000000000000000000000000000000000000000000000 00000000000000000000000000000000000000000000000000
+        /// 00000000000000000000000000000000000000000000000000 00000000000000000000000000000000000000000000000000
+        /// 00000000000000000000000000000000000000000000000000 00000000000000000000000000000000000000000 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_025 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_025", resourceCulture);
             }
         }
         
@@ -381,9 +442,9 @@ namespace BefunDebug.Properties {
         ///####################################################################################################
         ///####################################################################################################        /// [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_026 {
+        internal static string Euler_Problem_026 {
             get {
-                return ResourceManager.GetString("testdata_026", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_026", resourceCulture);
             }
         }
         
@@ -393,9 +454,9 @@ namespace BefunDebug.Properties {
         ///
         ///####################################################################################################################################################################################################################################################################################################################################################################################################################################################################################### [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_027 {
+        internal static string Euler_Problem_027 {
             get {
-                return ResourceManager.GetString("testdata_027", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_027", resourceCulture);
             }
         }
         
@@ -403,9 +464,21 @@ namespace BefunDebug.Properties {
         ///   Looks up a localized string similar to &quot;d&quot;55+*1+::1-01p*&gt;:01g-:01g-:01g-:01g-:1-#v_&gt;+\:#&lt;_$.@
         ///X                ^p10-2g10                &lt;.
         /// </summary>
-        internal static string testdata_028 {
+        internal static string Euler_Problem_028 {
             get {
-                return ResourceManager.GetString("testdata_028", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_028", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v
+        /// 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+        /// #########################################################################################################################################################################################################
+        /// #################################################################################################### [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_029 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_029", resourceCulture);
             }
         }
         
@@ -419,9 +492,9 @@ namespace BefunDebug.Properties {
         ///                                      v/+55\**:*::%+55:&lt;+
         ///                                      &gt;55+%::*:**\55+$++^.
         /// </summary>
-        internal static string testdata_030 {
+        internal static string Euler_Problem_030 {
             get {
-                return ResourceManager.GetString("testdata_030", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_030", resourceCulture);
             }
         }
         
@@ -438,9 +511,9 @@ namespace BefunDebug.Properties {
         ///     |                           -1:&lt;|g0:g12&lt;p13+1g13&lt;
         ///     &gt;$31g.@                         &gt;1-21p ^.
         /// </summary>
-        internal static string testdata_031 {
+        internal static string Euler_Problem_031 {
             get {
-                return ResourceManager.GetString("testdata_031", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_031", resourceCulture);
             }
         }
         
@@ -455,9 +528,9 @@ namespace BefunDebug.Properties {
         ///v   p01 1$&lt;       vp1\0:&lt;         &gt;v    &gt;v          &gt;$v         &gt;v    &gt;v          &gt;$v         &gt;v    &gt;v          &gt;$v   v\g1:&lt; &gt;10g:1+10p2pv
         ///&gt;9&quot;ec&quot;*&gt;80p:80g55+&gt;  1-:|  &gt;:55+%:|&gt;:1g!|&gt;1\1p55+/:!| &gt;\:&gt;:55+%:|&gt;:1g!|&gt;1\1p55+/:!| &gt;*:&gt;:55+%:|&gt;:1g!|&gt;1\1p55+/:!| &gt;55+&gt; 1-:|&gt;|      [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_032 {
+        internal static string Euler_Problem_032 {
             get {
-                return ResourceManager.GetString("testdata_032", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_032", resourceCulture);
             }
         }
         
@@ -473,9 +546,24 @@ namespace BefunDebug.Properties {
         /// .&gt;50g%:|: &lt;        &gt;80g55+%90g55+/-#v_v
         /// ^/\g02$&lt;  g&gt;80g55+%|                  &gt;80g90g55+%*90g80g55+/*-#v [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_033 {
+        internal static string Euler_Problem_033 {
             get {
-                return ResourceManager.GetString("testdata_033", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_033", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v
+        ///&gt;1:00p1*:10p2*:20p3*:30p4*:40p5*:v
+        ///vp110$p09:*9p08:*8p07:*7p06:*6p05&lt;
+        ///      v_v#                          :-1&lt;p11 &lt;
+        ///&gt;90g7*&gt;::0\&gt;:55+%0g\55+/:#v_&gt;+#&lt;\:#&lt;_+-|    +
+        ///    &gt;3-.$@ |:/+55\g0%+55: &lt;            &gt;:11g^
+        ///    ^g11&lt;  &gt;                ^.
+        /// </summary>
+        internal static string Euler_Problem_034 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_034", resourceCulture);
             }
         }
         
@@ -485,9 +573,9 @@ namespace BefunDebug.Properties {
         ///
         ///################################################################################################################################################################################################################################################################################################################################################################################################################################################################################## [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_035 {
+        internal static string Euler_Problem_035 {
             get {
-                return ResourceManager.GetString("testdata_035", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_035", resourceCulture);
             }
         }
         
@@ -501,9 +589,9 @@ namespace BefunDebug.Properties {
         ///          |:-1                                                               &lt;
         ///          &gt;&quot;= &quot;,,&gt;+\:#&lt; [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_036 {
+        internal static string Euler_Problem_036 {
             get {
-                return ResourceManager.GetString("testdata_036", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_036", resourceCulture);
             }
         }
         
@@ -513,9 +601,9 @@ namespace BefunDebug.Properties {
         ///
         ///################################################################################################################################################################################################################################################################################################################################################################################################################################################################################## [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_037 {
+        internal static string Euler_Problem_037 {
             get {
-                return ResourceManager.GetString("testdata_037", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_037", resourceCulture);
             }
         }
         
@@ -526,9 +614,9 @@ namespace BefunDebug.Properties {
         ///&gt;&quot;ec&quot;*31p&gt;241p&gt;01-1&gt;:31g*\:41g-#^_$&gt;\10p01-\&gt;:55+%\55+/:#^_$&gt;10g55+*+10p:1+#^_$10g\:1+#v_$:55+&gt;  1-:|  &gt;:55+%:|&gt;:2g!|&gt;1\2p55+/:!| &gt;55+&gt; 1-:|&gt;#v_$41g1-:41p1-#^_31g1-:31p|
         ///                 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_038 {
+        internal static string Euler_Problem_038 {
             get {
-                return ResourceManager.GetString("testdata_038", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_038", resourceCulture);
             }
         }
         
@@ -540,9 +628,9 @@ namespace BefunDebug.Properties {
         ///&gt;30g::270g*-*\70g-2*%#^_50g1+50p&gt;70g:2-#^_$50g:10g`#^_$       &gt;30g:90g-|
         /// &gt;                             $^$          &lt;                    @.g02$&lt;.
         /// </summary>
-        internal static string testdata_039 {
+        internal static string Euler_Problem_039 {
             get {
-                return ResourceManager.GetString("testdata_039", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_039", resourceCulture);
             }
         }
         
@@ -555,9 +643,9 @@ namespace BefunDebug.Properties {
         ///  $                                   $               &gt;           :^
         ///^_^#:                                 &lt;#                p03*g03%+55$&lt;.
         /// </summary>
-        internal static string testdata_040 {
+        internal static string Euler_Problem_040 {
             get {
-                return ResourceManager.GetString("testdata_040", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_040", resourceCulture);
             }
         }
         
@@ -580,9 +668,9 @@ namespace BefunDebug.Properties {
         ///                    ^`2::&lt; $  
         ///               ^           &lt;.
         /// </summary>
-        internal static string testdata_041 {
+        internal static string Euler_Problem_041 {
             get {
-                return ResourceManager.GetString("testdata_041", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_041", resourceCulture);
             }
         }
         
@@ -593,9 +681,9 @@ namespace BefunDebug.Properties {
         ///ABILITY                         ################################################################################
         ///ABLE                            ######################## [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_042 {
+        internal static string Euler_Problem_042 {
             get {
-                return ResourceManager.GetString("testdata_042", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_042", resourceCulture);
             }
         }
         
@@ -613,9 +701,27 @@ namespace BefunDebug.Properties {
         ///v!`g200                                 &lt;             p20+1g20&lt; ##
         ///                           &gt;  02g0g [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_043 {
+        internal static string Euler_Problem_043 {
             get {
-                return ResourceManager.GetString("testdata_043", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_043", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &gt;v%%% %%%%       &gt;    v
+        ///v06p09:/2*-1*3:p06::+1&lt;vg07g09                         &lt;&lt;  &lt;
+        ///g$ &gt;:70p:3*1   v #      &gt;0v&gt;vv p03+g03*2:p04-\g04+g03:&lt;
+        ///v                      &lt;3 pp2# v/4    &lt;   &gt;:30g+40g`! |
+        ///1#  &gt;            4**1+:0^ 40&gt;0g&gt;:40g`#^_&gt;:|:/4p03/2g03&lt; $
+        ///&gt;-:|^6-p08:/2*-&lt; #        &gt;^ &gt;30g2/30p4/^ &gt;$30g:*-30g\  |
+        /// 8 &gt;$$           ^v030:+1**46+g09g08             &gt;# !#  # _^
+        /// &gt;::**::**8*20p1 ^v&gt;vv p03+g03*2:p04-\g04+g03:&lt;@.-g08g0 9&lt;
+        ///                  pp2# v/4    &lt;   &gt;:30g+40g`! |  ^5%6   &lt;$
+        ///            [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_044 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_044", resourceCulture);
             }
         }
         
@@ -627,9 +733,9 @@ namespace BefunDebug.Properties {
         ///^        &lt;  $&lt;&gt;1+:^&gt;^ &gt;30g2/30p4/^ &gt;$30g:*-v
         ///@.*-1*2:_^#!_^#!                    -5%6g03&lt;.
         /// </summary>
-        internal static string testdata_045 {
+        internal static string Euler_Problem_045 {
             get {
-                return ResourceManager.GetString("testdata_045", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_045", resourceCulture);
             }
         }
         
@@ -639,9 +745,22 @@ namespace BefunDebug.Properties {
         ///########################################################################################################################################################################################################
         ///################################################################## [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_046 {
+        internal static string Euler_Problem_046 {
             get {
-                return ResourceManager.GetString("testdata_046", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_046", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v          // Project Euler - Problem 47
+        ///
+        ///
+        ///################################################################################################################################################################################################################################################################################################################################################################################################################
+        ///################################################################ [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_047 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_047", resourceCulture);
             }
         }
         
@@ -650,9 +769,9 @@ namespace BefunDebug.Properties {
         ///5&gt;8#&lt;&quot;}&quot;* #*&gt;:|      ^%g01*g02:\&lt;   2
         ///&gt;5+:::*:*: ^^-&gt;# $# .# @#1g03%g01+g0&lt;.
         /// </summary>
-        internal static string testdata_048 {
+        internal static string Euler_Problem_048 {
             get {
-                return ResourceManager.GetString("testdata_048", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_048", resourceCulture);
             }
         }
         
@@ -666,9 +785,9 @@ namespace BefunDebug.Properties {
         ///7 1&gt;\&quot;Z%&quot;*+:55+%2+\55+/:^      v   &lt;&quot;*^                   $$$&lt;
         ///&gt;+^                            &lt;    &gt;^.
         /// </summary>
-        internal static string testdata_049 {
+        internal static string Euler_Problem_049 {
             get {
-                return ResourceManager.GetString("testdata_049", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_049", resourceCulture);
             }
         }
         
@@ -676,9 +795,24 @@ namespace BefunDebug.Properties {
         ///   Looks up a localized string similar to v          // Project Euler - Problem 50
         ///###################################################################################################################################################################################################################################################################################################################################################################################################################################################################################### [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_050 {
+        internal static string Euler_Problem_050 {
             get {
-                return ResourceManager.GetString("testdata_050", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_050", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;c&quot;02p                v &gt;02g1+::02p 2%!#v_5%!#v_312p&gt;12g1+:12p27*-!#v_022pv&gt; v
+        ///##############        &gt;#|v#-*8&quot;}&quot;g20&lt;   $           ^                &lt; &gt;1#0|
+        ///OOO OO OOO   #        ^ @# &gt;#       ^#  &lt;     &lt;                     &lt;^_^#&lt;1&gt;v
+        ///##############                                              &gt;22g1+:22p3-!^2#
+        ///110001#??????#         &gt;                                    ^               &lt;
+        ///101001#??????#           &gt; ^v24 pg21+7\+&quot;0&quot;%+55g24:&gt;#&lt;:      !#v_ v       g+
+        ///100101#??????#              &gt;g55+/42p&gt;   [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_051 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_051", resourceCulture);
             }
         }
         
@@ -690,9 +824,9 @@ namespace BefunDebug.Properties {
         ///  &gt;^&gt;^&gt;^  &gt;3g03g-   #v_12g1+:12p7-|
         ///  ^*+55$_^#!`\g11:+1$&lt;        @$$.&lt;.
         /// </summary>
-        internal static string testdata_052 {
+        internal static string Euler_Problem_052 {
             get {
-                return ResourceManager.GetString("testdata_052", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_052", resourceCulture);
             }
         }
         
@@ -705,9 +839,9 @@ namespace BefunDebug.Properties {
         ///                      &gt;30g40g2* -^v                                _v#!_v#!_v#!&lt;
         ///             ^       _^#!p04:-1g04&lt;p%2g03+9g040p02++1!!-*2 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_053 {
+        internal static string Euler_Problem_053 {
             get {
-                return ResourceManager.GetString("testdata_053", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_053", resourceCulture);
             }
         }
         
@@ -730,9 +864,9 @@ namespace BefunDebug.Properties {
         ///6H 4H 5C 3H 2H 3S QH 5S 6S AS                   &gt;          v&gt;$1+    0&gt;$1+    0&gt;$1+       0&gt;$1+    0&gt;$1+v
         ///TD 8C 4H 7C TC KC  [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_054 {
+        internal static string Euler_Problem_054 {
             get {
-                return ResourceManager.GetString("testdata_054", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_054", resourceCulture);
             }
         }
         
@@ -740,41 +874,12 @@ namespace BefunDebug.Properties {
         ///   Looks up a localized string similar to v                           v-1\+g02&lt;
         ///0          v/+55\+g01\p01%+&lt;        $  v/+55\+g01\p01%+&lt;
         ///&gt;&quot;}P&quot;*&gt;::0\&gt;:!#v_\55+*\:55 ^&gt;:!#v_\::0\&gt;:!#v_\55+*\:55 ^
-        ///    &gt;$ .@      &gt;$+38*   #v  ^#   &lt;  |-p02:$&lt;            
-        ///    ^_^#!:-1             &lt;\+1\$$&lt;^$$&lt;                   
-        ///        
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///
-        ///[10] GetReversed() - temp
-        ///[20] IsLychrel     - reversed number
-        ///
-        ///
-        ///
-        ///47*7*      =&gt;    196
-        ///&quot;2&quot;        =&gt;     50
-        ///&quot;}P&quot;*      =&gt; 10 000
-        ///
-        ///
-        ///
-        ///// GetNumberReversed()  stack-&gt;stack
-        ///
-        ///  v/+55\+g01\p01%+&lt;        /// [rest of string was truncated]&quot;;.
+        ///    &gt;$ .@      &gt;$+38*   #v  ^#   &lt;  |-p02:$&lt;
+        ///    ^_^#!:-1             &lt;\+1\$$&lt;^$$&lt;.
         /// </summary>
-        internal static string testdata_055 {
+        internal static string Euler_Problem_055 {
             get {
-                return ResourceManager.GetString("testdata_055", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_055", resourceCulture);
             }
         }
         
@@ -791,26 +896,27 @@ namespace BefunDebug.Properties {
         ///     &gt;21p &gt; 1-:|^$&lt;      |:p/&quot;F&quot;\+5%&quot;F&quot;:\p03+g03:%+55p02&lt;
         ///     ^g03_^#`g1&gt;# ^#2g03$&lt;.
         /// </summary>
-        internal static string testdata_056 {
+        internal static string Euler_Problem_056 {
             get {
-                return ResourceManager.GetString("testdata_056", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_056", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to v
         ///
-        /// ###############################################################################     // Numerator [1]
+        /// ###############################################################################
         /// ###############################################################################
         /// ###############################################################################
         /// ###############################################################################
         /// ###############################################################################
         ///
-        /// ######################################################################### [rest of string was truncated]&quot;;.
+        /// ###############################################################################
+        /// ############ [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_057 {
+        internal static string Euler_Problem_057 {
             get {
-                return ResourceManager.GetString("testdata_057", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_057", resourceCulture);
             }
         }
         
@@ -829,9 +935,9 @@ namespace BefunDebug.Properties {
         ///2 32 vg030&lt;  v-1\  &lt; &gt;10g^   &gt;\:::*11  g%1-!\^&gt;^
         ///3 3g     &gt;$1\&gt; :#v_ $ 21g &gt;:#^_$1-! [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_058 {
+        internal static string Euler_Problem_058 {
             get {
-                return ResourceManager.GetString("testdata_058", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_058", resourceCulture);
             }
         }
         
@@ -840,9 +946,18 @@ namespace BefunDebug.Properties {
         /// ### ## 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 ################################################################################################################################
         /// ###    00000000000000000000000000 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_059 {
+        internal static string Euler_Problem_059 {
             get {
-                return ResourceManager.GetString("testdata_059", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_059", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to vXXXX  /######################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################## [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_060 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_060", resourceCulture);
             }
         }
         
@@ -855,9 +970,19 @@ namespace BefunDebug.Properties {
         ///     ### ---------------------------------------------------------------- ###
         ///     ### ----------------------------- [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_061 {
+        internal static string Euler_Problem_061 {
             get {
-                return ResourceManager.GetString("testdata_061", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_061", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v $ #####################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################
+        ///  $ # [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_062 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_062", resourceCulture);
             }
         }
         
@@ -873,9 +998,9 @@ namespace BefunDebug.Properties {
         ///          &gt;^20|-8p04:-1g04 p05/+5 #5p0g04+&lt;&gt;5#$5#&lt;^
         ///            &gt;^&gt;30g1-:30p #^_9     ^.
         /// </summary>
-        internal static string testdata_063 {
+        internal static string Euler_Problem_063 {
             get {
-                return ResourceManager.GetString("testdata_063", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_063", resourceCulture);
             }
         }
         
@@ -890,9 +1015,9 @@ namespace BefunDebug.Properties {
         ///&quot;+  $   ^p02:p010g11p1&lt;       v\+1\&lt;&gt;&gt;0&gt;\#+ #1:#$_v
         ///&gt;^^_^#-2:                     &lt;   _^#          %2$&lt;.
         /// </summary>
-        internal static string testdata_064 {
+        internal static string Euler_Problem_064 {
             get {
-                return ResourceManager.GetString("testdata_064", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_064", resourceCulture);
             }
         }
         
@@ -910,9 +1035,29 @@ namespace BefunDebug.Properties {
         ///| &gt;# #+ #1 #: #- #12# ^#                            &gt;# ^# &lt;
         ///$               &gt;\v [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_065 {
+        internal static string Euler_Problem_065 {
             get {
-                return ResourceManager.GetString("testdata_065", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_065", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to vYYY     ################
+        /// XBXX    ################
+        /// ZZZ     ################
+        /// N
+        /// OOO     ################
+        ///         ################
+        ///         ################
+        ///         ################                           v 9::p4+9\g5+9::p1+9\g2+9: &lt;
+        ///         ################                           &gt;+6g\9+5p:1-\!v0  &lt;
+        ///         ################                               v        $_::9+1g\9+0p:^
+        ///                                 v  _v#-*&quot;}&quot;8p13:+1g13$&lt;              #     &lt;
+        ///&gt;&quot;@ &quot;:*:**21p331p013p88 +&gt;:8+0 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_066 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_066", resourceCulture);
             }
         }
         
@@ -923,9 +1068,9 @@ namespace BefunDebug.Properties {
         ///52 40 09                                                                           &gt; $v
         ///26 53 06 34           &gt;00g2-:10p  20p &gt; 10g20g1+g  10g20g2+g  :  10g1+20g2+g -:0`&gt;#^_-&gt; + 10g20g1+ p   10g:1-10p#v [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_067 {
+        internal static string Euler_Problem_067 {
             get {
-                return ResourceManager.GetString("testdata_067", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_067", resourceCulture);
             }
         }
         
@@ -945,9 +1090,9 @@ namespace BefunDebug.Properties {
         ///&gt;:#v_90g&quot;0&quot;-70g`                     ^
         ///v-1&lt; v-&quot;/&quot;g0+79 -&quot;/&quot;g0+69 -&quot; [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_068 {
+        internal static string Euler_Problem_068 {
             get {
-                return ResourceManager.GetString("testdata_068", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_068", resourceCulture);
             }
         }
         
@@ -960,9 +1105,9 @@ namespace BefunDebug.Properties {
         ///v                     ^1g0&lt;     &gt;30g1+:30p40g-       #v_&quot;}}@&quot;**60p   0&gt;:1g70g*v$
         ///&gt;170p&quot;P&quot;:10p3:20p*40p230pv^5g03_^#-&quot; &quot;g+1/g01\%g01:g03&lt;p050p [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_069 {
+        internal static string Euler_Problem_069 {
             get {
-                return ResourceManager.GetString("testdata_069", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_069", resourceCulture);
             }
         }
         
@@ -974,9 +1119,9 @@ namespace BefunDebug.Properties {
         ///######################################################################################################################################################
         ///##################################################################################################################################################### [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_070 {
+        internal static string Euler_Problem_070 {
             get {
-                return ResourceManager.GetString("testdata_070", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_070", resourceCulture);
             }
         }
         
@@ -990,9 +1135,58 @@ namespace BefunDebug.Properties {
         ///|-g06:     &lt;                        &lt;&gt;01-*^v  p04g16p02g17p12g19p14g18&lt;
         ///&gt;$20g.&quot;/ &quot;,,55+,40g.@               ^      &lt;                            &lt;.
         /// </summary>
-        internal static string testdata_071 {
+        internal static string Euler_Problem_071 {
             get {
-                return ResourceManager.GetString("testdata_071", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_071", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v00000     // Project Euler - Problem 72
+        /// XX     |AAAAAAAAAAAAAAAAAAA|
+        /// OOOO
+        ///################################################################################################################################################################################################################################################################################################################################################################################################################################################ [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_072 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_072", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v          // Project Euler - Problem 73
+        /// XX  ????
+        ///
+        ///######################################################################################################################################################################################################################################################################################################################################################################################################################################################################### [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_073 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_073", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v      X ##########            // Project Euler - Problem 74
+        /// CCC
+        /// XXXX   |------------------------------------------------------------|
+        ///
+        ///################################################################################################################################################################################################################################################################################################################################################################################## [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_074 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_074", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v XX  O OO // Project Euler - Problem 75
+        ///  AAA A A
+        ///
+        ///######################################################################################################################################################################################################################################################################################################################################################################################################################################################################### [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_075 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_075", resourceCulture);
             }
         }
         
@@ -1006,9 +1200,9 @@ namespace BefunDebug.Properties {
         ///   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         ///   +++++++++++++++++++++++++++++++++++++ [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_076 {
+        internal static string Euler_Problem_076 {
             get {
-                return ResourceManager.GetString("testdata_076", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_076", resourceCulture);
             }
         }
         
@@ -1022,9 +1216,20 @@ namespace BefunDebug.Properties {
         ///#####################################################################################################
         ///############################################### [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_077 {
+        internal static string Euler_Problem_077 {
             get {
-                return ResourceManager.GetString("testdata_077", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_077", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to vXX OOO
+        /// ##########################################################################################################################################################################################################################################################
+        /// #                                                                                                                                                                                                                                                         [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_078 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_078", resourceCulture);
             }
         }
         
@@ -1045,19 +1250,360 @@ namespace BefunDebug.Properties {
         ///    |:-1p&lt; v1g070p+1g07+1g062p+1g07+1g052p+1g06+1g052&lt; +
         ///    &gt;$ 77*^&gt;+50g1+p070g1+60g1vv&lt;        [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string testdata_079 {
+        internal static string Euler_Problem_079 {
             get {
-                return ResourceManager.GetString("testdata_079", resourceCulture);
+                return ResourceManager.GetString("Euler_Problem_079", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to v X X XX X
+        ///         ############################################################
+        ///
+        /// @       ############################################################
+        /// .
+        /// g       ############################################################
+        /// 0
+        /// ^9$&gt;# #&lt;         v             v               &lt;   v    &lt;
+        ///    $ v_^#-&quot;d&quot;\+1:&lt;       &lt;&gt;$&quot;&lt;&quot;&gt;1-::9+5g\9+1p:#^_$0&gt;:::9+3g55+%55+*v
+        ///&gt;090p2&gt;:20p&quot;d&quot;&gt;::*20g-#v_$^|!:-1p5+8\-g07g06p04          #         &lt;\
+        ///    #  v&quot;&lt;&quot;:$_^#   !:-1&lt;   &gt;::9+1g40g-60p:9+3g20g45***70p0&gt;70g60g`!|5
+        ///     [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static byte[] TextFunge {
+        internal static string Euler_Problem_080 {
             get {
-                object obj = ResourceManager.GetObject("TextFunge", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("Euler_Problem_080", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v                                                                                                   4445 2697 5115 0718 2209 2212 0654 4348 3079 6821 7668 3276 8874 4190 3785 2752 9473 7817 9137 0496 7338 3434 7152 4355 4552 7917 7827 2460 2350 0691 3514 5880 3145 7633 7199 3783 5066 7487 3285 1084 8985 0760 0872 8609 8051 1134 9536 5750 9716 9371 7619 5617 0275 9721 2997 2698 1887 8825 6372 3014 2113 7122 7050 6775 5948 2758 1219 3539 0348 7989 2735 9862 1263 8089 6401 9462 3168 2758 3748 5870 
+        ///           [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_081 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_081", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v                                                                                                   4445 2697 5115 0718 2209 2212 0654 4348 3079 6821 7668 3276 8874 4190 3785 2752 9473 7817 9137 0496 7338 3434 7152 4355 4552 7917 7827 2460 2350 0691 3514 5880 3145 7633 7199 3783 5066 7487 3285 1084 8985 0760 0872 8609 8051 1134 9536 5750 9716 9371 7619 5617 0275 9721 2997 2698 1887 8825 6372 3014 2113 7122 7050 6775 5948 2758 1219 3539 0348 7989 2735 9862 1263 8089 6401 9462 3168 2758 3748 5870 
+        ///           [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_082 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_082", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v                                                                                                   4445 2697 5115 0718 2209 2212 0654 4348 3079 6821 7668 3276 8874 4190 3785 2752 9473 7817 9137 0496 7338 3434 7152 4355 4552 7917 7827 2460 2350 0691 3514 5880 3145 7633 7199 3783 5066 7487 3285 1084 8985 0760 0872 8609 8051 1134 9536 5750 9716 9371 7619 5617 0275 9721 2997 2698 1887 8825 6372 3014 2113 7122 7050 6775 5948 2758 1219 3539 0348 7989 2735 9862 1263 8089 6401 9462 3168 2758 3748 5870 
+        ///           [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_083 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_083", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v   XX
+        ///  ========================================    v      &lt;     v&lt;
+        ///  ???????????????????????????????????????? v&lt;&lt;   v&lt;&lt;&lt;|-&quot;!&quot;:&lt;|-+98:&lt;
+        ///&gt;040p&quot;}}@&quot;**58*v             v   _v# -1&lt;  v&lt;10   v 10&gt; v    &lt;    &lt;|&lt;
+        ///   v           &lt;                  0    |:+&lt;2?^#*4&lt;2?^#$&lt;         ^&lt;
+        ///   &gt;1-:2+0\1pv                            ^3&lt;    ^3&lt;               -
+        ///   |:        &lt;     &gt;&gt;&gt;v &gt;&gt;&gt;v v&lt;         &gt;&gt;&gt;v   &gt;&gt;&gt;v    &gt;&gt;&gt;v        2
+        ///v $&lt;               12 v 12 v #^p04&lt;+55$&lt;01 v   01 v    01 v &gt;v     :
+        ///&gt;40g::2+1g1+\2+1p&gt;#^?3&gt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_084 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_084", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to vX
+        /// YY YY YY
+        ///&gt;&quot;}}_!&quot;+**:10p11p051p071p&gt;10g71g`v
+        ///     v*`g18g01`g14g15&lt;p18 g17p141_v
+        ///v8g01_51g1+:51p71g+7   1p^   @.g12&lt;
+        ///&gt;1g-:0\`#v_0&gt;-:11g`#v_11p41g5v
+        ///&gt;*81g+81v&gt;0\^v+1g14$&lt;#0p12*g1&lt;
+        ///^g17p14:&gt;# p#&lt;       ^.
+        /// </summary>
+        internal static string Euler_Problem_085 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_085", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v##### ##                                    &gt;       &gt;$30gv &gt;`#v_v
+        ///&gt;&quot;}}@&quot;**50p040p0&gt;1+:v&gt;&gt;1-::*70g:*+v  vp01g03_^#-g01:_^#- &lt;: g  : :
+        ///                    :+  v         &lt;  &gt;:30p:20 g\/+2/: 30g^* 0&gt;#1v2
+        ///                    71 &gt;           &gt;#^ #p #0 2 #&lt;$      v   7gv+&lt;/
+        ///                    0*  &gt;:88*%&quot;9&quot;`#^_:88+%:9`#v_:2-#v_v   2 :082g8
+        ///                    p2      &gt;     &gt;     &gt;     &gt; #     &gt;$&gt;$0&gt;|80/0 
+        ///                    0p |!-8_^#-7:_^#-6:_^#-5:_^# -3:&lt;     g  +p7^&lt;
+        ///                    80            &gt;  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_086 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_086", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v000000000 
+        ///################################################################
+        ///################################################################################################################################################################################################################################################################################################################################################################################################################################################# [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_087 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_087", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v XXXX
+        ///  OOOO
+        ///
+        ///############################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################## [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_088 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_088", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to vABCDEFGHIJKLMNOPQRSTUVWXYZ
+        ///v0123212342
+        /// ????    ?
+        ///&gt;092p190p5492*+0p55+v
+        ///vp03&quot;d&quot;p0*62&quot;2&quot;p0*83&lt; &gt;::1g&quot;0&quot;-\v
+        ///&gt;&quot;}&quot;4*40p&quot;}&quot;8*94+0p55+^_v#:-1p1 &lt;v+1       &lt;&gt;-*\ &gt;42p            22g+22pv
+        ///                        &gt;$9:12p&gt;0&gt;:12gg48*-|^10\_^#`\g24::g0-&quot;@&quot;gg21:-1&lt;:
+        ///                                           &gt;:32p 1-:12gg&quot;@&quot;-0g:42p22p&gt;:|&lt;
+        ///                        v+55\g1 +1/+55%&quot;d&quot;:\g1+1/&quot;d&quot;%*8&quot;}&quot;:\/*8&quot;}&quot;:g22$&lt;
+        ///MMMMDCLXXII             &gt;%1+1g\ +++32g\-92g+92pv
+        ///MMDCCCLXXXIII                  |-+9*8&quot;}&quot;:p21:+1&lt;
+        ///M [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_089 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_089", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v X_XXOO #########                v6$&lt;                 &gt; #g #0 #+ #8 #: #:v#&lt;&gt;v
+        ///2 X ##########v 2+4\1p22+g22!g2+4:&lt; _^#-9:%+55*:p1+4\1p12+g12!g1+4:/+55*::_v 1g
+        ///9 X ##########v1+4\1p12+g12!g1+4:&lt;   _v#-9:%+55*:p2+4\1p22+g22!g2+4:/+55*::&lt; 26
+        ///3  C          &gt;p                #^6$ #&lt;     #v      &gt;#      #&lt;           1-:|$`
+        ///*&gt;020p8&gt;:0\9+0p:#v_$021p022p9&gt;:0\4+1p:0\4+2p:#v_$55+^vg0+9p0+9\!g0+9::::&lt;   &gt;^2
+        ///+p     ^-1       &lt;^00       &lt;^-1              &lt;   v$$_!#v_1- #  #v #! #+^#`6g2&lt;
+        ///33                         [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_090 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_090", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2&quot;:11p031p41p&gt;11g51p51g1&gt; #1 #g #&lt;v
+        /// X XXXX &gt;$41p#^_31g311g:**+.@&gt;$p v1+
+        ///&gt;1g51g:61g-\*41g%!2*+31p61g1+61pv!56
+        ///^  &gt;51g#^ #:1# - #1:#g5#11#4 ^#  _^1
+        ///^3_^#!  +`g11g16`*:g14*-\g16:g15&lt; p&lt;.
+        /// </summary>
+        internal static string Euler_Problem_091 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_091", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v $$ T # #######################################################################
+        ///       # #######################################################################
+        ///  XX   # #######################################################################
+        ///       # #######################################################################
+        ///       # #######################################################################
+        ///       # #######################################################################
+        ///       # ########### [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_092 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_092", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v XXXX   ####################################################################################################
+        ///  XX     ####################################################################################################
+        ///         ####################################################################################################
+        ///  C      ####################################################################################################
+        /// OOOO    ########################################################### [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_093 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_093", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;}}2( &quot;****04003pp201p102p&gt;04g01g2*`#v_v
+        ///Xv2*2g10**!%3*g20-2g10!-1%3*g102`2g10&lt; 0
+        ///X&gt;-*03g+03p01g2*3%2-!01g2+# 02g*3%v    3
+        ///Xv*2g10+*2g20g10p30+g30*+* g1022*!&lt; @.g&lt;
+        ///C&gt;02g3*+01p02p            ^.
+        /// </summary>
+        internal static string Euler_Problem_094 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_094", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v      # ####################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################### [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_095 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_095", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v XX  X ###########  ###########  #############################        #############################                            003020600100920000000125400361025900020030090500400060000000080006080300000900002904200007
+        /// C    C ###########  #         #  #                           #        #                           #                            900305001524010000008400000080960010000907000009000800800701040049070250050123400010000000
+        /// PPPPP  ###########  #         #  #                           #        # [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_096 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_096", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;z~k&quot;+*7+98v@
+        ///v +***&quot;Gqz&quot;&lt;.
+        ///&gt;1- \2*&quot;(2&quot;v%
+        ///|: \%*:** :&lt;*
+        ///&gt;$1+&quot;(2&quot;:**:^.
+        /// </summary>
+        internal static string Euler_Problem_097 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_097", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to vXXX #   #################################################################################################### #   A               ABILITY         ABLE            ABOUT           ABOVE           ABSENCE         ABSOLUTELY      ACADEMIC        ACCEPT          
+        /// XXX #   #################################################################################################### #   ACCESS          ACCIDENT        ACCOMPANY       ACCORDING       ACCOUNT         ACHIEVE         ACHIEVEMENT     ACID            ACQUIRE    [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_098 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_098", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to v$$$$$$                                           519432,525806
+        /// XX  00v         $&lt;                               632382,518061
+        ///    v  &lt;p15g11p16_^#`g16:p&lt;                       78864,613712
+        ///&gt;0:5 1p vv               &lt;1                       466580,530130
+        /// v $ $  #&lt;v+1g12+*+55\p   12\-*86&lt;                780495,510032
+        ///&gt;#  &gt; 0&quot;2&quot;&gt;:11gg:48*-0`!#^_:&quot;,&quot;- |                525895,525320
+        ///^p110p16&lt; ^               # +1\0$&lt;                15991,714883
+        ///   vp04+g04     &lt;   vp06&lt; +                       960290,50 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Euler_Problem_099 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_099", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 10v&gt;012p &gt;01g11g:01g3*\4*+01p3*\2*+11p02g12g:02g3*\4*-0v
+        ///##1^p110&lt;|!`*:**&quot;@}}&quot;/4-g20-*g212-g10+*2g112p21-*2\*3p2&lt;
+        ///##&gt;p102p^&gt;402g2*+12g2*+01g2*+11g2*-8/.@.
+        /// </summary>
+        internal static string Euler_Problem_100 {
+            get {
+                return ResourceManager.GetString("Euler_Problem_100", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /*
+        /// * Fibonacci Numbers
+        /// * by Mike Schwörer 2014
+        ///*/
+        ///
+        ///program Fibbonacci
+        ///	begin
+        ///		doFiber(1000);
+        ///		
+        ///		quit;
+        ///	end
+        ///	
+        ///	void doFiber(int max)
+        ///	var
+        ///		int last := 0;
+        ///		int curr := 1;
+        ///		int tmp;
+        ///	begin
+        ///		repeat
+        ///			if (last &gt; 0) then
+        ///				out &quot;,&quot;;
+        ///			end
+        ///			
+        ///			out curr;
+        ///			
+        ///			tmp = curr + last;
+        ///			last = curr;
+        ///			curr = tmp;
+        ///		until (last &gt; max)
+        ///	end
+        ///end.
+        /// </summary>
+        internal static string example {
+            get {
+                return ResourceManager.GetString("example", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 0&quot;!dlroW olleH&quot;&gt;:#,_$@.
+        /// </summary>
+        internal static string example_compile {
+            get {
+                return ResourceManager.GetString("example_compile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+        ///&lt;Language Name=&quot;Syntaxfile template&quot; Startblock=&quot;Code&quot;&gt;
+        ///&lt;FileTypes&gt;
+        ///	&lt;FileType Extension=&quot;.tf&quot; Name=&quot;TextFunge&quot;/&gt;
+        ///&lt;/FileTypes&gt;
+        ///
+        ///	&lt;Block Name=&quot;Code&quot; Style=&quot;Code&quot; IsMultiline=&quot;true&quot;&gt;
+        ///		&lt;Scope Start=&quot;&quot; End=&quot;&quot; Style=&quot;Scope&quot; Text=&quot;...&quot; /&gt;
+        ///		
+        ///		&lt;!-- Keywords that can exist inside this block --&gt;
+        ///		&lt;Keywords&gt;
+        ///			&lt;PatternGroup Name=&quot;Keywords&quot; Style=&quot;Keyword&quot; CaseSensitive=&quot;false&quot;&gt;
+        ///				&lt;Patterns&gt;
+        ///				program end begin var in out return if then while repeat else got [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TextFunge {
+            get {
+                return ResourceManager.GetString("TextFunge", resourceCulture);
             }
         }
     }

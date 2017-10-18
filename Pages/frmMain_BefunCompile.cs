@@ -556,7 +556,7 @@ namespace BefunDebug.Pages
 		{
 			tabCompileControl.SelectedIndex = 4;
 
-			coGenerator.TriggerAction(BefunCompileTestData.Data);
+			coGenerator.TriggerAction(BefunCompileTestData.Data.Where(d => d.Active).ToArray());
 		}
 
 		private void listBoxOutputLanguages_ItemCheck(object sender, ItemCheckEventArgs e) => OnOptionsChanged(e);
@@ -633,7 +633,7 @@ namespace BefunDebug.Pages
 		{
 			tabCompileControl.SelectedIndex = 4;
 
-			fspTester.TriggerAction(BefunCompileTestData.Data);
+			fspTester.TriggerAction(BefunCompileTestData.Data.Where(d => d.Active).ToArray());
 		}
 
 	}

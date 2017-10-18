@@ -3,6 +3,7 @@ using BefunDebug.Helper;
 using BefunDebug.ThreadRunner;
 using System;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -20,7 +21,7 @@ namespace BefunDebug.Pages
 
 			tabCtrlMain.SelectedIndex = 0;
 			cbxErrorLevel.SelectedIndex = 0;
-			edInputCode.Text = Properties.Resources.testdata_041;
+			edInputCode.Text = Properties.Resources.Euler_Problem_041;
 		}
 
 		private void GenericTextBoxKeyDown(object sender, KeyEventArgs e)
@@ -59,7 +60,7 @@ namespace BefunDebug.Pages
 
 		private void btnAllInfo_Click(object sender, EventArgs e)
 		{
-			infoCollector.TriggerAction(BefunCompileTestData.Data);
+			infoCollector.TriggerAction(BefunCompileTestData.Data.Where(d => d.Active).ToArray());
 		}
 
 		protected override void OnHandleDestroyed(EventArgs e)

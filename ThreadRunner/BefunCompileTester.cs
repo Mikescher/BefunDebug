@@ -6,6 +6,7 @@ using BefunDebug.BCTestData;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using CodeCompiler = BefunCompile.CodeGeneration.Compiler.CodeCompiler;
 
@@ -31,7 +32,7 @@ namespace BefunDebug.ThreadRunner
 			OutputLine(logbox);
 			OutputLine(logbox, "Running Tests");
 
-			foreach (var data in BefunCompileTestData.Data)
+			foreach (var data in BefunCompileTestData.Data.Where(d => d.Active))
 			{
 				try
 				{

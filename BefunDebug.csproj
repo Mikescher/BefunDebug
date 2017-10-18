@@ -114,6 +114,11 @@
   <ItemGroup>
     <Compile Include="BCTestData\BefunCompileTestData.cs" />
     <Compile Include="Helper\NoSizeDecorator.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="ThreadRunner\BefunCompileTester.cs" />
     <Compile Include="DemoParser.cs" />
     <Compile Include="frmMain.cs">
@@ -207,14 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="example.tf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -226,65 +226,106 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Resources\testdata_001.b93" />
-    <None Include="Resources\testdata_002.b93" />
-    <None Include="Resources\testdata_003.b93" />
-    <None Include="Resources\testdata_005.b93" />
-    <None Include="Resources\testdata_006.b93" />
-    <None Include="Resources\testdata_007.b93" />
-    <None Include="Resources\testdata_008.b93" />
-    <None Include="Resources\testdata_010.b93" />
-    <None Include="Resources\testdata_011.b93" />
-    <None Include="Resources\testdata_012.b93" />
-    <None Include="Resources\testdata_013.b93" />
-    <None Include="Resources\testdata_015.b93" />
-    <None Include="Resources\testdata_016.b93" />
-    <None Include="Resources\testdata_017.b93" />
-    <None Include="Resources\testdata_018.b93" />
-    <None Include="Resources\testdata_019.b93" />
-    <None Include="Resources\testdata_020.b93" />
-    <None Include="Resources\testdata_024.b93" />
-    <None Include="Resources\testdata_026.b93" />
-    <None Include="Resources\testdata_027.b93" />
-    <None Include="Resources\testdata_028.b93" />
-    <None Include="Resources\testdata_030.b93" />
-    <None Include="Resources\testdata_031.b93" />
-    <None Include="Resources\testdata_032.b93" />
-    <None Include="Resources\testdata_033.b93" />
-    <None Include="Resources\testdata_035.b93" />
-    <None Include="Resources\testdata_036.b93" />
-    <None Include="Resources\testdata_037.b93" />
-    <None Include="Resources\testdata_038.b93" />
-    <None Include="Resources\testdata_039.b93" />
-    <None Include="Resources\testdata_040.b93" />
-    <None Include="Resources\testdata_041.b93" />
-    <None Include="Resources\testdata_042.b93" />
-    <None Include="Resources\testdata_043.b93" />
-    <None Include="Resources\testdata_045.b93" />
-    <None Include="Resources\testdata_046.b93" />
-    <None Include="Resources\testdata_048.b93" />
-    <None Include="Resources\testdata_049.b93" />
-    <None Include="Resources\testdata_050.b93" />
-    <None Include="Resources\testdata_052.b93" />
-    <None Include="Resources\testdata_053.b93" />
-    <None Include="Resources\testdata_054.b93" />
-    <None Include="Resources\testdata_055.b93" />
-    <None Include="Resources\testdata_056.b93" />
-    <None Include="Resources\testdata_057.b93" />
-    <None Include="Resources\testdata_058.b93" />
-    <None Include="Resources\testdata_059.b93" />
-    <None Include="Resources\testdata_061.b93" />
-    <None Include="Resources\testdata_063.b93" />
-    <None Include="Resources\testdata_064.b93" />
-    <None Include="Resources\testdata_065.b93" />
-    <None Include="Resources\testdata_067.b93" />
-    <None Include="Resources\testdata_068.b93" />
-    <None Include="Resources\testdata_069.b93" />
-    <None Include="Resources\testdata_070.b93" />
-    <None Include="Resources\testdata_071.b93" />
-    <None Include="Resources\testdata_076.b93" />
-    <None Include="Resources\testdata_077.b93" />
-    <None Include="Resources\testdata_079.b93" />
+    <None Include="Resources\Euler_Problem-001.b93" />
+    <None Include="Resources\Euler_Problem-002.b93" />
+    <None Include="Resources\Euler_Problem-003.b93" />
+    <None Include="Resources\Euler_Problem-004.b93" />
+    <None Include="Resources\Euler_Problem-005.b93" />
+    <None Include="Resources\Euler_Problem-006.b93" />
+    <None Include="Resources\Euler_Problem-007.b93" />
+    <None Include="Resources\Euler_Problem-008.b93" />
+    <None Include="Resources\Euler_Problem-009.b93" />
+    <None Include="Resources\Euler_Problem-010.b93" />
+    <None Include="Resources\Euler_Problem-011.b93" />
+    <None Include="Resources\Euler_Problem-012.b93" />
+    <None Include="Resources\Euler_Problem-013.b93" />
+    <None Include="Resources\Euler_Problem-014.b93" />
+    <None Include="Resources\Euler_Problem-015.b93" />
+    <None Include="Resources\Euler_Problem-016.b93" />
+    <None Include="Resources\Euler_Problem-017.b93" />
+    <None Include="Resources\Euler_Problem-018.b93" />
+    <None Include="Resources\Euler_Problem-019.b93" />
+    <None Include="Resources\Euler_Problem-020.b93" />
+    <None Include="Resources\Euler_Problem-021.b93" />
+    <None Include="Resources\Euler_Problem-022.b93" />
+    <None Include="Resources\Euler_Problem-023.b93" />
+    <None Include="Resources\Euler_Problem-024.b93" />
+    <None Include="Resources\Euler_Problem-025.b93" />
+    <None Include="Resources\Euler_Problem-026.b93" />
+    <None Include="Resources\Euler_Problem-027.b93" />
+    <None Include="Resources\Euler_Problem-028.b93" />
+    <None Include="Resources\Euler_Problem-029.b93" />
+    <None Include="Resources\Euler_Problem-030.b93" />
+    <None Include="Resources\Euler_Problem-031.b93" />
+    <None Include="Resources\Euler_Problem-032.b93" />
+    <None Include="Resources\Euler_Problem-033.b93" />
+    <None Include="Resources\Euler_Problem-034.b93" />
+    <None Include="Resources\Euler_Problem-035.b93" />
+    <None Include="Resources\Euler_Problem-036.b93" />
+    <None Include="Resources\Euler_Problem-037.b93" />
+    <None Include="Resources\Euler_Problem-038.b93" />
+    <None Include="Resources\Euler_Problem-039.b93" />
+    <None Include="Resources\Euler_Problem-040.b93" />
+    <None Include="Resources\Euler_Problem-041.b93" />
+    <None Include="Resources\Euler_Problem-042.b93" />
+    <None Include="Resources\Euler_Problem-043.b93" />
+    <None Include="Resources\Euler_Problem-044.b93" />
+    <None Include="Resources\Euler_Problem-045.b93" />
+    <None Include="Resources\Euler_Problem-046.b93" />
+    <None Include="Resources\Euler_Problem-047.b93" />
+    <None Include="Resources\Euler_Problem-048.b93" />
+    <None Include="Resources\Euler_Problem-049.b93" />
+    <None Include="Resources\Euler_Problem-050.b93" />
+    <None Include="Resources\Euler_Problem-051.b93" />
+    <None Include="Resources\Euler_Problem-052.b93" />
+    <None Include="Resources\Euler_Problem-053.b93" />
+    <None Include="Resources\Euler_Problem-054.b93" />
+    <None Include="Resources\Euler_Problem-055.b93" />
+    <None Include="Resources\Euler_Problem-056.b93" />
+    <None Include="Resources\Euler_Problem-057.b93" />
+    <None Include="Resources\Euler_Problem-058.b93" />
+    <None Include="Resources\Euler_Problem-059.b93" />
+    <None Include="Resources\Euler_Problem-060.b93" />
+    <None Include="Resources\Euler_Problem-061.b93" />
+    <None Include="Resources\Euler_Problem-062.b93" />
+    <None Include="Resources\Euler_Problem-063.b93" />
+    <None Include="Resources\Euler_Problem-064.b93" />
+    <None Include="Resources\Euler_Problem-065.b93" />
+    <None Include="Resources\Euler_Problem-066.b93" />
+    <None Include="Resources\Euler_Problem-067.b93" />
+    <None Include="Resources\Euler_Problem-068.b93" />
+    <None Include="Resources\Euler_Problem-069.b93" />
+    <None Include="Resources\Euler_Problem-070.b93" />
+    <None Include="Resources\Euler_Problem-071.b93" />
+    <None Include="Resources\Euler_Problem-072.b93" />
+    <None Include="Resources\Euler_Problem-073.b93" />
+    <None Include="Resources\Euler_Problem-074.b93" />
+    <None Include="Resources\Euler_Problem-075.b93" />
+    <None Include="Resources\Euler_Problem-076.b93" />
+    <None Include="Resources\Euler_Problem-077.b93" />
+    <None Include="Resources\Euler_Problem-078.b93" />
+    <None Include="Resources\Euler_Problem-079.b93" />
+    <None Include="Resources\Euler_Problem-080.b93" />
+    <None Include="Resources\Euler_Problem-081.b93" />
+    <None Include="Resources\Euler_Problem-082.b93" />
+    <None Include="Resources\Euler_Problem-083.b93" />
+    <None Include="Resources\Euler_Problem-084.b93" />
+    <None Include="Resources\Euler_Problem-085.b93" />
+    <None Include="Resources\Euler_Problem-086.b93" />
+    <None Include="Resources\Euler_Problem-087.b93" />
+    <None Include="Resources\Euler_Problem-088.b93" />
+    <None Include="Resources\Euler_Problem-089.b93" />
+    <None Include="Resources\Euler_Problem-090.b93" />
+    <None Include="Resources\Euler_Problem-091.b93" />
+    <None Include="Resources\Euler_Problem-092.b93" />
+    <None Include="Resources\Euler_Problem-093.b93" />
+    <None Include="Resources\Euler_Problem-094.b93" />
+    <None Include="Resources\Euler_Problem-095.b93" />
+    <None Include="Resources\Euler_Problem-096.b93" />
+    <None Include="Resources\Euler_Problem-097.b93" />
+    <None Include="Resources\Euler_Problem-098.b93" />
+    <None Include="Resources\Euler_Problem-099.b93" />
+    <None Include="Resources\Euler_Problem-100.b93" />
     <None Include="Resources\TextFunge.syn" />
     <None Include="TextFunge.syn">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -122,186 +122,309 @@
     <value>..\example.tf;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="TextFunge" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TextFunge.syn;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\TextFunge.syn;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="example_compile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\example_compile.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_001" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_001.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_001" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-001.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_002" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_002.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_002" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-002.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_003" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_003.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_003" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-003.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_005" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_005.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_004" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-004.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_006" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_006.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_005" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-005.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_007" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_007.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_006" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-006.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_008" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_008.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_007" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-007.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_010" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_010.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_008" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-008.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_011" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_011.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_009" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-009.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_012" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_012.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_010" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-010.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_013" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_013.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_011" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-011.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_015" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_015.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_012" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-012.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_016" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_016.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_013" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-013.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_017" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_017.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_014" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-014.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_018" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_018.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_015" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-015.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_019" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_019.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_016" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-016.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_020" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_020.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_017" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-017.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_024" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_024.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_018" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-018.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_026" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_026.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_019" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-019.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_027" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_027.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_020" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-020.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_028" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_028.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_021" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-021.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_030" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_030.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_022" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-022.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_031" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_031.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_023" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-023.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_032" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_032.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_024" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-024.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_033" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_033.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_025" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-025.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_035" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_035.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_026" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-026.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_036" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_036.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_027" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-027.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_037" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_037.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_028" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-028.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_038" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_038.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_029" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-029.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_039" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_039.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_030" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-030.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_040" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_040.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_031" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-031.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_041" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_041.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_032" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-032.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_042" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_042.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_033" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-033.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_043" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_043.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_034" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-034.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_045" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_045.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_035" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-035.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_046" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_046.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_036" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-036.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_048" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_048.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_037" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-037.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_049" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_049.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_038" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-038.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_050" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_050.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_039" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-039.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_052" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_052.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_040" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-040.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_053" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_053.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_041" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-041.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_054" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_054.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_042" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-042.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_055" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_055.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_043" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-043.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_056" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_056.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_044" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-044.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_057" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_057.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_045" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-045.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_058" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_058.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_046" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-046.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_059" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_059.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_047" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-047.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_061" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_061.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_048" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-048.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_063" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_063.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_049" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-049.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_064" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_064.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_050" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-050.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_065" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_065.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Euler_Problem_051" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-051.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_067" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_067.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="Euler_Problem_052" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-052.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_068" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_068.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="Euler_Problem_053" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-053.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_069" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_069.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="Euler_Problem_054" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-054.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_070" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_070.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="Euler_Problem_055" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-055.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_071" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_071.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="Euler_Problem_056" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-056.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_076" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_076.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="Euler_Problem_057" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-057.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_077" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_077.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="Euler_Problem_058" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-058.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="testdata_079" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\testdata_079.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="Euler_Problem_059" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-059.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Euler_Problem_060" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-060.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Euler_Problem_061" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-061.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Euler_Problem_062" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-062.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Euler_Problem_063" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-063.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Euler_Problem_064" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-064.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Euler_Problem_065" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-065.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Euler_Problem_066" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-066.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Euler_Problem_067" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-067.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Euler_Problem_068" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-068.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Euler_Problem_069" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-069.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Euler_Problem_070" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-070.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Euler_Problem_071" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-071.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Euler_Problem_072" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-072.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Euler_Problem_073" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-073.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Euler_Problem_074" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-074.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Euler_Problem_075" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-075.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Euler_Problem_076" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-076.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Euler_Problem_077" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-077.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Euler_Problem_078" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-078.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Euler_Problem_079" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-079.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Euler_Problem_080" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-080.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Euler_Problem_081" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-081.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Euler_Problem_082" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-082.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Euler_Problem_083" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-083.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Euler_Problem_084" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-084.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Euler_Problem_085" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-085.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Euler_Problem_086" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-086.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Euler_Problem_087" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-087.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Euler_Problem_088" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-088.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Euler_Problem_089" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-089.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Euler_Problem_090" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-090.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Euler_Problem_091" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-091.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Euler_Problem_092" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-092.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Euler_Problem_093" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-093.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Euler_Problem_094" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-094.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Euler_Problem_095" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-095.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Euler_Problem_096" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-096.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Euler_Problem_097" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-097.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Euler_Problem_098" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-098.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Euler_Problem_099" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-099.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Euler_Problem_100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\euler_problem-100.b93;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
 </root>

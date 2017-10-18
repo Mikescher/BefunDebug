@@ -11,7 +11,7 @@ namespace BefunDebug.Pages
 		{
 			InitializeComponent();
 
-			edHighlightCode.Text = Properties.Resources.testdata_043;
+			edHighlightCode.Text = Properties.Resources.Euler_Problem_043;
 		}
 
 		private void btnHighlight_Click(object sender, EventArgs e)

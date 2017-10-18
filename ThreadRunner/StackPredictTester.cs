@@ -2,6 +2,7 @@
 using BefunCompile.CodeGeneration.Generator;
 using BefunDebug.BCTestData;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace BefunDebug.ThreadRunner
@@ -21,7 +22,7 @@ namespace BefunDebug.ThreadRunner
 
 		protected override bool RunAction(int optimizeLevel)
 		{
-			foreach (var data in BefunCompileTestData.Data)
+			foreach (var data in BefunCompileTestData.Data.Where(d => d.Active))
 			{
 				try
 				{
