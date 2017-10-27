@@ -46,10 +46,10 @@ namespace BefunDebug.Pages
 			this.btnCompileExecute = new System.Windows.Forms.Button();
 			this.btnCompileCompile = new System.Windows.Forms.Button();
 			this.btnGenOverview = new System.Windows.Forms.Button();
-			this.tabCompileControl = new System.Windows.Forms.TabControl();
-			this.tabPage16 = new System.Windows.Forms.TabPage();
+			this.tabCtrlCodeGen = new System.Windows.Forms.TabControl();
+			this.tabCodeGenInput = new System.Windows.Forms.TabPage();
 			this.memoCompileInput = new System.Windows.Forms.TextBox();
-			this.tabPage17 = new System.Windows.Forms.TabPage();
+			this.tabCodeGenOptions = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
 			this.cbPureCosmeticSwitch = new System.Windows.Forms.CheckBox();
 			this.cbUseGZip = new System.Windows.Forms.CheckBox();
@@ -58,14 +58,18 @@ namespace BefunDebug.Pages
 			this.cbIgnoreSelfModification = new System.Windows.Forms.CheckBox();
 			this.cbOutFormat = new System.Windows.Forms.CheckBox();
 			this.listBoxOutputLanguages = new System.Windows.Forms.CheckedListBox();
-			this.tabPage14 = new System.Windows.Forms.TabPage();
+			this.tabCodeGenGraph = new System.Windows.Forms.TabPage();
 			this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
 			this.graphUserControl1 = new BefunDebug.Graph.GraphUserControl();
-			this.tabPage13 = new System.Windows.Forms.TabPage();
+			this.tabCodeGenOutput = new System.Windows.Forms.TabPage();
 			this.tabControlOutput = new System.Windows.Forms.TabControl();
-			this.tabPage15 = new System.Windows.Forms.TabPage();
+			this.tabCodeGenLog = new System.Windows.Forms.TabPage();
 			this.memoCompileLog = new System.Windows.Forms.TextBox();
-			this.tabPage11 = new System.Windows.Forms.TabPage();
+			this.tabCodeGenOptimizer = new System.Windows.Forms.TabPage();
+			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+			this.lbOptimizer = new System.Windows.Forms.ListBox();
+			this.edOptimizerFullInfo = new System.Windows.Forms.TextBox();
+			this.tabCodeGenConsole = new System.Windows.Forms.TabPage();
 			this.edBefunCompileConsole = new System.Windows.Forms.TextBox();
 			this.tabPage8 = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
@@ -90,14 +94,19 @@ namespace BefunDebug.Pages
 			this.tabPage7.SuspendLayout();
 			this.tableLayoutPanel10.SuspendLayout();
 			this.tableLayoutPanel11.SuspendLayout();
-			this.tabCompileControl.SuspendLayout();
-			this.tabPage16.SuspendLayout();
-			this.tabPage17.SuspendLayout();
+			this.tabCtrlCodeGen.SuspendLayout();
+			this.tabCodeGenInput.SuspendLayout();
+			this.tabCodeGenOptions.SuspendLayout();
 			this.tableLayoutPanel12.SuspendLayout();
-			this.tabPage14.SuspendLayout();
-			this.tabPage13.SuspendLayout();
-			this.tabPage15.SuspendLayout();
-			this.tabPage11.SuspendLayout();
+			this.tabCodeGenGraph.SuspendLayout();
+			this.tabCodeGenOutput.SuspendLayout();
+			this.tabCodeGenLog.SuspendLayout();
+			this.tabCodeGenOptimizer.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+			this.splitContainer1.Panel1.SuspendLayout();
+			this.splitContainer1.Panel2.SuspendLayout();
+			this.splitContainer1.SuspendLayout();
+			this.tabCodeGenConsole.SuspendLayout();
 			this.tabPage8.SuspendLayout();
 			this.tableLayoutPanel13.SuspendLayout();
 			this.tableLayoutPanel14.SuspendLayout();
@@ -134,7 +143,7 @@ namespace BefunDebug.Pages
 			this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
 			this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel10.Controls.Add(this.tableLayoutPanel11, 0, 0);
-			this.tableLayoutPanel10.Controls.Add(this.tabCompileControl, 1, 0);
+			this.tableLayoutPanel10.Controls.Add(this.tabCtrlCodeGen, 1, 0);
 			this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel10.Name = "tableLayoutPanel10";
@@ -317,31 +326,32 @@ namespace BefunDebug.Pages
 			this.btnGenOverview.UseVisualStyleBackColor = true;
 			this.btnGenOverview.Click += new System.EventHandler(this.btnGenOverview_Click);
 			// 
-			// tabCompileControl
+			// tabCtrlCodeGen
 			// 
-			this.tabCompileControl.Controls.Add(this.tabPage16);
-			this.tabCompileControl.Controls.Add(this.tabPage17);
-			this.tabCompileControl.Controls.Add(this.tabPage14);
-			this.tabCompileControl.Controls.Add(this.tabPage13);
-			this.tabCompileControl.Controls.Add(this.tabPage15);
-			this.tabCompileControl.Controls.Add(this.tabPage11);
-			this.tabCompileControl.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabCompileControl.Location = new System.Drawing.Point(153, 3);
-			this.tabCompileControl.Name = "tabCompileControl";
-			this.tabCompileControl.SelectedIndex = 0;
-			this.tabCompileControl.Size = new System.Drawing.Size(630, 562);
-			this.tabCompileControl.TabIndex = 1;
+			this.tabCtrlCodeGen.Controls.Add(this.tabCodeGenInput);
+			this.tabCtrlCodeGen.Controls.Add(this.tabCodeGenOptions);
+			this.tabCtrlCodeGen.Controls.Add(this.tabCodeGenGraph);
+			this.tabCtrlCodeGen.Controls.Add(this.tabCodeGenOutput);
+			this.tabCtrlCodeGen.Controls.Add(this.tabCodeGenLog);
+			this.tabCtrlCodeGen.Controls.Add(this.tabCodeGenOptimizer);
+			this.tabCtrlCodeGen.Controls.Add(this.tabCodeGenConsole);
+			this.tabCtrlCodeGen.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabCtrlCodeGen.Location = new System.Drawing.Point(153, 3);
+			this.tabCtrlCodeGen.Name = "tabCtrlCodeGen";
+			this.tabCtrlCodeGen.SelectedIndex = 0;
+			this.tabCtrlCodeGen.Size = new System.Drawing.Size(630, 562);
+			this.tabCtrlCodeGen.TabIndex = 1;
 			// 
-			// tabPage16
+			// tabCodeGenInput
 			// 
-			this.tabPage16.Controls.Add(this.memoCompileInput);
-			this.tabPage16.Location = new System.Drawing.Point(4, 22);
-			this.tabPage16.Name = "tabPage16";
-			this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage16.Size = new System.Drawing.Size(622, 536);
-			this.tabPage16.TabIndex = 3;
-			this.tabPage16.Text = "Input";
-			this.tabPage16.UseVisualStyleBackColor = true;
+			this.tabCodeGenInput.Controls.Add(this.memoCompileInput);
+			this.tabCodeGenInput.Location = new System.Drawing.Point(4, 22);
+			this.tabCodeGenInput.Name = "tabCodeGenInput";
+			this.tabCodeGenInput.Padding = new System.Windows.Forms.Padding(3);
+			this.tabCodeGenInput.Size = new System.Drawing.Size(622, 536);
+			this.tabCodeGenInput.TabIndex = 3;
+			this.tabCodeGenInput.Text = "Input";
+			this.tabCodeGenInput.UseVisualStyleBackColor = true;
 			// 
 			// memoCompileInput
 			// 
@@ -357,16 +367,16 @@ namespace BefunDebug.Pages
 			this.memoCompileInput.WordWrap = false;
 			this.memoCompileInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GenericTextBoxKeyDown);
 			// 
-			// tabPage17
+			// tabCodeGenOptions
 			// 
-			this.tabPage17.Controls.Add(this.tableLayoutPanel12);
-			this.tabPage17.Location = new System.Drawing.Point(4, 22);
-			this.tabPage17.Name = "tabPage17";
-			this.tabPage17.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage17.Size = new System.Drawing.Size(622, 536);
-			this.tabPage17.TabIndex = 4;
-			this.tabPage17.Text = "Options";
-			this.tabPage17.UseVisualStyleBackColor = true;
+			this.tabCodeGenOptions.Controls.Add(this.tableLayoutPanel12);
+			this.tabCodeGenOptions.Location = new System.Drawing.Point(4, 22);
+			this.tabCodeGenOptions.Name = "tabCodeGenOptions";
+			this.tabCodeGenOptions.Padding = new System.Windows.Forms.Padding(3);
+			this.tabCodeGenOptions.Size = new System.Drawing.Size(622, 536);
+			this.tabCodeGenOptions.TabIndex = 4;
+			this.tabCodeGenOptions.Text = "Options";
+			this.tabCodeGenOptions.UseVisualStyleBackColor = true;
 			// 
 			// tableLayoutPanel12
 			// 
@@ -489,16 +499,16 @@ namespace BefunDebug.Pages
 			this.listBoxOutputLanguages.TabIndex = 6;
 			this.listBoxOutputLanguages.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.listBoxOutputLanguages_ItemCheck);
 			// 
-			// tabPage14
+			// tabCodeGenGraph
 			// 
-			this.tabPage14.Controls.Add(this.elementHost1);
-			this.tabPage14.Location = new System.Drawing.Point(4, 22);
-			this.tabPage14.Name = "tabPage14";
-			this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage14.Size = new System.Drawing.Size(622, 536);
-			this.tabPage14.TabIndex = 1;
-			this.tabPage14.Text = "Graph";
-			this.tabPage14.UseVisualStyleBackColor = true;
+			this.tabCodeGenGraph.Controls.Add(this.elementHost1);
+			this.tabCodeGenGraph.Location = new System.Drawing.Point(4, 22);
+			this.tabCodeGenGraph.Name = "tabCodeGenGraph";
+			this.tabCodeGenGraph.Padding = new System.Windows.Forms.Padding(3);
+			this.tabCodeGenGraph.Size = new System.Drawing.Size(622, 536);
+			this.tabCodeGenGraph.TabIndex = 1;
+			this.tabCodeGenGraph.Text = "Graph";
+			this.tabCodeGenGraph.UseVisualStyleBackColor = true;
 			// 
 			// elementHost1
 			// 
@@ -510,16 +520,16 @@ namespace BefunDebug.Pages
 			this.elementHost1.Text = "elementHost1";
 			this.elementHost1.Child = this.graphUserControl1;
 			// 
-			// tabPage13
+			// tabCodeGenOutput
 			// 
-			this.tabPage13.Controls.Add(this.tabControlOutput);
-			this.tabPage13.Location = new System.Drawing.Point(4, 22);
-			this.tabPage13.Name = "tabPage13";
-			this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage13.Size = new System.Drawing.Size(622, 536);
-			this.tabPage13.TabIndex = 0;
-			this.tabPage13.Text = "Output";
-			this.tabPage13.UseVisualStyleBackColor = true;
+			this.tabCodeGenOutput.Controls.Add(this.tabControlOutput);
+			this.tabCodeGenOutput.Location = new System.Drawing.Point(4, 22);
+			this.tabCodeGenOutput.Name = "tabCodeGenOutput";
+			this.tabCodeGenOutput.Padding = new System.Windows.Forms.Padding(3);
+			this.tabCodeGenOutput.Size = new System.Drawing.Size(622, 536);
+			this.tabCodeGenOutput.TabIndex = 0;
+			this.tabCodeGenOutput.Text = "Output";
+			this.tabCodeGenOutput.UseVisualStyleBackColor = true;
 			// 
 			// tabControlOutput
 			// 
@@ -530,16 +540,16 @@ namespace BefunDebug.Pages
 			this.tabControlOutput.Size = new System.Drawing.Size(616, 530);
 			this.tabControlOutput.TabIndex = 0;
 			// 
-			// tabPage15
+			// tabCodeGenLog
 			// 
-			this.tabPage15.Controls.Add(this.memoCompileLog);
-			this.tabPage15.Location = new System.Drawing.Point(4, 22);
-			this.tabPage15.Name = "tabPage15";
-			this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage15.Size = new System.Drawing.Size(622, 536);
-			this.tabPage15.TabIndex = 2;
-			this.tabPage15.Text = "Log";
-			this.tabPage15.UseVisualStyleBackColor = true;
+			this.tabCodeGenLog.Controls.Add(this.memoCompileLog);
+			this.tabCodeGenLog.Location = new System.Drawing.Point(4, 22);
+			this.tabCodeGenLog.Name = "tabCodeGenLog";
+			this.tabCodeGenLog.Padding = new System.Windows.Forms.Padding(3);
+			this.tabCodeGenLog.Size = new System.Drawing.Size(622, 536);
+			this.tabCodeGenLog.TabIndex = 2;
+			this.tabCodeGenLog.Text = "Log";
+			this.tabCodeGenLog.UseVisualStyleBackColor = true;
 			// 
 			// memoCompileLog
 			// 
@@ -556,16 +566,71 @@ namespace BefunDebug.Pages
 			this.memoCompileLog.WordWrap = false;
 			this.memoCompileLog.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GenericTextBoxKeyDown);
 			// 
-			// tabPage11
+			// tabCodeGenOptimizer
 			// 
-			this.tabPage11.Controls.Add(this.edBefunCompileConsole);
-			this.tabPage11.Location = new System.Drawing.Point(4, 22);
-			this.tabPage11.Name = "tabPage11";
-			this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage11.Size = new System.Drawing.Size(622, 536);
-			this.tabPage11.TabIndex = 5;
-			this.tabPage11.Text = "Console";
-			this.tabPage11.UseVisualStyleBackColor = true;
+			this.tabCodeGenOptimizer.Controls.Add(this.splitContainer1);
+			this.tabCodeGenOptimizer.Location = new System.Drawing.Point(4, 22);
+			this.tabCodeGenOptimizer.Name = "tabCodeGenOptimizer";
+			this.tabCodeGenOptimizer.Size = new System.Drawing.Size(622, 536);
+			this.tabCodeGenOptimizer.TabIndex = 6;
+			this.tabCodeGenOptimizer.Text = "Optimizer";
+			this.tabCodeGenOptimizer.UseVisualStyleBackColor = true;
+			// 
+			// splitContainer1
+			// 
+			this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+			this.splitContainer1.Name = "splitContainer1";
+			this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+			// 
+			// splitContainer1.Panel1
+			// 
+			this.splitContainer1.Panel1.Controls.Add(this.lbOptimizer);
+			// 
+			// splitContainer1.Panel2
+			// 
+			this.splitContainer1.Panel2.Controls.Add(this.edOptimizerFullInfo);
+			this.splitContainer1.Size = new System.Drawing.Size(622, 536);
+			this.splitContainer1.SplitterDistance = 392;
+			this.splitContainer1.TabIndex = 0;
+			// 
+			// lbOptimizer
+			// 
+			this.lbOptimizer.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.lbOptimizer.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbOptimizer.FormattingEnabled = true;
+			this.lbOptimizer.ItemHeight = 15;
+			this.lbOptimizer.Location = new System.Drawing.Point(0, 0);
+			this.lbOptimizer.Name = "lbOptimizer";
+			this.lbOptimizer.Size = new System.Drawing.Size(622, 392);
+			this.lbOptimizer.TabIndex = 0;
+			this.lbOptimizer.SelectedIndexChanged += new System.EventHandler(this.lbOptimizer_SelectedIndexChanged);
+			// 
+			// edOptimizerFullInfo
+			// 
+			this.edOptimizerFullInfo.BackColor = System.Drawing.SystemColors.Window;
+			this.edOptimizerFullInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.edOptimizerFullInfo.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.edOptimizerFullInfo.Location = new System.Drawing.Point(0, 0);
+			this.edOptimizerFullInfo.MaxLength = 2147483647;
+			this.edOptimizerFullInfo.Multiline = true;
+			this.edOptimizerFullInfo.Name = "edOptimizerFullInfo";
+			this.edOptimizerFullInfo.ReadOnly = true;
+			this.edOptimizerFullInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.edOptimizerFullInfo.Size = new System.Drawing.Size(622, 140);
+			this.edOptimizerFullInfo.TabIndex = 1;
+			this.edOptimizerFullInfo.WordWrap = false;
+			// 
+			// tabCodeGenConsole
+			// 
+			this.tabCodeGenConsole.Controls.Add(this.edBefunCompileConsole);
+			this.tabCodeGenConsole.Location = new System.Drawing.Point(4, 22);
+			this.tabCodeGenConsole.Name = "tabCodeGenConsole";
+			this.tabCodeGenConsole.Padding = new System.Windows.Forms.Padding(3);
+			this.tabCodeGenConsole.Size = new System.Drawing.Size(622, 536);
+			this.tabCodeGenConsole.TabIndex = 5;
+			this.tabCodeGenConsole.Text = "Console";
+			this.tabCodeGenConsole.UseVisualStyleBackColor = true;
 			// 
 			// edBefunCompileConsole
 			// 
@@ -848,18 +913,24 @@ namespace BefunDebug.Pages
 			this.tabPage7.ResumeLayout(false);
 			this.tableLayoutPanel10.ResumeLayout(false);
 			this.tableLayoutPanel11.ResumeLayout(false);
-			this.tabCompileControl.ResumeLayout(false);
-			this.tabPage16.ResumeLayout(false);
-			this.tabPage16.PerformLayout();
-			this.tabPage17.ResumeLayout(false);
+			this.tabCtrlCodeGen.ResumeLayout(false);
+			this.tabCodeGenInput.ResumeLayout(false);
+			this.tabCodeGenInput.PerformLayout();
+			this.tabCodeGenOptions.ResumeLayout(false);
 			this.tableLayoutPanel12.ResumeLayout(false);
 			this.tableLayoutPanel12.PerformLayout();
-			this.tabPage14.ResumeLayout(false);
-			this.tabPage13.ResumeLayout(false);
-			this.tabPage15.ResumeLayout(false);
-			this.tabPage15.PerformLayout();
-			this.tabPage11.ResumeLayout(false);
-			this.tabPage11.PerformLayout();
+			this.tabCodeGenGraph.ResumeLayout(false);
+			this.tabCodeGenOutput.ResumeLayout(false);
+			this.tabCodeGenLog.ResumeLayout(false);
+			this.tabCodeGenLog.PerformLayout();
+			this.tabCodeGenOptimizer.ResumeLayout(false);
+			this.splitContainer1.Panel1.ResumeLayout(false);
+			this.splitContainer1.Panel2.ResumeLayout(false);
+			this.splitContainer1.Panel2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+			this.splitContainer1.ResumeLayout(false);
+			this.tabCodeGenConsole.ResumeLayout(false);
+			this.tabCodeGenConsole.PerformLayout();
 			this.tabPage8.ResumeLayout(false);
 			this.tableLayoutPanel13.ResumeLayout(false);
 			this.tableLayoutPanel14.ResumeLayout(false);
@@ -884,23 +955,23 @@ namespace BefunDebug.Pages
 		private System.Windows.Forms.Button btnCompileExecute;
 		private System.Windows.Forms.Button btnCompileCompile;
 		private System.Windows.Forms.Button btnGenOverview;
-		private System.Windows.Forms.TabControl tabCompileControl;
-		private System.Windows.Forms.TabPage tabPage16;
+		private System.Windows.Forms.TabControl tabCtrlCodeGen;
+		private System.Windows.Forms.TabPage tabCodeGenInput;
 		private System.Windows.Forms.TextBox memoCompileInput;
-		private System.Windows.Forms.TabPage tabPage17;
+		private System.Windows.Forms.TabPage tabCodeGenOptions;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
 		private System.Windows.Forms.CheckBox cbUseGZip;
 		private System.Windows.Forms.CheckBox cbSafeGridAccess;
 		private System.Windows.Forms.CheckBox cbSafeStackAccess;
 		private System.Windows.Forms.CheckBox cbIgnoreSelfModification;
 		private System.Windows.Forms.CheckBox cbOutFormat;
-		private System.Windows.Forms.TabPage tabPage14;
+		private System.Windows.Forms.TabPage tabCodeGenGraph;
 		private System.Windows.Forms.Integration.ElementHost elementHost1;
 		private GraphUserControl graphUserControl1;
-		private System.Windows.Forms.TabPage tabPage13;
-		private System.Windows.Forms.TabPage tabPage15;
+		private System.Windows.Forms.TabPage tabCodeGenOutput;
+		private System.Windows.Forms.TabPage tabCodeGenLog;
 		private System.Windows.Forms.TextBox memoCompileLog;
-		private System.Windows.Forms.TabPage tabPage11;
+		private System.Windows.Forms.TabPage tabCodeGenConsole;
 		private System.Windows.Forms.TextBox edBefunCompileConsole;
 		private System.Windows.Forms.TabPage tabPage8;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
@@ -928,5 +999,9 @@ namespace BefunDebug.Pages
 		private System.Windows.Forms.Button btnRunCurrGraph;
 		private System.Windows.Forms.ComboBox cbxCompileData;
 		private System.Windows.Forms.CheckBox cbPureCosmeticSwitch;
+		private System.Windows.Forms.TabPage tabCodeGenOptimizer;
+		private System.Windows.Forms.SplitContainer splitContainer1;
+		private System.Windows.Forms.ListBox lbOptimizer;
+		private System.Windows.Forms.TextBox edOptimizerFullInfo;
 	}
 }

@@ -3,6 +3,7 @@ using BefunCompile.CodeGeneration;
 using BefunCompile.CodeGeneration.Compiler;
 using BefunCompile.CodeGeneration.Generator;
 using BefunCompile.Graph;
+using BefunCompile.Graph.Optimizations;
 using BefunCompile.Math;
 using BefunDebug.BCTestData;
 using BefunDebug.Graph;
@@ -36,7 +37,7 @@ namespace BefunDebug.Pages
 			fspTester = new FullStackPredictTester(memoCompileLog, btnFullSSS);
 			coGenerator = new CompileOverviewGenerator(memoCompileLog, btnGenOverview);
 
-			tabCompileControl.SelectedIndex = 0;
+			tabCtrlCodeGen.SelectedIndex = 0;
 			tabCompileOuterControl.SelectedIndex = 0;
 
 			foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage)))
@@ -111,7 +112,7 @@ namespace BefunDebug.Pages
 
 				Dictionary<OutputLanguage, long> timings = new Dictionary<OutputLanguage, long>();
 
-				foreach (var lang in (OutputLanguage[]) Enum.GetValues(typeof(OutputLanguage))) outputTextBoxes[lang].Text = "";
+				foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage))) outputTextBoxes[lang].Text = "";
 
 				foreach (var lang in GetCheckedLanguages())
 				{
@@ -119,33 +120,30 @@ namespace BefunDebug.Pages
 					outputTextBoxes[lang].Text = comp.GenerateCode(lang, out g);
 					timings[lang] = sw.ElapsedMilliseconds;
 				}
+				tabCodeGenOutput.Text = $"Output ({GetCheckedLanguages().Count()})";
 
-				tabCompileControl.SelectedIndex = 3;
-
-				memoCompileLog.Text = "";
+				tabCtrlCodeGen.SelectedIndex = 3;
 
 				foreach (var t in timings) memoCompileLog.Text += $"Time {t.Key,-10}: {t.Value}ms{Environment.NewLine}";
 
-				memoCompileLog.Text += Environment.NewLine;
-				memoCompileLog.Text += Environment.NewLine;
-				memoCompileLog.Text += "Used Optimizations";
-				memoCompileLog.Text += Environment.NewLine;
-				memoCompileLog.Text += "==================";
-				memoCompileLog.Text += Environment.NewLine;
-				if (g != null)
-				{
-					foreach (var item in g.UsedOptimizations)
-					{
-						memoCompileLog.Text += item + Environment.NewLine;
-					}
-				}
+				UpdateOptimizationsTab(g);
 			}
 			catch (Exception exc)
 			{
 
 				memoCompileLog.Text += Environment.NewLine;
 				memoCompileLog.Text += "ERROR: " + exc + Environment.NewLine;
-				tabCompileControl.SelectedIndex = 4;
+				tabCtrlCodeGen.SelectedIndex = 4;
+			}
+		}
+
+		private void UpdateOptimizationsTab(BCGraph g)
+		{
+			lbOptimizer.Items.Clear();
+			if (g != null)
+			{
+				g.UsedOptimizations.ForEach(p => lbOptimizer.Items.Add(p));
+				tabCodeGenOptimizer.Text = $"Optimizer ({g.UsedOptimizations.Count})";
 			}
 		}
 
@@ -168,6 +166,7 @@ namespace BefunDebug.Pages
 				var graph = comp.GENERATION_LEVELS[cbxCompileLevel.SelectedIndex].Run();
 				memoCompileLog.Text = $"[Execute] Time(BefunGen) = {sw0.ElapsedMilliseconds}ms\r\n\r\n";
 
+				UpdateOptimizationsTab(graph);
 
 				foreach (var lang in GetCheckedLanguages())
 				{
@@ -186,7 +185,7 @@ namespace BefunDebug.Pages
 					catch (Exception exc)
 					{
 						memoCompileLog.Text += $"[Execute {CodeCompiler.GetAcronym(lang)}]\r\nERROR: {exc}\r\n\r\n";
-						tabCompileControl.SelectedIndex = 4;
+						tabCtrlCodeGen.SelectedIndex = 4;
 					}
 
 					memoCompileLog.Refresh();
@@ -194,13 +193,13 @@ namespace BefunDebug.Pages
 				
 				edBefunCompileConsole.Text = console.ToString();
 
-				tabCompileControl.SelectedIndex = 4;
+				tabCtrlCodeGen.SelectedIndex = 4;
 			}
 			catch (Exception exc)
 			{
 				memoCompileLog.Text += Environment.NewLine;
 				memoCompileLog.Text += "ERROR: " + exc + Environment.NewLine;
-				tabCompileControl.SelectedIndex = 4;
+				tabCtrlCodeGen.SelectedIndex = 4;
 			}
 		}
 
@@ -243,6 +242,8 @@ namespace BefunDebug.Pages
 				memoCompileLog.Text += "Generate Graph O:" + cbxCompileLevel.SelectedIndex + Environment.NewLine;
 				memoCompileLog.Text += "Vertices: " + cbcGraph.Vertices.Count + Environment.NewLine;
 
+				UpdateOptimizationsTab(cbcGraph);
+
 				foreach (var item in comp.GENERATION_LEVELS)
 				{
 					int cycles = comp.LogCycles[item.Level];
@@ -253,14 +254,14 @@ namespace BefunDebug.Pages
 				var model = ctrl.graphLayout.DataContext as MainGraphViewModel;
 
 				model.LoadGraph(cbcGraph);
-				tabCompileControl.SelectedIndex = 2;
+				tabCtrlCodeGen.SelectedIndex = 2;
 			}
 			catch (Exception exc)
 			{
 
 				memoCompileLog.Text += Environment.NewLine;
 				memoCompileLog.Text += "ERROR: " + exc + Environment.NewLine;
-				tabCompileControl.SelectedIndex = 4;
+				tabCtrlCodeGen.SelectedIndex = 4;
 			}
 		}
 
@@ -278,14 +279,14 @@ namespace BefunDebug.Pages
 				memoCompileLog.Text += "Stack: [" + string.Join(", ", runner.Stack.Select(p => p.ToString())) + "]" + Environment.NewLine;
 				memoCompileLog.Text += "Output:" + Environment.NewLine + runner.Output + Environment.NewLine;
 
-				tabCompileControl.SelectedIndex = 4;
+				tabCtrlCodeGen.SelectedIndex = 4;
 			}
 			catch (Exception exc)
 			{
 
 				memoCompileLog.Text += Environment.NewLine;
 				memoCompileLog.Text += "ERROR: " + exc + Environment.NewLine;
-				tabCompileControl.SelectedIndex = 4;
+				tabCtrlCodeGen.SelectedIndex = 4;
 			}
 		}
 
@@ -297,6 +298,7 @@ namespace BefunDebug.Pages
 				{
 					outputTextBoxes[lang].Text = CodeGenerator.GenerateCode(lang, cbcGraph, GetCGOptions());
 				}
+				tabCodeGenOutput.Text = $"Output ({Enum.GetValues(typeof(OutputLanguage)).Length})";
 
 				memoCompileLog.Text += Environment.NewLine;
 				memoCompileLog.Text += "Vertices: " + cbcGraph.Vertices.Count + Environment.NewLine;
@@ -305,19 +307,19 @@ namespace BefunDebug.Pages
 				var model = (MainGraphViewModel)ctrl.graphLayout.DataContext;
 
 				model.LoadGraph(cbcGraph);
-				tabCompileControl.SelectedIndex = 3;
+				tabCtrlCodeGen.SelectedIndex = 3;
 			}
 			catch (Exception exc)
 			{
 				memoCompileLog.Text += Environment.NewLine;
 				memoCompileLog.Text += "ERROR: " + exc + Environment.NewLine;
-				tabCompileControl.SelectedIndex = 4;
+				tabCtrlCodeGen.SelectedIndex = 4;
 			}
 		}
 
 		private void btnCompileTest_Click(object sender, EventArgs e)
 		{
-			tabCompileControl.SelectedIndex = 4;
+			tabCtrlCodeGen.SelectedIndex = 4;
 
 			bcTester.TriggerAction(GetCheckedLanguages().ToList());
 		}
@@ -325,7 +327,7 @@ namespace BefunDebug.Pages
 		private void cbxCompileData_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			memoCompileInput.Text = BefunCompileTestData.Data[cbxCompileData.SelectedIndex].Code;
-			tabCompileControl.SelectedIndex = 0;
+			tabCtrlCodeGen.SelectedIndex = 0;
 		}
 
 		private void btnCompileCompile_Click(object sender, EventArgs e)
@@ -336,6 +338,8 @@ namespace BefunDebug.Pages
 
 				var craph = comp.GENERATION_LEVELS[cbxCompileLevel.SelectedIndex].Run();
 
+				UpdateOptimizationsTab(craph);
+
 				foreach (var lang in (OutputLanguage[])Enum.GetValues(typeof(OutputLanguage))) outputTextBoxes[lang].Text = "";
 
 				foreach (var lang in GetCheckedLanguages())
@@ -344,20 +348,21 @@ namespace BefunDebug.Pages
 
 					outputTextBoxes[lang].Text = code;
 				}
+				tabCodeGenOutput.Text = $"Output ({GetCheckedLanguages().Count()})";
 
-				tabCompileControl.SelectedIndex = 3;
+				tabCtrlCodeGen.SelectedIndex = 3;
 			}
 			catch (Exception exc)
 			{
 				memoCompileLog.Text += Environment.NewLine;
 				memoCompileLog.Text += "ERROR: " + exc + Environment.NewLine;
-				tabCompileControl.SelectedIndex = 4;
+				tabCtrlCodeGen.SelectedIndex = 4;
 			}
 		}
 
 		private void btnCompileStackPredict_Click(object sender, EventArgs e)
 		{
-			tabCompileControl.SelectedIndex = 4;
+			tabCtrlCodeGen.SelectedIndex = 4;
 
 			spTester.TriggerAction(cbxCompileLevel.SelectedIndex);
 		}
@@ -476,7 +481,7 @@ namespace BefunDebug.Pages
 
 			memoCodeCompressionInput.Text = "MSZip:" + Environment.NewLine;
 			memoCodeCompressionInput.Text += Environment.NewLine;
-			memoCodeCompressionInput.Text += "Data       | Compression (%) | Initial     | Final       | Recursions | Time (ms)" + Environment.NewLine;
+			memoCodeCompressionInput.Text += "Data              | Compression (%) | Initial     | Final       | Recursions | Time (ms)" + Environment.NewLine;
 
 			var mszip = new MSZipImplementation();
 			foreach (var data in BefunCompileTestData.Data)
@@ -500,7 +505,7 @@ namespace BefunDebug.Pages
 
 			memoCodeCompressionOutput.Text = "GZip:" + Environment.NewLine;
 			memoCodeCompressionOutput.Text += Environment.NewLine;
-			memoCodeCompressionOutput.Text += "Data       | Compression (%) | Initial     | Final       | Recursions | Time (ms)" + Environment.NewLine;
+			memoCodeCompressionOutput.Text += "Data              | Compression (%) | Initial     | Final       | Recursions | Time (ms)" + Environment.NewLine;
 
 			var gzip = new GZipImplementation();
 			foreach (var data in BefunCompileTestData.Data)
@@ -554,7 +559,7 @@ namespace BefunDebug.Pages
 
 		private void btnGenOverview_Click(object sender, EventArgs e)
 		{
-			tabCompileControl.SelectedIndex = 4;
+			tabCtrlCodeGen.SelectedIndex = 4;
 
 			coGenerator.TriggerAction(BefunCompileTestData.Data.Where(d => d.Active).ToArray());
 		}
@@ -631,10 +636,21 @@ namespace BefunDebug.Pages
 
 		private void btnFullSSS_Click(object sender, EventArgs e)
 		{
-			tabCompileControl.SelectedIndex = 4;
+			tabCtrlCodeGen.SelectedIndex = 4;
 
 			fspTester.TriggerAction(BefunCompileTestData.Data.Where(d => d.Active).ToArray());
 		}
 
+		private void lbOptimizer_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			var lb = sender as ListBox;
+			if (lb == null) return;
+
+			var si = lb.SelectedItem as OptimizationLogEntry;
+			if (si == null)
+				edOptimizerFullInfo.Text = "";
+			else
+				edOptimizerFullInfo.Text = si.Info.Replace("\r\n", "\n").Replace("\n", "\r\n");
+		}
 	}
 }
